@@ -1,0 +1,5 @@
+@mixin padding($direction, $size) {
+  padding: {
+    #{$direction}: $size / $unit * $symbol;
+  }
+}
