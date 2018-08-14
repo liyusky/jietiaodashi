@@ -1,6 +1,6 @@
 <template>
   <!-- s  -->
-  <section></section>
+  <section class="SITE_CLASS_NAME"></section>
   <!-- e  -->
 </template>
 

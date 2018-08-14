@@ -41,6 +41,7 @@ function build (dir) {
             scssSrc += `@import '${path.relative(goal, unitSass).replace(/\\/g, '/').replace('../', '')}';\n`
             // scssSrc += `@import '${path.relative(goal, btnSass).replace(/\\/g, '/').replace('../', '')}';\n`
             content = scssSrc + content
+            content += `.${name} {}`
             scssSrc = ''
           }
           else if (type == 'vue') {
@@ -49,6 +50,8 @@ function build (dir) {
               nameArr[index] = value.substring(0, 1).toUpperCase() + value.substring(1)
             })
             nameArr.push('Component')
+            
+            content = content.replace('SITE_CLASS_NAME', name)
             content = content.replace('SITE_MODULE_NAME', nameArr.join(''))
             content = content.replace('SITE_SASS_NAME', `./${name}.scss`)
           }
