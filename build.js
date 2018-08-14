@@ -48,6 +48,7 @@ function build (dir) {
             nameArr.forEach((value, index) => {
               nameArr[index] = value.substring(0, 1).toUpperCase() + value.substring(1)
             })
+            nameArr.push('Component')
             content = content.replace('SITE_MODULE_NAME', nameArr.join(''))
             content = content.replace('SITE_SASS_NAME', `./${name}.scss`)
           }
