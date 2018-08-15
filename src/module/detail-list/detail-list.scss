@@ -1,0 +1,40 @@
+@import '../../../../dependencies/sass/_flex.scss';
+@import '../../../../dependencies/sass/_unit.scss';
+.detail-list {
+  @include vertical_direction();
+  width: 100%;
+  height: 100%;
+  .list-item-default {
+    @include center();
+    flex-grow: 1;
+    width: 100%;
+  }
+  .list-item-double {
+    @include horizontal_between();
+    min-height: 120 / $unit * $symbol;
+    width: 100%;
+    .item-content {
+      @include vertical_direction();
+      flex-grow: 1;
+      height: 100%;
+      padding: {
+        top: 21 / $unit * $symbol;
+        bottom: 21 / $unit * $symbol;
+      }
+      .content-tip {
+        @include vertical_center_horizontal_between();
+        flex-grow: 1;
+        width: 100%;
+      }
+    }
+    height: 100%;
+    .item-icon {
+      @include vertical_center();
+      width: 57 / $unit * $symbol;
+      height: 100%;
+      padding: {
+        left: 15 / $unit * $symbol;
+      }
+    }
+  }
+}

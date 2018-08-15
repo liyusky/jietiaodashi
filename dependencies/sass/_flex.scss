@@ -91,4 +91,13 @@
   @include flexSet($param);
 }
 
+// 纵向排列
+@mixin vertical_direction () {
+  $param: (flex flex) (direction column);
+  @include flexSet($param);
+}
 
+@mixin horizontal_between () {
+  $param: (flex flex) (justifyContent space-between);
+  @include flexSet($param);
+}

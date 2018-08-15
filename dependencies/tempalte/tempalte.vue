@@ -5,11 +5,15 @@
 </template>
 
 <script>
+// include dependence
 export default {
   name: 'SITE_MODULE_NAME',
   data () {
     return {}
-  }
+  },
+  components: {
+    // include components
+  },
 }
 </script>
 
