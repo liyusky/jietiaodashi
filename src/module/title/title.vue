@@ -1,12 +1,12 @@
 <template>
   <!-- s  -->
-  <section class="detail-list"></section>
+  <section class="title"></section>
   <!-- e  -->
 </template>
 
 <script>
 export default {
-  name: 'DetailListComponent',
+  name: 'TitleComponent',
   data () {
     return {}
   }
@@ -14,5 +14,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./detail-list.scss";
+@import "./title.scss";
 </style>
