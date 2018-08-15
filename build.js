@@ -15,7 +15,7 @@ const Template = {
   js: fs.readFileSync('./dependencies/tempalte/tempalte.js', 'utf8')
 };
 
-function build (dir) {
+function build (dir, strict) {
   new Promise((resolve, reject) => {
     fs.readdir(dir, (err, files) => {
       if (err) {
@@ -33,7 +33,7 @@ function build (dir) {
     var name = path.basename(dir);
 
     if (!exDir.includes(name)) {
-      if (!files.includes(`${name}.config.js`)) {
+      if (!files.includes(`${name}.config.js`) && strict) {
         console.log(`${dir} 下不存在 ${name}.config.js`)
       }
       else {
@@ -112,7 +112,7 @@ function build (dir) {
       let currentDir = path.join(dir, item);
       fs.stat(currentDir, (err, stats) => {
         if (stats.isDirectory()) {
-          return build(currentDir);
+          return build(currentDir, strict);
         }
       });
     });
@@ -121,7 +121,8 @@ function build (dir) {
   });
 }
 
-build('./src/components');
+build('./src/components', true);
+build('./src/module', false);
 
 function resolve(path) {
   let arr = path.split('/')
