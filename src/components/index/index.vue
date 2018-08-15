@@ -1,13 +1,13 @@
 <template>
   <!-- s  -->
   <section class="index">
-    <TipComponent :Tip="Tip"></TipComponent>
+    <ModalComponent :Tip="Tip"></ModalComponent>
   </section>
   <!-- e  -->
 </template>
 
 <script>
-import TipComponent from '../../components/common/tip-component/tip-component.vue';
+import ModalComponent from '../../components/common/modal-component/modal-component.vue';
 
 export default {
   name: 'IndexComponent',
@@ -24,7 +24,7 @@ export default {
   },
   methods: {},
   components: {
-    TipComponent,
+    ModalComponent,
   },
 };
 </script>

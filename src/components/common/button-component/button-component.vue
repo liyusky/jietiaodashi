@@ -13,6 +13,10 @@
 </template>
 
 <script>
+// button: {
+  // type: 'default'/默认样式 'full': 满屏 'inverse': 白低蓝框 'group': 多个
+  // content: ['']  按钮名字
+// }
 export default {
   name: 'ButtonComponentComponent',
   props: ['button'],

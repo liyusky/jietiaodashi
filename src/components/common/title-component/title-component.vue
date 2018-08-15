@@ -22,19 +22,18 @@
 </template>
 
 <script>
+  // Title: {
+  //   contentText: '', 中间内容
+  //   leftText: '', 左边箭头后文字
+  //   rightText: '', 右边文字内容
+  //   icon: '', 右边icon
+  //   svg: '', 右边svg
+  // },
 export default {
   name: 'TitleComponentComponent',
   props: ['Title'],
   data() {
-    return {
-      // Title: {
-      //   contentText: '',
-      //   leftText: '',
-      //   rightText: '',
-      //   icon: '',
-      //   svg: '',
-      // },
-    };
+    return {};
   },
   methods: {
     otherBtn() {
