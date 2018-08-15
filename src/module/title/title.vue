@@ -1,19 +1,19 @@
 <template>
   <!-- s  -->
-  <section class="TitleComponent">
-    <div class="TitleComponent-left">
+  <section class="title">
+    <div class="title-left">
       <div class="left-content" @click="back">
         <i class="iconfont icon-arrow-left"></i>
         <span v-if="Title.leftText">{{Title.leftText}}</span>
       </div>
     </div>
-    <div class="TitleComponent-content">{{Title.contentText}}</div>
-    <div class="TitleComponent-right">
+    <div class="title-content">{{Title.contentText}}</div>
+    <div class="title-right">
       <div class="right-content" @click="otherBtn">
         <span v-if="Title.rightText">{{Title.rightText}}</span>
         <i class="iconfont" :class="Title.icon" v-if="Title.icon"></i>
         <svg class="icon" v-if="Title.svg" aria-hidden="true">
-          <use xlink:href="#icon-gerenziliao"></use>
+          <use :xlink:href="Title.svg"></use>
         </svg>
       </div>
     </div>
@@ -30,7 +30,7 @@
   //   svg: '', 右边svg
   // },
 export default {
-  name: 'TitleComponentComponent',
+  name: 'titleComponent',
   props: ['Title'],
   data() {
     return {};
@@ -47,5 +47,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./title-component.scss";
+@import "./title.scss";
 </style>

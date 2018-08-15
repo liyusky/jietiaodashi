@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ModalComponent from '../../module/modal-component/modal-component.vue';
+import ModalComponent from '../../module/modals/modals.vue';
 
 export default {
   name: 'IndexComponent',

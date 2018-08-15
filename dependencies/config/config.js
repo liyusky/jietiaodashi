@@ -9,6 +9,9 @@ module.exports = {
   },
   component: {
     'detail-list': false,
-    'title': false
+    'title': false,
+    'tip': false,
+    'button': false,
+    'modals': false,
   }
 }

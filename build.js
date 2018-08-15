@@ -15,7 +15,7 @@ const Template = {
   js: fs.readFileSync('./dependencies/tempalte/tempalte.js', 'utf8')
 };
 
-function build (dir) {
+function build (dir, strict) {
   new Promise((resolve, reject) => {
     fs.readdir(dir, (err, files) => {
       if (err) {
@@ -33,7 +33,7 @@ function build (dir) {
     var name = path.basename(dir);
 
     if (!exDir.includes(name)) {
-      if (!files.includes(`${name}.config.js`)) {
+      if (!files.includes(`${name}.config.js`) && strict) {
         console.log(`${dir} 下不存在 ${name}.config.js`)
       }
       else {
@@ -52,50 +52,52 @@ function build (dir) {
             }
             else if (type == 'vue') {
               let componentName = setComponentsName(name)
-              var importContent = `// include dependence\n`
-              var componentContent = `// include components\n`
-              try {
-                let configPath = './' + path.join(dir, `${name}.config.js`).replace('\\', '\/')
-                let config = require(configPath)
-                for (let key in config) {
-                  switch (key) {
-                    case 'vuex':
-                      let vuexArr = []
-                      if (config.vuex.mutations) {
-                        vuexArr.push('mapMutations')
-                      }
-                      if (config.vuex.state) {
-                        vuexArr.push('mapState')
-                      }
-                      if (vuexArr.length > 0) {
-                        importContent += `import { ${vuexArr.join(', ')} } from 'vuex'\n`
-                      }
-                      break
-                    case 'class':
-                      for (let item in config.class) {
-                        if (config.class[item]) {
-                          importContent += `import ${item} from '${path.relative(goal, classPath).replace(/\\/g, '/').replace('../', '')}/${item}.class.js'\n`
+              if (strict) {
+                var importContent = `// include dependence\n`
+                var componentContent = `// include components\n`
+                try {
+                  let configPath = './' + path.join(dir, `${name}.config.js`).replace('\\', '\/')
+                  let config = require(configPath)
+                  for (let key in config) {
+                    switch (key) {
+                      case 'vuex':
+                        let vuexArr = []
+                        if (config.vuex.mutations) {
+                          vuexArr.push('mapMutations')
                         }
-                      }
-                      break
-                    case 'component':
-                      for (let component in config.component) {
-                        if (config.component[component]) {
-                          importContent += `import ${setComponentsName(component)} from '${path.relative(goal, modulePath).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
-                          componentContent += `\t\t${setComponentsName(component)},\n`
+                        if (config.vuex.state) {
+                          vuexArr.push('mapState')
                         }
-                      }
-                      importContent = importContent.substr(0, importContent.length - 1)
-                      componentContent = componentContent.substr(0, componentContent.length - 2)
-                      break
+                        if (vuexArr.length > 0) {
+                          importContent += `import { ${vuexArr.join(', ')} } from 'vuex'\n`
+                        }
+                        break
+                      case 'class':
+                        for (let item in config.class) {
+                          if (config.class[item]) {
+                            importContent += `import ${item} from '${path.relative(goal, classPath).replace(/\\/g, '/').replace('../', '')}/${item}.class.js'\n`
+                          }
+                        }
+                        break
+                      case 'component':
+                        for (let component in config.component) {
+                          if (config.component[component]) {
+                            importContent += `import ${setComponentsName(component)} from '${path.relative(goal, modulePath).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
+                            componentContent += `\t\t${setComponentsName(component)},\n`
+                          }
+                        }
+                        importContent = importContent.substr(0, importContent.length - 1)
+                        componentContent = componentContent.substr(0, componentContent.length - 2)
+                        break
+                    }
                   }
+                } catch (error) {
+                  console.log(error)
                 }
-              } catch (error) {
-                console.log(error)
+                content = content.replace('// include dependence', importContent)
+                content = content.replace('// include components', componentContent)
               }
               content = content.replace('SITE_CLASS_NAME', name)
-              content = content.replace('// include dependence', importContent)
-              content = content.replace('// include components', componentContent)
               content = content.replace('SITE_MODULE_NAME', componentName)
               content = content.replace('SITE_SASS_NAME', `./${name}.scss`)
             }
@@ -112,7 +114,7 @@ function build (dir) {
       let currentDir = path.join(dir, item);
       fs.stat(currentDir, (err, stats) => {
         if (stats.isDirectory()) {
-          return build(currentDir);
+          return build(currentDir, strict);
         }
       });
     });
@@ -121,7 +123,8 @@ function build (dir) {
   });
 }
 
-build('./src/components');
+build('./src/components', true);
+build('./src/module', false);
 
 function resolve(path) {
   let arr = path.split('/')

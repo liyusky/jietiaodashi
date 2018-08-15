@@ -1,10 +1,10 @@
 <template>
   <!-- s  -->
-  <section class="ButtonComponent">
-    <button class="ButtonComponent-default" v-if="button.type === 'default'" @click="defaultSubmit"><div>{{button.content[0]}}</div></button>
-    <button class="ButtonComponent-full" v-if="button.type === 'full'" @click="fullSubmit"><div>{{button.content[0]}}</div></button>
-    <button class="ButtonComponent-default-inverse" v-if="button.type === 'inverse'" @click="inverseSubmit"><div>{{button.content[0]}}</div></button>
-    <div class="ButtonComponent-group" v-if="button.type === 'group'">
+  <section class="button">
+    <button class="button-default" v-if="button.type === 'default'" @click="defaultSubmit"><div>{{button.content[0]}}</div></button>
+    <button class="button-full" v-if="button.type === 'full'" @click="fullSubmit"><div>{{button.content[0]}}</div></button>
+    <button class="button-default-inverse" v-if="button.type === 'inverse'" @click="inverseSubmit"><div>{{button.content[0]}}</div></button>
+    <div class="button-group" v-if="button.type === 'group'">
       <button class="group-left" @click="leftSubmit"><div>{{button.content[0]}}</div></button>
       <button class="group-right" @click="rightSubmit"><div>{{button.content[1]}}</div></button>
     </div>
@@ -18,7 +18,7 @@
   // content: ['']  按钮名字
 // }
 export default {
-  name: 'ButtonComponentComponent',
+  name: 'ButtonComponent',
   props: ['button'],
   data() {
     return {};
@@ -44,5 +44,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./button-component.scss";
+@import "./button.scss";
 </style>

@@ -1,7 +1,7 @@
 <template>
   <!-- s  -->
-  <section class="ModalComponent">
-    <div class="ModalComponent-default">
+  <section class="modals">
+    <div class="modals-default" v-if="false">
       <div class="default-title">
         <p>温馨提示</p>
       </div>
@@ -10,7 +10,7 @@
       </div>
       <div class="default-button" @click="modalDefault">知道了</div>
     </div>
-    <div class="ModalComponent-group">
+    <div class="modals-group">
       <div class="group-title">
         <p>温馨提示</p>
       </div>
@@ -18,8 +18,8 @@
         <p>封建礼教房间安静法兰克肌肤解放军按时交房案件房间安静静安枫景阿里将了</p>
       </div>
       <div class="group-button">
-        <div class="button-left">知道了</div>
-        <div class="button-right">知道了</div>
+        <div class="button-left" @click="modalCancle">知道了</div>
+        <div class="button-right" @click="modalSumit">知道了</div>
       </div>
     </div>
   </section>
@@ -27,10 +27,8 @@
 </template>
 
 <script>
-import ButtonComponent from '../button-component/button-component.vue';
-
 export default {
-  name: 'ModalComponent',
+  name: 'ModalsComponent',
   props: ['modal'],
   data() {
     return { };
@@ -39,13 +37,19 @@ export default {
     modalDefault() {
       this.$emit('MODAL_DEFAULT_EVENT');
     },
+    modalCancle() {
+      this.$emit('MODAL_CANCLE_EVENT');
+    },
+    modalSumit() {
+      this.$emit('MODAL_SUBMIT_EVENT');
+    },
   },
   components: {
-    ButtonComponent,
+    // ButtonComponent,
   },
 };
 </script>
 
 <style lang="sass" scoped>
-@import "./modal-component.scss";
+@import "./modals.scss";
 </style>
