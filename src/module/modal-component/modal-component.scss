@@ -1,0 +1,48 @@
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+.ModalComponent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include center();
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .4);
+  &-default {
+    width: 560 / $unit * $symbol;
+    padding: {
+      top: 30 / $unit * $symbol;
+    }
+    background: #fff;
+    .default-title {
+      @include center();
+      height: 66 / $unit * $symbol;
+      font-size: 33 / $unit * $symbol;
+      color: #333333;
+    }
+    .default-content {
+      width: 100%;
+      padding: {
+        left: 39 / $unit * $symbol;
+        right: 39 / $unit * $symbol;
+        bottom: 10 / $unit * $symbol;
+      }
+      border: {
+        bottom: 1px solid #dddddd;
+      }
+      p {
+        line-height: 48 / $unit * $symbol;
+        font-size: 27 / $unit * $symbol;
+        color: #333333;
+      }
+    }
+    .default-button {
+      @include center();
+      width: 100%;
+      height: 100 / $unit * $symbol;
+      font-size: 33 / $unit * $symbol;
+      color: #4d7bfe;
+    }
+  }
+}

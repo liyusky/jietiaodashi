@@ -1,13 +1,13 @@
 <template>
   <!-- s  -->
   <section class="index">
-    <ModalComponent :Tip="Tip"></ModalComponent>
+    <ModalComponent :modal="modal" v-show="modalShow" @MODAL_DEFAULT_EVENT="closeModal"></ModalComponent>
   </section>
   <!-- e  -->
 </template>
 
 <script>
-import ModalComponent from '../../components/common/modal-component/modal-component.vue';
+import ModalComponent from '../../module/modal-component/modal-component.vue';
 
 export default {
   name: 'IndexComponent',
@@ -20,9 +20,15 @@ export default {
         icon: 'icon-dui',
         svg: '',
       },
+      modal: {},
+      modalShow: true,
     };
   },
-  methods: {},
+  methods: {
+    closeModal() {
+      this.modalShow = false;
+    },
+  },
   components: {
     ModalComponent,
   },
