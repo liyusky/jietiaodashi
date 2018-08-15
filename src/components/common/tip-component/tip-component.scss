@@ -1,0 +1,90 @@
+@import '../../../../dependencies/sass/_flex.scss';
+@import '../../../../dependencies/sass/_unit.scss';
+.TipComponent {
+  width: 100%;
+  &-center-hint {
+    @include center();
+    width: 100%;
+    font-size: 30 / $unit * $symbol;
+    color: #4d7bfe;
+    i {
+      font-size: 33 / $unit * $symbol;
+    }
+    span {
+      margin: {
+        left: 12 / $unit * $symbol;
+      }
+    }
+  }
+  &-center-warn {
+    @include center();
+    width: 100%;
+    font-size: 30 / $unit * $symbol;
+    color: #F86754;
+    i {
+      font-size: 33 / $unit * $symbol;
+    }
+    span {
+      margin: {
+        left: 12 / $unit * $symbol;
+      }
+    }
+  }
+  &-center-borrow {
+    @include center();
+    width: 100%;
+    font-size: 33 / $unit * $symbol;
+    .icon {
+      width: 51 / $unit * $symbol;
+      height: 51 / $unit * $symbol;
+    }
+    span {
+      color: #0D0D0D;
+      margin: {
+        left: 21 / $unit * $symbol;
+      }
+    }
+  }
+  &-left-agree {
+    $param: (flex flex) (alignItems center) (justifyContent flex-start);
+    @include flexSet($param);
+    width: 100%;
+    i {
+      font-size: 33 / $unit * $symbol;
+      color: #d0d0d1;
+    }
+    .switch {
+      color: #4d7bfe;
+    }
+    span {
+      font-size: 27 / $unit * $symbol;
+      color: #666666;
+      margin: {
+        left: 18 / $unit * $symbol;
+      }
+    }
+  }
+  &-left-protocol {
+    $param: (flex flex) (alignItems center) (justifyContent flex-start);
+    @include flexSet($param);
+    width: 100%;
+    i {
+      font-size: 33 / $unit * $symbol;
+      color: #d0d0d1;
+    }
+    .switch {
+      color: #4d7bfe;
+    }
+    span:first-of-type {
+      font-size: 27 / $unit * $symbol;
+      margin: {
+        left: 18 / $unit * $symbol;
+      }
+      color: #666666;
+    }
+    span:last-of-type {
+      font-size: 27 / $unit * $symbol;
+      color: #4d7bfe;
+    }
+  }
+}

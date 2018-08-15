@@ -26,7 +26,15 @@ export default {
   name: 'TitleComponentComponent',
   props: ['Title'],
   data() {
-    return {};
+    return {
+      // Title: {
+      //   contentText: '',
+      //   leftText: '',
+      //   rightText: '',
+      //   icon: '',
+      //   svg: '',
+      // },
+    };
   },
   methods: {
     otherBtn() {
@@ -40,5 +48,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./TitleComponent.scss";
+@import "./title-component.scss";
 </style>

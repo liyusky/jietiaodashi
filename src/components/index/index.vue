@@ -1,37 +1,30 @@
 <template>
   <!-- s  -->
   <section class="index">
-    <TitleComponent :Title="Title" @BACK_EVENT="back" @OTHER_EVENT="otherBtn"></TitleComponent>
+    <TipComponent :Tip="Tip"></TipComponent>
   </section>
   <!-- e  -->
 </template>
 
 <script>
-import TitleComponent from '../../components/common/TitleComponent/TitleComponent.vue';
+import TipComponent from '../../components/common/tip-component/tip-component.vue';
 
 export default {
   name: 'IndexComponent',
   data() {
     return {
-      Title: {
-        contentText: '订单详情',
-        leftText: '首页',
-        rightText: '',
-        icon: 'icon-tongxunlu',
+      Tip: {
+        type: 'protocol',
+        content: '已收到还款',
+        protocol: '《协议》',
+        icon: 'icon-dui',
         svg: '',
       },
     };
   },
-  methods: {
-    otherBtn() {
-      console.log(1);
-    },
-    back() {
-      this.$router.back(-1);
-    },
-  },
+  methods: {},
   components: {
-    TitleComponent,
+    TipComponent,
   },
 };
 </script>
