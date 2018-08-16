@@ -19,6 +19,10 @@
       <i class="iconfont" :class="[Tip.icon, {switch: agresSwitch}]"></i>
       <span>{{Tip.content}}</span>
     </div>
+    <div class="tip-left-modal" @click="switchModal" v-if="Tip.type === 'modal'">
+      <i class="iconfont" :class="[Tip.icon, {switch: modalSwitch}]"></i>
+      <span>{{Tip.content}}</span>
+    </div>
     <div class="tip-left-protocol" @click="switchProtocol" v-if="Tip.type === 'protocol'">
       <i class="iconfont" :class="[Tip.icon, {switch: protocolSwitch}]"></i>
       <span>{{Tip.content}}</span>
@@ -30,7 +34,7 @@
 
 <script>
 // Tip: {
-  //   type: 'hint': '蓝色tip'/'warn': '橘黄色tip'/'borrow': '借条tip'/'agree': '协议'/'protocol': '协议'
+  //   type: 'hint': '中间提示tip'/'warn': '中间警告tip'/'borrow': '中间借条提示tip'/'agree': '右边tip'/'protocol': '右边带协议tip'
 //   content: '', 传入文字消息
 //   protocol: '', 协议名字
 //   icon: '', 传入的蓝色和橘黄色的iconfont名,
@@ -43,16 +47,21 @@ export default {
     return {
       protocolSwitch: false,
       agresSwitch: false,
+      modalSwitch: false,
     };
   },
   methods: {
     switchAgree() {
       this.agresSwitch = !this.agresSwitch;
-      this.$emit('SWITCH_AGREE_EVENT');
+      if (this.agresSwitch) this.$emit('SWITCH_AGREE_EVENT', this.agresSwitch);
+    },
+    switchModal() {
+      this.modalSwitch = !this.modalSwitch;
+      if (this.modalSwitch) this.$emit('SWITCH_MODAL_EVENT', this.modalSwitch);
     },
     switchProtocol() {
       this.protocolSwitch = !this.protocolSwitch;
-      this.$emit('SWITCH_PROTOCOL_EVENT');
+      if (this.protocolSwitch) this.$emit('SWITCH_PROTOCOL_EVENT', this.protocolSwitch);
     },
     gotoPage() {
       this.$emit('GOTOPAGE_EVENT');

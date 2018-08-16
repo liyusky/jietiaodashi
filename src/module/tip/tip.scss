@@ -64,6 +64,25 @@
       }
     }
   }
+  &-left-modal {
+    $param: (flex flex) (alignItems center) (justifyContent flex-start);
+    @include flexSet($param);
+    width: 100%;
+    i {
+      font-size: 33 / $unit * $symbol;
+      color: #d0d0d1;
+    }
+    .switch {
+      color: #4d7bfe;
+    }
+    span {
+      font-size: 27 / $unit * $symbol;
+      color: #4d7bfe;
+      margin: {
+        left: 18 / $unit * $symbol;
+      }
+    }
+  }
   &-left-protocol {
     $param: (flex flex) (alignItems center) (justifyContent flex-start);
     @include flexSet($param);

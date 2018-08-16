@@ -9,76 +9,97 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, .4);
-  &-default {
-    width: 560 / $unit * $symbol;
-    padding: {
-      top: 30 / $unit * $symbol;
-    }
-    background: #fff;
-    .default-title {
-      @include center();
-      height: 66 / $unit * $symbol;
-      font-size: 33 / $unit * $symbol;
-      color: #333333;
-    }
-    .default-content {
-      width: 100%;
-      padding: {
-        left: 39 / $unit * $symbol;
-        right: 39 / $unit * $symbol;
-        bottom: 10 / $unit * $symbol;
-      }
-      border: {
-        bottom: 1px solid #dddddd;
-      }
-      p {
-        line-height: 48 / $unit * $symbol;
-        font-size: 27 / $unit * $symbol;
-        color: #333333;
-      }
-    }
-    .default-button {
-      @include center();
-      width: 100%;
-      height: 100 / $unit * $symbol;
-      font-size: 33 / $unit * $symbol;
-      color: #4d7bfe;
-    }
-  }
-  &-group {
+  &-default, &-code, &-group {
     width: 560 / $unit * $symbol;
     padding: {
       top: 12 / $unit * $symbol;
     }
     background: #fff;
-    .group-title {
+    .common-title {
       @include center();
-      height: 90 / $unit * $symbol;
       font-size: 33 / $unit * $symbol;
       color: #333333;
     }
-    .group-content {
+    .common-content {
       width: 100%;
-      min-height: 156 / $unit * $symbol;
-      padding: {
-        left: 39 / $unit * $symbol;
-        right: 39 / $unit * $symbol;
-        bottom: 10 / $unit * $symbol;
-      }
-      border: {
-        bottom: 1px solid #dddddd;
-      }
       p {
         line-height: 48 / $unit * $symbol;
         font-size: 27 / $unit * $symbol;
         color: #333333;
       }
     }
-    .group-button {
-      @include vertical_center_horizontal_between();
+    .common-button {
       width: 100%;
       height: 100 / $unit * $symbol;
-      div {
+      button {
+        @include center();
+        width: 50%;
+        height: 100%;
+        font-size: 33 / $unit * $symbol;
+        background: #fff;
+      }
+      .button-left {
+        position: relative;
+        &::after {
+          position: absolute;
+          right: 0;
+          top: 0;
+          display: block;
+          content: '';
+          width: 1px;
+          height: 100%;
+          background: #dddddd;
+        }
+      }
+    }
+  }
+  &-default {
+    padding: {
+      top: 30 / $unit * $symbol;
+    }
+    .default-title {
+      height: 66 / $unit * $symbol;
+    }
+    .default-content {
+      padding: {
+        left: 39 / $unit * $symbol;
+        right: 39 / $unit * $symbol;
+        bottom: 51 / $unit * $symbol;
+      }
+      border: {
+        bottom: 1px solid #dddddd;
+      }
+    }
+    .default-button {
+      @include center();
+      font-size: 33 / $unit * $symbol;
+      color: #4d7bfe;
+      background: #fff;
+    }
+  }
+  &-group {
+    .group-title {
+      height: 90 / $unit * $symbol;
+    }
+    .group-content {
+      width: 100%;
+      padding: {
+        left: 39 / $unit * $symbol;
+        right: 39 / $unit * $symbol;
+        bottom: 51 / $unit * $symbol;
+      }
+      border: {
+        bottom: 1px solid #dddddd;
+      }
+      .content-tip {
+        padding: {
+          top: 51 / $unit * $symbol;
+        }
+      }
+    }
+    .group-button {
+      @include vertical_center_horizontal_between();
+      button {
         @include center();
         width: 50%;
         height: 100%;
@@ -87,6 +108,104 @@
       }
       .button-left {
         position: relative;
+        &::after {
+          position: absolute;
+          right: 0;
+          top: 0;
+          display: block;
+          content: '';
+          width: 1px;
+          height: 100%;
+          background: #dddddd;
+        }
+      }
+    }
+  }
+  &-code {
+    .code-title {
+      height: 99 / $unit * $symbol;
+      border: {
+        bottom: 1px solid #dddddd;
+      }
+    }
+    .code-content {
+      width: 100%;
+      border: {
+        bottom: 1px solid #dddddd;
+      }
+      padding: {
+        bottom: 45 / $unit * $symbol;
+      }
+      p {
+        @include center();
+        height: 105 / $unit * $symbol;
+        line-height: normal;
+      }
+      .content-input {
+        @include vertical_center_horizontal_between();
+        width: 100%;
+        .input-code {
+          @include center();
+          width: 219 / $unit * $symbol;
+          height: 99 / $unit * $symbol;
+          padding: {
+            left: 18 / $unit * $symbol;
+            right: 18 / $unit * $symbol;
+          }
+          border: 1px solid #dddddd;
+          input {
+            width: 80%;
+            font-size: 30 / $unit * $symbol;
+            color: #3f3f3f;
+            text-align: center;
+          }
+          input::-webkit-input-placeholder {
+            font-size: 27 / $unit * $symbol;
+            color: #cdcdcd;
+          }
+          i {
+            padding: {
+              top: 6 / $unit * $symbol;
+            }
+            font-size: 27 / $unit * $symbol;
+            color: #cdcdcd;
+          }
+        }
+        .input-getcode {
+          @include center();
+          width: 219 / $unit * $symbol;
+          height: 99 / $unit * $symbol;
+          border: 1px solid #dddddd;
+          .getcode-btn {
+            @include center();
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            color: #4d7bfe;
+          }
+          .active {
+            color: #cdcdcd;
+          }
+        }
+        padding: {
+          left: 39 / $unit * $symbol;
+          right: 39 / $unit * $symbol;
+        }
+      }
+      
+    }
+    .code-button {
+      @include vertical_center_horizontal_between();
+      button {
+        @include center();
+        width: 50%;
+        height: 100%;
+        font-size: 33 / $unit * $symbol;
+        color: #999999;
+      }
+      .button-left {
+        position: relative;
+        color: #4d7bfe;
         &::after {
           position: absolute;
           right: 0;

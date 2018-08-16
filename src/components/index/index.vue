@@ -1,7 +1,7 @@
 <template>
   <!-- s  -->
   <section class="index">
-    <ModalComponent :modal="modal" v-show="modalShow" @MODAL_DEFAULT_EVENT="closeModal"></ModalComponent>
+    <ModalComponent :Modal="Modal" v-show="modalShow"></ModalComponent>
   </section>
   <!-- e  -->
 </template>
@@ -13,14 +13,19 @@ export default {
   name: 'IndexComponent',
   data() {
     return {
-      Tip: {
-        type: 'protocol',
-        content: '已收到还款',
-        protocol: '《协议》',
-        icon: 'icon-dui',
-        svg: '',
+      Modal: {
+        // type: 'default',
+        // type: 'group',
+        type: 'code',
+        Title: '温馨提示',
+        contentText: '基督教负担是解放军都说了房间都是减肥',
+        btnName: ['取消', '确认'],
+        Tip: {
+          type: 'agree',
+          content: '不在显示',
+          icon: 'icon-dui',
+        },
       },
-      modal: {},
       modalShow: true,
     };
   },
