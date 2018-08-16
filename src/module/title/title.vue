@@ -5,17 +5,11 @@
 </template>
 
 <script>
-// include dependence
-
 export default {
   name: 'TitleComponent',
   data () {
     return {}
-  },
-  components: {
-    // include components
-
-  },
+  }
 }
 </script>
 

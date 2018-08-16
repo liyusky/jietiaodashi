@@ -4,16 +4,12 @@
   <!-- e  -->
 </template>
 
-<script>
-// include dependence
+<script>SITE_DEPENDENCE_NAME
 export default {
   name: 'SITE_MODULE_NAME',
   data () {
     return {}
-  },
-  components: {
-    // include components
-  },
+  },SITE_COMPONENTS_NAME
 }
 </script>
 
