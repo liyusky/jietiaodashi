@@ -1,14 +1,19 @@
 module.exports = {
-  addRouter: false,
-  class: {
-    Http: false
-  },
+  router: true,
   vuex: {
-    mutations: false,
-    state: false
+    'mutations': false,
+    'state': false
   },
-  component: {
+  class: {
+    'Http': false,
+    'Time': false,
+    'Url': false
+  },
+  components: {
+    'button': false,
     'detail-list': false,
+    'modals': false,
+    'tip': false,
     'title': false
   }
 }

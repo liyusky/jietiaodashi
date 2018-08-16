@@ -100,24 +100,7 @@
     .group-button {
       @include vertical_center_horizontal_between();
       button {
-        @include center();
-        width: 50%;
-        height: 100%;
-        font-size: 33 / $unit * $symbol;
         color: #4d7bfe;
-      }
-      .button-left {
-        position: relative;
-        &::after {
-          position: absolute;
-          right: 0;
-          top: 0;
-          display: block;
-          content: '';
-          width: 1px;
-          height: 100%;
-          background: #dddddd;
-        }
       }
     }
   }
@@ -197,25 +180,10 @@
     .code-button {
       @include vertical_center_horizontal_between();
       button {
-        @include center();
-        width: 50%;
-        height: 100%;
-        font-size: 33 / $unit * $symbol;
         color: #999999;
       }
       .button-left {
-        position: relative;
         color: #4d7bfe;
-        &::after {
-          position: absolute;
-          right: 0;
-          top: 0;
-          display: block;
-          content: '';
-          width: 1px;
-          height: 100%;
-          background: #dddddd;
-        }
       }
     }
   }
