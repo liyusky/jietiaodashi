@@ -37,8 +37,8 @@
   //   type: 'hint': '中间提示tip'/'warn': '中间警告tip'/'borrow': '中间借条提示tip'/'agree': '右边tip'/'protocol': '右边带协议tip'
 //   content: '', 传入文字消息
 //   protocol: '', 协议名字
-//   icon: '', 传入的蓝色和橘黄色的iconfont名,
-//   svg: '', 传如的借条tip的svg iconfont名
+//   icon: '', 传入的iconfont名,
+//   svg: '', 传入借条tip的svg名
 // }
 export default {
   name: 'TipComponent',
