@@ -10,7 +10,10 @@ module.exports = {
     'Url': false
   },
   components: {
+    'button': false,
     'detail-list': false,
+    'modals': false,
+    'tip': false,
     'title': false
   }
 }
