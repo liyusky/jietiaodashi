@@ -21,6 +21,7 @@ const Template = {
 const defaultConfig = require('./dependencies/config/config.js')
 
 var config = { ...defaultConfig}, configTemplate = ''
+var routers = {}
 
 // tool fn
 // 首字母大写
@@ -161,19 +162,25 @@ function loop (files, dir, callback) {
 }
 
 // 加入 router
-function addRouter (dir, name) {
-  let pathReg = '// include path'
-  let componentsReg = '// include router'
-  let components = `// include router\nimport ${setComponentsName(name)} from '@/${path.relative('./src', dir).replace(/\\/g, '/')}/${name}.vue'`
-  let paths = 
-  `// include path
+function buildRouter () {
+  let pathsStr = ''
+  let componentsStr = ''
+  console.log(routers);
+  
+  Object.keys(routers).forEach(name => {
+    componentsStr += `const ${setComponentsName(name)} = () => import(/* webpackChunkName: '${name}' */ '../${path.relative('./src', routers[name]).replace(/\\/g, '/')}/${name}.vue')\n`
+    pathsStr += 
+  `
     {
       path: '/${name}',
       name: '${name}',
       component: ${setComponentsName(name)}
     },`
-  Template.router = Template.router.replace(componentsReg, components)
-  Template.router = Template.router.replace(pathReg, paths)
+  })
+  pathsStr = pathsStr.substr(0, pathsStr.length - 1) + '\n\t'
+  componentsStr = componentsStr.substr(0, componentsStr.length - 1)
+  Template.router = Template.router.replace('// include path', pathsStr)
+  Template.router = Template.router.replace('// include components', componentsStr)
   Template.router = Template.router.replace(/\t/, '  ')
   createFile('./src/router/router.js', Template.router, true)
 }
@@ -229,7 +236,8 @@ function refreshConfig(dir) {
           })
         }
       })
-      if (newConfig.router) addRouter(dir, name)
+      if (newConfig.router) routers[name] = dir
+      buildRouter()
       for (let item in newConfig.vuex) vuexStr += `\n\t\t'${item}': ${newConfig.vuex[item]},`
       for (let item in newConfig.class) classesStr += `\n\t\t'${firstChatUp(item.split('.')[0])}': ${newConfig.class[item]},`
       for (let item in newConfig.components) componentsStr += `\n\t\t'${item}': ${newConfig.components[item]},`
@@ -265,7 +273,7 @@ function buildModule (dir, strict) {
   return loop(files, dir, buildModule)
 }
 
-function buildComponents(dir) {
+function buildComponents (dir) {
   let files = fs.readdirSync(dir, 'utf8')
   let name = path.basename(dir)
 
