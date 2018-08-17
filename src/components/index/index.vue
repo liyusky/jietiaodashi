@@ -1,7 +1,7 @@
 <template>
   <!-- s  -->
   <section class="index">
-    <ModalComponent :Modal="Modal" v-show="modalShow"></ModalComponent>
+    <ModalComponent :modal="modal" v-show="modalShow"></ModalComponent>
   </section>
   <!-- e  -->
 </template>
@@ -13,14 +13,14 @@ export default {
   name: 'IndexComponent',
   data() {
     return {
-      Modal: {
+      modal: {
         // type: 'default',
         // type: 'group',
         type: 'code',
-        Title: '温馨提示',
+        title: '温馨提示',
         contentText: '基督教负担是解放军都说了房间都是减肥',
         btnName: ['取消', '确认'],
-        Tip: {
+        tip: {
           type: 'agree',
           content: '不在显示',
           icon: 'icon-dui',
