@@ -53,7 +53,7 @@
 <script>
 // modal: {
 //   type: 'code', modal 类型 'code'验证码 /'default'默认提示框/ 'group'两个按钮
-//   title: '', 头部提示信息
+//    title: '', 头部提示信息
 //   contentText: '', 中间提示内容
 //   btnName: ['取消', '确认'], 按钮名
 //   tip: null,

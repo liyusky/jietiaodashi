@@ -12,6 +12,7 @@ module.exports = {
   components: {
     'button': false,
     'detail-list': false,
+    'input': false,
     'modals': false,
     'tip': false,
     'title': false
