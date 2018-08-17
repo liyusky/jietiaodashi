@@ -15,12 +15,15 @@ export default {
     return {
       inputs: {
         // type: 'text',
-        type: 'sides',
-        contentText: '开户地区',
-        placeholder: '选择开户地区',
-        icon: '',
+        // type: 'sides',
+        type: 'center',
+        leftText: '开户地区',
+        placeholder: '请输入手机验证码',
+        leftIcon: '',
         selcetText: '',
-        leftText: '天'
+        rightText: '发送验证码',
+        centerText: 'jfjalfdjjfks'
+        // rightIcon: 'icon-arrow-right'
       },
       modalShow: true
     }
