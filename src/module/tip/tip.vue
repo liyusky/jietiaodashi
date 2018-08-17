@@ -34,7 +34,7 @@
 
 <script>
 // tip: {
-  //   type: 'hint': '中间提示tip'/'warn': '中间警告tip'/'borrow': '中间借条提示tip'/'agree': '右边tip'/'protocol': '右边带协议tip'
+//   type: 'hint': '中间提示tip'/'warn': '中间警告tip'/'borrow': '中间借条提示tip'/'agree': '右边tip'/'protocol': '右边带协议tip'
 //   content: '', 传入文字消息
 //   protocol: '', 协议名字
 //   icon: '', 传入的iconfont名,
@@ -43,31 +43,31 @@
 export default {
   name: 'TipComponent',
   props: ['tip'],
-  data() {
+  data () {
     return {
       protocolSwitch: false,
       agresSwitch: false,
-      modalSwitch: false,
-    };
+      modalSwitch: false
+    }
   },
   methods: {
-    switchAgree() {
-      this.agresSwitch = !this.agresSwitch;
-      if (this.agresSwitch) this.$emit('SWITCH_AGREE_EVENT', this.agresSwitch);
+    switchAgree () {
+      this.agresSwitch = !this.agresSwitch
+      if (this.agresSwitch) this.$emit('SWITCH_AGREE_EVENT', this.agresSwitch)
     },
-    switchModal() {
-      this.modalSwitch = !this.modalSwitch;
-      if (this.modalSwitch) this.$emit('SWITCH_MODAL_EVENT', this.modalSwitch);
+    switchModal () {
+      this.modalSwitch = !this.modalSwitch
+      if (this.modalSwitch) this.$emit('SWITCH_MODAL_EVENT', this.modalSwitch)
     },
-    switchProtocol() {
-      this.protocolSwitch = !this.protocolSwitch;
-      if (this.protocolSwitch) this.$emit('SWITCH_PROTOCOL_EVENT', this.protocolSwitch);
+    switchProtocol () {
+      this.protocolSwitch = !this.protocolSwitch
+      if (this.protocolSwitch) this.$emit('SWITCH_PROTOCOL_EVENT', this.protocolSwitch)
     },
-    gotoPage() {
-      this.$emit('GOTOPAGE_EVENT');
-    },
-  },
-};
+    gotoPage () {
+      this.$emit('GOTOPAGE_EVENT')
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>

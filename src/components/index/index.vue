@@ -1,43 +1,42 @@
 <template>
   <!-- s  -->
   <section class="index">
-    <ModalComponent :modal="modal" v-show="modalShow"></ModalComponent>
+    <InputsComponent :inputs="inputs" v-show="modalShow" @OPEN_MODAL_EVENT="openModal"></InputsComponent>
   </section>
   <!-- e  -->
 </template>
 
 <script>
-import ModalComponent from '../../module/modals/modals.vue';
+import InputsComponent from '../../module/inputs/inputs.vue'
 
 export default {
   name: 'IndexComponent',
-  data() {
+  data () {
     return {
-      modal: {
-        // type: 'default',
-        // type: 'group',
-        type: 'code',
-        title: '温馨提示',
-        contentText: '基督教负担是解放军都说了房间都是减肥',
-        btnName: ['取消', '确认'],
-        tip: {
-          type: 'agree',
-          content: '不在显示',
-          icon: 'icon-dui',
-        },
+      inputs: {
+        // type: 'text',
+        type: 'sides',
+        contentText: '开户地区',
+        placeholder: '选择开户地区',
+        icon: '',
+        selcetText: '',
+        leftText: '天'
       },
-      modalShow: true,
-    };
+      modalShow: true
+    }
   },
   methods: {
-    closeModal() {
-      this.modalShow = false;
+    openModal () {
+      this.inputs.selcetText = '合肥支行'
     },
+    closeModal () {
+      this.modalShow = false
+    }
   },
   components: {
-    ModalComponent,
-  },
-};
+    InputsComponent
+  }
+}
 </script>
 
 <style lang="sass" scoped>

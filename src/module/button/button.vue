@@ -20,27 +20,27 @@
 export default {
   name: 'ButtonComponent',
   props: ['button'],
-  data() {
-    return {};
+  data () {
+    return {}
   },
   methods: {
-    defaultSubmit() {
-      this.$emit('DEFAULT_SUBMIT_EVENT');
+    defaultSubmit () {
+      this.$emit('DEFAULT_SUBMIT_EVENT')
     },
-    fullSubmit() {
-      this.$emit('FULL_SUBMIT_EVENT');
+    fullSubmit () {
+      this.$emit('FULL_SUBMIT_EVENT')
     },
-    inverseSubmit() {
-      this.$emit('INVERSE_SUBMIT_EVENT');
+    inverseSubmit () {
+      this.$emit('INVERSE_SUBMIT_EVENT')
     },
-    leftSubmit() {
-      this.$emit('LEFT_SUBMIT_EVENT');
+    leftSubmit () {
+      this.$emit('LEFT_SUBMIT_EVENT')
     },
-    rightSubmit() {
-      this.$emit('RIGHT_SUBMIT_EVENT');
-    },
-  },
-};
+    rightSubmit () {
+      this.$emit('RIGHT_SUBMIT_EVENT')
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>

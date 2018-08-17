@@ -32,18 +32,18 @@
 export default {
   name: 'titleComponent',
   props: ['title'],
-  data() {
-    return {};
+  data () {
+    return {}
   },
   methods: {
-    otherBtn() {
-      this.$emit('OTHER_EVENT');
+    otherBtn () {
+      this.$emit('OTHER_EVENT')
     },
-    back() {
-      this.$emit('BACK_EVENT');
-    },
-  },
-};
+    back () {
+      this.$emit('BACK_EVENT')
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>

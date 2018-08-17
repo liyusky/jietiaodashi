@@ -59,85 +59,85 @@
 //   tip: null,
 //   tip: {...} tip提示框参数
 // },
-import Tip from '../tip/tip.vue';
+import Tip from '../tip/tip.vue'
 
 export default {
   name: 'ModalsComponent',
   props: ['modal'],
-  data() {
+  data () {
     return {
       code: '',
       clearCodeShow: false,
       getCodeShow: false,
       getCodeText: '发送验证码',
       submitDisabled: false,
-      codeDisabled: false,
-    };
+      codeDisabled: false
+    }
   },
   methods: {
-    modalDefault() {
-      this.$emit('MODAL_DEFAULT_EVENT');
+    modalDefault () {
+      this.$emit('MODAL_DEFAULT_EVENT')
     },
-    modalGroupCancle() {
-      this.$emit('MODAL_CANCLE_EVENT');
+    modalGroupCancle () {
+      this.$emit('MODAL_CANCLE_EVENT')
     },
-    modalGroupSumit() {
-      this.$emit('MODAL_DEFAULT_EVENT');
+    modalGroupSumit () {
+      this.$emit('MODAL_DEFAULT_EVENT')
     },
     // 验证码提交
-    modalCodeSumit() {
-      let reg = /^[0-9]{6}$/;
+    modalCodeSumit () {
+      let reg = /^[0-9]{6}$/
       if (!this.code) {
-        alert('请输入验证码');
-        return;
+        alert('请输入验证码')
+        return
       }
       if (!reg.test(this.code)) {
-        alert('验证码错误');
-        return;
+        alert('验证码错误')
+        return
       }
-      this.submitDisabled = true;
-      this.$emit('MODAL_SUBMIT_EVENT');
+      this.submitDisabled = true
+      this.$emit('MODAL_SUBMIT_EVENT')
     },
     // 验证码取消
-    modalCodeCancle() {
-      this.$emit('MODAL_SUBMIT_EVENT');
+    modalCodeCancle () {
+      this.$emit('MODAL_SUBMIT_EVENT')
     },
     // 验证码清楚按钮显示
-    codeInputChange() {
+    codeInputChange () {
       if (this.code.length > 0) {
-        this.clearCodeShow = true;
+        this.clearCodeShow = true
       } else {
-        this.clearCodeShow = false;
+        this.clearCodeShow = false
       }
     },
     // 点击获取验证码按钮
-    getCodeMessage() {
-      this.codeDisabled = true;
-      this.getCodeShow = true;
-      this.getCodeText = '120秒后重发';
-      let time = 120;
+    getCodeMessage () {
+      this.codeDisabled = true
+      this.getCodeShow = true
+      this.getCodeText = '120秒后重发'
+      let time = 120
       let animation = setInterval(() => {
-        time--;
+        time--
         if (time > 0) {
-          this.getCodeText = `${time}秒后重发`;
+          this.getCodeText = `${time}秒后重发`
         } else {
-          this.getCodeShow = false;
-          this.getCodeText = '发送验证码';
-          clearInterval(animation);
-          this.codeDisabled = false;
+          this.getCodeShow = false
+          this.getCodeText = '发送验证码'
+          clearInterval(animation)
+          this.codeDisabled = false
         }
-      }, 1000);
+      }, 1000)
       // 获取验证码
     },
-    clearCode() {
-      this.code = '';
-      this.clearCodeShow = false;
-    },
+    clearCode () {
+      this.code = ''
+      this.clearCodeShow = false
+    }
   },
   components: {
-    Tip,
-  },
-};
+    Tip
+  }
+}
 </script>
 
 <style lang="sass" scoped>
