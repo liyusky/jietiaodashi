@@ -1,21 +1,17 @@
 <template>
   <!-- s  -->
-  <section class="button">
-    <button class="button-default" v-if="button.type === 'default'" @click="defaultSubmit"><div>{{button.content[0]}}</div></button>
-    <button class="button-full" v-if="button.type === 'full'" @click="fullSubmit"><div>{{button.content[0]}}</div></button>
-    <button class="button-default-inverse" v-if="button.type === 'inverse'" @click="inverseSubmit"><div>{{button.content[0]}}</div></button>
-    <div class="button-group" v-if="button.type === 'group'">
-      <button class="group-left" @click="leftSubmit"><div>{{button.content[0]}}</div></button>
-      <button class="group-right" @click="rightSubmit"><div>{{button.content[1]}}</div></button>
-    </div>
+  <section class="button" :class="button.type">
+    <button v-if="button.firstName" @click="firstSubmit">{{button.firstName}}</button>
+    <button v-if="button.secondName" @click="secondSubmit">{{button.secondName}}</button>
   </section>
   <!-- e  -->
 </template>
 
 <script>
 // button: {
-  // type: 'default'/默认样式 'full': 满屏 'inverse': 白低蓝框 'group': 多个
-  // content: ['']  按钮名字
+// type: 'default': 默认样式 /'full': 满屏 'inverse': 白底蓝框 / 'group-dafault': 多个默认 /'group-other'
+// firstName: ''  按钮名字
+// secondName: ''  按钮名字
 // }
 export default {
   name: 'ButtonComponent',
@@ -24,20 +20,11 @@ export default {
     return {}
   },
   methods: {
-    defaultSubmit () {
-      this.$emit('DEFAULT_SUBMIT_EVENT')
+    firstSubmit () {
+      this.$emit('FIRST_SUBMIT_EVENT')
     },
-    fullSubmit () {
-      this.$emit('FULL_SUBMIT_EVENT')
-    },
-    inverseSubmit () {
-      this.$emit('INVERSE_SUBMIT_EVENT')
-    },
-    leftSubmit () {
-      this.$emit('LEFT_SUBMIT_EVENT')
-    },
-    rightSubmit () {
-      this.$emit('RIGHT_SUBMIT_EVENT')
+    secondSubmit () {
+      this.$emit('SECOND_SUBMIT_EVENT')
     }
   }
 }

@@ -1,0 +1,41 @@
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+.tab {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  $param: (flex flex) (alignItems center);
+  @include flexSet($param);
+  width: 100vw;
+  height: 99 / $unit * $symbol;
+  border: {
+    top: 1px solid #dbdbdc;
+  }
+  background-color: #fff;
+  &-item {
+    @include vertical_direction();
+    @include vertical_center();
+    width: 25%;
+    height: 100%;
+    padding: {
+      top: 12 / $unit * $symbol;
+    }
+    .icon {
+      width: 45 / $unit * $symbol;
+      height: 45 / $unit * $symbol;
+    }
+    .item-name {
+      margin: {
+        top: 6 / $unit * $symbol;
+      }
+      font-size: 21 / $unit * $symbol;
+      color: #333333;
+    }
+  }
+  .active {
+    .icon {
+      color: #333333;
+    }
+  }
+}
