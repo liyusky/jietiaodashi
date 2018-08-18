@@ -3,7 +3,7 @@
 .index {
   width: 100vw;
   height: 100vh;
-  background-color: #fff;
+  background-color: #f4f5f6;
   &-header {
     position: relative;
     width: 100%;
@@ -50,6 +50,7 @@
     $param: (flex flex) (flexWrap wrap);
     @include flexSet($param);
     width: 100%;
+    background-color: #fff;
     .nav-item {
       @include vertical_direction();
       @include center();
