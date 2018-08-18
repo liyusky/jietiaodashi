@@ -113,7 +113,7 @@ function formatComponents (dir, name, goal, refresh) {
             if (config.components[component]) {
               dependence += `import ${setComponentsName(component)} from '${path.relative(goal, paths.module).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
               components += `\n\t\t${setComponentsName(component)},`
-              params += `\n\t\t\t'${component}': ${Params[component]},`
+              params += `\n\t\t\t'${setParamsName(component)}': ${Params[component]},`
             }
           }
           break
@@ -148,6 +148,17 @@ function setComponentsName (name) {
   return nameArr.join('')
 }
 
+//设置变量名称
+function setParamsName(name) {
+  let nameArr = name.split('-')
+  nameArr.forEach((value, index) => {
+    if (index) {
+      nameArr[index] = value.substring(0, 1).toUpperCase() + value.substring(1)
+    }
+  })
+  return nameArr.join('')
+}
+
 // 创建 文件
 function createFile (dir, content, refresh) {
   let result = fs.writeFileSync(dir, content)
@@ -175,9 +186,7 @@ function loop (files, dir, callback) {
 // 加入 router
 function buildRouter () {
   let pathsStr = ''
-  let componentsStr = ''
-  console.log(routers);
-  
+  let componentsStr = ''  
   Object.keys(routers).forEach(name => {
     componentsStr += `const ${setComponentsName(name)} = () => import(/* webpackChunkName: '${name}' */ '../${path.relative('./src', routers[name]).replace(/\\/g, '/')}/${name}.vue')\n`
     pathsStr += 
