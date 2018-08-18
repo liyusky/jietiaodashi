@@ -74,6 +74,14 @@
         <p>155****4568，张**成功借款1500元</p>
       </div>
     </div>
+    <div class="index-activity">
+      <div class="activity-find">
+        <img src="">
+      </div>
+      <div class="activity-invite">
+        <img src="">
+      </div>
+    </div>
     <TabComponent :path="$route.path"></TabComponent>
     <ButtonComponent :button="button"></ButtonComponent>
   </section>
