@@ -14,5 +14,10 @@ module.exports = {
         rightText: '右边文字内容',
         icon: '右边icon',
         svg: '右边svg'
+      }`,
+  button: `{
+        type: 'default full inverse group-dafault group-other',
+        firstName: '按钮名字',
+        secondName: '按钮名字',
       }`
 }

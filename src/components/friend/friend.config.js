@@ -14,7 +14,7 @@ module.exports = {
     'detail-list': false,
     'inputs': false,
     'modals': false,
-    'tip': true,
-    'title': true
+    'tip': false,
+    'title': false
   }
 }

@@ -6,8 +6,6 @@
 
 <script>
 // include dependence
-import TipComponent from '../../module/tip/tip.vue'
-import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'FriendComponent',
   data () {

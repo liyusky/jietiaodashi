@@ -76,10 +76,10 @@
     </div>
     <div class="index-activity">
       <div class="activity-find">
-        <img src="">
+        <img src="../../assets/images/activity-find.gif">
       </div>
       <div class="activity-invite">
-        <img src="">
+        <img src="../../assets/images/activity-invite.gif">
       </div>
     </div>
     <TabComponent :path="$route.path"></TabComponent>
