@@ -5,16 +5,16 @@ module.exports = {
     'state': false
   },
   class: {
-    'Http': false,
+    'Http': true,
     'Time': false,
     'Url': false
   },
   components: {
     'button': false,
     'detail-list': false,
-    'input': false,
+    'inputs': false,
     'modals': false,
-    'tip': false,
-    'title': false
+    'tip': true,
+    'title': true
   }
 }

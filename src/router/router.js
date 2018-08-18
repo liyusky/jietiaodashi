@@ -6,8 +6,8 @@ const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../componen
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'IndexComponent',
+      path: '/index',
+      name: 'index',
       component: IndexComponent
     }
   ]

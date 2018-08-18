@@ -1,40 +1,42 @@
 <template>
   <!-- s  -->
-  <section class="index">
-    <InputsComponent :inputs="inputs" v-show="modalShow" @OPEN_MODAL_EVENT="openModal"></InputsComponent>
-  </section>
+  <section class="index"></section>
   <!-- e  -->
 </template>
 
 <script>
-import InputsComponent from '../../module/inputs/inputs.vue'
-
+// include dependence
+import Http from '../../class/Http.class.js'
+import TipComponent from '../../module/tip/tip.vue'
+import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'IndexComponent',
   data () {
     return {
-      inputs: {
-        // type: 'text',
-        type: 'sides',
-        contentText: '开户地区',
-        placeholder: '选择开户地区',
-        icon: '',
-        selcetText: '',
-        leftText: '天'
+      // start params
+      'tip': {
+        type: 'default center',
+        content: '传入文字消息',
+        protocol: '协议名字',
+        icon: '传入的iconfont名',
+        svg: '传入借条tip的svg名',
+        selected: 'false true',
+        theme: 'blue red'
       },
-      modalShow: true
-    }
-  },
-  methods: {
-    openModal () {
-      this.inputs.selcetText = '合肥支行'
-    },
-    closeModal () {
-      this.modalShow = false
+      'title': {
+        contentText: '中间内容',
+        leftText: '左边箭头后文字',
+        rightText: '右边文字内容',
+        icon: '右边icon',
+        svg: '右边svg'
+      }
+      // end params
     }
   },
   components: {
-    InputsComponent
+    TipComponent,
+    TitleComponent
+    // include components
   }
 }
 </script>
