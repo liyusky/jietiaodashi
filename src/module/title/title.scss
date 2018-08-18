@@ -4,8 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  $param: (flex flex) (alignItems center);
-  @include flexSet($param);
+  @include vertical_center();
   width: 100%;
   height: 126 / $unit * $symbol;
   padding: {
@@ -16,14 +15,20 @@
   border: {
     bottom: 1px solid #cbcbcb;
   }
-  &-left, &-content, &-right {
-    @include vertical_center();
-    width: 33.3%;
+  &-content {
+    @include center();
+    width: 100%;
     height: 100%;
   }
+  &-left, &-right {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+  }
   &-left {
-    $param: (flex flex) (justifyContent flex-start);
-    @include flexSet($param);
+    left: 0;
+    @include horizontal_center();
+    height: 100%;
     .left-content {
       @include vertical_center();
       i {
@@ -42,11 +47,12 @@
   &-content {
     @include horizontal_center();
     font-size: 36 / $unit * $symbol;
-      color: #333333;
+    color: #333333;
   }
   &-right {
-    $param: (flex flex) (justifyContent flex-end);
-    @include flexSet($param);
+    right: 0;
+    @include horizontal_center();
+    height: 100%;
     .right-content {
       @include vertical_center();
       i {

@@ -5,7 +5,7 @@ module.exports = {
     'state': false
   },
   class: {
-    'Http': false,
+    'Http': true,
     'Time': false,
     'Url': false
   },
@@ -14,7 +14,7 @@ module.exports = {
     'detail-list': false,
     'inputs': false,
     'modals': false,
-    'tip': false,
-    'title': false
+    'tip': true,
+    'title': true
   }
 }

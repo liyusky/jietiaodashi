@@ -96,6 +96,7 @@ export default {
   name: 'IndexComponent',
   data () {
     return {
+      // start    params
       inputs: {
         // type: 'text',
         // type: 'sides',
@@ -112,16 +113,8 @@ export default {
         type: 'group-default',
         firstName: '确认',
         secondName: '取消'
-      },
-      modalShow: true
-    }
-  },
-  methods: {
-    openModal () {
-      this.inputs.selcetText = '合肥支行'
-    },
-    closeModal () {
-      this.modalShow = false
+      }
+      // end params
     }
   },
   components: {

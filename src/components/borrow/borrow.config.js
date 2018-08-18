@@ -1,8 +1,8 @@
 module.exports = {
   router: false,
   vuex: {
-    mutations: false,
-    state: false
+    'mutations': false,
+    'state': false
   },
   class: {
     'Http': false,

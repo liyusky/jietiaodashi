@@ -1,7 +1,12 @@
 const fs = require('fs')
 const path = require('path')
+
+const Params = require('./dependencies/config/params.js')
+const defaultConfig = require('./dependencies/config/config.js')
+
 const classes = fs.readdirSync('./src/class', 'utf8')
 const components = fs.readdirSync('./src/module', 'utf8')
+
 
 const FileType = ['vue', 'scss', 'js'];
 const exDir = ['components', 'modal', 'module'];
@@ -15,10 +20,9 @@ const Template = {
   vue: fs.readFileSync('./dependencies/tempalte/tempalte.vue', 'utf8'),
   scss: fs.readFileSync('./dependencies/tempalte/tempalte.scss', 'utf8'),
   js: fs.readFileSync('./dependencies/tempalte/tempalte.js', 'utf8'),
-  config: fs.readFileSync('./dependencies/tempalte/config.js', 'utf8'),
-  router: fs.readFileSync('./dependencies/tempalte/router.js', 'utf8')
+  config: fs.readFileSync('./dependencies/tempalte/config.tempalte', 'utf8'),
+  router: fs.readFileSync('./dependencies/tempalte/router.tempalte', 'utf8')
 }
-const defaultConfig = require('./dependencies/config/config.js')
 
 var config = { ...defaultConfig}, configTemplate = ''
 var routers = {}
@@ -58,11 +62,12 @@ function formatConfig (router, vuexStr, classesStr, componentsStr, template) {
 }
 
 // 处理 vue 模板
-function formatVue (template, name, dependence, components) {
+function formatVue (template, name, result) {
   template = template.replace('SITE_CLASS_NAME', name)
   template = template.replace('SITE_MODULE_NAME', setComponentsName(name))
-  template = template.replace('SITE_DEPENDENCE_NAME', dependence)
-  template = template.replace(',SITE_COMPONENTS_NAME', components)
+  template = template.replace('SITE_PARAMS_NAME', result.params)
+  template = template.replace('SITE_DEPENDENCE_NAME', result.dependence)
+  template = template.replace(',SITE_COMPONENTS_NAME', result.components)
   template = template.replace('SITE_SASS_NAME', `./${name}.scss`)
   return template
 }
@@ -79,6 +84,7 @@ function formatSass (goal, name) {
 function formatComponents (dir, name, goal, refresh) {
   let dependence = '\n// include dependence\n'
   let components = ',\n\tcomponents: {'
+  let params = '// start params'
   try {
     let config = require(resolvePath(dir, name, 'config'))
     for (let key in config) {
@@ -107,6 +113,7 @@ function formatComponents (dir, name, goal, refresh) {
             if (config.components[component]) {
               dependence += `import ${setComponentsName(component)} from '${path.relative(goal, paths.module).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
               components += `\n\t\t${setComponentsName(component)},`
+              params += `\n\t\t\t'${setParamsName(component)}': ${Params[component]},`
             }
           }
           break
@@ -115,15 +122,19 @@ function formatComponents (dir, name, goal, refresh) {
     dependence = dependence.substr(0, dependence.length - 1)
     if (refresh) dependence += `\nexport default {`
     if (components != ',\n\tcomponents: {') components = components.substr(0, components.length - 1)
+    if (params != '// include params') params = params.substr(0, params.length - 1)
+    params += `\n\t\t\t// end params`
   } catch (error) {
     console.log(error)
   }
   components += `\n\t\t// include components\n\t}`
+  params = params.replace(/\t/g, '  ')
   dependence = dependence.replace(/\t/g, '  ')
   components = components.replace(/\t/g, '  ')
   return {
     dependence,
-    components
+    components,
+    params
   }
 }
 
@@ -134,6 +145,17 @@ function setComponentsName (name) {
     nameArr[index] = value.substring(0, 1).toUpperCase() + value.substring(1)
   })
   nameArr.push('Component')
+  return nameArr.join('')
+}
+
+//设置变量名称
+function setParamsName(name) {
+  let nameArr = name.split('-')
+  nameArr.forEach((value, index) => {
+    if (index) {
+      nameArr[index] = value.substring(0, 1).toUpperCase() + value.substring(1)
+    }
+  })
   return nameArr.join('')
 }
 
@@ -164,9 +186,7 @@ function loop (files, dir, callback) {
 // 加入 router
 function buildRouter () {
   let pathsStr = ''
-  let componentsStr = ''
-  console.log(routers);
-  
+  let componentsStr = ''  
   Object.keys(routers).forEach(name => {
     componentsStr += `const ${setComponentsName(name)} = () => import(/* webpackChunkName: '${name}' */ '../${path.relative('./src', routers[name]).replace(/\\/g, '/')}/${name}.vue')\n`
     pathsStr += 
@@ -263,7 +283,11 @@ function buildModule (dir, strict) {
             content = formatSass(goal, name)
             break
           case 'vue':
-            content = formatVue(content, name, '', '')
+            content = formatVue(content, name, {
+              dependence: '',
+              components: '',
+              params: ''
+            })
             break
         }
         createFile(goal, content)
@@ -293,7 +317,7 @@ function buildComponents (dir) {
               break
             case 'vue':
               let result = formatComponents(dir, name, goal, false)
-              content = formatVue(content, name, result.dependence, result.components)
+              content = formatVue(content, name, result)
               break
           }
           createFile(goal, content)
@@ -301,10 +325,9 @@ function buildComponents (dir) {
         else if (type == 'vue') {
           content = fs.readFileSync(resolvePath(dir, name, 'vue'), 'utf8')
           let result = formatComponents(dir, name, goal, true)
-          let dependenceReg = /\n\/\/ include dependence[^]*export default {/
-          let componentReg = /,\n  components: {[^]*\/\/ include components\n  }/
-          content = content.replace(dependenceReg, result.dependence)
-          content = content.replace(componentReg, result.components)
+          content = content.replace(/\/\/ start params[^]*\/\/ end params/, result.params)
+          content = content.replace(/\n\/\/ include dependence[^]*export default {/, result.dependence)
+          content = content.replace(/,\n  components: {[^]*\/\/ include components\n  }/, result.components)
           createFile(goal, content, true)
         }
       })

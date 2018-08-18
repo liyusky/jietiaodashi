@@ -8,7 +8,9 @@
 export default {
   name: 'SITE_MODULE_NAME',
   data () {
-    return {}
+    return {
+      SITE_PARAMS_NAME
+    }
   },SITE_COMPONENTS_NAME
 }
 </script>
