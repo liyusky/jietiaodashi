@@ -1,42 +1,125 @@
 <template>
   <!-- s  -->
-  <section class="index"></section>
+  <section class="index">
+    <header class="index-header">
+      <div class="header-bg">
+        <img src="../../assets/images/index-banner.gif">
+      </div>
+      <div class="header-list">
+        <div class="list-item">
+          <i class="iconfont icon-haoyou1"></i>
+          <p>消息</p>
+        </div>
+        <div class="list-item">
+          <i class="iconfont icon-add"></i>
+          <p>消息</p>
+        </div>
+      </div>
+    </header>
+    <nav class="index-nav">
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>找人出借</p>
+      </div>
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>贷款超市</p>
+      </div>
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>借条中心</p>
+      </div>
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>失信查询</p>
+      </div>
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>仲裁进度</p>
+      </div>
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>在线客服</p>
+      </div>
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>我要投诉</p>
+      </div>
+      <div class="nav-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tixian"></use>
+        </svg>
+        <p>催收保障</p>
+      </div>
+    </nav>
+    <div class="index-message">
+      <div class="message-left">
+        <img src="../../assets/images/msg.gif">
+      </div>
+      <div class="message-right">
+        <p>155****4568，张**成功借款1500元</p>
+      </div>
+    </div>
+    <div class="index-activity">
+      <div class="activity-find">
+        <img src="../../assets/images/activity-find.gif">
+      </div>
+      <div class="activity-invite">
+        <img src="../../assets/images/activity-invite.gif">
+      </div>
+    </div>
+    <TabComponent :path="$route.path"></TabComponent>
+    <ButtonComponent :button="button"></ButtonComponent>
+  </section>
   <!-- e  -->
 </template>
 
 <script>
-// include dependence
-import Http from '../../class/Http.class.js'
-import TipComponent from '../../module/tip/tip.vue'
-import TitleComponent from '../../module/title/title.vue'
+import TabComponent from '../../common/tab/tab.vue'
+import ButtonComponent from '../../module/button/button.vue'
+
 export default {
   name: 'IndexComponent',
   data () {
     return {
-      // start params
-      'tip': {
-        type: 'default center',
-        content: '传入文字消息',
-        protocol: '协议名字',
-        icon: '传入的iconfont名',
-        svg: '传入借条tip的svg名',
-        selected: 'false true',
-        theme: 'blue red'
+      // start    params
+      inputs: {
+        // type: 'text',
+        // type: 'sides',
+        type: 'center',
+        leftText: '开户地区',
+        placeholder: '请输入手机验证码',
+        leftIcon: '',
+        selcetText: '',
+        rightText: '发送验证码',
+        centerText: 'jfjalfdjjfks'
+        // rightIcon: 'icon-arrow-right'
       },
-      'title': {
-        contentText: '中间内容',
-        leftText: '左边箭头后文字',
-        rightText: '右边文字内容',
-        icon: '右边icon',
-        svg: '右边svg'
+      button: {
+        type: 'group-default',
+        firstName: '确认',
+        secondName: '取消'
       }
       // end params
     }
   },
   components: {
-    TipComponent,
-    TitleComponent
-    // include components
+    TabComponent,
+    ButtonComponent
   }
 }
 </script>
