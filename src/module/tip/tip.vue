@@ -5,7 +5,7 @@
     <svg v-if="tip.svg" class="icon" aria-hidden="true">
       <use :xlink:href="tip.svg"></use>
     </svg>
-    <span class="tip-content" v-if="tip.content">{{tip.content}}</span>
+    <span class="tip-content" :class="{selected: tip.selected}" v-if="tip.content">{{tip.content}}</span>
     <span class="tip-protocol" v-if="tip.protocol" @click="protocol">《{{tip.protocol}}》</span>
   </section>
   <!-- e  -->
@@ -13,7 +13,7 @@
 
 <script>
 // tip: {
-//   type: 'default':  default  / center 
+//   type: 'default':  default  / center
 //   content: '', 传入文字消息
 //   protocol: '', 协议名字
 //   icon: '', 传入的iconfont名,
@@ -45,7 +45,7 @@ export default {
     },
     toggleSelected () {
       if (typeof this.tip.selected !== 'undefined') {
-        this.tip.selected != this.tip.selected
+        this.tip.selected = !this.tip.selected
         this.$emit('TOGGLE_SELECTED_EVENT', this.tip.selected)
       }
     }

@@ -7,7 +7,6 @@ const defaultConfig = require('./dependencies/config/config.js')
 const classes = fs.readdirSync('./src/class', 'utf8')
 const components = fs.readdirSync('./src/module', 'utf8')
 
-
 const FileType = ['vue', 'scss', 'js'];
 const exDir = ['components', 'modal', 'module'];
 const paths = {
@@ -42,6 +41,7 @@ function resolvePath (dir, name, type) {
   }
   return './' + path.join(dir, `${name}.${types[type]}`).replace('\\', '\/')
 }
+
 // 处理 config 模板
 function formatConfig (router, vuexStr, classesStr, componentsStr, template) {
   if (vuexStr) {
@@ -113,7 +113,12 @@ function formatComponents (dir, name, goal, refresh) {
             if (config.components[component]) {
               dependence += `import ${setComponentsName(component)} from '${path.relative(goal, paths.module).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
               components += `\n\t\t${setComponentsName(component)},`
-              params += `\n\t\t\t'${setParamsName(component)}': ${Params[component]},`
+              if (refresh) {
+                params += `\n\t\t\t'${setParamsName(component)}': ${config.components[component]},`
+              }
+              else {
+                params += `\n\t\t\t'${setParamsName(component)}': ${Params[component]},`
+              }
             }
           }
           break
@@ -122,7 +127,7 @@ function formatComponents (dir, name, goal, refresh) {
     dependence = dependence.substr(0, dependence.length - 1)
     if (refresh) dependence += `\nexport default {`
     if (components != ',\n\tcomponents: {') components = components.substr(0, components.length - 1)
-    if (params != '// include params') params = params.substr(0, params.length - 1)
+    if (params != '// start params') params = params.substr(0, params.length - 1)
     params += `\n\t\t\t// end params`
   } catch (error) {
     console.log(error)
@@ -168,7 +173,7 @@ function createFile (dir, content, refresh) {
   if (result) {
     logStr = `${dir} ${refreshStr}失败 ===== ${result}`
   }
-  console.log(logStr)
+  // console.log(logStr)
 }
 
 // 循环
@@ -252,7 +257,18 @@ function refreshConfig(dir) {
         }
         else if (typeof unit === 'object') {
           Object.keys(unit).forEach(item => {
-            unit[item] = currentConfig[key][item] || false
+            if (key === 'components') {
+              if (typeof currentConfig[key][item] === 'string') {
+                unit[item] = '`' + currentConfig[key][item] + '`'
+              } else if (currentConfig[key][item]) {
+                unit[item] = '`' + Params[item] + '`'
+              } else {
+                unit[item] = false
+              }
+            }
+            else {
+              unit[item] = currentConfig[key][item] || false
+            }
           })
         }
       })
@@ -272,6 +288,7 @@ function refreshConfig(dir) {
 function buildModule (dir, strict) {
   let files = fs.readdirSync(dir, 'utf8')
   let name = path.basename(dir)
+  
   if (!exDir.includes(name)) {
     FileType.forEach(type => {
       let file = name + '.' + type;
@@ -279,7 +296,7 @@ function buildModule (dir, strict) {
       let content = Template[type]
       if (!files.includes(file)) {
         switch (type) {
-          case 'sass':
+          case 'scss':
             content = formatSass(goal, name)
             break
           case 'vue':

@@ -3,8 +3,19 @@
 .index {
   width: 100vw;
   height: 100vh;
+  padding: {
+    bottom: 199 / $unit * $symbol;
+  }
   background-color: #f4f5f6;
   overflow-y: auto;
+  .inputs {
+    padding: {
+      left: 21 / $unit * $symbol;
+      right: 21 / $unit * $symbol;
+    }
+    height: 99 / $unit * $symbol;
+    background-color: #fff;
+  }
   &-header {
     position: relative;
     width: 100%;
@@ -110,6 +121,10 @@
       height: 222 / $unit * $symbol;
       margin: {
         bottom: 18 / $unit * $symbol;
+      }
+      padding: {
+        left: 21 / $unit * $symbol;
+        right: 21 / $unit * $symbol;
       }
       background-color: #fff;
       img {

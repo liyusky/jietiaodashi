@@ -83,43 +83,50 @@
       </div>
     </div>
     <TabComponent :path="$route.path"></TabComponent>
-    <ButtonComponent :button="button"></ButtonComponent>
+    <!-- <ModalsComponent :modal="modal"></ModalsComponent> -->
+    <div class="inputs">
+      <InputsComponent :inputs="inputs"></InputsComponent>
+    </div>
   </section>
   <!-- e  -->
 </template>
 
 <script>
 import TabComponent from '../../common/tab/tab.vue'
-import ButtonComponent from '../../module/button/button.vue'
+import ModalsComponent from '../../module/modals/modals.vue'
+import InputsComponent from '../../module/inputs/inputs.vue'
 
 export default {
   name: 'IndexComponent',
   data () {
     return {
       // start    params
-      inputs: {
-        // type: 'text',
-        // type: 'sides',
-        type: 'center',
-        leftText: '开户地区',
-        placeholder: '请输入手机验证码',
-        leftIcon: '',
-        selcetText: '',
-        rightText: '发送验证码',
-        centerText: 'jfjalfdjjfks'
-        // rightIcon: 'icon-arrow-right'
+      modal: {
+        type: 'default',
+        title: '温馨提示',
+        contentText: '附近奥利弗警方对解放军拉萨肌肤',
+        firstName: '取消',
+        secondName: '确认'
       },
-      button: {
-        type: 'group-default',
-        firstName: '确认',
-        secondName: '取消'
+      inputs: {
+        // type: 'default',
+        // type: 'switch',
+        // type: 'icon',
+        type: 'slide',
+        leftIcon: 'icon-wode',
+        rightIcon: 'icon-dui',
+        placeholder: '输入手机号',
+        leftText: '手机号',
+        centerText: '201656655'
       }
       // end params
     }
   },
+  methods: {},
   components: {
     TabComponent,
-    ButtonComponent
+    ModalsComponent,
+    InputsComponent
   }
 }
 </script>

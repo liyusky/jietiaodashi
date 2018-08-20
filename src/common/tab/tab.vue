@@ -6,7 +6,7 @@
         <svg class="icon" aria-hidden="true" v-if="path === '/index' || path === '/'">
           <use xlink:href="#icon-shouye1"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="path != '/' && path != '/index'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/' && path !== '/index'">
           <use xlink:href="#icon-shouye"></use>
         </svg>
         <p class="item-name">首页</p>
@@ -15,7 +15,7 @@
         <svg class="icon" aria-hidden="true" v-if="path === '/friend'">
           <use xlink:href="#icon-haoyou"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="path != '/friend'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/friend'">
           <use xlink:href="#icon-haoyou1"></use>
         </svg>
         <p class="item-name">好友</p>
@@ -24,7 +24,7 @@
         <svg class="icon" aria-hidden="true" v-if="path === '/borrow'">
           <use xlink:href="#icon-jianpan"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="path != '/borrow'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/borrow'">
           <use xlink:href="#icon-shixinxinxi"></use>
         </svg>
         <p class="item-name">我要借</p>
@@ -33,7 +33,7 @@
         <svg class="icon" aria-hidden="true" v-if="path === '/find'">
           <use xlink:href="#icon-faxianshangse"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="path != '/find'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/find'">
           <use xlink:href="#icon-faxian"></use>
         </svg>
         <p class="item-name">发现</p>
@@ -42,7 +42,7 @@
         <svg class="icon" aria-hidden="true" v-if="path === '/mine'">
           <use xlink:href="#icon-wode1"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="path != '/mine'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/mine'">
           <use xlink:href="#icon-wode"></use>
         </svg>
         <p class="item-name">我的</p>
