@@ -1,3 +1,9 @@
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
-.friend {}
+.home {
+  width: 100vw;
+  height: 100vh;
+  padding: {
+    bottom: 99 / $unit * $symbol;
+  }
+}

@@ -7,61 +7,27 @@
     </div>
     <div class="right" @click="openModal">
       <div class="right-center" v-if="inputs.centerText">{{inputs.centerText}}</div>
-      <input class="right-input" type="text" v-model="inputText" :placeholder="inputs.placeholder">
+      <input class="right-input" type="text" v-model="inputText" :placeholder="inputs.placeholder" @blur="getInputValue">
       <i class="iconfont right-icon" :class="inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
       <p class="right-text" v-if="inputs.rightText" @click="getCode">{{inputs.rightText}}</p>
       <div class="right-switch" :class="{'switch-active': switchShow}" v-if="inputs.type === 'switch'" @click="switchToggle">
         <div class="switch-btn"></div>
       </div>
     </div>
-    <!-- <div class="input-default" v-if="inputs.type === 'default'">
-      <input v-model="inputText" type="text" :placeholder="inputs.placeholder">
-      <i class="iconfont" :class="inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
-      <div class="default-code" v-if="inputs.rightText" @click="getCode">{{inputs.rightText}}</div>
-    </div>
-    <div class="input-text" v-if="inputs.type === 'text'">
-      <div class="text-left">
-        <i class="iconfont" :class="inputs.leftIcon"></i>
-        <span class="left-text">{{inputs.leftText}}</span>
-      </div>
-      <input type="text" :placeholder="inputs.placeholder">
-    </div>
-    <div class="input-switch" v-if="inputs.type === 'switch'">
-      <div class="switch-left">
-        <i class="iconfont" :class="inputs.leftIcon"></i>
-        <span class="left-text">{{inputs.leftText}}</span>
-      </div>
-      <div class="switch-right" :class="{'switch-active': switchShow}" @click="switchToggle">
-        <div class="right-btn"></div>
-      </div>
-    </div>
-    <div class="input-sides" v-if="inputs.type === 'sides'">
-      <div class="sides-left">
-        <i class="iconfont" :class="inputs.leftIcon"></i>
-        <span class="left-text">{{inputs.leftText}}</span>
-      </div>
-      <div class="sides-center" v-if="inputs.centerText">{{inputs.centerText}}</div>
-      <div class="sides-right" @click="openModal">
-        <input type="text" v-model="inputs.selcetText" :placeholder="inputs.placeholder" :enabled="false">
-        <i class="iconfont" :class="inputs.rightIcon" v-if="inputs.rightIcon"></i>
-        <span class="right-text" v-if="inputs.rightText">{{inputs.rightText}}</span>
-      </div>
-    </div>
-    <div class="input-center" v-if="inputs.type === 'center'">
-      <div class="center-left">
-        <i class="iconfont" :class="inputs.leftIcon"></i>
-        <span class="left-text">{{inputs.leftText}}</span>
-      </div>
-      <div class="center-right" @click="openModal">
-        <input type="text" :placeholder="inputs.placeholder">
-        <div class="right-code" v-if="inputs.rightText" @click="getCode">{{inputs.rightText}}</div>
-      </div>
-    </div> -->
   </section>
   <!-- e  -->
 </template>
 
 <script>
+// inputs: {
+//   type: 'default' / 'text' / 'slide' / 'icon' / 'switch' / 'center',
+//   placeholder: ''
+//   rightText: ''
+//   rightIcon: ''
+//   leftText: ''
+//   leftIcon: '',
+//   centerText: ''
+// }
 export default {
   name: 'InputComponent',
   props: ['inputs'],
@@ -95,6 +61,9 @@ export default {
       if (this.inputs.type === 'center' || this.inputs.type === 'default') {
         this.$emit('GET_CODE_EVENT')
       }
+    },
+    getInputValue () {
+      this.$emit('GET_INPUT_VALUE_EVENT', this.inputText)
     }
   }
 }

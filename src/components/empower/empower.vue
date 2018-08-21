@@ -1,27 +1,25 @@
 <template>
   <!-- s  -->
-  <section class="friend"></section>
+  <section class="empower"></section>
   <!-- e  -->
 </template>
 
 <script>
 // include dependence
 export default {
-  name: 'FriendComponent',
+  name: 'EmpowerComponent',
   data () {
     return {
-      // start param
+      // start params
       // end params
     }
   },
   components: {
-    TipComponent,
-    TitleComponent
     // include components
   }
 }
 </script>
 
 <style lang="sass" scoped>
-@import "./friend.scss";
+@import "./empower.scss";
 </style>

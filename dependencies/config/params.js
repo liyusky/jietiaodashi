@@ -19,5 +19,14 @@ module.exports = {
         type: 'default full inverse group-dafault group-other',
         firstName: '按钮名字',
         secondName: '按钮名字',
+      }`,
+  inputs: `{
+        type: 'default' 'text' 'slide' 'icon' 'switch' 'center',
+        placeholder: ''
+        rightText: ''
+        rightIcon: ''
+        leftText: ''
+        leftIcon: '',
+        centerText: ''
       }`
 }
