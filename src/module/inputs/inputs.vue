@@ -5,27 +5,15 @@
       <i class="iconfont left-icon" :class="inputs.leftIcon" v-if="inputs.leftIcon"></i>
       <div class="leftText" v-if="inputs.leftText">{{inputs.leftText}}</div>
     </div>
-    <div class="right">
+    <div class="right" @click="openModal">
       <div class="right-center" v-if="inputs.centerText">{{inputs.centerText}}</div>
       <input class="right-input" type="text" v-model="inputText" :placeholder="inputs.placeholder">
       <i class="iconfont right-icon" :class="inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
-      <span class="right-text" v-if="inputs.rightText">{{inputs.rightText}}</span>
-      <div class="right-code" v-if="inputs.code" @click="getCode">{{inputs.code}}</div>
+      <p class="right-text" v-if="inputs.rightText" @click="getCode">{{inputs.rightText}}</p>
       <div class="right-switch" :class="{'switch-active': switchShow}" v-if="inputs.type === 'switch'" @click="switchToggle">
         <div class="switch-btn"></div>
       </div>
     </div>
-
-    <!-- <div class="sides-right" @click="openModal">
-      <input type="text" v-model="inputs.selcetText" :placeholder="inputs.placeholder" :enabled="false">
-      <i class="iconfont" :class="inputs.rightIcon" v-if="inputs.rightIcon"></i>
-    </div>
-
-    <div class="center-right" @click="openModal">
-      <input type="text" :placeholder="inputs.placeholder">
-      <div class="right-code" v-if="inputs.rightText" @click="getCode">{{inputs.rightText}}</div>
-    </div> -->
-
     <!-- <div class="input-default" v-if="inputs.type === 'default'">
       <input v-model="inputText" type="text" :placeholder="inputs.placeholder">
       <i class="iconfont" :class="inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
@@ -85,11 +73,16 @@ export default {
   },
   methods: {
     openModal () {
+      if (this.inputs.type !== 'center') return
+      if (this.inputs.type !== 'default') return
+      if (this.inputs.type !== 'swicth') return
       this.$emit('OPEN_MODAL_EVENT')
     },
     switchToggle () {
-      this.switchShow = !this.switchShow
-      this.$emit('SWITCH_TOGGLE_EVENT', this.switchShow)
+      if (this.inputs.type === 'switch') {
+        this.switchShow = !this.switchShow
+        this.$emit('SWITCH_TOGGLE_EVENT', this.switchShow)
+      }
     },
     clearInput () {
       if (this.inputs.type === 'default') {
@@ -99,7 +92,9 @@ export default {
       this.$emit('CLEAR_INPUT_EVENT')
     },
     getCode () {
-      this.$emit('GET_CODE_EVENT')
+      if (this.inputs.type === 'center' || this.inputs.type === 'default') {
+        this.$emit('GET_CODE_EVENT')
+      }
     }
   }
 }

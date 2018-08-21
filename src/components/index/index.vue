@@ -84,8 +84,8 @@
     </div>
     <TabComponent :path="$route.path"></TabComponent>
     <!-- <ModalsComponent :modal="modal"></ModalsComponent> -->
-    <div class="inputs">
-      <InputsComponent :inputs="inputs"></InputsComponent>
+    <div class="inputs" v-for="(item, index) in inputs" :key="index">
+      <InputsComponent :inputs="item"></InputsComponent>
     </div>
   </section>
   <!-- e  -->
@@ -108,17 +108,78 @@ export default {
         firstName: '取消',
         secondName: '确认'
       },
-      inputs: {
-        // type: 'default',
-        // type: 'switch',
-        // type: 'icon',
-        type: 'slide',
-        leftIcon: 'icon-wode',
-        rightIcon: 'icon-dui',
-        placeholder: '输入手机号',
-        leftText: '手机号',
-        centerText: '201656655'
-      }
+      inputs: [
+        {
+          type: 'default',
+          placeholder: '输入手机号'
+        },
+        {
+          type: 'default',
+          placeholder: '输入手机号',
+          rightIcon: 'icon-wode'
+        },
+        {
+          type: 'default',
+          placeholder: '输入手机号',
+          rightText: '发送验证码'
+        },
+        {
+          type: 'icon',
+          leftIcon: 'icon-wode',
+          placeholder: '输入手机号'
+        },
+        {
+          type: 'text',
+          leftIcon: 'icon-wode',
+          placeholder: '输入手机号',
+          leftText: '手机号'
+        },
+        {
+          type: 'switch',
+          leftIcon: 'icon-wode',
+          leftText: '手机号'
+        },
+        {
+          type: 'slide',
+          leftIcon: 'icon-wode',
+          leftText: '手机号',
+          placeholder: '输入手机号',
+          rightIcon: 'icon-dui'
+        },
+        {
+          type: 'slide',
+          leftIcon: 'icon-wode',
+          leftText: '手机号',
+          placeholder: '输入手机号',
+          rightText: '天'
+        },
+        {
+          type: 'slide',
+          leftIcon: 'icon-wode',
+          leftText: '手机号',
+          placeholder: '输入手机号',
+          rightText: '天',
+          centerText: '14343254'
+        },
+        {
+          type: 'center',
+          leftIcon: 'icon-wode',
+          placeholder: '输入手机号',
+          leftText: '手机号',
+          rightText: '发送验证码'
+        }
+      ]
+      // // type: 'default',
+      // // type: 'switch',
+      // // type: 'icon',
+      // // type: 'slide',
+      // type: 'center',
+      // leftIcon: 'icon-wode',
+      // // rightIcon: 'icon-dui',
+      // placeholder: '输入手机号',
+      // leftText: '手机号',
+      // code: '发送验证码'
+      // // centerText: '201656655'
       // end params
     }
   },

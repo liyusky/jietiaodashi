@@ -10,11 +10,12 @@
   overflow-y: auto;
   .inputs {
     padding: {
-      left: 21 / $unit * $symbol;
-      right: 21 / $unit * $symbol;
+      left: 30 / $unit * $symbol;
+      right: 30 / $unit * $symbol;
     }
     height: 99 / $unit * $symbol;
     background-color: #fff;
+    border: 1px solid #eee;
   }
   &-header {
     position: relative;

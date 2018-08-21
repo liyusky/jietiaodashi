@@ -7,7 +7,8 @@
   background-color: #fff;
   .left {
     @include vertical_center();
-    width: 25%;
+    height: 100%;
+    width: 30%;
     .left-icon {
       margin: {
         right: 21 / $unit * $symbol;
@@ -26,9 +27,6 @@
     .right-center {
       @include vertical_center();
       height: 100%;
-      margin: {
-        left: 90 / $unit * $symbol;
-      }
       font-size: 30 / $unit * $symbol;
       color: #333333;
     }
@@ -50,15 +48,13 @@
       color: #bfbfbf;
     }
     .right-text {
+      @include vertical_center();
+      height: 100%;
       margin: {
         left: 15 / $unit * $symbol;
       }
       font-size: 30 / $unit * $symbol;
       color: #333333;
-    }
-    .right-code {
-      font-size: 27 / $unit * $symbol;
-      color: #4d7bfe;
     }
     .right-switch {
       @include vertical_center();
@@ -89,6 +85,12 @@
   .left {
     width: 0;
   }
+  .right {
+    .right-text {
+      font-size: 27 / $unit * $symbol;
+      color: #4d7bfe;
+    }
+  }
 }
 .icon {
   .left {
@@ -116,216 +118,27 @@
 }
 .slide {
   .right {
+    $param: (flex flex)  (justifyContent flex-end);
+    @include flexSet($param);
     .right-input {
+      flex: none;
+      width: 45%;
       text-align: right;
     }
   }
 }
-.inputss {
-  &-default {
+.center {
+  .right {
     @include vertical_center_horizontal_between();
-    width: 100%;
-    height: 99 / $unit * $symbol;
-    padding: {
-      left: 15 / $unit * $symbol;
-      right: 15 / $unit * $symbol;
+    .right-input {
+      text-align: left;
     }
-    input {
-      flex: 1;
+    .right-text {
+      @include vertical_center();
+      width: 150 / $unit * $symbol;
       height: 100%;
-      font-size: 30 / $unit * $symbol;
-      color: #333333;
-    }
-    input::-webkit-input-placeholder {
-      font-size: 30 / $unit * $symbol;
-      color: #999999;
-    }
-    i {
-      font-size: 30 / $unit * $symbol;
-      color: #bfbfbf;
-    }
-    .default-code {
       font-size: 27 / $unit * $symbol;
       color: #4d7bfe;
-    }
-  }
-  &-text {
-    @include vertical_center();
-    width: 100%;
-    height: 99 / $unit * $symbol;
-    .text-left {
-      $param: (flex flex) (alignItems center) (justifyContent flex-start);
-      @include flexSet($param);
-      width: 30%;
-      height: 100%;
-      .left-text {
-        font-size: 30 / $unit * $symbol;
-        color: #333333;
-      }
-      i {
-        margin: {
-          right: 15 / $unit * $symbol;
-        }
-        font-size: 12 / $unit * $symbol;
-        color: #333333;
-      }
-    }
-    input {
-      flex: 1;
-      height: 100%;
-      font-size: 30 / $unit * $symbol;
-      color: #333333;
-    }
-    input::-webkit-input-placeholder {
-      font-size: 30 / $unit * $symbol;
-      color: #999999;
-    }
-  }
-  &-switch {
-    @include vertical_center_horizontal_between();
-    width: 100%;
-    height: 99 / $unit * $symbol;
-    .switch-left {
-      $param: (flex flex) (alignItems center) (justifyContent flex-start);
-      @include flexSet($param);
-      width: 30%;
-      height: 100%;
-      .left-text {
-        font-size: 30 / $unit * $symbol;
-        color: #333333;
-      }
-      i {
-        margin: {
-          right: 15 / $unit * $symbol;
-        }
-        font-size: 12 / $unit * $symbol;
-        color: #333333;
-      }
-    }
-    .switch-right {
-      @include vertical_center();
-      $param: (flex flex)  (justifyContent flex-start);
-      @include flexSet($param);
-      width: 102 / $unit * $symbol;
-      height: 62 / $unit * $symbol;
-      padding: {
-        left: 3 / $unit * $symbol;
-        right: 3 / $unit * $symbol;
-      }
-      background: #4d7bfe;
-      border-radius: 30 / $unit * $symbol;
-      .right-btn {
-        width: 56 / $unit * $symbol;
-        height: 56 / $unit * $symbol;
-        background: #fff;
-        border-radius: 50%;
-      }
-    }
-    div.switch-active {
-      $param: (flex flex)  (justifyContent flex-end);
-      @include flexSet($param);
-    }
-  }
-  &-sides {
-    @include vertical_center_horizontal_between();
-    width: 100%;
-    height: 99 / $unit * $symbol;
-    .sides-left {
-      $param: (flex flex) (alignItems center) (justifyContent flex-start);
-      @include flexSet($param);
-      width: 30%;
-      height: 100%;
-      .left-text {
-        font-size: 30 / $unit * $symbol;
-        color: #333333;
-      }
-      i {
-        margin: {
-          right: 15 / $unit * $symbol;
-        }
-        font-size: 12 / $unit * $symbol;
-        color: #333333;
-      }
-    }
-    .sides-center {
-      @include vertical_center();
-      height: 100%;
-      margin: {
-        left: 30 / $unit * $symbol;
-      }
-      font-size: 30 / $unit * $symbol;
-      color: #333333;
-    }
-    .sides-right {
-      $param: (flex flex) (alignItems center) (justifyContent flex-end);
-      @include flexSet($param);
-      flex: 1;
-      height: 100%;
-      input {
-        height: 100%;
-        text-align: right;
-        font-size: 30 / $unit * $symbol;
-        color: #333333;
-      }
-      input::-webkit-input-placeholder {
-        font-size: 30 / $unit * $symbol;
-        color: #999999;
-      }
-      i {
-        margin: {
-          left: 15 / $unit * $symbol;
-        }
-        font-size: 30 / $unit * $symbol;
-        color: #999999;
-      }
-      .right-text {
-        margin: {
-          left: 15 / $unit * $symbol;
-        }
-        font-size: 30 / $unit * $symbol;
-        color: #333333;
-      }
-    }
-  }
-  &-center {
-    @include vertical_center_horizontal_between();
-    width: 100%;
-    height: 99 / $unit * $symbol;
-    .center-left {
-      $param: (flex flex) (alignItems center) (justifyContent flex-start);
-      @include flexSet($param);
-      width: 30%;
-      height: 100%;
-      .left-text {
-        font-size: 30 / $unit * $symbol;
-        color: #333333;
-      }
-      i {
-        margin: {
-          right: 15 / $unit * $symbol;
-        }
-        font-size: 12 / $unit * $symbol;
-        color: #333333;
-      }
-    }
-    .center-right {
-      @include vertical_center_horizontal_between();
-      flex: 1;
-      height: 100%;
-      input {
-        flex: 1;
-        height: 100%;
-        font-size: 30 / $unit * $symbol;
-        color: #333333;
-      }
-      input::-webkit-input-placeholder {
-        font-size: 30 / $unit * $symbol;
-        color: #999999;
-      }
-      .right-code {
-        font-size: 27 / $unit * $symbol;
-        color: #4d7bfe;
-      }
     }
   }
 }
