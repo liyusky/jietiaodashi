@@ -3,7 +3,7 @@
   <section class="title">
     <div class="title-left">
       <div class="left-content" @click="back">
-        <i class="iconfont icon-arrow-left"></i>
+        <i class="iconfont icon-cong"></i>
         <span v-if="title.leftText">{{title.leftText}}</span>
       </div>
     </div>
@@ -22,13 +22,6 @@
 </template>
 
 <script>
-  // title: {
-  //   contentText: '', 中间内容
-  //   leftText: '', 左边箭头后文字
-  //   rightText: '', 右边文字内容
-  //   icon: '', 右边icon
-  //   svg: '', 右边svg
-  // },
 export default {
   name: 'titleComponent',
   props: ['title'],

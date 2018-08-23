@@ -16,8 +16,45 @@ module.exports = {
         svg: '右边svg'
       }`,
   button: `{
-        type: 'default full inverse group-dafault group-other',
-        firstName: '按钮名字',
-        secondName: '按钮名字',
-      }`
+        default: {
+          type: 'primary full default',
+          text: '大按钮文字'
+        },
+        group: [
+          {
+            text: '左边按钮文字',
+            class: 'primary 蓝底白字'
+          },
+          {
+            text: '拒绝',
+            class: 'danger 红底白字 / default 白底蓝字'
+          }
+        ]
+      }`,
+  'detail-list': `[
+        {
+          type: 'total',
+          time: '2012-11-11',
+          pay: '11111',
+          income: '22222',
+          icon: 'cong'
+        }, {
+          type: 'double',
+          title: '提现',
+          count: '-3,049.00',
+          time: '11-19  15:14  周三',
+          remnant: '余额:0.05',
+          icon: 'cong'
+        }
+      ]`,
+  'billboard-list': `[
+        {
+          type: 'guide',
+          svg: '',
+          key: '',
+          value: '',
+          icon: '',
+          target: ''
+        }
+      ]`
 }

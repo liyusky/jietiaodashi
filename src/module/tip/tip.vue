@@ -2,7 +2,7 @@
   <!-- s  -->
   <section class="tip" :class="['tip-' + tip.type, 'tip-theme-' + tip.theme]" @click="toggleSelected">
     <i class="iconfont" v-if="tip.icon" :class="['icon-' + tip.icon, {selected: tip.selected}]"></i>
-    <svg v-if="tip.svg" class="icon" aria-hidden="true">
+    <svg v-if="'icon-' + tip.svg" class="icon" aria-hidden="true">
       <use :xlink:href="tip.svg"></use>
     </svg>
     <span class="tip-content" v-if="tip.content">{{tip.content}}</span>
@@ -32,14 +32,6 @@ export default {
     }
   },
   methods: {
-    switchModal () {
-      this.modalSwitch = !this.modalSwitch
-      if (this.modalSwitch) this.$emit('SWITCH_MODAL_EVENT', this.modalSwitch)
-    },
-    switchProtocol () {
-      this.protocolSwitch = !this.protocolSwitch
-      if (this.protocolSwitch) this.$emit('SWITCH_PROTOCOL_EVENT', this.protocolSwitch)
-    },
     protocol () {
       this.$emit('TRAGET_PROTOCOL_EVENT')
     },

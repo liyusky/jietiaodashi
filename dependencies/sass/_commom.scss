@@ -11,6 +11,13 @@ button {
   }
 }
 
+.padding-horizontal-24 {
+  padding: {
+    left: 24 / $unit * $symbol;
+    right: 24 / $unit * $symbol;
+  }
+}
+
 .padding-horizontal-30 {
   padding: {
     left: 30 / $unit * $symbol;
@@ -18,8 +25,102 @@ button {
   }
 }
 
+.padding-horizontal-24 {
+  padding: {
+    left: 24 / $unit * $symbol;
+    right: 24 / $unit * $symbol;
+  }
+}
+
+.padding-vertical-15 {
+  padding: {
+    top: 15 / $unit * $symbol;
+    bottom: 15 / $unit * $symbol;
+  }
+}
+
+.padding-top-126 {
+  padding: {
+    top: 126 / $unit * $symbol;
+  }
+}
+
+.padding-left-30 {
+  padding: {
+    left: 30 / $unit * $symbol;
+  }
+}
+
+.padding-right-30 {
+  padding: {
+    right: 30 / $unit * $symbol;
+  }
+}
+
 .margin-bottom-21 {
   margin: {
     bottom: 21 / $unit * $symbol;
+  }
+}
+
+.margin-right-12 {
+  margin: {
+    right: 12 / $unit * $symbol;
+  }
+}
+
+.margin-right-24 {
+  margin: {
+    right: 24 / $unit * $symbol;
+  }
+}
+
+.font-60 {
+  font-size: 60 / $unit * $symbol;
+}
+
+.font-36 {
+  font-size: 36 / $unit * $symbol;
+}
+
+.font-30 {
+  font-size: 30 / $unit * $symbol;
+}
+
+.font-27 {
+  font-size: 27 / $unit * $symbol;
+}
+
+.font-24 {
+  font-size: 24 / $unit * $symbol;
+}
+
+.color-deep-black {
+  color: #000;
+}
+
+.color-light-black {
+  color: #666;
+}
+
+.color-white {
+  color: #666;
+}
+
+.color-grey {
+  color: #c7c7cc;
+}
+
+.color-light-grey {
+  color: #999999;
+}
+
+.border-radius-12 {
+  border-radius: 12 / $unit * $symbol;
+}
+
+.border-bottom-1 {
+  border: {
+    bottom: 1px solid #dddddd;
   }
 }

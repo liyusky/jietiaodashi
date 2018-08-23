@@ -15,6 +15,7 @@
   border: {
     bottom: 1px solid #cbcbcb;
   }
+  background-color: #fff;
   &-content {
     @include center();
     width: 100%;
@@ -27,10 +28,15 @@
   }
   &-left {
     left: 0;
+    left: 30 / $unit * $symbol;
     @include horizontal_center();
     height: 100%;
     .left-content {
       @include vertical_center();
+      height: 100%;
+      padding: {
+        top: 42 / $unit * $symbol;
+      }
       i {
         font-size: 39 / $unit * $symbol;
         color: #333333;

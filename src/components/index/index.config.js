@@ -10,11 +10,12 @@ module.exports = {
     'Url': false
   },
   components: {
+    'billboard-list': false,
     'button': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
-    'tip': true,
-    'title': true
+    'tip': false,
+    'title': false
   }
 }

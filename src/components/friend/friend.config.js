@@ -1,5 +1,5 @@
 module.exports = {
-  router: false,
+  router: true,
   vuex: {
     'mutations': false,
     'state': false
@@ -10,6 +10,7 @@ module.exports = {
     'Url': false
   },
   components: {
+    'billboard-list': false,
     'button': false,
     'detail-list': false,
     'inputs': false,

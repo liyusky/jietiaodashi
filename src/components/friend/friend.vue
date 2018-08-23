@@ -15,8 +15,6 @@ export default {
     }
   },
   components: {
-    TipComponent,
-    TitleComponent
     // include components
   }
 }

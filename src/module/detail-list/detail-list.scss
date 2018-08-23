@@ -4,37 +4,63 @@
   @include vertical_direction();
   width: 100%;
   height: 100%;
-  .list-item-default {
-    @include center();
+  .list-item {
     flex-grow: 1;
     width: 100%;
-  }
-  .list-item-double {
-    @include horizontal_between();
-    min-height: 120 / $unit * $symbol;
-    width: 100%;
-    .item-content {
-      @include vertical_direction();
+    .item-default {
+      @include center();
       flex-grow: 1;
-      height: 100%;
-      padding: {
-        top: 21 / $unit * $symbol;
-        bottom: 21 / $unit * $symbol;
-      }
-      .content-tip {
-        @include vertical_center_horizontal_between();
+      width: 100%;
+    }
+    .item-double {
+      @include vertical_center_horizontal_between();
+      height: 120 / $unit * $symbol;
+      width: 100%;
+      .item-content {
+        @include vertical_direction();
         flex-grow: 1;
-        width: 100%;
+        height: 100%;
+        padding: {
+          top: 21 / $unit * $symbol;
+          bottom: 21 / $unit * $symbol;
+          right: 15 / $unit * $symbol;
+        }
+        .content-tip {
+          @include vertical_center_horizontal_between();
+          flex-grow: 1;
+          width: 100%;
+        }
+      }
+      .item-icon {
+        @include vertical_center();
+        width: 60 / $unit * $symbol;
+        height: 100%;
+        padding: {
+          right: 30 / $unit * $symbol;
+        }
       }
     }
-    height: 100%;
-    .item-icon {
-      @include vertical_center();
-      width: 57 / $unit * $symbol;
-      height: 100%;
+    .item-total {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 102 / $unit * $symbol;
       padding: {
-        left: 15 / $unit * $symbol;
+        left: 36 / $unit * $symbol;
+        right: 36 / $unit * $symbol;
       }
-    }
+      background-color: #f5f5f5;
+      .total-content {
+        @include vertical_direction_between();
+        flex-grow: 1;
+        height: 100%;
+        padding: {
+          top: 15 / $unit * $symbol;
+          bottom: 15 / $unit * $symbol;
+        }
+        .content-balance {
+          @include vertical_center();
+        }
+      }
+    } 
   }
 }
