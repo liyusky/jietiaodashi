@@ -37,7 +37,10 @@ export default {
       dayList: [],
       year: '',
       mouth: '',
-      day: ''
+      day: '',
+      yearStr: '',
+      mouthStr: '',
+      dayStr: ''
       // end params
     }
   },
@@ -53,20 +56,23 @@ export default {
       for (var key in data[item]) {
         this.mouthList.push(key)
       }
+      this.yearStr = item
     },
     selectMouth (item, index) {
       this.day = ''
       this.mouth = item
       this.dayList = data[this.year][item]
+      this.mouthStr = item
     },
     selectDay (item, index) {
       this.day = item
+      this.dayStr = item
     },
     selectData () {
-      if (this.year) return
-      if (this.day) return
-      if (this.mouth) return
-      this.$emit('SELECT_DATA_EVENT')
+      if (!this.yearStr) return
+      if (!this.mouthStr) return
+      if (!this.dayStr) return
+      this.$emit('SELECT_DATA_EVENT', this.yearStr, this.mouthStr, this.dayStr)
     },
     cancel () {
       this.$emit('CANCEL_EVENT')

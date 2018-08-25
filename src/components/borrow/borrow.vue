@@ -69,7 +69,7 @@
           <i class="iconfont icon-yanjing"></i>
           <span>借款发布期</span>
         </div>
-        <div class="itme-default">
+        <div class="itme-default" @click="gotoPublishPage">
           <input type="text" v-model="borrowPublish" placeholder="20天(自动续借)">
           <i class="iconfont icon-arrow-right"></i>
         </div>
@@ -87,8 +87,9 @@
     <div class="borrow-submit">
       <ButtonComponent :button="button"></ButtonComponent>
     </div>
-    <DeadlineComponent :yearList="yearList" v-show="deadLineShow" @CANCEL_EVENT="closeModal"></DeadlineComponent>
-    <PurposeComponent v-show="purposeShow" @SAVE_PURPOSE_EVENT="closeModal" @BACK_EVENT="closeModal"></PurposeComponent>
+    <DeadlineComponent :yearList="yearList" v-show="deadLineShow" @SELECT_DATA_EVENT="getDeadline" @CANCEL_EVENT="closeModal"></DeadlineComponent>
+    <PurposeComponent v-show="purposeShow" @SAVE_PURPOSE_EVENT="getPurpose" @BACK_EVENT="closeModal"></PurposeComponent>
+    <PublishComponent v-show="publishShow" @SAVE_PUBLISH_EVENT="getPublish" @BACK_EVENT="closeModal"></PublishComponent>
   </section>
   <!-- e  我要借款-->
 </template>
@@ -101,6 +102,7 @@ import TipComponent from '../../module/tip/tip.vue'
 import ButtonComponent from '../../module/button/button.vue'
 import DeadlineComponent from './deadline/deadline.vue'
 import PurposeComponent from './purpose/purpose.vue'
+import PublishComponent from './publish/publish.vue'
 
 export default {
   name: 'BorrowComponent',
@@ -129,7 +131,8 @@ export default {
       borrowPublish: '',
       yearList: ['2017', '2018', '2019', '2020'],
       deadLineShow: false,
-      purposeShow: false
+      purposeShow: false,
+      publishShow: false
     }
   },
   components: {
@@ -139,7 +142,8 @@ export default {
     TipComponent,
     ButtonComponent,
     DeadlineComponent,
-    PurposeComponent
+    PurposeComponent,
+    PublishComponent
   },
   mounted () {
     this.scroll()
@@ -161,16 +165,30 @@ export default {
       }, 8)
     },
     gotoPurposePage () {
-      console.log(this.purposeShow)
       this.purposeShow = true
+    },
+    gotoPublishPage () {
+      this.publishShow = true
+    },
+    getPurpose (item) {
+      this.borrowPurpose = item
+      this.purposeShow = false
+    },
+    getPublish (item, switchShow) {
+      this.borrowPublish = switchShow ? item + '天(自动续借)' : item + '天'
+      this.publishShow = false
+    },
+    getDeadline (year, mouth, day) {
+      this.borrowDeadline = year + mouth + day
+      this.deadLineShow = false
     },
     openModal () {
       this.deadLineShow = true
     },
-    closeModal (item) {
-      this.borrowPurpose = item
+    closeModal () {
       this.purposeShow = false
       this.deadLineShow = false
+      this.publishShow = false
     }
   },
   watch: {}
