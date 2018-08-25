@@ -15,20 +15,16 @@
   border: {
     bottom: 1px solid #cbcbcb;
   }
-  &-content {
-    @include center();
-    width: 100%;
-    height: 100%;
-  }
+  background-color: #fff;
   &-left, &-right {
     position: absolute;
-    top: 0;
+    top: 42 / $unit * $symbol;
     z-index: 99;
+    height: 84 / $unit * $symbol;
   }
   &-left {
-    left: 0;
+    left: 30 / $unit * $symbol;
     @include horizontal_center();
-    height: 100%;
     .left-content {
       @include vertical_center();
       i {
@@ -45,14 +41,18 @@
     }
   }
   &-content {
+    @include center();
+    width: 100%;
+    height: 100%;
+  }
+  &-content {
     @include horizontal_center();
     font-size: 36 / $unit * $symbol;
     color: #333333;
   }
   &-right {
-    right: 0;
+    right: 30 / $unit * $symbol;
     @include horizontal_center();
-    height: 100%;
     .right-content {
       @include vertical_center();
       i {

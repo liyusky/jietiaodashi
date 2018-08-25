@@ -79,6 +79,32 @@
       $param: (flex flex)  (justifyContent flex-end);
       @include flexSet($param);
     }
+    .right-rate {
+      @include vertical_center();
+      $param: (flex flex)  (justifyContent flex-end);
+      @include flexSet($param);
+      height: 100%;
+      input {
+        width: 189 / $unit * $symbol;
+        height: 69 / $unit * $symbol;
+        text-align: center;
+        background: #f2f2f2;
+        font-size: 27 / $unit * $symbol;
+        color: #333333;
+      }
+      input::-webkit-input-placeholder {
+        font-size: 27 / $unit * $symbol;
+        color: #999999;
+      }
+      span {
+        padding: {
+          left: 15 / $unit * $symbol;
+          right: 15 / $unit * $symbol;
+        }
+        font-size: 27 / $unit * $symbol;
+        color: #333333;
+      }
+    }
   }
 }
 .default {

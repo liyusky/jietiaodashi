@@ -1,10 +1,10 @@
 <template>
-  <!-- s  -->
+  <!-- s  home-->
   <section class="home">
     <router-view></router-view>
     <TabComponent :path="$route.path"></TabComponent>
   </section>
-  <!-- e  -->
+  <!-- e  home-->
 </template>
 
 <script>

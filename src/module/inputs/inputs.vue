@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s input组件 -->
   <section class="input" :class="inputs.type">
     <div class="left">
       <i class="iconfont left-icon" :class="inputs.leftIcon" v-if="inputs.leftIcon"></i>
@@ -7,20 +7,26 @@
     </div>
     <div class="right" @click="openModal">
       <div class="right-center" v-if="inputs.centerText">{{inputs.centerText}}</div>
-      <input class="right-input" type="text" v-model="inputText" :placeholder="inputs.placeholder" @blur="getInputValue">
+      <input class="right-input" type="text" v-model="inputText" :placeholder="inputs.placeholder">
       <i class="iconfont right-icon" :class="inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
       <p class="right-text" v-if="inputs.rightText" @click="getCode">{{inputs.rightText}}</p>
       <div class="right-switch" :class="{'switch-active': switchShow}" v-if="inputs.type === 'switch'" @click="switchToggle">
         <div class="switch-btn"></div>
       </div>
+      <div class="right-rate" v-if="inputs.type === 'rate'">
+        <input type="text" placeholder="0~36%">
+        <span>%</span>
+        <input type="text" placeholder="利率金额">
+        <span>￥</span>
+      </div>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e  input组件-->
 </template>
 
 <script>
 // inputs: {
-//   type: 'default' / 'text' / 'slide' / 'icon' / 'switch' / 'center',
+//   type: 'default' / 'text' / 'slide' / 'icon' / 'switch' / 'center' / 'rate',
 //   placeholder: ''
 //   rightText: ''
 //   rightIcon: ''
@@ -61,9 +67,11 @@ export default {
       if (this.inputs.type === 'center' || this.inputs.type === 'default') {
         this.$emit('GET_CODE_EVENT')
       }
-    },
-    getInputValue () {
-      this.$emit('GET_INPUT_VALUE_EVENT', this.inputText)
+    }
+  },
+  watch: {
+    inputText (newValue, oldValue) {
+      this.$emit('GET_INPUT_TEXT_EVENT', newValue)
     }
   }
 }

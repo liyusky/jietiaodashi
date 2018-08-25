@@ -5,8 +5,8 @@
     <svg v-if="tip.svg" class="icon" aria-hidden="true">
       <use :xlink:href="tip.svg"></use>
     </svg>
-    <span class="tip-content" :class="{selected: tip.selected}" v-if="tip.content">{{tip.content}}</span>
-    <span class="tip-protocol" v-if="tip.protocol" @click="protocol">《{{tip.protocol}}》</span>
+    <span class="tip-content" v-if="tip.content">{{tip.content}}</span>
+    <span class="tip-protocol" v-if="tip.protocol" @click.stop="protocol">《{{tip.protocol}}》</span>
   </section>
   <!-- e  -->
 </template>

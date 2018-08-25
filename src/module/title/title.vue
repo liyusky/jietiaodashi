@@ -22,13 +22,13 @@
 </template>
 
 <script>
-  // title: {
-  //   contentText: '', 中间内容
-  //   leftText: '', 左边箭头后文字
-  //   rightText: '', 右边文字内容
-  //   icon: '', 右边icon
-  //   svg: '', 右边svg
-  // },
+// title: {
+//   contentText: '', 中间内容
+//   leftText: '', 左边箭头后文字
+//   rightText: '', 右边文字内容
+//   icon: '', 右边icon
+//   svg: '', 右边svg
+// },
 export default {
   name: 'titleComponent',
   props: ['title'],

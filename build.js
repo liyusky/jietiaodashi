@@ -191,11 +191,11 @@ function loop (files, dir, callback) {
 // 加入 router
 function buildRouter () {
   let pathsStr = ''
-  let componentsStr = ''  
+  let componentsStr = ''
   Object.keys(routers).forEach(name => {
     componentsStr += `const ${setComponentsName(name)} = () => import(/* webpackChunkName: '${name}' */ '../${path.relative('./src', routers[name]).replace(/\\/g, '/')}/${name}.vue')\n`
     pathsStr += 
-  `
+    `
     {
       path: '/${name}',
       name: '${name}',
@@ -204,10 +204,11 @@ function buildRouter () {
   })
   pathsStr = pathsStr.substr(0, pathsStr.length - 1) + '\n\t'
   componentsStr = componentsStr.substr(0, componentsStr.length - 1)
-  Template.router = Template.router.replace('// include path', pathsStr)
-  Template.router = Template.router.replace('// include components', componentsStr)
-  Template.router = Template.router.replace(/\t/, '  ')
-  createFile('./src/router/router.js', Template.router, true)
+  let routerStr = Template.router
+  routerStr = routerStr.replace('// include path', pathsStr)
+  routerStr = routerStr.replace('// include components', componentsStr)
+  routerStr = routerStr.replace(/\t/, '  ')
+  createFile('./src/router/router.js', routerStr, true)
 }
 
 // 设置 完整的 config

@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s  首页-->
   <section class="index">
     <header class="index-header">
       <div class="header-bg">
@@ -21,7 +21,7 @@
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-tixian"></use>
         </svg>
-        <p>找人出借</p>
+        <p>找出借人</p>
       </div>
       <div class="nav-item">
         <svg class="icon" aria-hidden="true">
@@ -83,7 +83,7 @@
       </div>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e  首页-->
 </template>
 
 <script>
