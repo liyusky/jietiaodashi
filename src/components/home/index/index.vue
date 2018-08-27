@@ -3,7 +3,7 @@
   <section class="index">
     <header class="index-header">
       <div class="header-bg">
-        <img src="../../../assets/images/index-banner.gif">
+        <img src="https://api.vtrois.com/image/750x405">
       </div>
       <div class="header-list">
         <div class="list-item">
@@ -68,7 +68,7 @@
     </nav>
     <div class="index-message">
       <div class="message-left">
-        <img src="../../../assets/images/msg.gif">
+        <img src="https://api.vtrois.com/image/123x30">
       </div>
       <div class="message-right">
         <p>155****4568，张**成功借款1500元</p>
@@ -76,10 +76,10 @@
     </div>
     <div class="index-activity">
       <div class="activity-find">
-        <img src="../../../assets/images/activity-find.gif">
+        <img src="https://api.vtrois.com/image/750x180">
       </div>
       <div class="activity-invite">
-        <img src="../../../assets/images/activity-invite.gif">
+        <img src="https://api.vtrois.com/image/750x160">
       </div>
     </div>
   </section>

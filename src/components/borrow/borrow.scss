@@ -82,7 +82,7 @@
           color: #333333;
         }
       }
-      .itme-default, .itme-deadline {
+      .itme-default {
         flex: 1;
         @include vertical_center();
         $param: (flex flex) (justifyContent flex-end);
@@ -114,6 +114,26 @@
           color: #adadad;
         }
       }
+      .itme-deadline {
+        flex: 1;
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        height: 100%;
+        .deadline-date {
+          margin: {
+            right: 210 / $unit * $symbol;
+          }
+        }
+        span {
+          @include vertical_center();
+          height: 100%;
+          margin: {
+            left: 15 / $unit * $symbol;
+          }
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+        }
+      }
       .item-rate {
         flex: 1;
         @include vertical_center();
@@ -139,20 +159,6 @@
           }
           font-size: 27 / $unit * $symbol;
           color: #333333;
-        }
-      }
-      .itme-deadline {
-        .deadline-date {
-          @include vertical_center();
-          height: 100%;
-          margin: {
-            left: 30 / $unit * $symbol;
-          }
-          font-size: 30 / $unit * $symbol;
-          color: #333333;
-        }
-        input {
-          width: 150 / $unit * $symbol;
         }
       }
     }

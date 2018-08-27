@@ -15,7 +15,7 @@
           <span>借款金额</span>
         </div>
         <div class="itme-default">
-          <input type="text" v-model="borrowAmount" placeholder="10的倍数">
+          <input type="text" v-model="borrowAmount" placeholder="10的倍数(最大可借10000.0)">
           <span>元</span>
         </div>
       </div>
@@ -36,9 +36,9 @@
           <i class="iconfont icon-yanjing"></i>
           <span>还款期限</span>
         </div>
-        <div class="itme-deadline" @click="openModal">
-          <span class="deadline-date">2017-8-54</span>
-          <input type="text" v-model="borrowDeadline" placeholder="0">
+        <div class="itme-deadline">
+          <span class="deadline-date" @click="openModal">{{borrowDate}}</span>
+          <span>{{borrowDeadline}}</span>
           <span>天</span>
         </div>
       </div>
@@ -103,6 +103,7 @@ import ButtonComponent from '../../module/button/button.vue'
 import DeadlineComponent from './deadline/deadline.vue'
 import PurposeComponent from './purpose/purpose.vue'
 import PublishComponent from './publish/publish.vue'
+// import data from '../../data/data'
 
 export default {
   name: 'BorrowComponent',
@@ -125,11 +126,12 @@ export default {
       borrowAmount: '',
       ratePercent: '',
       rateAmount: '',
-      borrowDeadline: '',
+      borrowDeadline: '7',
+      borrowDate: '',
       borrowPurpose: '',
       borrowObject: '',
       borrowPublish: '',
-      yearList: ['2017', '2018', '2019', '2020'],
+      yearList: ['2018', '2019', '2020'],
       deadLineShow: false,
       purposeShow: false,
       publishShow: false
@@ -147,8 +149,17 @@ export default {
   },
   mounted () {
     this.scroll()
+    this.getDate(7)
   },
   methods: {
+    getDate (AddDayCount) {
+      var date = new Date()
+      date.setDate(date.getDate() + AddDayCount)
+      var y = date.getFullYear()
+      var m = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
+      var d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+      this.borrowDate = y + '-' + m + '-' + d
+    },
     backPage () {
       this.$router.back(-1)
     },
@@ -179,7 +190,15 @@ export default {
       this.publishShow = false
     },
     getDeadline (year, mouth, day) {
-      this.borrowDeadline = year + mouth + day
+      var date = new Date()
+      date.setHours(0)
+      date.setMinutes(0)
+      date.setSeconds(0)
+      date.setMilliseconds(0)
+      var date1 = new Date(year, mouth - 1, day)
+      var timeDiff = date1.getTime() - date.getTime()
+      this.borrowDeadline = parseInt(timeDiff / 1000 / 60 / 60 / 24) + 1
+      this.borrowDate = year + '-' + mouth + '-' + day
       this.deadLineShow = false
     },
     openModal () {
@@ -191,7 +210,11 @@ export default {
       this.publishShow = false
     }
   },
-  watch: {}
+  watch: {
+    rateAmount (newNum, oldNum) {
+      this.rateAmount = this.ratePercent * this.borrowAmount
+    }
+  }
 }
 </script>
 

@@ -72,7 +72,11 @@ export default {
       if (!this.yearStr) return
       if (!this.mouthStr) return
       if (!this.dayStr) return
-      this.$emit('SELECT_DATA_EVENT', this.yearStr, this.mouthStr, this.dayStr)
+      // var date = new Date()
+      var y = parseInt(this.yearStr)
+      var m = parseInt(this.mouthStr)
+      var d = parseInt(this.dayStr)
+      this.$emit('SELECT_DATA_EVENT', y, m, d)
     },
     cancel () {
       this.$emit('CANCEL_EVENT')
