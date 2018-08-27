@@ -37,7 +37,8 @@ function resolvePath (dir, name, type) {
   let types = {
     vue: 'vue',
     config: 'config.js',
-    js: 'js'
+    js: 'js',
+    sass: 'scss'
   }
   return './' + path.join(dir, `${name}.${types[type]}`).replace('\\', '\/')
 }
@@ -75,10 +76,12 @@ function formatVue (template, name, result) {
 }
 
 // 处理 sass 模板
-function formatSass (goal, name) {
-  let template = `@import '${path.relative(goal, paths.flex).replace(/\\/g, '/').replace('../', '')}';\n`
+function formatSass (goal, name, refresh) {
+  let template = `// include module\n`
+  template += `@import '${path.relative(goal, paths.flex).replace(/\\/g, '/').replace('../', '')}';\n`
   template += `@import '${path.relative(goal, paths.unit).replace(/\\/g, '/').replace('../', '')}';\n`
-  template += `.${name} {}`
+  template += `// current sass`
+  if (!refresh) template += `\n.${name} {}`
   return template
 }
 
@@ -358,6 +361,11 @@ function buildComponents (dir) {
           content = content.replace(/\/\/ start params[^]*\/\/ end params/, result.params)
           content = content.replace(/\n\/\/ include dependence[^]*export default {/, result.dependence)
           content = content.replace(/,\n  components: {[^]*\/\/ include components\n  }/, result.components)
+          createFile(goal, content, true)
+        } else if (type == 'scss') {
+          content = fs.readFileSync(resolvePath(dir, name, 'sass'), 'utf8')
+          let result = formatSass(goal, name, true)
+          content = content.replace(/\/\/ include module[^]*\/\/ current sass/, result)
           createFile(goal, content, true)
         }
       })

@@ -33,8 +33,12 @@
     @include horizontal_between();
     width: 100%;
     height: 99 / $unit * $symbol;
+    .group-interval {
+      width: 30 / $unit * $symbol;
+      height: 100%;
+    }
     button {
-      width: 309 / $unit * $symbol;
+      flex-grow: 1;
     }
     .primary {
       color: #fff;
