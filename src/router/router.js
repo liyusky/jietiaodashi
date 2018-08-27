@@ -11,6 +11,7 @@ const BorrowComponent = () => import(/* webpackChunkName: 'mine' */ '../componen
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
+const PersonalInfoComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/personal-info/personal-info.vue')
 export default new Router({
   routes: [
     {
@@ -60,6 +61,11 @@ export default new Router({
       path: '/transactions',
       name: 'transactions',
       component: TransactionsComponent
+    },
+    {
+      path: '/personal-info',
+      name: 'personal-info',
+      component: PersonalInfoComponent
     }
   ]
 })

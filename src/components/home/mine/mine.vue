@@ -3,7 +3,7 @@
   <section class="mine">
     <div class="mine-information padding-horizontal-24 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
-        <div class="detail-portrait">
+        <div class="detail-portrait" @click="gotoPage('personal-info')">
           <img src="https://api.vtrois.com/image/250x205">
         </div>
         <div class="detail-content">
@@ -65,6 +65,11 @@ export default {
   },
   methods: {
     target (page) {
+      this.$router.push({
+        name: page
+      })
+    },
+    gotoPage (page) {
       this.$router.push({
         name: page
       })

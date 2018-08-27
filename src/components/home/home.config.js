@@ -1,6 +1,6 @@
 module.exports = {
   content: '主页',
-  router: true,
+  router: false,
   vuex: {
     'mutations': false,
     'state': false
