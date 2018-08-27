@@ -2,12 +2,12 @@
   <!-- s  -->
   <ul class="detail-list">
     <li class="list-item" v-for="(item, index) in detailList" :key="index">
-      <div class="item-title padding-left-30" v-if="item.type == 'title'">{{item.content}}</div>
+      <div class="item-title padding-left-30 font-27 color-black" v-if="item.type == 'title'">{{item.content}}</div>
       <div class="item-default" v-else-if="item.type == 'default'">
         <p>{{item.key}}</p>
         <p>{{item.value}}</p>
       </div>
-      <div class="item-total" v-else-if="item.type == 'total'">
+      <div class="item-total border-bottom-1" v-else-if="item.type == 'total'">
         <div class="total-content">
           <div class="content-time font-30">{{item.time}}</div>
           <div class="content-balance color-light-grey font-24">

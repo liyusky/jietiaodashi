@@ -2,7 +2,7 @@
   <!-- s 账单 -->
   <section class="transactions padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
-    <DetailListComponent :detailList="detailList"></DetailListComponent>
+    <DetailListComponent class="bg-write" :detailList="detailList"></DetailListComponent>
   </section>
   <!-- e 账单 -->
 </template>

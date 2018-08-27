@@ -86,6 +86,11 @@
   @include flexSet($param);
 }
 
+@mixin vertical_end () {
+  $param: (flex flex) (alignItems flex-end);
+  @include flexSet($param);
+}
+
 @mixin vertical_center_horizontal_between () {
   $param: (flex flex) (alignItems center) (justifyContent space-between);
   @include flexSet($param);
