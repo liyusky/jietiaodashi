@@ -10,7 +10,6 @@
     @include column_center();
     width: 100%;
     height: 417 / $unit * $symbol;
-    background-color: #fff;
     padding: {
       top: 39 / $unit * $symbol;
       bottom: 48 / $unit * $symbol;
@@ -19,5 +18,9 @@
       width: 141 / $unit * $symbol;
       height: 141 / $unit * $symbol;
     }
+  }
+  .balance-btn {
+    width: 100%;
+    height: 135 / $unit * $symbol;
   }
 }

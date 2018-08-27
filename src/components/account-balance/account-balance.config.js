@@ -24,7 +24,26 @@ module.exports = {
           }
         ]
       }`,
-    'detail-list': false,
+    'detail-list': `[
+        {
+          type: 'title',
+          content: '本月收支明细'
+        },
+        {
+          type: 'double',
+          title: '提现',
+          count: '-3,049.00',
+          time: '11-19  15:14  周三',
+          remnant: '余额:0.05'
+        },
+        {
+          type: 'double',
+          title: '提现',
+          count: '-3,049.00',
+          time: '11-19  15:14  周三',
+          remnant: '余额:0.05'
+        }
+      ]`,
     'inputs': false,
     'modals': false,
     'tip': false,

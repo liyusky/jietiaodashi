@@ -14,11 +14,6 @@
 </template>
 
 <script>
-// button: {
-// type: 'default': 默认样式 /'full': 满屏 'inverse': 白底蓝框 / 'group-dafault': 多个默认 /'group-other'
-// firstName: ''  按钮名字
-// secondName: ''  按钮名字
-// }
 export default {
   name: 'ButtonComponent',
   props: ['button'],

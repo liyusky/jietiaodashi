@@ -33,6 +33,13 @@ module.exports = {
       }`,
   'detail-list': `[
         {
+          type: 'title',
+          content: ''
+        }, {
+          type: 'default',
+          key: '',
+          value: ''
+        }, {
           type: 'total',
           time: '2012-11-11',
           pay: '11111',
