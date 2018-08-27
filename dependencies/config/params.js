@@ -56,5 +56,10 @@ module.exports = {
           icon: '',
           target: ''
         }
-      ]`
+      ]`,
+  'work-card': `{
+        portrait: '头像地址',
+        name: '姓名',
+        money: '名字'
+      }`
 }

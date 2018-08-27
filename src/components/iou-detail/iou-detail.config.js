@@ -1,4 +1,5 @@
 module.exports = {
+  content: '欠条详情',
   router: true,
   vuex: {
     'mutations': false,
@@ -29,25 +30,39 @@ module.exports = {
       }`,
     'detail-list': `[
         {
-          type: 'total',
-          time: '2012-11-11',
-          pay: '11111',
-          income: '22222',
-          icon: 'cong'
-        }, {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05',
-          icon: 'cong'
+          type: 'default',
+          key: '本金：',
+          value: '0元'
+        },
+        {
+          type: 'default',
+          key: '年利率：',
+          value: '10%'
+        },
+        {
+          type: 'default',
+          key: '借款日：',
+          value: '2017-06-18'
+        },
+        {
+          type: 'default',
+          key: '到期日：',
+          value: '2017-07-18'
         }
       ]`,
     'inputs': false,
     'modals': false,
-    'tip': false,
+    'tip': `{
+        type: 'center',
+        content: '欠条详情'
+      }`,
     'title': `{
         contentText: '欠条详情'
+      }`,
+    'work-card': `{
+        portrait: '',
+        name: '李艳霞',
+        money: '1500.00'
       }`
   }
 }

@@ -5,7 +5,48 @@
   width: 100%;
   min-height: 100vw;
   .detail-content {
+    position: relative;
     width: 699 / $unit * $symbol;
-    height: 231 / $unit * $symbol;
+    .content-work-crad {
+      width: 100%;
+      height: 330 / $unit * $symbol;
+    }
+    .content-tip {
+      width: 100%;
+      height: 81 / $unit * $symbol;
+      background-color: #f8f8f8;
+    }
+    .content-detail-list {
+      width: 100%;
+      height: 324 / $unit * $symbol;
+      padding: {
+        top: 66 / $unit * $symbol;
+        bottom: 66 / $unit * $symbol;
+      }
+    }
+    .content-button {
+      height: 285 / $unit * $symbol;
+      padding: {
+        bottom: 54 / $unit * $symbol;
+      }
+    }
+  }
+  .chamfer::before,
+  .chamfer::after {
+    position: absolute;
+    top: 66 / $unit * $symbol;
+    z-index: 100;
+    display: block;
+    content: '';
+    width: 30 / $unit * $symbol;
+    height: 30 / $unit * $symbol;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
+  .chamfer::before {
+    left: -15 / $unit * $symbol;
+  }
+  .chamfer::after {
+    right: -15 / $unit * $symbol;
   }
 }

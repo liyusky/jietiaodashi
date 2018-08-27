@@ -1,4 +1,5 @@
 module.exports = {
+  content: 'SITE_CONTENT',
   router: SITE_ROUTER,
   vuex: {SITE_VUE},
   class: {SITE_CLASS},

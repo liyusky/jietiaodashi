@@ -1,10 +1,10 @@
 <template>
-  <!-- s 收支明细 -->
+  <!-- s 账单 -->
   <section class="transactions padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <DetailListComponent :detailList="detailList"></DetailListComponent>
   </section>
-  <!-- e 收支明细 -->
+  <!-- e 账单 -->
 </template>
 
 <script>

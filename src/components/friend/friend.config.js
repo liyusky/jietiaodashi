@@ -1,4 +1,5 @@
 module.exports = {
+  content: 'undefined',
   router: true,
   vuex: {
     'mutations': false,
@@ -16,6 +17,7 @@ module.exports = {
     'inputs': false,
     'modals': false,
     'tip': false,
-    'title': false
+    'title': false,
+    'work-card': false
   }
 }

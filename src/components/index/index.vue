@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 主页 -->
   <section class="index">
     <header class="index-header">
       <div class="header-bg">
@@ -85,7 +85,7 @@
     <TabComponent :path="$route.path"></TabComponent>
     <ButtonComponent :button="button"></ButtonComponent>
   </section>
-  <!-- e  -->
+  <!-- e 主页 -->
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-  <!-- s  -->
+  <!-- s undefined -->
   <section class="friend"></section>
-  <!-- e  -->
+  <!-- e undefined -->
 </template>
 
 <script>

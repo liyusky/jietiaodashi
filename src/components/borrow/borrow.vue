@@ -1,7 +1,7 @@
 <template>
-  <!-- s  -->
+  <!-- s undefined -->
   <section class="borrow"></section>
-  <!-- e  -->
+  <!-- e undefined -->
 </template>
 
 <script>

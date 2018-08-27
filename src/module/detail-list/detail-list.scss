@@ -8,7 +8,7 @@
     flex-grow: 1;
     width: 100%;
     .item-default {
-      @include center();
+      @include vertical_center_horizontal_between();
       flex-grow: 1;
       width: 100%;
     }

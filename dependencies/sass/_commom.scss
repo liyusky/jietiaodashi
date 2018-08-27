@@ -45,6 +45,18 @@ button {
   }
 }
 
+.padding-top-21 {
+  padding: {
+    top: 21 / $unit * $symbol;
+  }
+}
+
+.padding-bottom-39 {
+  padding: {
+    bottom: 39 / $unit * $symbol;
+  }
+}
+
 .padding-left-30 {
   padding: {
     left: 30 / $unit * $symbol;
@@ -63,6 +75,12 @@ button {
   }
 }
 
+.margin-top-30 {
+  margin: {
+    top: 30 / $unit * $symbol;
+  }
+}
+
 .margin-right-12 {
   margin: {
     right: 12 / $unit * $symbol;
@@ -75,8 +93,20 @@ button {
   }
 }
 
+.font-72 {
+  font-size: 72 / $unit * $symbol;
+}
+
+.font-69 {
+  font-size: 69 / $unit * $symbol;
+}
+
 .font-60 {
   font-size: 60 / $unit * $symbol;
+}
+
+.font-51 {
+  font-size: 51 / $unit * $symbol;
 }
 
 .font-36 {
@@ -99,6 +129,10 @@ button {
   color: #000;
 }
 
+.color-black {
+  color: #333;
+}
+
 .color-light-black {
   color: #666;
 }
@@ -115,8 +149,30 @@ button {
   color: #999999;
 }
 
+.color-light-blue {
+  color: #4d7bfe;
+}
+
+.bg-write {
+  background-color: #fff;
+}
+
+.border-circle {
+  border-radius: 50%;
+}
+
 .border-radius-12 {
   border-radius: 12 / $unit * $symbol;
+}
+
+.border-radius-top-12 {
+  border-top-left-radius: 12 / $unit * $symbol;
+  border-top-right-radius: 12 / $unit * $symbol;
+}
+
+.border-radius-bottom-12 {
+  border-bottom-left-radius: 12 / $unit * $symbol;
+  border-bottom-right-radius: 12 / $unit * $symbol;
 }
 
 .border-bottom-1 {

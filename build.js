@@ -43,7 +43,7 @@ function resolvePath (dir, name, type) {
 }
 
 // 处理 config 模板
-function formatConfig (router, vuexStr, classesStr, componentsStr, template) {
+function formatConfig(router, vuexStr, classesStr, componentsStr, contentStr, template) {
   if (vuexStr) {
     vuexStr = vuexStr.substr(0, vuexStr.length - 1) + '\n\t'
   }
@@ -53,6 +53,8 @@ function formatConfig (router, vuexStr, classesStr, componentsStr, template) {
   classesStr = classesStr.substr(0, classesStr.length - 1) + '\n\t'
   componentsStr = componentsStr.substr(0, componentsStr.length - 1) + '\n\t'
   template = Template.config
+  if (!contentStr) contentStr = ''
+  template = template.replace('SITE_CONTENT', contentStr)
   template = template.replace('SITE_ROUTER', router)
   template = template.replace('SITE_VUE', vuexStr)
   template = template.replace('SITE_CLASS', classesStr)
@@ -85,6 +87,8 @@ function formatComponents (dir, name, goal, refresh) {
   let dependence = '\n// include dependence\n'
   let components = ',\n\tcomponents: {'
   let params = '// start params'
+  let start = '<!-- s  -->'
+  let end = '<!-- e  -->'
   try {
     let config = require(resolvePath(dir, name, 'config'))
     for (let key in config) {
@@ -129,6 +133,10 @@ function formatComponents (dir, name, goal, refresh) {
     if (components != ',\n\tcomponents: {') components = components.substr(0, components.length - 1)
     if (params != '// start params') params = params.substr(0, params.length - 1)
     params += `\n\t\t\t// end params`
+    if (refresh) {
+      start = `<!-- s ${config.content} -->`
+      end = `<!-- e ${config.content} -->`
+    }
   } catch (error) {
     console.log(error)
   }
@@ -139,7 +147,9 @@ function formatComponents (dir, name, goal, refresh) {
   return {
     dependence,
     components,
-    params
+    params,
+    start,
+    end
   }
 }
 
@@ -173,7 +183,6 @@ function createFile (dir, content, refresh) {
   if (result) {
     logStr = `${dir} ${refreshStr}失败 ===== ${result}`
   }
-  // console.log(logStr)
 }
 
 // 循环
@@ -226,7 +235,7 @@ function initConfig() {
       classesStr += `\n\t\t'${firstChatUp(item.split('.')[0])}': false,`
     });
   }
-  configTemplate = formatConfig(false, false, classesStr, componentsStr, configTemplate)
+  configTemplate = formatConfig(false, false, classesStr, componentsStr, false, configTemplate)
 }
 
 // 更新 所有的 config 文件
@@ -247,13 +256,13 @@ function refreshConfig(dir) {
 
     if (files.includes(file)) {
       refresh = true
-      let componentsStr = '', classesStr = '', vuexStr = '', router = ''
+      let componentsStr = '', classesStr = '', vuexStr = '', contentStr = ''
       let configPath = './' + path.join(dir, `${name}.config.js`).replace('\\', '\/')
       let currentConfig = require(configPath)
       let newConfig = { ...config}
       Object.keys(newConfig).forEach(key => {
         let unit = newConfig[key]
-        if (typeof unit === 'boolean') {
+        if (typeof unit !== 'object') {
           newConfig[key] = currentConfig[key]
         }
         else if (typeof unit === 'object') {
@@ -275,10 +284,11 @@ function refreshConfig(dir) {
       })
       if (newConfig.router) routers[name] = dir
       buildRouter()
+      contentStr = newConfig.content
       for (let item in newConfig.vuex) vuexStr += `\n\t\t'${item}': ${newConfig.vuex[item]},`
       for (let item in newConfig.class) classesStr += `\n\t\t'${firstChatUp(item.split('.')[0])}': ${newConfig.class[item]},`
       for (let item in newConfig.components) componentsStr += `\n\t\t'${item}': ${newConfig.components[item]},`
-      currentTemplate = formatConfig(newConfig.router, vuexStr, classesStr, componentsStr, currentTemplate)
+      currentTemplate = formatConfig(newConfig.router, vuexStr, classesStr, componentsStr, contentStr, currentTemplate)
     }
     createFile(goal, currentTemplate, refresh)
   }
@@ -343,6 +353,8 @@ function buildComponents (dir) {
         else if (type == 'vue') {
           content = fs.readFileSync(resolvePath(dir, name, 'vue'), 'utf8')
           let result = formatComponents(dir, name, goal, true)
+          content = content.replace(/<!-- s [^\t\v\n\r\f]* -->/, result.start)
+          content = content.replace(/<!-- e [^\t\v\n\r\f]* -->/, result.end)
           content = content.replace(/\/\/ start params[^]*\/\/ end params/, result.params)
           content = content.replace(/\n\/\/ include dependence[^]*export default {/, result.dependence)
           content = content.replace(/,\n  components: {[^]*\/\/ include components\n  }/, result.components)

@@ -1,0 +1,23 @@
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+.account-balance {
+  width: 100%;
+  min-height: 100vh;
+  padding: {
+    top: 126 / $unit * $symbol;
+  }
+  .balance-card {
+    @include column_center();
+    width: 100%;
+    height: 417 / $unit * $symbol;
+    background-color: #fff;
+    padding: {
+      top: 39 / $unit * $symbol;
+      bottom: 48 / $unit * $symbol;
+    }
+    .card-portrait {
+      width: 141 / $unit * $symbol;
+      height: 141 / $unit * $symbol;
+    }
+  }
+}

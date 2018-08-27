@@ -1,4 +1,5 @@
 module.exports = {
+  content: '账单',
   router: true,
   vuex: {
     'mutations': false,
@@ -47,6 +48,7 @@ module.exports = {
     'tip': false,
     'title': `{
         contentText: '收支明细'
-      }`
+      }`,
+    'work-card': false
   }
 }
