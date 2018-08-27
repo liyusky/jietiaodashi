@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomeComponent from '../components/home/home.vue'
-import IndexComponent from '../components/home/index/index.vue'
-import FindComponent from '../components/home/find/find.vue'
-import BorrowComponent from '../components/borrow/borrow.vue'
-// import BorrowPurposeComponent from '../components/borrow-purpose/borrow-purpose.vue'
-import FriendComponent from '../components/home/friend/friend.vue'
-import MineComponent from '../components/home/mine/mine.vue'
 
 Vue.use(Router)
-
+const HomeComponent = () => import(/* webpackChunkName: 'home' */ '../components/home/home.vue')
+const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/home/index/index.vue')
+const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
+const FindComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/find/find.vue')
+const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/home/friend/friend.vue')
+const BorrowComponent = () => import(/* webpackChunkName: 'mine' */ '../components/borrow/borrow.vue')
+const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
+const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
+const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
 export default new Router({
   routes: [
     {
@@ -44,6 +45,21 @@ export default new Router({
       path: '/borrow',
       name: 'borrow',
       component: BorrowComponent
+    },
+    {
+      path: '/account-balance',
+      name: 'account-balance',
+      component: AccountBalanceComponent
+    },
+    {
+      path: '/iou-detail',
+      name: 'iou-detail',
+      component: IouDetailComponent
+    },
+    {
+      path: '/transactions',
+      name: 'transactions',
+      component: TransactionsComponent
     }
   ]
 })

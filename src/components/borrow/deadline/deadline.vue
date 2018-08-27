@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s undefined -->
   <section class="deadline">
     <div class="deadline-content">
       <div class="content-button">
@@ -21,7 +21,7 @@
       </nav>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e undefined -->
 </template>
 
 <script>
@@ -33,14 +33,6 @@ export default {
   data () {
     return {
       // start params
-      mouthList: [],
-      dayList: [],
-      year: '',
-      mouth: '',
-      day: '',
-      yearStr: '',
-      mouthStr: '',
-      dayStr: ''
       // end params
     }
   },

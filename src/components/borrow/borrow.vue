@@ -11,7 +11,7 @@
     <div class="borrow-form-top">
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-yanjing"></i>
+          <i class="iconfont icon-cong"></i>
           <span>借款金额</span>
         </div>
         <div class="itme-default">
@@ -21,7 +21,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-yanjing"></i>
+          <i class="iconfont icon-cong"></i>
           <span>年华利率</span>
         </div>
         <div class="item-rate">
@@ -33,7 +33,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-yanjing"></i>
+          <i class="iconfont icon-cong"></i>
           <span>还款期限</span>
         </div>
         <div class="itme-deadline">
@@ -46,7 +46,7 @@
     <div class="borrow-form-bottom">
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-yanjing"></i>
+          <i class="iconfont icon-cong"></i>
           <span>借款用途</span>
         </div>
         <div class="itme-default" @click="gotoPurposePage">
@@ -56,7 +56,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-yanjing"></i>
+          <i class="iconfont icon-cong"></i>
           <span>发布对象</span>
         </div>
         <div class="itme-default">
@@ -66,7 +66,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-yanjing"></i>
+          <i class="iconfont icon-cong"></i>
           <span>借款发布期</span>
         </div>
         <div class="itme-default" @click="gotoPublishPage">
@@ -120,8 +120,10 @@ export default {
         selected: 'true'
       },
       button: {
-        type: 'default',
-        firstName: '发布借条'
+        default: {
+          type: 'primary',
+          text: '发布借条'
+        }
       },
       borrowAmount: '',
       ratePercent: '',

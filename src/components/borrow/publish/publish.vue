@@ -1,11 +1,11 @@
 <template>
-  <!-- s  -->
+  <!-- s undefined -->
   <section class="publish">
     <TitlteComponent :title="title" @OTHER_EVENT="savePublish" @BACK_EVENT="back"></TitlteComponent>
       <div class="publish-form">
        <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-yanjing"></i>
+          <i class="iconfont icon-cong"></i>
           <span>借条发布期</span>
         </div>
         <div class="item-default">
@@ -16,7 +16,7 @@
       <div class="form-item">
         <div class="item-left">
           <span>自动续借</span>
-          <i class="iconfont icon-tishi1"></i>
+          <i class="iconfont icon-cong"></i>
         </div>
         <div class="item-switch" :class="{'switch-active': switchShow}" @click="switchToggle">
           <div class="switch-btn"></div>
@@ -24,7 +24,7 @@
       </div>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e undefined -->
 </template>
 
 <script>
@@ -35,13 +35,6 @@ export default {
   data () {
     return {
       // start params
-      title: {
-        contentText: '借条发布日期',
-        rightText: '保存'
-      },
-      publishData: '',
-      placeholder: '20',
-      switchShow: true
       // end params
     }
   },

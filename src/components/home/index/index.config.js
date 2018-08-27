@@ -1,4 +1,5 @@
 module.exports = {
+  content: '',
   router: true,
   vuex: {
     'mutations': false,
@@ -10,6 +11,7 @@ module.exports = {
     'Url': false
   },
   components: {
+    'billboard-list': false,
     'button': false,
     'detail-list': false,
     'inputs': false,
@@ -29,6 +31,7 @@ module.exports = {
         rightText: '右边文字内容',
         icon: '右边icon',
         svg: '右边svg'
-      }`
+      }`,
+    'work-card': false
   }
 }

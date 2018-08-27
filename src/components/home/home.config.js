@@ -1,5 +1,6 @@
 module.exports = {
-  router: false,
+  content: '主页',
+  router: true,
   vuex: {
     'mutations': false,
     'state': false
@@ -10,11 +11,13 @@ module.exports = {
     'Url': false
   },
   components: {
+    'billboard-list': false,
     'button': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'tip': false,
-    'title': false
+    'title': false,
+    'work-card': false
   }
 }

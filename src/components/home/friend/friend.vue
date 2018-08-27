@@ -1,7 +1,7 @@
 <template>
-  <!-- s  -->
+  <!-- s 我的 -->
   <section class="friend"></section>
-  <!-- e  -->
+  <!-- e 我的 -->
 </template>
 
 <script>

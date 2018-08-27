@@ -10,7 +10,7 @@
         <div class="content-input" v-if="modal.type === 'code'">
           <div class="input-code">
             <input v-model="code" type="text" maxlength="6" placeholder="输入验证码" @input="codeInputChange">
-            <i class="iconfont icon-delete" v-show="clearCodeShow" @click="clearCode"></i>
+            <i class="iconfont icon-cong" v-show="clearCodeShow" @click="clearCode"></i>
           </div>
           <div class="input-getcode">
             <button class="getcode-btn" :class="{active: getCodeShow}" :disabled="codeDisabled" @click="getCodeMessage"><div>{{getCodeText}}</div></button>

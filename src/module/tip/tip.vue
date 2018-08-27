@@ -32,14 +32,6 @@ export default {
     }
   },
   methods: {
-    switchModal () {
-      this.modalSwitch = !this.modalSwitch
-      if (this.modalSwitch) this.$emit('SWITCH_MODAL_EVENT', this.modalSwitch)
-    },
-    switchProtocol () {
-      this.protocolSwitch = !this.protocolSwitch
-      if (this.protocolSwitch) this.$emit('SWITCH_PROTOCOL_EVENT', this.protocolSwitch)
-    },
     protocol () {
       this.$emit('TRAGET_PROTOCOL_EVENT')
     },

@@ -17,6 +17,7 @@
   }
   background-color: #fff;
   &-left, &-right {
+    @include center();
     position: absolute;
     top: 42 / $unit * $symbol;
     z-index: 99;

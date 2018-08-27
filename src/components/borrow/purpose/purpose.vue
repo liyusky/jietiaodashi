@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s undefined -->
   <section class="purpose">
      <TitlteComponent :title="title" @OTHER_EVENT="savePurpose" @BACK_EVENT="back"></TitlteComponent>
       <p class="purpose-title">借款用途</p>
@@ -13,7 +13,7 @@
       <div class="purpose-upload">
         <div class="upload-photo">
           <div class="photo-add" v-if="!imgArr.length" @click="getImg">
-            <i class="iconfont icon-add"></i>
+            <i class="iconfont icon-cong"></i>
           </div>
           <div class="photo-default" v-if="imgArr.length" v-for="(item, index) in imgArr" :key="index">
             <img src="../../../assets/images/index-banner.gif">
@@ -22,7 +22,7 @@
         <p class="upload-suggest">建议附加内容，户口本，学历证明，工资单，社保信息，营业执照，房产证明...</p>
       </div>
   </section>
-  <!-- e  -->
+  <!-- e undefined -->
 </template>
 
 <script>
@@ -33,15 +33,6 @@ export default {
   data () {
     return {
       // start params
-      title: {
-        contentText: '借款用途',
-        rightText: '保存'
-      },
-      optionList: ['临时周转', '个体经营', '消费', '旅游', '装修', '教育', '派对', '出行', '投资', '结婚'],
-      textareaNum: '',
-      imgArr: [],
-      setPurposeIndex: 0,
-      purposeText: ''
       // end params
     }
   },

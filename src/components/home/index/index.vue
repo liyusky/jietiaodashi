@@ -7,11 +7,11 @@
       </div>
       <div class="header-list">
         <div class="list-item">
-          <i class="iconfont icon-haoyou1"></i>
+          <i class="iconfont icon-cong"></i>
           <p>消息</p>
         </div>
         <div class="list-item">
-          <i class="iconfont icon-add"></i>
+          <i class="iconfont icon-cong"></i>
           <p>消息</p>
         </div>
       </div>

@@ -1,34 +1,23 @@
 <template>
   <!-- s  -->
-  <section class="title">
-    <div class="title-left">
-      <div class="left-content" @click="back">
-        <i class="iconfont icon-arrow-left"></i>
-        <span v-if="title.leftText">{{title.leftText}}</span>
-      </div>
+  <section class="title color-black">
+    <div class="title-left" @click="back">
+      <i class="iconfont icon-cong font-39"></i>
+      <span class="font-30" v-if="title.leftText">{{title.leftText}}</span>
     </div>
-    <div class="title-content">{{title.contentText}}</div>
+    <div class="title-content font-36">{{title.contentText}}</div>
     <div class="title-right">
-      <div class="right-content" @click="otherBtn">
-        <span v-if="title.rightText">{{title.rightText}}</span>
-        <i class="iconfont" :class="title.icon" v-if="title.icon"></i>
-        <svg class="icon" v-if="title.svg" aria-hidden="true">
-          <use :xlink:href="title.svg"></use>
-        </svg>
-      </div>
+      <span class="font-30" v-if="title.rightText">{{title.rightText}}</span>
+      <i class="iconfont font-39" :class="title.icon" v-if="title.icon"></i>
+      <svg class="icon" v-if="title.svg" aria-hidden="true">
+        <use :xlink:href="title.svg"></use>
+      </svg>
     </div>
   </section>
   <!-- e  -->
 </template>
 
 <script>
-// title: {
-//   contentText: '', 中间内容
-//   leftText: '', 左边箭头后文字
-//   rightText: '', 右边文字内容
-//   icon: '', 右边icon
-//   svg: '', 右边svg
-// },
 export default {
   name: 'titleComponent',
   props: ['title'],
