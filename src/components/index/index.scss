@@ -1,0 +1,137 @@
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+.index {
+  width: 100vw;
+  height: 100vh;
+  padding: {
+    bottom: 99 / $unit * $symbol;
+  }
+  background-color: #f4f5f6;
+  overflow-y: auto;
+  &-header {
+    position: relative;
+    width: 100%;
+    height: 405 / $unit * $symbol;
+    .header-bg {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .header-list {
+      position: absolute;
+      top: 54 / $unit * $symbol;
+      left: 0;
+      $param: (flex flex) (alignItems center) (justifyContent flex-end);
+      @include flexSet($param);
+      width: 100%;
+      padding: {
+        left: 21 / $unit * $symbol;
+        right: 21 / $unit * $symbol;
+      }
+      .list-item {
+        @include vertical_direction();
+        @include vertical_center();
+        height: 100%;
+        padding: {
+          left: 9 / $unit * $symbol;
+          right: 9 / $unit * $symbol;
+        }
+        i {
+          font-size: 33 / $unit * $symbol;
+          color: #fff;
+        }
+        p {
+          font-size: 21 / $unit * $symbol;
+          color: #fff;
+        }
+      }
+    }
+  }
+  &-nav {
+    $param: (flex flex) (flexWrap wrap);
+    @include flexSet($param);
+    width: 100%;
+    background-color: #fff;
+    .nav-item {
+      @include vertical_direction();
+      @include center();
+      width: 25%;
+      height: 156 / $unit * $symbol;
+      .icon {
+        width: 51 / $unit * $symbol;
+        height: 51 / $unit * $symbol;
+      }
+      p {
+        @include center();
+        height: 63 / $unit * $symbol;
+        font-size: 27 / $unit * $symbol;
+        color: #333333;
+      }
+    }
+  }
+  &-message {
+    @include vertical_center();
+    width: 100%;
+    height: 78 / $unit * $symbol;
+    padding: {
+      left: 21 / $unit * $symbol;
+      right: 21 / $unit * $symbol;
+    }
+    border: {
+      top: 2px solid #f6f6f6;
+    }
+    background-color: #fff;
+    .message-left {
+      width: 123 / $unit * $symbol;
+      height: 30 / $unit * $symbol;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .message-right {
+      padding: {
+        left: 21 / $unit * $symbol;
+      }
+      font-size: 24 / $unit * $symbol;
+      color: #222222;
+    }
+  }
+  &-activity {
+    width: 100%;
+    padding: {
+      top: 18 / $unit * $symbol;
+      bottom: 18 / $unit * $symbol;
+    }
+    .activity-find {
+      @include vertical_center();
+      width: 100%;
+      height: 222 / $unit * $symbol;
+      margin: {
+        bottom: 18 / $unit * $symbol;
+      }
+      padding: {
+        left: 21 / $unit * $symbol;
+        right: 21 / $unit * $symbol;
+      }
+      background-color: #fff;
+      img {
+        width: 100%;
+        height: 180 / $unit * $symbol;
+      }
+    }
+    .activity-invite {
+      @include vertical_center();
+      width: 100%;
+      height: 160 / $unit * $symbol;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ module.exports = {
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -24,6 +25,7 @@ module.exports = {
           }
         ]
       }`,
+    'deadline': false,
     'detail-list': `[
         {
           type: 'title',
@@ -46,6 +48,7 @@ module.exports = {
       ]`,
     'inputs': false,
     'modals': false,
+    'tab': false,
     'tip': false,
     'title': `{
         contentText: '账户余额',

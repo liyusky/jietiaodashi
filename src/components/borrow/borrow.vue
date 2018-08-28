@@ -4,7 +4,7 @@
     <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
     <div class="borrow-tip">
       <div class="tip-icon">
-        <i class="iconfont icon-dunpai"></i>
+        <i class="iconfont icon-cong"></i>
       </div>
       <p class="tip-text" id="tip">警惕"扫码退款"转账到安全账户"等骗术",请保护好你的资金安全</p>
     </div>
@@ -87,67 +87,55 @@
     <div class="borrow-submit">
       <ButtonComponent :button="button"></ButtonComponent>
     </div>
-    <DeadlineComponent :yearList="yearList" v-show="deadLineShow" @SELECT_DATA_EVENT="getDeadline" @CANCEL_EVENT="closeModal"></DeadlineComponent>
-    <PurposeComponent v-show="purposeShow" @SAVE_PURPOSE_EVENT="getPurpose" @BACK_EVENT="closeModal"></PurposeComponent>
-    <PublishComponent v-show="publishShow" @SAVE_PUBLISH_EVENT="getPublish" @BACK_EVENT="closeModal"></PublishComponent>
+    <!-- <DeadlineComponent v-show="deadLineShow" @SELECT_DATA_EVENT="getDeadline" @CANCEL_EVENT="closeModal"></DeadlineComponent> -->
   </section>
   <!-- e  我要借款-->
 </template>
 
 <script>
 // include dependence
-import TitleComponent from '../../module/title/title.vue'
-import InputsComponent from '../../module/inputs/inputs.vue'
-import TipComponent from '../../module/tip/tip.vue'
 import ButtonComponent from '../../module/button/button.vue'
-import DeadlineComponent from './deadline/deadline.vue'
-import PurposeComponent from './purpose/purpose.vue'
-import PublishComponent from './publish/publish.vue'
-// import data from '../../data/data'
-
+import TipComponent from '../../module/tip/tip.vue'
+import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'BorrowComponent',
   data () {
     return {
-      title: {
-        contentText: '我要借款'
-      },
-      tip: {
-        type: 'default',
-        content: '我已阅读并同意',
-        protocol: '借款服务协议',
-        icon: 'dui',
-        selected: 'true'
-      },
-      button: {
+      // start params
+      'button': {
         default: {
           type: 'primary',
           text: '发布借条'
         }
       },
-      borrowAmount: '',
-      ratePercent: '',
-      rateAmount: '',
-      borrowDeadline: '7',
+      'tip': {
+        type: 'default',
+        content: '已同意协议',
+        protocol: '借条大师协议',
+        icon: 'cong',
+        selected: 'true'
+      },
+      'title': {
+        contentText: '我要借款'
+      },
       borrowDate: '',
-      borrowPurpose: '',
+      rateAmount: '',
+      ratePercent: '',
+      borrowAmount: '',
       borrowObject: '',
+      borrowDeadline: '7',
       borrowPublish: '',
-      yearList: ['2018', '2019', '2020'],
-      deadLineShow: false,
+      borrowPurpose: '',
       purposeShow: false,
-      publishShow: false
+      deadLineShow: false
+      // end params
     }
   },
   components: {
     // include components
     TitleComponent,
-    InputsComponent,
-    TipComponent,
     ButtonComponent,
-    DeadlineComponent,
-    PurposeComponent,
-    PublishComponent
+    TipComponent
   },
   mounted () {
     this.scroll()
@@ -183,14 +171,14 @@ export default {
     gotoPublishPage () {
       this.publishShow = true
     },
-    getPurpose (item) {
-      this.borrowPurpose = item
-      this.purposeShow = false
-    },
-    getPublish (item, switchShow) {
-      this.borrowPublish = switchShow ? item + '天(自动续借)' : item + '天'
-      this.publishShow = false
-    },
+    // getPurpose (item) {
+    //   this.borrowPurpose = item
+    //   this.purposeShow = false
+    // },
+    // getPublish (item, switchShow) {
+    //   this.borrowPublish = switchShow ? item + '天(自动续借)' : item + '天'
+    //   this.publishShow = false
+    // },
     getDeadline (year, mouth, day) {
       var date = new Date()
       date.setHours(0)
@@ -207,9 +195,7 @@ export default {
       this.deadLineShow = true
     },
     closeModal () {
-      this.purposeShow = false
       this.deadLineShow = false
-      this.publishShow = false
     }
   },
   watch: {

@@ -6,6 +6,7 @@ module.exports = {
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -28,6 +29,7 @@ module.exports = {
           }
         ]
       }`,
+    'deadline': false,
     'detail-list': `[
         {
           type: 'default',
@@ -52,6 +54,7 @@ module.exports = {
       ]`,
     'inputs': false,
     'modals': false,
+    'tab': false,
     'tip': `{
         type: 'center',
         content: '欠条详情'

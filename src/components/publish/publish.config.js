@@ -1,6 +1,6 @@
 module.exports = {
-  content: '个人信息',
-  router: true,
+  content: '',
+  router: false,
   vuex: {
     'mutations': false,
     'state': false

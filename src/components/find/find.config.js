@@ -1,5 +1,5 @@
 module.exports = {
-  content: '个人信息',
+  content: 'undefined',
   router: true,
   vuex: {
     'mutations': false,
@@ -18,7 +18,7 @@ module.exports = {
     'detail-list': false,
     'inputs': false,
     'modals': false,
-    'tab': false,
+    'tab': `''`,
     'tip': false,
     'title': false,
     'work-card': false

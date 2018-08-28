@@ -2,8 +2,12 @@
   <!-- s  -->
   <section class="button" :class="button.type">
     <div class="button-group" v-if="button.group">
-      <button :class="item.class" v-for="(item, index) in button.group" :key="index">
-        <div>{{item.text}}</div>
+      <button :class="button.group[0].class">
+        <div>{{button.group[0].text}}</div>
+      </button>
+      <div class="group-interval"></div>
+      <button :class="button.group[1].class">
+        <div>{{button.group[1].text}}</div>
       </button>
     </div>
     <button v-if="button.default" :class="button.default.type">

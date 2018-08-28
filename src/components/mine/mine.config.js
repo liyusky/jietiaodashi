@@ -1,5 +1,5 @@
 module.exports = {
-  content: '个人信息',
+  content: '',
   router: true,
   vuex: {
     'mutations': false,
@@ -12,13 +12,22 @@ module.exports = {
     'Url': false
   },
   components: {
-    'billboard-list': false,
+    'billboard-list': `[
+        {
+          type: 'guide',
+          svg: '',
+          key: '',
+          value: '',
+          icon: '',
+          target: ''
+        }
+      ]`,
     'button': false,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
-    'tab': false,
+    'tab': `''`,
     'tip': false,
     'title': false,
     'work-card': false
