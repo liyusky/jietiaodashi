@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 借条发布期 -->
   <section class="publish">
     <TitlteComponent :title="title" @OTHER_EVENT="savePublish" @BACK_EVENT="back"></TitlteComponent>
       <div class="publish-form">
@@ -24,7 +24,7 @@
       </div>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e 借条发布期 -->
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 module.exports = {
-  content: '忘记密码',
+  content: '常见问题',
   router: true,
   vuex: {
     'mutations': false,
@@ -13,12 +13,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'button': `{
-        default: [{
-          type: 'primary',
-          text: '提交'
-        }]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
@@ -27,7 +22,8 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '忘记密码'
+        contentText: '常见问题',
+        icon: 'cong'
       }`,
     'work-card': false
   }

@@ -1,5 +1,5 @@
 module.exports = {
-  content: 'undefined',
+  content: '发现',
   router: true,
   vuex: {
     'mutations': false,

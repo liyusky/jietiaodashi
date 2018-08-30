@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '首页',
   router: true,
   vuex: {
     'mutations': false,

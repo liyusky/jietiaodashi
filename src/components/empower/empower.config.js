@@ -1,5 +1,5 @@
 module.exports = {
-  content: 'undefined',
+  content: '登录',
   router: true,
   vuex: {
     'mutations': false,

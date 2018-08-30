@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 借款用途 -->
   <section class="purpose">
      <TitlteComponent :title="title" @OTHER_EVENT="savePurpose" @BACK_EVENT="back"></TitlteComponent>
       <p class="purpose-title">借款用途</p>
@@ -22,7 +22,7 @@
         <p class="upload-suggest">建议附加内容，户口本，学历证明，工资单，社保信息，营业执照，房产证明...</p>
       </div>
   </section>
-  <!-- e  -->
+  <!-- e 借款用途 -->
 </template>
 
 <script>

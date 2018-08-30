@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 忘记密码 -->
   <section class="forget-password">
     <TitleComponent :title="title" @BACK_EVENT="backPage('empower')"></TitleComponent>
     <div class="password-form">
@@ -23,7 +23,7 @@
       <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e 忘记密码 -->
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '借款用途',
   router: false,
   vuex: {
     'mutations': false,

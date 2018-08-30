@@ -4,10 +4,10 @@ import Router from 'vue-router'
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
-const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
+const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const BorrowComponent = () => import(/* webpackChunkName: 'borrow' */ '../components/borrow/borrow.vue')
-const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
+const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/friend/friend.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
@@ -18,6 +18,7 @@ const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' 
 const SetPayPasswordComponent = () => import(/* webpackChunkName: 'set-pay-password' */ '../components/set-pay-password/set-pay-password.vue')
 const SettingsComponent = () => import(/* webpackChunkName: 'settings' */ '../components/settings/settings.vue')
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
+const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 export default new Router({
   routes: [
     {
@@ -31,9 +32,9 @@ export default new Router({
       component: AccountBalanceComponent
     },
     {
-      path: '/find',
-      name: 'find',
-      component: FindComponent
+      path: '/familar-question',
+      name: 'familar-question',
+      component: FamilarQuestionComponent
     },
     {
       path: '/borrow',
@@ -41,14 +42,14 @@ export default new Router({
       component: BorrowComponent
     },
     {
-      path: '/empower',
-      name: 'empower',
-      component: EmpowerComponent
-    },
-    {
       path: '/forget-password',
       name: 'forget-password',
       component: ForgetPasswordComponent
+    },
+    {
+      path: '/find',
+      name: 'find',
+      component: FindComponent
     },
     {
       path: '/friend',
@@ -99,6 +100,11 @@ export default new Router({
       path: '/transactions',
       name: 'transactions',
       component: TransactionsComponent
+    },
+    {
+      path: '/empower',
+      name: 'empower',
+      component: EmpowerComponent
     }
   ]
 })

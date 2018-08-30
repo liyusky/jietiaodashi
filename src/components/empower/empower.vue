@@ -1,5 +1,5 @@
 <template>
-  <!-- s undefined -->
+  <!-- s 登录 -->
   <section class="empower">
     <div class="empower-header">
       <img src="https://api.vtrois.com/image/750x582">
@@ -28,7 +28,7 @@
       </div>
     </div>
   </section>
-  <!-- e undefined -->
+  <!-- e 登录 -->
 </template>
 
 <script>

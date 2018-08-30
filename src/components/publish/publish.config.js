@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '借条发布期',
   router: false,
   vuex: {
     'mutations': false,
