@@ -46,6 +46,7 @@ module.exports = {
       ]`,
     'inputs': false,
     'modals': false,
+    'pay-password': false,
     'tip': false,
     'title': `{
         contentText: '账户余额',

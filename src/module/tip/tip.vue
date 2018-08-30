@@ -15,13 +15,6 @@
 export default {
   name: 'TipComponent',
   props: ['tip'],
-  data () {
-    return {
-      protocolSwitch: false,
-      agresSwitch: false,
-      modalSwitch: false
-    }
-  },
   methods: {
     protocol () {
       this.$emit('TRAGET_PROTOCOL_EVENT')

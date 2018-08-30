@@ -1,0 +1,14 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.settings {
+  width: 100%;
+  padding: {
+    top: 126 / $unit * $symbol;
+  }
+  .settings-billboard {
+    width: 100%;
+    height: 501 / $unit * $symbol;
+  }
+}

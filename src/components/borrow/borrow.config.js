@@ -16,6 +16,7 @@ module.exports = {
     'detail-list': false,
     'inputs': false,
     'modals': false,
+    'pay-password': false,
     'tip': false,
     'title': false,
     'work-card': false

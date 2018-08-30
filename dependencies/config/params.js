@@ -16,10 +16,10 @@ module.exports = {
         svg: '右边svg'
       }`,
   button: `{
-        default: {
-          type: 'primary full default',
+        default: [{
+          type: 'primary full default wran / 白底红字',
           text: '大按钮文字'
-        },
+        }],
         group: [
           {
             text: '左边按钮文字',
@@ -67,6 +67,8 @@ module.exports = {
   'work-card': `{
         portrait: '头像地址',
         name: '姓名',
-        money: '名字'
-      }`
+        money: '名字',
+        tip: ''
+      }`,
+  'pay-password': `[]`
 }

@@ -42,4 +42,9 @@
       }
     }
   }
+  .list-item:last-child .item-content {
+    border: {
+      bottom: none !important;
+    }
+  }
 }

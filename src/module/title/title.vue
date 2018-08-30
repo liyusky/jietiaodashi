@@ -21,9 +21,6 @@
 export default {
   name: 'titleComponent',
   props: ['title'],
-  data () {
-    return {}
-  },
   methods: {
     otherBtn () {
       this.$emit('OTHER_EVENT')

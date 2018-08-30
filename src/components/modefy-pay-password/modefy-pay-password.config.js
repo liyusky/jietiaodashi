@@ -1,6 +1,6 @@
 module.exports = {
-  content: '',
-  router: false,
+  content: '修改支付密码',
+  router: true,
   vuex: {
     'mutations': false,
     'state': false
@@ -18,7 +18,13 @@ module.exports = {
     'modals': false,
     'pay-password': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '中间内容',
+        leftText: '左边箭头后文字',
+        rightText: '右边文字内容',
+        icon: '右边icon',
+        svg: '右边svg'
+      }`,
     'work-card': false
   }
 }

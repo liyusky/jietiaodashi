@@ -1,5 +1,5 @@
 module.exports = {
-  content: '我的',
+  content: '设置',
   router: true,
   vuex: {
     'mutations': false,
@@ -14,47 +14,49 @@ module.exports = {
     'billboard-list': `[
         {
           type: 'guide',
-          svg: 'cangjian',
-          key: '我的银行卡',
+          key: '支付设置',
           icon: 'chuyin',
           target: ''
         },
         {
           type: 'guide',
-          svg: 'cangjian',
-          key: '失信查询',
+          key: '提现密码重置',
           icon: 'chuyin',
           target: ''
         },
         {
           type: 'guide',
-          svg: 'cangjian',
-          key: '常见问题',
+          key: '了解我们',
           icon: 'chuyin',
           target: ''
         },
         {
           type: 'guide',
-          svg: 'cangjian',
-          key: '在线客服',
+          key: '黑名单',
           icon: 'chuyin',
           target: ''
         },
         {
           type: 'guide',
-          svg: 'cangjian',
-          key: '授信',
+          key: '意见反馈',
           icon: 'chuyin',
           target: ''
         }
       ]`,
-    'button': false,
+    'button': `{
+        default: [{
+          type: 'wran',
+          text: '安全退出'
+        }]
+      }`,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'pay-password': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '设置'
+      }`,
     'work-card': false
   }
 }
