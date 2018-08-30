@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 我的 -->
   <section class="mine">
     <div class="mine-information padding-horizontal-24 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
@@ -46,7 +46,7 @@
     </div>
     <TabComponent></TabComponent>
   </section>
-  <!-- e  -->
+  <!-- e 我的 -->
 </template>
 
 <script>
@@ -61,10 +61,38 @@ export default {
       'billboardList': [
         {
           type: 'guide',
-          svg: '',
-          key: '',
-          value: '',
-          icon: '',
+          key: '收还款计划',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '我的银行卡',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '常见问题',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '在线客服',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '授信',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '意见反馈',
+          icon: 'chuyin',
           target: ''
         }
       ],
