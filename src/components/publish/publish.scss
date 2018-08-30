@@ -1,0 +1,294 @@
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+.publish {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  padding: {
+    top: 126 / $unit * $symbol;
+  }
+  background-color: #f0f0f0;
+  &-form {
+    width: 100%;
+    padding: {
+      left: 21 / $unit * $symbol;
+      right: 21 / $unit * $symbol;
+    }
+    background-color: #fff;
+    .form-item {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 120 / $unit * $symbol;
+      border: {
+        bottom: 1px solid #e1e1e1;
+      }
+      .item-left {
+        @include vertical_center();
+        width: 30%;
+        height: 100%;
+        i {
+          margin: {
+            right: 21 / $unit * $symbol;
+          }
+          font-size: 12 / $unit * $symbol;
+          color: #4d7bfe;
+        }
+        span {
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+        }
+        .icon-tishi1 {
+          margin: {
+            left: 12 / $unit * $symbol;
+          }
+          font-size: 27 / $unit * $symbol;
+          color: #d2d2d3;
+        }
+      }
+      .item-default {
+        flex: 1;
+        @include vertical_center();
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        height: 100%;
+        input {
+          flex: 1;
+          height: 100%;
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+          text-align: right;
+        }
+        input::-webkit-input-placeholder {
+          font-size: 30 / $unit * $symbol;
+          color: #999999;
+        }
+        span {
+          margin: {
+            left: 15 / $unit * $symbol;
+          }
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+        }
+        i {
+          margin: {
+            left: 15 / $unit * $symbol;
+          }
+          font-size: 30 / $unit * $symbol;
+          color: #adadad;
+        }
+      }
+      .item-switch {
+        @include vertical_center();
+        $param: (flex flex) (justifyContent flex-start);
+        @include flexSet($param);
+        width: 102 / $unit * $symbol;
+        height: 62 / $unit * $symbol;
+        padding: {
+          left: 3 / $unit * $symbol;
+          right: 3 / $unit * $symbol;
+        }
+        background-color: #666;
+        border-radius: 30 / $unit * $symbol;
+        .switch-btn {
+          width: 56 / $unit * $symbol;
+          height: 56 / $unit * $symbol;
+          background: #fff;
+          border-radius: 50%;
+        }
+      }
+      div.switch-active {
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        background-color: #4d7bfe;
+      }
+    }
+  }
+}
+
+.purpose {
+  &-option {
+    $param: (flex flex) (flexWrap wrap) (justifyContent flex-start);
+    @include flexSet($param);
+    width: 100%;
+    padding: {
+      left: 21 / $unit * $symbol;
+      right: 21 / $unit * $symbol;
+    }
+    background-color: #fff;
+    .option-itme {
+      @include vertical_center();
+      height: 69 / $unit * $symbol;
+      padding: {
+        left: 21 / $unit * $symbol;
+        right: 21 / $unit * $symbol;
+      }
+      margin: {
+        left: 9 / $unit * $symbol;
+        right: 9 / $unit * $symbol;
+        bottom: 21 / $unit * $symbol;
+      }
+      font-size: 27 / $unit * $symbol;
+      color: #333333;
+      border: 1px solid #999999;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+    .active {
+      color: #fff;
+      border: 1px solid #4d7bfe;
+      background-color: #4d7bfe;
+    }
+  }
+  &-detail {
+    width: 100%;
+    background-color: #fff;
+    padding: {
+      top: 3 / $unit * $symbol;
+      left: 30 / $unit * $symbol;
+      right: 30 / $unit * $symbol;
+    }
+    textarea {
+      width: 100%;
+      height: 300 / $unit * $symbol;
+      font-size: 27 / $unit * $symbol;
+      color: #333;
+    }
+    textarea::-webkit-textarea-placeholder {
+      font-size: 24 / $unit * $symbol;
+      color: #999;
+      line-height: 36 / $unit * $symbol;
+    }
+    .detail-num {
+      @include vertical_center();
+      $param: (flex flex) (justifyContent flex-end);
+      @include flexSet($param);
+      width: 100%;
+      height: 57 / $unit * $symbol;
+      font-size: 27 / $unit * $symbol;
+      color: #6f6f6f;
+      border: {
+        bottom: 1px solid #e1e1e1;
+      }
+    }
+  }
+  &-upload {
+    width: 100%;
+    padding: {
+      top: 36 / $unit * $symbol;
+      left: 30 / $unit * $symbol;
+      right: 30 / $unit * $symbol;
+      bottom: 18 / $unit * $symbol;
+    }
+    border: {
+      bottom: 1px solid #e1e1e1;
+    }
+    background-color: #fff;
+    .upload-photo {
+      $param: (flex flex) (justifyContent flex-start) (flexWrap wrap);
+      @include flexSet($param);
+      width: 100%;
+      .photo-add {
+        @include center();
+        width: 147 / $unit * $symbol;
+        height: 147 / $unit * $symbol;
+        margin: {
+          bottom: 15 / $unit * $symbol;
+        }
+        border: 2px dashed #bbbbbb;
+        border-radius: 9 / $unit * $symbol;
+        i {
+          font-size: 60 / $unit * $symbol;
+          color: #bbbbbb;
+        }
+      }
+      .photo-default {
+        width: 147 / $unit * $symbol;
+        height: 147 / $unit * $symbol;
+        margin: {
+          left: 9 / $unit * $symbol;
+          right: 9 / $unit * $symbol;
+          bottom: 15 / $unit * $symbol;
+        }
+        border: 1px solid #bbbbbb;
+        border-radius: 15 / $unit * $symbol;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 9 / $unit * $symbol;
+        }
+      }
+    }
+    .upload-suggest {
+      width: 100%;
+      line-height: 36 / $unit * $symbol;
+      font-size: 24 / $unit * $symbol;
+      color: #9f9f9f;
+    }
+  }
+}
+
+.deadline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  @include vertical_direction();
+  $param: (flex flex) (justifyContent flex-end);
+  @include flexSet($param);
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  &-content {
+    @include vertical_direction();
+    width: 100%;
+    height: 390 / $unit * $symbol;
+    background-color: #fff;
+    .content-button {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 81 / $unit * $symbol;
+      background-color: #eeeeee;
+      button {
+        @include center();
+        height: 100%;
+        padding: {
+          left: 24 / $unit * $symbol;
+          right: 18 / $unit * $symbol;
+        }
+        font-size: 33 / $unit * $symbol;
+        color: #4d7bfe;
+        background-color: #eeeeee;
+      }
+    }
+    .content-nav {
+      @include center();
+      flex: 1;
+      width: 100%;
+      .nav-area {
+        @include center();
+        width: 100%;
+        height: 100%;
+        .area-list {
+          width: 250 / $unit * $symbol;
+          height: 258 / $unit * $symbol;
+          overflow: auto;
+          .list-item {
+            @include center();
+            width: 100%;
+            height: 69 / $unit * $symbol;
+            font-size: 42 / $unit * $symbol;
+            color: #999;
+          }
+          .active {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}

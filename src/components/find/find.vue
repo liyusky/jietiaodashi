@@ -1,11 +1,14 @@
 <template>
   <!-- s undefined -->
-  <section class="find"></section>
+  <section class="find">
+    <TabComponent></TabComponent>
+  </section>
   <!-- s  -->
 </template>
 
 <script>
 // include dependence
+import TabComponent from '../../module/tab/tab.vue'
 export default {
   name: 'FindComponent',
   data () {
@@ -13,6 +16,7 @@ export default {
   },
   components: {
     // include components
+    TabComponent
   }
 }
 </script>

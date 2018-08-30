@@ -6,6 +6,7 @@ module.exports = {
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -26,10 +27,12 @@ module.exports = {
         }
       ]`,
     'button': false,
+    'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'pay-password': false,
+    'tab': false,
     'tip': false,
     'title': `{
         contentText: '支付密码设置'

@@ -1,5 +1,210 @@
 // include module
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
-// current sass
-.borrow {}
+.borrow {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: #f0f0f0;
+  padding: {
+    top: 126 / $unit * $symbol;
+  }
+  &-tip {
+    position: relative;
+    @include vertical_center();
+    width: 100%;
+    height: 75 / $unit * $symbol;
+    padding: {
+      left: 81 / $unit * $symbol;
+    }
+    border: {
+      bottom: 1px solid #cbcbcb;
+    }
+    background-color: #fff7e7;
+    overflow: hidden;
+    .tip-icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 9;
+      @include vertical_center();
+      width: 75 / $unit * $symbol;
+      height: 100%;
+      padding: {
+        left: 27 / $unit * $symbol;
+      }
+      background-color: #fff7e7;
+      i {
+        font-size: 33 / $unit * $symbol;
+        color: #f3ac50;
+      }
+    }
+    .tip-text {
+      position: absolute;
+      top: 0;
+      left: 75 / $unit * $symbol;
+      z-index: 8;
+      @include vertical_center();
+      width: 100%;
+      height: 100%;
+      font-size: 24 / $unit * $symbol;
+      color: #f77f4f;
+      background-color: #fff7e7;
+    }
+  }
+  &-form-top,
+  &-form-bottom {
+    width: 100%;
+    padding: {
+      left: 21 / $unit * $symbol;
+      right: 21 / $unit * $symbol;
+    }
+    background-color: #fff;
+    .form-item {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 120 / $unit * $symbol;
+      border: {
+        bottom: 1px solid #e1e1e1;
+      }
+      .item-left {
+        @include vertical_center();
+        width: 30%;
+        height: 100%;
+        i {
+          margin: {
+            right: 21 / $unit * $symbol;
+          }
+          font-size: 12 / $unit * $symbol;
+          color: #4d7bfe;
+        }
+        span {
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+        }
+      }
+      .itme-default {
+        flex: 1;
+        @include vertical_center();
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        height: 100%;
+        input {
+          flex: 1;
+          height: 100%;
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+          text-align: right;
+        }
+        input::-webkit-input-placeholder {
+          font-size: 30 / $unit * $symbol;
+          color: #999999;
+        }
+        span {
+          margin: {
+            left: 15 / $unit * $symbol;
+          }
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+        }
+        i {
+          margin: {
+            left: 15 / $unit * $symbol;
+          }
+          font-size: 30 / $unit * $symbol;
+          color: #adadad;
+        }
+      }
+      .itme-deadline {
+        flex: 1;
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        height: 100%;
+        .deadline-date {
+          margin: {
+            right: 210 / $unit * $symbol;
+          }
+        }
+        span {
+          @include vertical_center();
+          height: 100%;
+          margin: {
+            left: 15 / $unit * $symbol;
+          }
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+        }
+      }
+      .item-rate {
+        flex: 1;
+        @include vertical_center();
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        height: 100%;
+        input {
+          width: 189 / $unit * $symbol;
+          height: 69 / $unit * $symbol;
+          text-align: center;
+          background: #f2f2f2;
+          font-size: 27 / $unit * $symbol;
+          color: #333333;
+        }
+        input::-webkit-input-placeholder {
+          font-size: 27 / $unit * $symbol;
+          color: #999999;
+        }
+        span {
+          padding: {
+            left: 15 / $unit * $symbol;
+            right: 15 / $unit * $symbol;
+          }
+          font-size: 27 / $unit * $symbol;
+          color: #333333;
+        }
+      }
+    }
+  }
+  &-form-top {
+    margin: {
+      bottom: 18 / $unit * $symbol;
+    }
+  }
+  &-form-bottom {
+    .form-refund {
+      width: 100%;
+      height: 69 / $unit * $symbol;
+      @include vertical_center();
+      $param: (flex flex) (justifyContent flex-end);
+      @include flexSet($param);
+      span {
+        font-size: 24 / $unit * $symbol;
+        color: #666666;
+      }
+      .refund-actual,
+      .refund-total {
+        padding: {
+          left: 15 / $unit * $symbol;
+          right: 15 / $unit * $symbol;
+        }
+        font-size: 24 / $unit * $symbol;
+        color: #4d7bfe;
+      }
+    }
+  }
+  &-potocol {
+    width: 100%;
+    height: 123 / $unit * $symbol;
+    padding: {
+      left: 30 / $unit * $symbol;
+      right: 30 / $unit * $symbol;
+    }
+  }
+  &-submit {
+    width: 100%;
+    height: 99 / $unit * $symbol;
+    padding: {
+      left: 30 / $unit * $symbol;
+      right: 30 / $unit * $symbol;
+    }
+  }
+}

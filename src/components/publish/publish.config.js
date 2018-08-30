@@ -1,6 +1,6 @@
 module.exports = {
-  content: '消息',
-  router: true,
+  content: '',
+  router: false,
   vuex: {
     'mutations': false,
     'state': false
@@ -21,9 +21,7 @@ module.exports = {
     'pay-password': false,
     'tab': false,
     'tip': false,
-    'title': `{
-        contentText: '消息'
-      }`,
+    'title': false,
     'work-card': false
   }
 }

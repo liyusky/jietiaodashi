@@ -1,11 +1,12 @@
 module.exports = {
-  content: '我的',
+  content: '',
   router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -14,45 +15,20 @@ module.exports = {
     'billboard-list': `[
         {
           type: 'guide',
-          svg: 'cangjian',
-          key: '我的银行卡',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '失信查询',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '常见问题',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '在线客服',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '授信',
-          icon: 'chuyin',
+          svg: '',
+          key: '',
+          value: '',
+          icon: '',
           target: ''
         }
       ]`,
     'button': false,
+    'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'pay-password': false,
+    'tab': `''`,
     'tip': false,
     'title': false,
     'work-card': false

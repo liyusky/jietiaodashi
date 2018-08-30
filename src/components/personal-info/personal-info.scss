@@ -1,0 +1,249 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.personal-info {
+  $param: (flex flex) (direction column);
+  @include flexSet($param);
+  width: 100vw;
+  height: 100vh;
+  .info-header {
+    width: 100%;
+    height: 300 / $unit * $symbol;
+    padding: {
+      top: 42 / $unit * $symbol;
+      left: 39 / $unit * $symbol;
+      right: 39 / $unit * $symbol;
+    }
+    background-color: #48527b;
+    .header {
+      @include vertical_center_horizontal_between();
+      height: 84 / $unit * $symbol;
+      color: #fff;
+    }
+  }
+  .info-user {
+    position: relative;
+    width: 100%;
+    height: 180 / $unit * $symbol;
+    padding: {
+      left: 30 / $unit * $symbol;
+      right: 30 / $unit * $symbol;
+    }
+    background-color: #fff;
+    .user-portrait {
+      position: absolute;
+      top: -40%;
+      left: 30 / $unit * $symbol;
+      width: 138 / $unit * $symbol;
+      height: 138 / $unit * $symbol;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 6 / $unit * $symbol;
+      }
+    }
+    .user-detail {
+      position: absolute;
+      top: -40%;
+      left: 189 / $unit * $symbol;
+      .detail-id {
+        @include vertical_center();
+        height: 78 / $unit * $symbol;
+        padding: {
+          left: 9 / $unit * $symbol;
+        }
+        font-size: 33 / $unit * $symbol;
+        color: #fff;
+      }
+      .detail-name {
+        @include vertical_center();
+        height: 57 / $unit * $symbol;
+        padding: {
+          left: 9 / $unit * $symbol;
+        }
+        font-size: 33 / $unit * $symbol;
+        color: #333;
+      }
+      .detail-attestation {
+        $param: (flex flex) (justifyContent flex-start);
+        @include flexSet($param);
+        .attestation-item {
+          @include vertical_center();
+          height: 36 / $unit * $symbol;
+          padding: {
+            left: 9 / $unit * $symbol;
+            right: 9 / $unit * $symbol;
+          }
+          margin: {
+            left: 9 / $unit * $symbol;
+            right: 9 / $unit * $symbol;
+          }
+          font-size: 21 / $unit * $symbol;
+          color: #36c047;
+          border: 1px solid #36c047;
+        }
+      }
+    }
+    &::after {
+      position: absolute;
+      left: 30 / $unit * $symbol;
+      bottom: 0;
+      display: block;
+      content: '';
+      width: 690 / $unit * $symbol;
+      height: 0;
+      border: {
+        bottom: 1px solid #d5d5d5;
+      }
+    }
+  }
+  .info-tab {
+    $param: (flex flex) (direction column);
+    @include flexSet($param);
+    flex: 1;
+    width: 100%;
+    .tab-nav {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 78 / $unit * $symbol;
+      margin: {
+        bottom: 9 / $unit * $symbol;
+      }
+      background-color: #fff;
+      .nav-item {
+        position: relative;
+        @include center();
+        width: 50%;
+        height: 100%;
+        font-size: 27 / $unit * $symbol;
+        color: #333333;
+      }
+      .nav-active {
+        color: #4d6efb;
+        // &::after {
+        //   position: absolute;
+        //   left: 0;
+        //   bottom: 0;
+        //   display: block;
+        //   content: '';
+        //   width: 100%;
+        //   height: 6 / $unit * $symbol;
+        //   background-color: #4d6efb;
+        // }
+      }
+    }
+    .tab-content {
+      flex: 1;
+      width: 100%;
+      overflow: auto;
+      .content-home {
+        width: 100%;
+        padding: {
+          left: 21 / $unit * $symbol;
+          right: 21 / $unit * $symbol;
+        }
+        background-color: #fff;
+        .home-list {
+          width: 100%;
+          .list-item {
+            @include vertical_center_horizontal_between();
+            width: 100%;
+            height: 99 / $unit * $symbol;
+            border: {
+              bottom: 1px solid #d5d5d5;
+            }
+            i {
+              font-size: 27 / $unit * $symbol;
+              color: #666666;
+            }
+            .item-value {
+              @include vertical_center_horizontal_between();
+              width: 654 / $unit * $symbol;
+              height: 100%;
+              span:first-of-type {
+                font-size: 30 / $unit * $symbol;
+                color: #333333;
+              }
+              span:last-of-type {
+                font-size: 27 / $unit * $symbol;
+                color: #666666;
+              }
+            }
+          }
+          .list-item:last-of-type {
+            border: none;
+          }
+        }
+      }
+      .content-deal {
+        width: 100%;
+        .deal-total,
+        .deal-progress {
+          width: 100%;
+          padding: {
+            top: 9 / $unit * $symbol;
+            left: 21 / $unit * $symbol;
+            right: 21 / $unit * $symbol;
+          }
+          margin: {
+            bottom: 9 / $unit * $symbol;
+          }
+          background-color: #fff;
+          .title {
+            @include vertical_center();
+            width: 100%;
+            height: 51 / $unit * $symbol;
+            padding: {
+              left: 9 / $unit * $symbol;
+            }
+            font-size: 24 / $unit * $symbol;
+            color: #333333;
+            background-color: #e7edf7;
+          }
+          .list {
+            width: 100%;
+            padding: {
+              left: 12 / $unit * $symbol;
+            }
+            .list-item {
+              @include vertical_center_horizontal_between();
+              width: 100%;
+              height: 99 / $unit * $symbol;
+              border: {
+                bottom: 1px solid #d5d5d5;
+              }
+              .item-title {
+                width: 300 / $unit * $symbol;
+                font-size: 30 / $unit * $symbol;
+                color: #333333;
+              }
+            }
+            .list-item:last-of-type {
+              border: none;
+            }
+            .itme-right {
+              @include vertical_center_horizontal_between();
+              flex: 1;
+              height: 100%;
+              p {
+                @include center();
+                width: 180 / $unit * $symbol;
+                height: 100%;
+                font-size: 30 / $unit * $symbol;
+                color: #333333;
+                i {
+                  font-size: 30 / $unit * $symbol;
+                  color: #333333;
+                  margin: {
+                    left: 12 / $unit * $symbol;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

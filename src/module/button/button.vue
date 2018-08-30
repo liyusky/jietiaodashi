@@ -30,6 +30,9 @@ export default {
     },
     secondSubmit () {
       this.$emit('SECOND_SUBMIT_EVENT')
+    },
+    submit () {
+      this.$emit('SUBMIT_EVENT')
     }
   }
 }
