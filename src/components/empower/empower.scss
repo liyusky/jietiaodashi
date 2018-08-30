@@ -1,0 +1,110 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+.empower {
+  @include vertical_direction();
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  &-header {
+    width: 100%;
+    height: 582 / $unit * $symbol;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-tab {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    .tab-nav {
+      position: absolute;
+      left: 0;
+      top: -99 / $unit * $symbol;
+      z-index: 1;
+      @include center();
+      width: 100%;
+      height: 99 / $unit * $symbol;
+      background-color: rgba($color: #fff, $alpha: 0.4);
+      .nav-item {
+        position: relative;
+        @include center();
+        width: 50%;
+        height: 100%;
+        font-size: 30 / $unit * $symbol;
+        color: #fff;
+        &::after {
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          z-index: 9;
+          display: none;
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 15 / $unit * $symbol;
+          border-color: transparent transparent #fff transparent;
+          transform: translateX(-50%);
+        }
+      }
+      .badge-active {
+        &::after {
+          display: block;
+        }
+      }
+    }
+    .tab-form {
+      width: 100%;
+      padding: {
+        left: 30 / $unit * $symbol;
+        right: 30 / $unit * $symbol;
+      }
+      .form-item {
+        @include vertical_center_horizontal_between();
+        width: 100%;
+        height: 99 / $unit * $symbol;
+        padding: {
+          left: 9 / $unit * $symbol;
+          right: 9 / $unit * $symbol;
+        }
+        border: {
+          bottom: 1px solid #dddddd;
+        }
+        input {
+          flex: 1;
+          height: 100%;
+          font-size: 30 / $unit * $symbol;
+          color: #000000;
+        }
+        button {
+          @include center();
+          width: 156 / $unit * $symbol;
+          height: 100%;
+          font-size: 21 / $unit * $symbol;
+          color: #4d7bfe;
+          background-color: #fff;
+        }
+        input::-webkit-input-placeholder {
+          font-size: 30 / $unit * $symbol;
+          color: #bebebe;
+        }
+      }
+      .form-button {
+        width: 100%;
+        padding: {
+          top: 99 / $unit * $symbol;
+        }
+      }
+      .form-forget {
+        @include center();
+        padding: {
+          top: 66 / $unit * $symbol;
+        }
+        font-size: 27 / $unit * $symbol;
+        color: #b6b6b6;
+      }
+    }
+  }
+}

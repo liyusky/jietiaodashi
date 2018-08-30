@@ -1,11 +1,14 @@
 <template>
-  <!-- s undefined -->
-  <section class="friend"></section>
-  <!-- e undefined -->
+  <!-- s 我的 -->
+  <section class="friend">
+    <TabComponent></TabComponent>
+  </section>
+  <!-- e 我的 -->
 </template>
 
 <script>
 // include dependence
+import TabComponent from '../../module/tab/tab.vue'
 export default {
   name: 'FriendComponent',
   data () {
@@ -16,6 +19,7 @@ export default {
   },
   components: {
     // include components
+    TabComponent
   }
 }
 </script>

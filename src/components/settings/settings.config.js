@@ -6,6 +6,7 @@ module.exports = {
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -49,10 +50,12 @@ module.exports = {
           text: '安全退出'
         }]
       }`,
+    'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'pay-password': false,
+    'tab': false,
     'tip': false,
     'title': `{
         contentText: '设置'

@@ -1,10 +1,11 @@
-// include module
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
-// current sass
 .index {
   width: 100vw;
   height: 100vh;
+  padding: {
+    bottom: 99 / $unit * $symbol;
+  }
   background-color: #f4f5f6;
   overflow-y: auto;
   &-header {
@@ -112,6 +113,10 @@
       height: 222 / $unit * $symbol;
       margin: {
         bottom: 18 / $unit * $symbol;
+      }
+      padding: {
+        left: 21 / $unit * $symbol;
+        right: 21 / $unit * $symbol;
       }
       background-color: #fff;
       img {

@@ -16,29 +16,51 @@
     bottom: 1px solid #cbcbcb;
   }
   background-color: #fff;
+  &-left, &-right {
+    @include center();
+    position: absolute;
+    top: 42 / $unit * $symbol;
+    z-index: 99;
+    height: 84 / $unit * $symbol;
+  }
+  &-left {
+    left: 30 / $unit * $symbol;
+    @include horizontal_center();
+    .left-content {
+      @include vertical_center();
+      i {
+        font-size: 39 / $unit * $symbol;
+        color: #333333;
+      }
+      span {
+        padding: {
+          left: 6 / $unit * $symbol;
+        }
+        font-size: 30 / $unit * $symbol;
+        color: #333333;
+      }
+    }
+  }
   &-content {
     @include center();
     width: 100%;
     height: 100%;
-  }
-  &-left, &-right {
-    @include center();
-    position: absolute;
-    top: 0;
-    z-index: 99;
-    height: 100%;
-    padding: {
-      top: 42 / $unit * $symbol;
-    }
-  }
-  &-left {
-    left: 30 / $unit * $symbol;
+    font-size: 36 / $unit * $symbol;
+    color: #333;
   }
   &-right {
-    right : 30 / $unit * $symbol;
-    .icon {
-      width: 39 / $unit * $symbol;
-      height: 39 / $unit * $symbol;
+    right: 30 / $unit * $symbol;
+    @include horizontal_center();
+    .right-content {
+      @include vertical_center();
+      i {
+        font-size: 39 / $unit * $symbol;
+        color: #333333;
+      }
+      .icon {
+        width: 39 / $unit * $symbol;
+        height: 39 / $unit * $symbol;
+      }
     }
   }
 }

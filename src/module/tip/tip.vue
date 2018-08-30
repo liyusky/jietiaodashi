@@ -6,12 +6,21 @@
       <use :xlink:href="tip.svg"></use>
     </svg>
     <span class="tip-content" v-if="tip.content">{{tip.content}}</span>
-    <span class="tip-protocol" v-if="tip.protocol" @click="protocol">《{{tip.protocol}}》</span>
+    <span class="tip-protocol" v-if="tip.protocol" @click.stop="protocol">《{{tip.protocol}}》</span>
   </section>
   <!-- e  -->
 </template>
 
 <script>
+// tip: {
+//   type: 'default':  default  / center
+//   content: '', 传入文字消息
+//   protocol: '', 协议名字
+//   icon: '', 传入的iconfont名,
+//   svg: '', 传入借条tip的svg名
+//   selected: 'false'
+//   theme: ''  blue  /  red
+// }
 export default {
   name: 'TipComponent',
   props: ['tip'],

@@ -6,6 +6,7 @@ module.exports = {
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -18,10 +19,12 @@ module.exports = {
           text: '完成'
         }]
       }`,
+    'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'pay-password': `[]`,
+    'tab': false,
     'tip': `{
         type: 'center',
         content: '输入新的支付密码'

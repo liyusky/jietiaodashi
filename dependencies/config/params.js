@@ -70,5 +70,6 @@ module.exports = {
         money: '名字',
         tip: ''
       }`,
-  'pay-password': `[]`
+  'pay-password': `[]`,
+  'tab': `''`
 }

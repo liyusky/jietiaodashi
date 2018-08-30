@@ -1,5 +1,5 @@
 module.exports = {
-  content: '消息',
+  content: 'undefined',
   router: true,
   vuex: {
     'mutations': false,
@@ -13,7 +13,12 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'button': false,
+    'button': `{
+        default: [{
+          type: 'primary',
+          text: '提交'
+        }]
+      }`,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
@@ -21,9 +26,7 @@ module.exports = {
     'pay-password': false,
     'tab': false,
     'tip': false,
-    'title': `{
-        contentText: '消息'
-      }`,
+    'title': false,
     'work-card': false
   }
 }

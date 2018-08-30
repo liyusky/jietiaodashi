@@ -1,10 +1,10 @@
 <template>
-  <!-- s 我的 -->
+  <!-- s  -->
   <section class="mine">
     <div class="mine-information padding-horizontal-24 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
-        <div class="detail-portrait">
-          <img src="">
+        <div class="detail-portrait" @click="gotoPage('personal-info')">
+          <img src="https://api.vtrois.com/image/250x205">
         </div>
         <div class="detail-content">
           <p class="font-36 color-deep-black">{{'name'}}</p>
@@ -44,13 +44,15 @@
     <div class="mine-billboard-list">
       <BillboardListComponent :billboardList="billboardList" @OPERATION_EVENT="target"></BillboardListComponent>
     </div>
+    <TabComponent></TabComponent>
   </section>
-  <!-- e 我的 -->
+  <!-- e  -->
 </template>
 
 <script>
 // include dependence
 import BillboardListComponent from '../../module/billboard-list/billboard-list.vue'
+import TabComponent from '../../module/tab/tab.vue'
 export default {
   name: 'MineComponent',
   data () {
@@ -59,49 +61,29 @@ export default {
       'billboardList': [
         {
           type: 'guide',
-          svg: 'cangjian',
-          key: '我的银行卡',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '失信查询',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '常见问题',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '在线客服',
-          icon: 'chuyin',
-          target: ''
-        },
-        {
-          type: 'guide',
-          svg: 'cangjian',
-          key: '授信',
-          icon: 'chuyin',
+          svg: '',
+          key: '',
+          value: '',
+          icon: '',
           target: ''
         }
-      ]
+      ],
+      'tab': ''
       // end params
     }
   },
   components: {
-    BillboardListComponent
+    BillboardListComponent,
+    TabComponent
     // include components
   },
   methods: {
     target (page) {
+      this.$router.push({
+        name: page
+      })
+    },
+    gotoPage (page) {
       this.$router.push({
         name: page
       })
