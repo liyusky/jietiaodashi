@@ -7,12 +7,12 @@ const BorrowComponent = () => import(/* webpackChunkName: 'borrow' */ '../compon
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/friend/friend.vue')
+const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
-const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
+const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
-const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 export default new Router({
   routes: [
     {
@@ -41,19 +41,24 @@ export default new Router({
       component: FriendComponent
     },
     {
+      path: '/forget-password',
+      name: 'forget-password',
+      component: ForgetPasswordComponent
+    },
+    {
       path: '/index',
       name: 'index',
       component: IndexComponent
     },
     {
-      path: '/mine',
-      name: 'mine',
-      component: MineComponent
-    },
-    {
       path: '/iou-detail',
       name: 'iou-detail',
       component: IouDetailComponent
+    },
+    {
+      path: '/mine',
+      name: 'mine',
+      component: MineComponent
     },
     {
       path: '/personal-info',
@@ -64,11 +69,6 @@ export default new Router({
       path: '/transactions',
       name: 'transactions',
       component: TransactionsComponent
-    },
-    {
-      path: '/forget-password',
-      name: 'forget-password',
-      component: ForgetPasswordComponent
     }
   ]
 })

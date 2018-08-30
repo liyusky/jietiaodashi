@@ -144,8 +144,8 @@ export default {
   name: 'PersonalInfoComponent',
   data () {
     return {
-      // start params
       tabSwitchShow: false
+      // start params
       // end params
     }
   },

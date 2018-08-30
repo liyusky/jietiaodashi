@@ -34,6 +34,14 @@ export default {
   name: 'ForgetPasswordComponent',
   data () {
     return {
+    placeholder: '',
+    phoneText: '',
+    passwordText: '',
+    AgainPasswordText: '',
+    codeText: '',
+    getCodeText: '获取验证码',
+    switchShow: true,
+    codeDisabled: false,
       // start params
       'button': {
         default: {

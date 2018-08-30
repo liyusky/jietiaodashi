@@ -101,6 +101,16 @@ export default {
   name: 'BorrowComponent',
   data () {
     return {
+      borrowDate: '',
+      rateAmount: '',
+      ratePercent: '',
+      borrowAmount: '',
+      borrowObject: '',
+      borrowDeadline: '7',
+      borrowPublish: '',
+      borrowPurpose: '',
+      purposeShow: false,
+      deadLineShow: false,
       // start params
       'button': {
         default: {
@@ -117,17 +127,7 @@ export default {
       },
       'title': {
         contentText: '我要借款'
-      },
-      borrowDate: '',
-      rateAmount: '',
-      ratePercent: '',
-      borrowAmount: '',
-      borrowObject: '',
-      borrowDeadline: '7',
-      borrowPublish: '',
-      borrowPurpose: '',
-      purposeShow: false,
-      deadLineShow: false
+      }
       // end params
     }
   },

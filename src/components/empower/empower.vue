@@ -38,20 +38,20 @@ export default {
   name: 'EmpowerComponent',
   data () {
     return {
-      // start params
-      'button': {
-        default: {
-          type: 'primary',
-          text: '登录'
-        }
-      },
       placeholder: '',
       phoneText: '',
       passwordText: '',
       codeText: '',
       getCodeText: '获取验证码',
       switchShow: true,
-      codeDisabled: false
+      codeDisabled: false,
+      // start params
+      'button': {
+        default: {
+          type: 'primary',
+          text: '登录'
+        }
+      }
       // end params
     }
   },
