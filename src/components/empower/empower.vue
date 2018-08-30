@@ -47,10 +47,10 @@ export default {
       codeDisabled: false,
       // start params
       'button': {
-        default: {
+        default: [{
           type: 'primary',
-          text: '登录'
-        }
+          text: '提交'
+        }]
       }
       // end params
     }

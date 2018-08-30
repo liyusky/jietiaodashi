@@ -14,10 +14,10 @@ module.exports = {
   components: {
     'billboard-list': false,
     'button': `{
-        default: {
+        default: [{
           type: 'primary',
           text: '提交'
-        }
+        }]
       }`,
     'deadline': false,
     'detail-list': false,

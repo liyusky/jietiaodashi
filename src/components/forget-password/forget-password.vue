@@ -44,10 +44,10 @@ export default {
       codeDisabled: false,
       // start params
       'button': {
-        default: {
+        default: [{
           type: 'primary',
           text: '提交'
-        }
+        }]
       },
       'title': {
         contentText: '忘记密码'
