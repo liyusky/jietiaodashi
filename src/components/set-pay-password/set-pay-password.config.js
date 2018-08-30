@@ -1,5 +1,6 @@
 module.exports = {
   content: '设置支付密码',
+  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,

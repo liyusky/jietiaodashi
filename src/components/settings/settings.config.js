@@ -1,5 +1,6 @@
 module.exports = {
   content: '设置',
+  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,

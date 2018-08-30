@@ -1,5 +1,6 @@
 module.exports = {
-  content: '',
+  content: '我的',
+  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,
@@ -15,10 +16,38 @@ module.exports = {
     'billboard-list': `[
         {
           type: 'guide',
-          svg: '',
-          key: '',
-          value: '',
-          icon: '',
+          key: '收还款计划',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '我的银行卡',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '常见问题',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '在线客服',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '授信',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '意见反馈',
+          icon: 'chuyin',
           target: ''
         }
       ]`,

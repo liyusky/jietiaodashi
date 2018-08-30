@@ -1,5 +1,6 @@
 module.exports = {
   content: '欠条详情',
+  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,

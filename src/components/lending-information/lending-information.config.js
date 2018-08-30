@@ -1,5 +1,6 @@
 module.exports = {
   content: '出借信息',
+  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,
