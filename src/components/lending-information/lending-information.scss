@@ -1,0 +1,65 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.lending-information {
+  @include vertical_direction_center();
+  width: 100%;
+  min-height: 100vw;
+
+  .detail-content {
+    position: relative;
+    width: (666 + 81 + 330) / $unit * $symbol;
+    
+    .content-tip {
+      width: 100%;
+      height: 81 / $unit * $symbol;
+      background-color: #f8f8f8;
+      color: #4d7bfe;
+    }
+
+    .content-work-crad {
+      width: 100%;
+      height: 330 / $unit * $symbol;
+    }
+
+
+    .content-detail-list {
+      width: 100%;
+      height: 372 / $unit * $symbol;
+
+      padding: {
+        top: 51 / $unit * $symbol;
+        bottom: 96 / $unit * $symbol;
+      }
+    }
+
+    .content-button {
+      height: 294 / $unit * $symbol;
+      padding: {
+        bottom: 54 / $unit * $symbol;
+      }
+    }
+  }
+
+  .chamfer::before,
+  .chamfer::after {
+    position: absolute;
+    top: 66 / $unit * $symbol;
+    z-index: 100;
+    display: block;
+    content: '';
+    width: 30 / $unit * $symbol;
+    height: 30 / $unit * $symbol;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
+
+  .chamfer::before {
+    left: -15 / $unit * $symbol;
+  }
+
+  .chamfer::after {
+    right: -15 / $unit * $symbol;
+  }
+}
