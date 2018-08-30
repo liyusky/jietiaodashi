@@ -5,14 +5,15 @@ Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const BorrowComponent = () => import(/* webpackChunkName: 'borrow' */ '../components/borrow/borrow.vue')
-const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
+const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
+const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/friend/friend.vue')
-const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
+const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
-const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
+const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
@@ -38,14 +39,19 @@ export default new Router({
       component: BorrowComponent
     },
     {
+      path: '/empower',
+      name: 'empower',
+      component: EmpowerComponent
+    },
+    {
       path: '/familar-question',
       name: 'familar-question',
       component: FamilarQuestionComponent
     },
     {
-      path: '/empower',
-      name: 'empower',
-      component: EmpowerComponent
+      path: '/find',
+      name: 'find',
+      component: FindComponent
     },
     {
       path: '/forget-password',
@@ -58,9 +64,9 @@ export default new Router({
       component: FriendComponent
     },
     {
-      path: '/find',
-      name: 'find',
-      component: FindComponent
+      path: '/identity-verification',
+      name: 'identity-verification',
+      component: IdentityVerificationComponent
     },
     {
       path: '/index',
@@ -68,14 +74,14 @@ export default new Router({
       component: IndexComponent
     },
     {
-      path: '/lending-information',
-      name: 'lending-information',
-      component: LendingInformationComponent
-    },
-    {
       path: '/iou-detail',
       name: 'iou-detail',
       component: IouDetailComponent
+    },
+    {
+      path: '/lending-information',
+      name: 'lending-information',
+      component: LendingInformationComponent
     },
     {
       path: '/mine',

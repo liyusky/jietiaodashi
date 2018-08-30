@@ -71,5 +71,13 @@ module.exports = {
         tip: ''
       }`,
   'pay-password': `[]`,
-  'tab': `''`
+  'tab': `''`,
+  inputs: `{
+        type: 'default / text / slide / icon / switch / center',
+        placeholder: '',
+        rightText: '',
+        rightIcon: '',
+        leftText: '',
+        leftIcon: ''
+      }`
 }

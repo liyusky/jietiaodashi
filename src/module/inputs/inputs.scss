@@ -1,6 +1,6 @@
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
-.input {
+.inputs {
   @include vertical_center();
   width: 100%;
   height: 100%;
@@ -8,7 +8,7 @@
   .left {
     @include vertical_center();
     height: 100%;
-    width: 30%;
+    width: 20%;
     .left-icon {
       margin: {
         right: 21 / $unit * $symbol;
@@ -35,6 +35,7 @@
       height: 100%;
       font-size: 30 / $unit * $symbol;
       color: #333333;
+      background-color: transparent;
     }
     input::-webkit-input-placeholder {
       font-size: 30 / $unit * $symbol;
@@ -79,43 +80,19 @@
       $param: (flex flex)  (justifyContent flex-end);
       @include flexSet($param);
     }
-    .right-rate {
-      @include vertical_center();
-      $param: (flex flex)  (justifyContent flex-end);
-      @include flexSet($param);
-      height: 100%;
-      input {
-        width: 189 / $unit * $symbol;
-        height: 69 / $unit * $symbol;
-        text-align: center;
-        background: #f2f2f2;
-        font-size: 27 / $unit * $symbol;
-        color: #333333;
-      }
-      input::-webkit-input-placeholder {
-        font-size: 27 / $unit * $symbol;
-        color: #999999;
-      }
-      span {
-        padding: {
-          left: 15 / $unit * $symbol;
-          right: 15 / $unit * $symbol;
-        }
-        font-size: 27 / $unit * $symbol;
-        color: #333333;
-      }
-    }
   }
 }
 .default {
   .left {
     width: 0;
   }
-  .right {
-    .right-text {
-      font-size: 27 / $unit * $symbol;
-      color: #4d7bfe;
-    }
+}
+.center {
+  .left {
+    width: 0;
+  }
+  .right-input {
+    text-align: center;
   }
 }
 .icon {
@@ -123,7 +100,7 @@
     width: auto;
     .left-icon {
       margin: {
-        right: 9 / $unit * $symbol;
+        right: 18 / $unit * $symbol;
       }
       font-size: 30 / $unit * $symbol;
       color: #999;
@@ -133,7 +110,15 @@
 .text {
 
 }
+.text-icon {
+  .left {
+    width: 30%;
+  }
+}
 .switch {
+  .left {
+    width: 30%;
+  }
   .right {
     $param: (flex flex)  (justifyContent flex-end);
     @include flexSet($param);
@@ -143,28 +128,15 @@
   }
 }
 .slide {
+  .left {
+    width: 30%;
+  }
   .right {
     $param: (flex flex)  (justifyContent flex-end);
     @include flexSet($param);
     .right-input {
-      flex: none;
-      width: 45%;
+      flex: 1;
       text-align: right;
-    }
-  }
-}
-.center {
-  .right {
-    @include vertical_center_horizontal_between();
-    .right-input {
-      text-align: left;
-    }
-    .right-text {
-      @include vertical_center();
-      width: 150 / $unit * $symbol;
-      height: 100%;
-      font-size: 27 / $unit * $symbol;
-      color: #4d7bfe;
     }
   }
 }
