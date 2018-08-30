@@ -68,7 +68,7 @@ export default {
           target: ''
         }
       ],
-      'tab': true
+      'tab': ''
       // end params
     }
   },

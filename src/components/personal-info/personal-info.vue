@@ -145,7 +145,7 @@ export default {
   data () {
     return {
       // start params
-      tabSwitchShow: true
+      tabSwitchShow: false
       // end params
     }
   },

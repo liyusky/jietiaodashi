@@ -10,7 +10,7 @@
         <div>{{button.group[1].text}}</div>
       </button>
     </div>
-    <button v-if="button.default" :class="button.default.type">
+    <button v-if="button.default" :class="button.default.type" @click="submit">
       <div class="button-content">{{button.default.text}}</div>
     </button>
   </section>
@@ -30,6 +30,9 @@ export default {
     },
     secondSubmit () {
       this.$emit('SECOND_SUBMIT_EVENT')
+    },
+    submit () {
+      this.$emit('SUBMIT_EVENT')
     }
   }
 }

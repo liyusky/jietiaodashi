@@ -13,14 +13,21 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'button': false,
+    'button': `{
+        default: {
+          type: 'primary',
+          text: '提交'
+        }
+      }`,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
-    'tab': `$route.path`,
+    'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '忘记密码'
+      }`,
     'work-card': false
   }
 }

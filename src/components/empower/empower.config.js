@@ -1,6 +1,6 @@
 module.exports = {
   content: 'undefined',
-  router: false,
+  router: true,
   vuex: {
     'mutations': false,
     'state': false
@@ -13,7 +13,12 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'button': false,
+    'button': `{
+        default: {
+          type: 'primary',
+          text: '登录'
+        }
+      }`,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
