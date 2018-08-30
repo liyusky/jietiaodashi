@@ -14,10 +14,10 @@ module.exports = {
   components: {
     'billboard-list': false,
     'button': `{
-        default: {
+        default: [{
           type: 'default',
           text: '销账'
-        },
+        }],
         group: [
           {
             text: '同意',
@@ -54,6 +54,7 @@ module.exports = {
       ]`,
     'inputs': false,
     'modals': false,
+    'pay-password': false,
     'tab': false,
     'tip': `{
         type: 'center',

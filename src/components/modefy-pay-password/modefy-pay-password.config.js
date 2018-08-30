@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '修改支付密码',
   router: true,
   vuex: {
     'mutations': false,
@@ -12,25 +12,22 @@ module.exports = {
     'Url': false
   },
   components: {
-    'billboard-list': `[
-        {
-          type: 'guide',
-          svg: '',
-          key: '',
-          value: '',
-          icon: '',
-          target: ''
-        }
-      ]`,
+    'billboard-list': false,
     'button': false,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'pay-password': false,
-    'tab': `''`,
+    'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '中间内容',
+        leftText: '左边箭头后文字',
+        rightText: '右边文字内容',
+        icon: '右边icon',
+        svg: '右边svg'
+      }`,
     'work-card': false
   }
 }

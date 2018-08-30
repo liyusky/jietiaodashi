@@ -47,6 +47,7 @@ module.exports = {
       ]`,
     'inputs': false,
     'modals': false,
+    'pay-password': false,
     'tab': false,
     'tip': false,
     'title': `{

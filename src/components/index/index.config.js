@@ -18,6 +18,7 @@ module.exports = {
     'detail-list': false,
     'inputs': false,
     'modals': false,
+    'pay-password': false,
     'tab': `$route.path`,
     'tip': false,
     'title': false,

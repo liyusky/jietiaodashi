@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '支付密码设置',
   router: true,
   vuex: {
     'mutations': false,
@@ -15,10 +15,14 @@ module.exports = {
     'billboard-list': `[
         {
           type: 'guide',
-          svg: '',
-          key: '',
-          value: '',
-          icon: '',
+          key: '修改支付密码',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
+          key: '忘记支付密码',
+          icon: 'chuyin',
           target: ''
         }
       ]`,
@@ -28,9 +32,11 @@ module.exports = {
     'inputs': false,
     'modals': false,
     'pay-password': false,
-    'tab': `''`,
+    'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '支付密码设置'
+      }`,
     'work-card': false
   }
 }

@@ -10,8 +10,8 @@
         <div>{{button.group[1].text}}</div>
       </button>
     </div>
-    <button v-if="button.default" :class="button.default.type" @click="submit">
-      <div class="button-content">{{button.default.text}}</div>
+    <button v-if="button.default" :class="item.type" v-for="(item, index) in button.default" :key="index">
+      <div class="button-content">{{item.text}}</div>
     </button>
   </section>
   <!-- e  -->

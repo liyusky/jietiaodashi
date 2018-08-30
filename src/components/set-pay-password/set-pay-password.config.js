@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '设置支付密码',
   router: true,
   vuex: {
     'mutations': false,
@@ -14,20 +14,23 @@ module.exports = {
   components: {
     'billboard-list': false,
     'button': `{
-        default: {
+        default: [{
           type: 'primary',
-          text: '提交'
-        }
+          text: '完成'
+        }]
       }`,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
-    'pay-password': false,
+    'pay-password': `[]`,
     'tab': false,
-    'tip': false,
+    'tip': `{
+        type: 'center',
+        content: '输入新的支付密码'
+      }`,
     'title': `{
-        contentText: '忘记密码'
+        contentText: '设置支付密码'
       }`,
     'work-card': false
   }

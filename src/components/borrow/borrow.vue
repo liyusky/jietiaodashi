@@ -113,10 +113,10 @@ export default {
       deadLineShow: false,
       // start params
       'button': {
-        default: {
+        default: [{
           type: 'primary',
           text: '发布借条'
-        }
+        }]
       },
       'tip': {
         type: 'default',
@@ -126,7 +126,8 @@ export default {
         selected: 'true'
       },
       'title': {
-        contentText: '我要借款'
+        contentText: '我要借款',
+        icon: 'cong'
       }
       // end params
     }

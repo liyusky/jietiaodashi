@@ -14,15 +14,16 @@ module.exports = {
   components: {
     'billboard-list': false,
     'button': `{
-        default: {
+        default: [{
           type: 'primary',
           text: '发布借条'
-        }
+        }]
       }`,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
+    'pay-password': false,
     'tab': false,
     'tip': `{
         type: 'default',
@@ -32,7 +33,8 @@ module.exports = {
         selected: 'true'
       }`,
     'title': `{
-        contentText: '我要借款'
+        contentText: '我要借款',
+        icon: 'cong'
       }`,
     'work-card': false
   }

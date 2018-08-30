@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '消息',
   router: true,
   vuex: {
     'mutations': false,
@@ -12,25 +12,18 @@ module.exports = {
     'Url': false
   },
   components: {
-    'billboard-list': `[
-        {
-          type: 'guide',
-          svg: '',
-          key: '',
-          value: '',
-          icon: '',
-          target: ''
-        }
-      ]`,
+    'billboard-list': false,
     'button': false,
     'deadline': false,
     'detail-list': false,
     'inputs': false,
     'modals': false,
     'pay-password': false,
-    'tab': `''`,
+    'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '消息'
+      }`,
     'work-card': false
   }
 }

@@ -23,6 +23,7 @@ module.exports = {
     'detail-list': false,
     'inputs': false,
     'modals': false,
+    'pay-password': false,
     'tab': false,
     'tip': false,
     'title': false,

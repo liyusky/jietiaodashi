@@ -27,10 +27,10 @@ export default {
     return {
       // start params
       'button': {
-        default: {
+        default: [{
           type: 'default',
           text: '销账'
-        },
+        }],
         group: [
           {
             text: '同意',
