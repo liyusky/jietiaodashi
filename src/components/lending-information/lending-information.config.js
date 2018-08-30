@@ -1,11 +1,12 @@
 module.exports = {
-  content: '',
+  content: '出借信息',
   router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -24,6 +25,7 @@ module.exports = {
           }
         ]
       }`,
+    'deadline': false,
     'detail-list': `[
         {
           type: 'default',
@@ -54,6 +56,7 @@ module.exports = {
     'inputs': false,
     'modals': false,
     'pay-password': false,
+    'tab': false,
     'tip': `{
         type: 'center',
         content: '还有7天到期',

@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 出借信息 -->
   <section class="lending-information">
     <TitleComponent :title="title"></TitleComponent>
     <div class="detail-content margin-top-30 chamfer">
@@ -11,7 +11,7 @@
       <ButtonComponent class="content-button border-radius-bottom-12 bg-write padding-horizontal-24" :button="button"></ButtonComponent>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e 出借信息 -->
 </template>
 
 <script>

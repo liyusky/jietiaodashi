@@ -4,9 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
-const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const BorrowComponent = () => import(/* webpackChunkName: 'borrow' */ '../components/borrow/borrow.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
+const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/friend/friend.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
@@ -32,11 +32,6 @@ export default new Router({
       component: AccountBalanceComponent
     },
     {
-      path: '/find',
-      name: 'find',
-      component: FindComponent
-    },
-    {
       path: '/borrow',
       name: 'borrow',
       component: BorrowComponent
@@ -45,6 +40,11 @@ export default new Router({
       path: '/empower',
       name: 'empower',
       component: EmpowerComponent
+    },
+    {
+      path: '/find',
+      name: 'find',
+      component: FindComponent
     },
     {
       path: '/forget-password',
