@@ -80,6 +80,10 @@
           height: 51 / $unit * $symbol;
           border-radius: 6 / $unit * $symbol;
         }
+        .button-active {
+          color: #36c047;
+          background-color: #fff;
+        }
       }
     }
   }
