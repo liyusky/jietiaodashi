@@ -1,6 +1,6 @@
 <template>
   <!-- s 设置支付密码 -->
-  <section class="set-pay-password">
+    <section class="set-pay-password padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <TipComponent class="password-tip" :tip="tip"></TipComponent>
     <PayPasswordComponent class="password-pay-password" :payPassword="payPassword"></PayPasswordComponent>
@@ -38,9 +38,9 @@ export default {
     }
   },
   components: {
-    TipComponent,
     ButtonComponent,
     PayPasswordComponent,
+    TipComponent,
     TitleComponent
     // include components
   }

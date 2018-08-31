@@ -31,6 +31,11 @@ module.exports = {
           }
         ]
       }`,
+  tab: `''`,
+  nav: `{
+        content: [],
+        active: ''
+      }`,
   'detail-list': `[
         {
           type: 'title',
@@ -71,5 +76,5 @@ module.exports = {
         tip: ''
       }`,
   'pay-password': `[]`,
-  'tab': `''`
+  'image-bg': `''`
 }

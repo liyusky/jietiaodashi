@@ -1,5 +1,5 @@
 module.exports = {
-  content: '我要借款',
+  content: '转账记录',
   router: true,
   vuex: {
     'mutations': false,
@@ -13,28 +13,18 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'button': `{
-        default: [{
-          type: 'primary',
-          text: '发布借条'
-        }]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': false,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
-    'tip': `{
-        type: 'default',
-        content: '已同意协议',
-        protocol: '借条大师协议',
-        icon: 'cong',
-        selected: 'true'
-      }`,
+    'tip': 1,
     'title': `{
-        contentText: '我要借款',
-        icon: 'cong'
+        contentText: '转账记录'
       }`,
     'work-card': false
   }

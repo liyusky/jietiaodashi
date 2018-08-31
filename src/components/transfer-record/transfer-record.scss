@@ -1,0 +1,60 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.transfer-record {
+  width: 100%;
+  min-height: 100vh;
+  .record-list {
+    width: 100%;
+    height: 100%;
+    .list-time {
+      width: 100%;
+      height: 69 / $unit * $symbol;
+    }
+    .list-balance {
+      width: 100%;
+      height: 57 / $unit * $symbol;
+    }
+    .list-detail {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 162 / $unit * $symbol;
+      .detail-portrait {
+        @include center();
+        width: 81 / $unit * $symbol;
+        height: 100%;
+        img {
+          width: 81 / $unit * $symbol;
+          height: 81 / $unit * $symbol;
+        }
+      }
+  
+      .detail-message {
+        @include vertical_direction_between();
+        flex-grow: 1;
+        height: 100%;
+  
+        padding: {
+          top: 42 / $unit * $symbol;
+          bottom: 42 / $unit * $symbol;
+        }
+  
+        div {
+          width: 100%;
+        }
+  
+        .message-title {
+          @include vertical_center_horizontal_between();
+        }
+      }
+    }
+  }
+  .record-list:last-child {
+    .list-detail {
+      .detail-portrait, .detail-message {
+        border: none !important;
+      }
+    }
+  }
+}

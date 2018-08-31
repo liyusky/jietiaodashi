@@ -1,6 +1,5 @@
 module.exports = {
   content: '支付密码设置',
-  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,
@@ -30,8 +29,10 @@ module.exports = {
     'button': false,
     'deadline': false,
     'detail-list': false,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': false,

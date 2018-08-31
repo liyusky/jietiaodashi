@@ -45,8 +45,10 @@ module.exports = {
           icon: 'cong'
         }
       ]`,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': false,

@@ -1,6 +1,5 @@
 module.exports = {
   content: '账单明细',
-  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,
@@ -47,8 +46,10 @@ module.exports = {
           remnant: '余额:0.05'
         }
       ]`,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': false,

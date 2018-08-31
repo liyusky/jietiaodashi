@@ -1,5 +1,5 @@
 module.exports = {
-  content: '修改支付密码',
+  content: '我要借款',
   router: true,
   vuex: {
     'mutations': false,
@@ -13,7 +13,12 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'button': false,
+    'button': `{
+        default: [{
+          type: 'primary',
+          text: '发布借条'
+        }]
+      }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
@@ -22,13 +27,16 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'tab': false,
-    'tip': false,
+    'tip': `{
+        type: 'default',
+        content: '已同意协议',
+        protocol: '借条大师协议',
+        icon: 'cong',
+        selected: 'true'
+      }`,
     'title': `{
-        contentText: '中间内容',
-        leftText: '左边箭头后文字',
-        rightText: '右边文字内容',
-        icon: '右边icon',
-        svg: '右边svg'
+        contentText: '我要借款',
+        icon: 'cong'
       }`,
     'work-card': false
   }

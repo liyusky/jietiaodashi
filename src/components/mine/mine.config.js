@@ -1,6 +1,5 @@
 module.exports = {
   content: '我的',
-  author: 'liyusky',
   router: true,
   vuex: {
     'mutations': false,
@@ -54,8 +53,10 @@ module.exports = {
     'button': false,
     'deadline': false,
     'detail-list': false,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': `''`,
     'tip': false,

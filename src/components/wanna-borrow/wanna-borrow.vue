@@ -110,26 +110,8 @@ export default {
       borrowPublish: '',
       borrowPurpose: '',
       purposeShow: false,
-      deadLineShow: false,
+      deadLineShow: false
       // start params
-      'button': {
-        default: [{
-          type: 'primary',
-          text: '发布借条'
-        }]
-      },
-      'tip': {
-        type: 'default',
-        content: '已同意协议',
-        protocol: '借条大师协议',
-        icon: 'cong',
-        selected: 'true'
-      },
-      'title': {
-        contentText: '我要借款',
-        icon: 'cong'
-      }
-      // end params
     }
   },
   components: {
@@ -208,5 +190,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./borrow.scss";
+@import "./wanna-borrow.scss";
 </style>
