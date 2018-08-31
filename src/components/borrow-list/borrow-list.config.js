@@ -12,7 +12,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'board': false,
+    'board': 1,
     'button': false,
     'deadline': false,
     'detail-list': false,

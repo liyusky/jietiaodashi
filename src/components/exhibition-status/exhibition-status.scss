@@ -1,0 +1,34 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.exhibition-status {
+  width: 100vw;
+  height: 100vh;
+  .status-detail-list {
+    width: 100%;
+  }
+  .status-tip {
+    @include column_center();
+    width: 100%;
+    height: 408 / $unit * $symbol;
+    .icon {
+      width: 120 / $unit * $symbol;
+      height: 90 / $unit * $symbol;
+    }
+    .tip-text {
+      line-height: 48 / $unit * $symbol;
+      text-align: center;
+      color: #666666;
+      margin: {
+        top: 66 / $unit * $symbol;
+      }
+    }
+  }
+  .status-button {
+    width: 100%;
+    padding: {
+      top: 99 / $unit * $symbol;
+    }
+  }
+}

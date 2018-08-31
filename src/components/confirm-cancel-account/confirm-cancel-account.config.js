@@ -1,5 +1,5 @@
 module.exports = {
-  content: '销账',
+  content: '确认销账',
   router: true,
   vuex: {
     'mutations': false,
@@ -12,29 +12,35 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'board': `'center'`,
+    'board': false,
     'button': `{
         default: [{
           type: 'primary',
-          text: '提交'
+          text: '确认销账'
         }]
       }`,
     'deadline': false,
-    'detail-list': false,
+    'detail-list': `[
+        {
+          type: 'default',
+          key: '销账金额',
+          value: '其他方式付款'
+        },
+        {
+          type: 'default',
+          key: '剩余应收款',
+          value: '0.00'
+        }
+      ]`,
     'image-bg': false,
-    'inputs': `1`,
+    'inputs': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'tab': false,
-    'tip': `{
-        type: 'default',
-        content: '已阅读相关协议',
-        icon: 'cong',
-        selected: 'true'
-      }`,
+    'tip': false,
     'title': `{
-        contentText: '销账'
+        contentText: '确认销账'
       }`,
     'work-card': false
   }

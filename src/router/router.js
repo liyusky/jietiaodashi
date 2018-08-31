@@ -3,11 +3,13 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
-const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
+const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
+const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
+const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-status' */ '../components/exhibition-status/exhibition-status.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
@@ -36,11 +38,6 @@ export default new Router({
       component: AboutPayPasswordSettingsComponent
     },
     {
-      path: '/borrow-list',
-      name: 'borrow-list',
-      component: BorrowListComponent
-    },
-    {
       path: '/account-balance',
       name: 'account-balance',
       component: AccountBalanceComponent
@@ -51,6 +48,16 @@ export default new Router({
       component: CancelAccountComponent
     },
     {
+      path: '/borrow-list',
+      name: 'borrow-list',
+      component: BorrowListComponent
+    },
+    {
+      path: '/confirm-cancel-account',
+      name: 'confirm-cancel-account',
+      component: ConfirmCancelAccountComponent
+    },
+    {
       path: '/credit-extension',
       name: 'credit-extension',
       component: CreditExtensionComponent
@@ -59,6 +66,11 @@ export default new Router({
       path: '/empower',
       name: 'empower',
       component: EmpowerComponent
+    },
+    {
+      path: '/exhibition-status',
+      name: 'exhibition-status',
+      component: ExhibitionStatusComponent
     },
     {
       path: '/familar-question',

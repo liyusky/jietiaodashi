@@ -67,7 +67,7 @@
         left: 3 / $unit * $symbol;
         right: 3 / $unit * $symbol;
       }
-      background: #4d7bfe;
+      background: #666;
       border-radius: 30 / $unit * $symbol;
       .switch-btn {
         width: 56 / $unit * $symbol;
@@ -79,6 +79,7 @@
     div.switch-active {
       $param: (flex flex)  (justifyContent flex-end);
       @include flexSet($param);
+      background-color: #4d7bfe;
     }
   }
 }

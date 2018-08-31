@@ -66,8 +66,8 @@ export default {
     }
   },
   components: {
-    TitleComponent,
-    TipComponent
+    TipComponent,
+    TitleComponent
     // include components
   }
 }

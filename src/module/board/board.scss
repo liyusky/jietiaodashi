@@ -2,6 +2,10 @@
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
 // current sass
-.board {
+.board-center {
   @include column_center();
+}
+
+.board-default {
+  @include vertical_direction_between();
 }

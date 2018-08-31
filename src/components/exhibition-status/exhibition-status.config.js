@@ -1,5 +1,5 @@
 module.exports = {
-  content: '销账',
+  content: '展期状态',
   router: true,
   vuex: {
     'mutations': false,
@@ -12,29 +12,35 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
-    'board': `'center'`,
+    'board': false,
     'button': `{
         default: [{
           type: 'primary',
-          text: '提交'
+          text: '确认'
         }]
       }`,
     'deadline': false,
-    'detail-list': false,
+    'detail-list': `[
+      {
+        type: 'default',
+        key: '展期日期',
+        value: '2017年12月14日'
+      },
+      {
+        type: 'default',
+        key: '展期利率',
+        value: '10%'
+      }
+      ]`,
     'image-bg': false,
-    'inputs': `1`,
+    'inputs': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'tab': false,
-    'tip': `{
-        type: 'default',
-        content: '已阅读相关协议',
-        icon: 'cong',
-        selected: 'true'
-      }`,
+    'tip': false,
     'title': `{
-        contentText: '销账'
+        contentText: '展期状态'
       }`,
     'work-card': false
   }

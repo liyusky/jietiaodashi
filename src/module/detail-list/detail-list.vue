@@ -3,7 +3,7 @@
   <ul class="detail-list">
     <li class="list-item" v-for="(item, index) in detailList" :key="index">
       <div class="item-title padding-left-30 font-27 color-black" v-if="item.type == 'title'">{{item.content}}</div>
-      <div class="item-default" v-else-if="item.type == 'default'">
+      <div class="item-default border-bottom-1" v-else-if="item.type == 'default'">
         <p>{{item.key}}</p>
         <p>{{item.value}}</p>
       </div>

@@ -16,6 +16,7 @@
     .item-default {
       @include vertical_center_horizontal_between();
       width: 100%;
+      height: 99 / $unit * $symbol;
     }
     .item-double {
       @include vertical_center_horizontal_between();
@@ -69,6 +70,7 @@
     } 
   }
   .list-item:last-child .item-content,
+  .list-item:last-child .item-default,
   .list-item:last-child .item-icon {
     border: none !important;
   }
