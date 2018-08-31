@@ -36,6 +36,7 @@ module.exports = {
         content: [],
         active: ''
       }`,
+  board: 1,
   'detail-list': `[
         {
           type: 'title',

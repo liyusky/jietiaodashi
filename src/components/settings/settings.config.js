@@ -44,6 +44,7 @@ module.exports = {
           target: ''
         }
       ]`,
+    'board': false,
     'button': `{
         default: [{
           type: 'wran',

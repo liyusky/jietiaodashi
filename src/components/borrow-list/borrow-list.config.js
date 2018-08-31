@@ -13,10 +13,11 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': false,
     'deadline': false,
     'detail-list': false,
-    'image-bg': `''`,
+    'image-bg': `'https://api.vtrois.com/image/750x300/ff8d7b'`,
     'inputs': false,
     'modals': false,
     'nav': `{

@@ -2,7 +2,7 @@
   <!-- s 支付密码设置 -->
   <section class="about-pay-password-settings">
     <TitleComponent :title="title"></TitleComponent>
-    <BillboardListComponent class="settings-billboard margin-top-30 padding-left-30 bg-write" :billboardList="billboardList"></BillboardListComponent>
+    <BillboardListComponent class="settings-billboard margin-top-30 padding-left-30 bg-white" :billboardList="billboardList"></BillboardListComponent>
   </section>
   <!-- e 支付密码设置 -->
 </template>

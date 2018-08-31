@@ -2,11 +2,11 @@
   <!-- s 收支明细详情 -->
   <section class="transfer-detail padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
-    <div class="detail-card bg-write">
+    <div class="detail-card bg-white">
       <div class="color-green font-72">{{money}}</div>
       <div class="color-light-grey font-30">收回金额</div>
     </div>
-    <DetailListComponent class="detail-list font-30 margin-top-21 padding-horizontal-30 bg-write" :detailList="detailList"></DetailListComponent>
+    <DetailListComponent class="detail-list font-30 margin-top-21 padding-horizontal-30 bg-white" :detailList="detailList"></DetailListComponent>
   </section>
   <!-- e 收支明细详情 -->
 </template>

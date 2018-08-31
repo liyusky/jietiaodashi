@@ -4,8 +4,8 @@
     <TitleComponent :title="title"></TitleComponent>
     <div class="record-list" v-for="(item, index) in record" :key="index">
       <TipComponent class="list-time padding-left-30" v-if="item.type === 'time'" :tip="item.content"></TipComponent>
-      <TipComponent class="list-balance bg-write padding-left-30 border-bottom-1" v-else-if="item.type === 'balance'" :tip="item.content"></TipComponent>
-      <div class="list-detail padding-left-30 bg-write" v-else-if="item.type === 'detail'">
+      <TipComponent class="list-balance bg-white padding-left-30 border-bottom-1" v-else-if="item.type === 'balance'" :tip="item.content"></TipComponent>
+      <div class="list-detail padding-left-30 bg-white" v-else-if="item.type === 'detail'">
         <div class="detail-portrait border-bottom-1">
           <img class="border-circle" src="https://api.vtrois.com/image/81/fff7db/e62991">
         </div>

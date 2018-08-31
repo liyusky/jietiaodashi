@@ -2,7 +2,7 @@
   <!-- s 设置 -->
   <section class="settings padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
-    <BillboardListComponent class="settings-billboard margin-top-30 padding-left-30 bg-write" :billboardList="billboardList"></BillboardListComponent>
+    <BillboardListComponent class="settings-billboard margin-top-30 padding-left-30 bg-white" :billboardList="billboardList"></BillboardListComponent>
     <ButtonComponent class="margin-top-30" :button="button"></ButtonComponent>
   </section>
   <!-- e 设置 -->

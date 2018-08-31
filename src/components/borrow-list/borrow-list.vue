@@ -2,11 +2,11 @@
   <!-- s 借入 -->
   <section class="borrow-list padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
-    <NavComponent class="list-nav font-30" :nav="nav"></NavComponent>
+    <NavComponent class="list-nav font-30 bg-white" :nav="nav"></NavComponent>
     <div class="list-board color-white padding-left-30">
-      <div class="font-27">
-        <span class="margin-top-21">当前金额（元）</span>
-        <i class="iconfont icon-chuyin"></i>
+      <div class="board-tip font-27">
+        <p class="margin-right-15">当前金额（元）</p>
+        <i class="iconfont icon-chuyin font-39"></i>
       </div>
       <div class="font-72">51.9584.53</div>
       <div class="font-27">已付利息 1.5710.00元</div>
@@ -26,7 +26,7 @@ export default {
   data () {
     return {
       // start params
-      'imageBg': '',
+      'imageBg': 'https://api.vtrois.com/image/750x300/ff8d7b',
       'nav': {
         content: ['当前', '已还清'],
         active: ''
@@ -38,6 +38,7 @@ export default {
     }
   },
   components: {
+    ImageBgComponent,
     NavComponent,
     TitleComponent
     // include components

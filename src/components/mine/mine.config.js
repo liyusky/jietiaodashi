@@ -50,6 +50,7 @@ module.exports = {
           target: ''
         }
       ]`,
+    'board': false,
     'button': false,
     'deadline': false,
     'detail-list': false,

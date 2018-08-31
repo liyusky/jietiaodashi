@@ -13,6 +13,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': `{
         default: [{
           type: 'primary',

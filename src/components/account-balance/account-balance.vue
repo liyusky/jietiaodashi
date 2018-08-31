@@ -2,7 +2,7 @@
   <!-- s 账单明细 -->
   <section class="account-balance">
     <TitleComponent :title="title"></TitleComponent>
-    <div class="balance-card bg-write">
+    <div class="balance-card bg-white">
       <img class="card-portrait border-circle" src="https://api.vtrois.com/image/141/fff7db/e62991">
       <div class="color-black font-27">可用余额(元)</div>
       <div class="color-deep-black">
@@ -11,8 +11,8 @@
       </div>
       <div class="color-deep-blue font-27">不可用余额 {{0}}元</div>
     </div>
-    <ButtonComponent class="balance-btn padding-horizontal-30 bg-write" :button="button"></ButtonComponent>
-    <DetailListComponent class="bg-write margin-top-30" :detailList="detailList"></DetailListComponent>
+    <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button"></ButtonComponent>
+    <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent>
   </section>
   <!-- e 账单明细 -->
 </template>

@@ -1,7 +1,7 @@
 <template>
   <!-- s  -->
   <section class="image-bg">
-    <img :src="image">
+    <img :src="imageBg">
   </section>
   <!-- e  -->
 </template>

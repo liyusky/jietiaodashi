@@ -13,6 +13,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': false,
     'deadline': false,
     'detail-list': `[
