@@ -79,5 +79,6 @@ module.exports = {
         rightIcon: '',
         leftText: '',
         leftIcon: ''
-      }`
+      }`,
+  deadline: ``
 }

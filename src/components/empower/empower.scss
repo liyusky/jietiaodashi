@@ -82,9 +82,6 @@
           @include center();
           width: 156 / $unit * $symbol;
           height: 100%;
-          font-size: 21 / $unit * $symbol;
-          color: #4d7bfe;
-          background-color: #fff;
         }
         input::-webkit-input-placeholder {
           font-size: 30 / $unit * $symbol;

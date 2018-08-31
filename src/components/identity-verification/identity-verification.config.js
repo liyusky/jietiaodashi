@@ -6,7 +6,6 @@ module.exports = {
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -34,8 +33,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '身份验证',
-        icon: 'cong'
+        contentText: '身份验证'
       }`,
     'work-card': false
   }

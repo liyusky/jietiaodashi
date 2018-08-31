@@ -6,7 +6,6 @@ module.exports = {
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -22,8 +21,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '常见问题',
-        icon: 'cong'
+        contentText: '常见问题'
       }`,
     'work-card': false
   }

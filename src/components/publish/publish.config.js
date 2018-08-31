@@ -1,12 +1,11 @@
 module.exports = {
   content: '借条发布期',
-  router: false,
+  router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -21,7 +20,9 @@ module.exports = {
     'pay-password': false,
     'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '借条发布期'
+      }`,
     'work-card': false
   }
 }

@@ -32,8 +32,7 @@ export default {
       textIndex: null,
       // start params
       'title': {
-        contentText: '常见问题',
-        icon: 'cong'
+        contentText: '常见问题'
       }
       // end params
     }

@@ -1,0 +1,86 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.credit-extension {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f0f0;
+  .extension-content {
+    position: relative;
+    @include horizontal_center();
+    width: 100%;
+    height: 309 / $unit * $symbol;
+    padding: {
+      top: 51 / $unit * $symbol;
+    }
+    .content-progress {
+      width: 558 / $unit * $symbol;
+      .progress-title {
+        @include vertical_center();
+        width: 100%;
+        height: 89 / $unit * $symbol;
+      }
+      .progress-bar {
+        width: 100%;
+        height: 12 / $unit * $symbol;
+        background-color: #3b69cb;
+        border-radius: 6 / $unit * $symbol;
+        .bar {
+          width: 20%;
+          height: 100%;
+          border-radius: 6 / $unit * $symbol;
+        }
+      }
+      .progress-percent {
+        $param: (flex flex) (alignItems center) (justifyContent flex-end);
+        @include flexSet($param);
+        width: 100%;
+        height: 36 / $unit * $symbol;
+      }
+    }
+    .content-step {
+      position: absolute;
+      left: 0 / $unit * $symbol;
+      top: 252 / $unit * $symbol;
+      z-index: 9;
+      width: 100%;
+      .step-item {
+        @include vertical_center();
+        width: 100%;
+        height: 141 / $unit * $symbol;
+        padding: {
+          left: 15 / $unit * $symbol;
+          right: 15 / $unit * $symbol;
+        }
+        border-radius: 9 / $unit * $symbol;
+        .icon {
+          width: 81 / $unit * $symbol;
+          height: 81 / $unit * $symbol;
+          margin: {
+            right: 18 / $unit * $symbol;
+            left: 18 / $unit * $symbol;
+          }
+        }
+        .item-center {
+          flex: 1;
+          p {
+            @include vertical_center();
+            width: 100%;
+          }
+          p:first-of-type {
+            height: 45 / $unit * $symbol;
+          }
+          p:last-of-type {
+            height: 36 / $unit * $symbol;
+          }
+        }
+        .item-button {
+          width: 126 / $unit * $symbol;
+          height: 51 / $unit * $symbol;
+          border-radius: 6 / $unit * $symbol;
+        }
+      }
+    }
+  }
+}

@@ -37,7 +37,7 @@
           <span>还款期限</span>
         </div>
         <div class="itme-deadline">
-          <span class="deadline-date" @click="openModal">{{borrowDate}}</span>
+          <span class="deadline-date" @click="openDeadlineModal">{{borrowDate}}</span>
           <span>{{borrowDeadline}}</span>
           <span>天</span>
         </div>
@@ -49,9 +49,9 @@
           <i class="iconfont icon-cong"></i>
           <span>借款用途</span>
         </div>
-        <div class="itme-default" @click="gotoPurposePage">
+        <div class="itme-default" @click="gotoPage('purpose')">
           <input type="text" v-model="borrowPurpose" placeholder="临时周转">
-          <i class="iconfont icon-arrow-right"></i>
+          <i class="iconfont icon-cong"></i>
         </div>
       </div>
       <div class="form-item">
@@ -61,7 +61,7 @@
         </div>
         <div class="itme-default">
           <input type="text" v-model="borrowObject" placeholder="请选择">
-          <i class="iconfont icon-arrow-right"></i>
+          <i class="iconfont icon-cong"></i>
         </div>
       </div>
       <div class="form-item">
@@ -69,9 +69,9 @@
           <i class="iconfont icon-cong"></i>
           <span>借款发布期</span>
         </div>
-        <div class="itme-default" @click="gotoPublishPage">
+        <div class="itme-default" @click="gotoPage('publish')">
           <input type="text" v-model="borrowPublish" placeholder="20天(自动续借)">
-          <i class="iconfont icon-arrow-right"></i>
+          <i class="iconfont icon-cong"></i>
         </div>
       </div>
       <div class="form-refund">
@@ -87,7 +87,7 @@
     <div class="borrow-submit">
       <ButtonComponent :button="button"></ButtonComponent>
     </div>
-    <!-- <DeadlineComponent v-show="deadLineShow" @SELECT_DATA_EVENT="getDeadline" @CANCEL_EVENT="closeModal"></DeadlineComponent> -->
+    <DeadlineComponent v-show="deadLineShow" @SELECT_DATA_EVENT="getDeadline" @CANCEL_EVENT="closeModal"></DeadlineComponent>
   </section>
   <!-- e  我要借款-->
 </template>
@@ -95,6 +95,7 @@
 <script>
 // include dependence
 import ButtonComponent from '../../module/button/button.vue'
+import DeadlineComponent from '../../module/deadline/deadline.vue'
 import TipComponent from '../../module/tip/tip.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -118,6 +119,7 @@ export default {
           text: '发布借条'
         }]
       },
+      'deadline': true,
       'tip': {
         type: 'default',
         content: '已同意协议',
@@ -136,7 +138,8 @@ export default {
     // include components
     TitleComponent,
     ButtonComponent,
-    TipComponent
+    TipComponent,
+    DeadlineComponent
   },
   mounted () {
     this.scroll()
@@ -166,8 +169,10 @@ export default {
         }
       }, 8)
     },
-    gotoPurposePage () {
-      this.purposeShow = true
+    gotoPage (page) {
+      this.$router.push({
+        name: page
+      })
     },
     gotoPublishPage () {
       this.publishShow = true
@@ -192,7 +197,7 @@ export default {
       this.borrowDate = year + '-' + mouth + '-' + day
       this.deadLineShow = false
     },
-    openModal () {
+    openDeadlineModal () {
       this.deadLineShow = true
     },
     closeModal () {

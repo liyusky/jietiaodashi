@@ -44,28 +44,6 @@ export default {
   name: 'IdentityVerificationComponent',
   data () {
     return {
-      // slideTest: {
-      //   type: 'slide',
-      //   placeholder: '输入持卡人',
-      //   rightText: 'cong',
-      //   leftText: '持卡人',
-      //   leftIcon: 'cong'
-      // },
-      // textTest: {
-      //   type: 'text-icon',
-      //   placeholder: '输入持卡人',
-      //   leftText: '持卡人',
-      //   leftIcon: 'cong'
-      // },
-      // iconTest: {
-      //   type: 'icon',
-      //   placeholder: '输入持卡人',
-      //   leftIcon: 'cong'
-      // },
-      // defaultTest: {
-      //   type: 'switch',
-      //   leftText: '输入持卡人'
-      // },
       cardHolder: {
         type: 'text',
         placeholder: '输入持卡人',
@@ -107,8 +85,7 @@ export default {
         leftIcon: ''
       },
       'title': {
-        contentText: '身份验证',
-        icon: 'cong'
+        contentText: '身份验证'
       }
       // end params
     }

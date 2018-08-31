@@ -117,7 +117,7 @@ function formatComponents (dir, name, goal, refresh) {
           break
         case 'components':
           for (let component in config.components) {
-            if (config.components[component]) {
+            if (config.components[component] && typeof config.components[component] !== 'number') {
               dependence += `import ${setComponentsName(component)} from '${path.relative(goal, paths.module).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
               components += `\n\t\t${setComponentsName(component)},`
               if (refresh) {
@@ -273,9 +273,14 @@ function refreshConfig(dir) {
             if (key === 'components') {
               if (typeof currentConfig[key][item] === 'string') {
                 unit[item] = '`' + currentConfig[key][item] + '`'
-              } else if (currentConfig[key][item]) {
+              }
+              else if (typeof currentConfig[key][item] === 'number') {
+                unit[item] = 1
+              }
+              else if (currentConfig[key][item]) {
                 unit[item] = '`' + Params[item] + '`'
-              } else {
+              }
+              else {
                 unit[item] = false
               }
             }

@@ -1,5 +1,5 @@
 module.exports = {
-  content: '修改支付密码',
+  content: '授信',
   router: true,
   vuex: {
     'mutations': false,
@@ -21,11 +21,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '中间内容',
-        leftText: '左边箭头后文字',
-        rightText: '右边文字内容',
-        icon: '右边icon',
-        svg: '右边svg'
+        contentText: '授信'
       }`,
     'work-card': false
   }
