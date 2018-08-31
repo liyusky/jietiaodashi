@@ -3,8 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
-const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
+const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
+const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
@@ -35,14 +36,19 @@ export default new Router({
       component: AboutPayPasswordSettingsComponent
     },
     {
+      path: '/borrow-list',
+      name: 'borrow-list',
+      component: BorrowListComponent
+    },
+    {
       path: '/account-balance',
       name: 'account-balance',
       component: AccountBalanceComponent
     },
     {
-      path: '/borrow-list',
-      name: 'borrow-list',
-      component: BorrowListComponent
+      path: '/cancel-account',
+      name: 'cancel-account',
+      component: CancelAccountComponent
     },
     {
       path: '/credit-extension',
