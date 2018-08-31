@@ -44,15 +44,8 @@ export default {
       codeText: '',
       getCodeText: '获取验证码',
       switchShow: true,
-      codeDisabled: false,
+      codeDisabled: false
       // start params
-      'button': {
-        default: [{
-          type: 'primary',
-          text: '提交'
-        }]
-      }
-      // end params
     }
   },
   components: {

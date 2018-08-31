@@ -2,4 +2,6 @@
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
 // current sass
-.income-expense-details {}
+.board {
+  @include column_center();
+}

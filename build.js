@@ -116,18 +116,20 @@ function formatComponents (dir, name, goal, refresh) {
           }
           break
         case 'components':
+          console.log(name + '===========================')
           for (let component in config.components) {
-            if (config.components[component] && typeof config.components[component] !== 'number') {
+            if (config.components[component]) {
               dependence += `import ${setComponentsName(component)} from '${path.relative(goal, paths.module).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
               components += `\n\t\t${setComponentsName(component)},`
-              if (refresh) {
-                params += `\n\t\t\t'${setParamsName(component)}': ${config.components[component]},`
-              }
-              else {
+              if (!refresh) {
                 params += `\n\t\t\t'${setParamsName(component)}': ${Params[component]},`
               }
+              else if (typeof config.components[component] !== 'number') {
+                params += `\n\t\t\t'${setParamsName(component)}': ${config.components[component]},`
+              } 
             }
           }
+          console.log(params)
           break
       }
     }

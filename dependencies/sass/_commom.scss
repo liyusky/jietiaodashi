@@ -81,6 +81,18 @@ button {
   }
 }
 
+.margin-top-21 {
+  margin: {
+    top: 21 / $unit * $symbol;
+  }
+}
+
+.margin-right-15 {
+  margin: {
+    right: 15 / $unit * $symbol;
+  }
+}
+
 .margin-right-12 {
   margin: {
     right: 12 / $unit * $symbol;
@@ -149,6 +161,10 @@ button {
   color: #fff;
 }
 
+.color-green {
+  color: #1ecc6e;
+}
+
 .color-grey {
   color: #c7c7cc;
 }
@@ -161,7 +177,11 @@ button {
   color: #4d7bfe;
 }
 
-.bg-write {
+.color-red {
+  color: #f76754;
+}
+
+.bg-white {
   background-color: #fff;
 }
 

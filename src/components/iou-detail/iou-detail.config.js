@@ -12,6 +12,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': `{
         default: [{
           type: 'default',
@@ -51,8 +52,10 @@ module.exports = {
           value: '2017-07-18'
         }
       ]`,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': `{

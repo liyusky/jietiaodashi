@@ -1,0 +1,27 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.borrow-list {
+  width: 100%;
+  min-height: 100vh;
+  .list-nav {
+    height: 99 / $unit * $symbol;
+  }
+  .list-board {
+    position: relative;
+    @include vertical_direction_between();
+    width: 100%;
+    height: 300 / $unit * $symbol;
+    padding: {
+      top: 54 / $unit * $symbol;
+      bottom: 54 / $unit * $symbol;
+    }
+    background: transparent;
+    .board-tip {
+      @include vertical_center();
+      width: 100%;
+      height: 45 / $unit * $symbol;
+    }
+  }
+}

@@ -4,11 +4,11 @@
     <TitleComponent :title="title"></TitleComponent>
     <div class="detail-content margin-top-30 chamfer">
       <TipComponent class="content-tip bg-grey border-radius-top-12" :tip="tip"></TipComponent>
-      <div class="content-work-crad bg-write padding-horizontal-24">
+      <div class="content-work-crad bg-white padding-horizontal-24">
         <WorkCardComponent class="border-bottom-1" :workCard="workCard"></WorkCardComponent>
       </div>
-      <DetailListComponent class="content-detail-list bg-write padding-horizontal-24 font-27" :detailList="detailList"></DetailListComponent>
-      <ButtonComponent class="content-button border-radius-bottom-12 bg-write padding-horizontal-24" :button="button"></ButtonComponent>
+      <DetailListComponent class="content-detail-list bg-white padding-horizontal-24 font-27" :detailList="detailList"></DetailListComponent>
+      <ButtonComponent class="content-button border-radius-bottom-12 bg-white padding-horizontal-24" :button="button"></ButtonComponent>
     </div>
   </section>
   <!-- e 欠条详情 -->

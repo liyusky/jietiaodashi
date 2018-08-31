@@ -104,18 +104,6 @@ export default {
     BillboardListComponent,
     TabComponent
     // include components
-  },
-  methods: {
-    target (page) {
-      this.$router.push({
-        name: page
-      })
-    },
-    gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
-    }
   }
 }
 </script>

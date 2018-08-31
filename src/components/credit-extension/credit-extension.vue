@@ -6,13 +6,13 @@
       <div class="content-progress color-white">
         <p class="progress-title font-33">你已完成1项认证,继续加油哦</p>
         <div class="progress-bar">
-          <div class="bar bg-write"></div>
+          <div class="bar bg-white"></div>
         </div>
         <p class="progress-percent font-24">1/5</p>
         <p class="progress-tio font-24">距离完成还差4步，抓紧时间哦</p>
       </div>
       <div class="content-step padding-horizontal-21">
-        <div class="step-item bg-write margin-bottom-21">
+        <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="identityShow">
             <use xlink:href="#icon-cong"></use>
           </svg>
@@ -25,7 +25,7 @@
           </div>
           <button class="item-button button bg-blue color-white font-24" :class="{'button-active': identityShow}" @click="toAttestation"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
         </div>
-        <div class="step-item bg-write margin-bottom-21">
+        <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="contactShow">
             <use xlink:href="#icon-cong"></use>
           </svg>
@@ -38,7 +38,7 @@
           </div>
           <button class="item-button button bg-blue color-white font-24"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
         </div>
-        <div class="step-item bg-write margin-bottom-21">
+        <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="sesameShow">
             <use xlink:href="#icon-cong"></use>
           </svg>
@@ -51,7 +51,7 @@
           </div>
           <button class="item-button button bg-blue color-white font-24"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
         </div>
-        <div class="step-item bg-write margin-bottom-21">
+        <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="operatorShow">
             <use xlink:href="#icon-cong"></use>
           </svg>
@@ -64,7 +64,7 @@
           </div>
           <button class="item-button button bg-blue color-white font-24"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
         </div>
-        <div class="step-item bg-write">
+        <div class="step-item bg-white">
           <svg class="icon" aria-hidden="true" v-if="cardShow">
             <use xlink:href="#icon-cong"></use>
           </svg>

@@ -1,6 +1,6 @@
 <template>
   <!-- s 消息 -->
-  <section class="news bg-write">
+  <section class="news bg-white padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <div class="news-tip padding-left-30">
       <div class="tip-content border-bottom-1">

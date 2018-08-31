@@ -12,16 +12,19 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': `{
         default: [{
           type: 'primary',
           text: '发布借条'
         }]
       }`,
-    'deadline': ``,
+    'deadline': 1,
     'detail-list': false,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': `{

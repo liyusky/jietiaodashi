@@ -119,7 +119,6 @@ export default {
           text: '发布借条'
         }]
       },
-      'deadline': true,
       'tip': {
         type: 'default',
         content: '已同意协议',
@@ -213,5 +212,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./borrow.scss";
+@import "./wanna-borrow.scss";
 </style>

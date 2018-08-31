@@ -12,6 +12,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': `{
         group: [
           {
@@ -45,8 +46,10 @@ module.exports = {
           remnant: '余额:0.05'
         }
       ]`,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': false,

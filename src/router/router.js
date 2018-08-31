@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
-const BorrowComponent = () => import(/* webpackChunkName: 'borrow' */ '../components/borrow/borrow.vue')
+const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
@@ -24,6 +24,9 @@ const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../comp
 const SetPayPasswordComponent = () => import(/* webpackChunkName: 'set-pay-password' */ '../components/set-pay-password/set-pay-password.vue')
 const SettingsComponent = () => import(/* webpackChunkName: 'settings' */ '../components/settings/settings.vue')
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
+const TransferDetailComponent = () => import(/* webpackChunkName: 'transfer-detail' */ '../components/transfer-detail/transfer-detail.vue')
+const TransferRecordComponent = () => import(/* webpackChunkName: 'transfer-record' */ '../components/transfer-record/transfer-record.vue')
+const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/wanna-borrow/wanna-borrow.vue')
 export default new Router({
   routes: [
     {
@@ -37,9 +40,9 @@ export default new Router({
       component: AccountBalanceComponent
     },
     {
-      path: '/borrow',
-      name: 'borrow',
-      component: BorrowComponent
+      path: '/borrow-list',
+      name: 'borrow-list',
+      component: BorrowListComponent
     },
     {
       path: '/credit-extension',
@@ -135,6 +138,21 @@ export default new Router({
       path: '/transactions',
       name: 'transactions',
       component: TransactionsComponent
+    },
+    {
+      path: '/transfer-detail',
+      name: 'transfer-detail',
+      component: TransferDetailComponent
+    },
+    {
+      path: '/transfer-record',
+      name: 'transfer-record',
+      component: TransferRecordComponent
+    },
+    {
+      path: '/wanna-borrow',
+      name: 'wanna-borrow',
+      component: WannaBorrowComponent
     }
   ]
 })

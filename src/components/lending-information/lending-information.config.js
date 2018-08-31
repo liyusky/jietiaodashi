@@ -12,6 +12,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': `{
         default: [
           {
@@ -52,8 +53,10 @@ module.exports = {
           value: '50元'
         }
       ]`,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': `{

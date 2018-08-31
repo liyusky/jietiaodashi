@@ -31,6 +31,12 @@ module.exports = {
           }
         ]
       }`,
+  tab: `''`,
+  nav: `{
+        content: [],
+        active: ''
+      }`,
+  board: 1,
   'detail-list': `[
         {
           type: 'title',
@@ -80,5 +86,6 @@ module.exports = {
         leftText: '',
         leftIcon: ''
       }`,
-  deadline: ``
+  deadline: ``,
+  'image-bg': `''`
 }

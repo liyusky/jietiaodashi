@@ -1,5 +1,5 @@
 module.exports = {
-  content: '登录',
+  content: '转账记录',
   router: true,
   vuex: {
     'mutations': false,
@@ -13,12 +13,7 @@ module.exports = {
   components: {
     'billboard-list': false,
     'board': false,
-    'button': `{
-        default: [{
-          type: 'primary',
-          text: '提交'
-        }]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
@@ -27,8 +22,10 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'tab': false,
-    'tip': false,
-    'title': false,
+    'tip': 1,
+    'title': `{
+        contentText: '转账记录'
+      }`,
     'work-card': false
   }
 }

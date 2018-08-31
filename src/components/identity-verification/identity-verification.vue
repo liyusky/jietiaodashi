@@ -36,6 +36,7 @@
 </template>
 
 <script>
+// import InputsComponent from '../../module/inputs/inputs.vue'
 // include dependence
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
@@ -75,14 +76,6 @@ export default {
           type: 'primary',
           text: '下一步'
         }]
-      },
-      'inputs': {
-        type: 'default / text / slide / icon / switch / center',
-        placeholder: '',
-        rightText: '',
-        rightIcon: '',
-        leftText: '',
-        leftIcon: ''
       },
       'title': {
         contentText: '身份验证'

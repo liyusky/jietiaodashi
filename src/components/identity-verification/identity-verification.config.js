@@ -12,6 +12,7 @@ module.exports = {
   },
   components: {
     'billboard-list': false,
+    'board': false,
     'button': `{
         default: [{
           type: 'primary',
@@ -20,15 +21,10 @@ module.exports = {
       }`,
     'deadline': false,
     'detail-list': false,
-    'inputs': `{
-        type: 'default / text / slide / icon / switch / center',
-        placeholder: '',
-        rightText: '',
-        rightIcon: '',
-        leftText: '',
-        leftIcon: ''
-      }`,
+    'image-bg': false,
+    'inputs': 1,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': false,

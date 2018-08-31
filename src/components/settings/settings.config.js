@@ -43,6 +43,7 @@ module.exports = {
           target: ''
         }
       ]`,
+    'board': false,
     'button': `{
         default: [{
           type: 'wran',
@@ -51,8 +52,10 @@ module.exports = {
       }`,
     'deadline': false,
     'detail-list': false,
+    'image-bg': false,
     'inputs': false,
     'modals': false,
+    'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': false,
