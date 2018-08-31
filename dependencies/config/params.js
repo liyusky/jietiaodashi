@@ -36,7 +36,7 @@ module.exports = {
         content: [],
         active: ''
       }`,
-  board: 1,
+  board: '1 / 默认  center / 居中 ',
   'detail-list': `[
         {
           type: 'title',

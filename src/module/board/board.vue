@@ -1,6 +1,6 @@
 <template>
   <!-- s  -->
-  <section class="board">
+  <section :class="board ? 'board-' + board : 'board-default'">
     <slot></slot>
   </section>
   <!-- e  -->
@@ -9,6 +9,7 @@
 <script>
 export default {
   name: 'BoardComponent',
+  props: ['board']
 }
 </script>
 
