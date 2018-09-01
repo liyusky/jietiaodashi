@@ -4,8 +4,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
-const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
+const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
@@ -47,14 +47,14 @@ export default new Router({
       component: AccountBalanceComponent
     },
     {
-      path: '/cancel-account',
-      name: 'cancel-account',
-      component: CancelAccountComponent
-    },
-    {
       path: '/bind-bank-card',
       name: 'bind-bank-card',
       component: BindBankCardComponent
+    },
+    {
+      path: '/cancel-account',
+      name: 'cancel-account',
+      component: CancelAccountComponent
     },
     {
       path: '/borrow-list',

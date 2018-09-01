@@ -29,7 +29,7 @@ export default {
   data () {
     return {
       // start params
-      'imageBg': 'https://api.vtrois.com/image/750x300/3697fc',
+      'imageBg': 'https://api.vtrois.com/image/750x300/ff8d7b',
       'nav': {
         content: ['当前', '已收回'],
         active: ''

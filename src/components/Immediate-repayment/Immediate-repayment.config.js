@@ -26,10 +26,13 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'receipt': false,
     'tab': false,
     'tip': `{
         type: 'default',
-        content: '已阅读并同意相关协议'
+        content: '已阅读并同意相关协议',
+        icon: 'cong',
+        selected: 'true'
       }`,
     'title': `{
         contentText: '立即还款'
