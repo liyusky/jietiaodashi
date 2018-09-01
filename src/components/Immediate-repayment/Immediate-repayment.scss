@@ -19,9 +19,12 @@
     .form-itme {
       width: 100%;
       height: 99 / $unit * $symbol;
-      &:last-of-type {
-        border: none;
-      }
+    }
+    .form-balance {
+      $param: (flex flex) (alignItems center) (justifyContent flex-end);
+      @include flexSet($param);
+      width: 100%;
+      height: 69 / $unit * $symbol;
     }
   }
   .repayment-tip {

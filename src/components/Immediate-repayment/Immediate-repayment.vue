@@ -4,17 +4,17 @@
     <TitleComponent :title="title"></TitleComponent>
     <div class="repayment-board bg-blue color-white">
       <p>100.00</p>
-      <p class="font-27">当前应收款（元）</p>
+      <p class="font-27">应还总额（元）</p>
     </div>
     <div class="repayment-form bg-white border-bottom-1 padding-horizontal-30">
       <div class="form-itme border-bottom-1">
         <InputsComponent :inputs="cancelMountInput" @GET_INPUT_TEXT_EVENT="getCancelMOunt"></InputsComponent>
       </div>
-      <div class="form-itme border-bottom-1">
+      <div class="form-itme  border-bottom-1">
         <InputsComponent :inputs="totalMountInput" @SWITCH_TOGGLE_EVENT="getTotalMOunt"></InputsComponent>
       </div>
-      <div class="form-itme border-bottom-1">
-        <InputsComponent :inputs="cancelReasonInput" @GET_INPUT_TEXT_EVENT="getCancelReason"></InputsComponent>
+      <div class="form-balance">
+        <p class="font-27 color-light-black">账户余额<span class="font-24 color-light-blue">58.00</span>元</p>
       </div>
     </div>
     <div class="repayment-tip padding-left-30">
@@ -37,12 +37,12 @@ export default {
   name: 'ImmediateRepaymentComponent',
   data () {
     return {
-         cancelMount: '',
+      cancelMount: '',
       totalMountShow: true,
       cancelReason: '',
       cancelMountInput: {
         type: 'slide',
-        leftText: '销账金额',
+        leftText: '金额',
         leftIcon: 'cong',
         placeholder: '请输入10的倍数',
         rightText: '元'
@@ -51,13 +51,6 @@ export default {
         type: 'switch',
         leftText: '全额',
         leftIcon: 'cong'
-      },
-      cancelReasonInput: {
-        type: 'slide',
-        leftText: '销账原因',
-        leftIcon: 'cong',
-        placeholder: '其他方式收款',
-        rightIcon: 'cong'
       },
       // start params
       'button': {
@@ -85,7 +78,7 @@ export default {
     TitleComponent
     // include components
   },
-    methods: {
+  methods: {
     getCancelMOunt (text) {
       this.cancelMount = text
     },

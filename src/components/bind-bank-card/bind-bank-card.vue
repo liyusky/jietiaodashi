@@ -50,7 +50,7 @@
         <p class="font-30 color-black">手机验证码</p>
         <div class="item-right">
           <input type="text" v-model="codeNumber" placeholder="请输入手机验证码">
-          <button class="button font-21 color-light-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>          
+          <button class="button font-21 color-light-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
         </div>
       </div>
     </div>
