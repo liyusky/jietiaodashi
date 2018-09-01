@@ -116,7 +116,6 @@ function formatComponents (dir, name, goal, refresh) {
           }
           break
         case 'components':
-          console.log(name + '===========================')
           for (let component in config.components) {
             if (config.components[component]) {
               dependence += `import ${setComponentsName(component)} from '${path.relative(goal, paths.module).replace(/\\/g, '/').replace('../', '')}/${component}/${component}.vue'\n`
@@ -129,7 +128,6 @@ function formatComponents (dir, name, goal, refresh) {
               } 
             }
           }
-          console.log(params)
           break
       }
     }

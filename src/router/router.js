@@ -5,12 +5,13 @@ Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
-const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
+const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/friend/friend.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
+const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
@@ -40,14 +41,14 @@ export default new Router({
       component: BorrowListComponent
     },
     {
-      path: '/find',
-      name: 'find',
-      component: FindComponent
-    },
-    {
       path: '/empower',
       name: 'empower',
       component: EmpowerComponent
+    },
+    {
+      path: '/find',
+      name: 'find',
+      component: FindComponent
     },
     {
       path: '/forget-password',
@@ -68,6 +69,11 @@ export default new Router({
       path: '/iou-detail',
       name: 'iou-detail',
       component: IouDetailComponent
+    },
+    {
+      path: '/lend-list',
+      name: 'lend-list',
+      component: LendListComponent
     },
     {
       path: '/lending-information',

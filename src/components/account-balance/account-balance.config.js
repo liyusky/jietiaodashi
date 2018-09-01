@@ -52,6 +52,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'receipt': false,
     'tab': false,
     'tip': false,
     'title': `{

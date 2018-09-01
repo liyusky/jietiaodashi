@@ -27,6 +27,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': `[]`,
+    'receipt': false,
     'tab': false,
     'tip': `{
         type: 'center',
