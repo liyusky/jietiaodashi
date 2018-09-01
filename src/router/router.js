@@ -5,9 +5,10 @@ Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
+const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
-const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
+const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-status' */ '../components/exhibition-status/exhibition-status.vue')
 const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-period' */ '../components/exhibiton-period/exhibiton-period.vue')
@@ -16,6 +17,7 @@ const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/friend/friend.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
+const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'Immediate-repayment' */ '../components/Immediate-repayment/Immediate-repayment.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
@@ -49,19 +51,24 @@ export default new Router({
       component: CancelAccountComponent
     },
     {
+      path: '/bind-bank-card',
+      name: 'bind-bank-card',
+      component: BindBankCardComponent
+    },
+    {
       path: '/borrow-list',
       name: 'borrow-list',
       component: BorrowListComponent
     },
     {
-      path: '/credit-extension',
-      name: 'credit-extension',
-      component: CreditExtensionComponent
-    },
-    {
       path: '/confirm-cancel-account',
       name: 'confirm-cancel-account',
       component: ConfirmCancelAccountComponent
+    },
+    {
+      path: '/credit-extension',
+      name: 'credit-extension',
+      component: CreditExtensionComponent
     },
     {
       path: '/empower',
@@ -102,6 +109,11 @@ export default new Router({
       path: '/identity-verification',
       name: 'identity-verification',
       component: IdentityVerificationComponent
+    },
+    {
+      path: '/Immediate-repayment',
+      name: 'Immediate-repayment',
+      component: ImmediateRepaymentComponent
     },
     {
       path: '/index',

@@ -131,6 +131,10 @@
 .slide {
   .left {
     width: 30%;
+    .leftText {
+      font-size: 27 / $unit * $symbol;
+      color: #333333;
+    }
   }
   .right {
     $param: (flex flex)  (justifyContent flex-end);

@@ -1,3 +1,4 @@
+@import './_unit.scss';
 * {
   margin: 0;
   padding: 0;
@@ -23,4 +24,5 @@ svg, img {
 }
 html {
   background-color: #f0f0f0;
+  font-size: 9 / $unit * $symbol;
 }

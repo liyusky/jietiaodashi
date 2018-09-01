@@ -1,5 +1,5 @@
 module.exports = {
-  content: '展期',
+  content: '立即还款',
   router: true,
   vuex: {
     'mutations': false,
@@ -16,25 +16,23 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '同意展期'
+          text: '立即还款'
         }]
       }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': false,
+    'inputs': 1,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'tab': false,
     'tip': `{
         type: 'default',
-        content: '同意相关协议',
-        icon: 'cong',
-        selected: 'true'
+        content: '已阅读并同意相关协议'
       }`,
     'title': `{
-        contentText: '展期'
+        contentText: '立即还款'
       }`,
     'work-card': false
   }

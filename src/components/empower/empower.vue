@@ -15,7 +15,7 @@
         </div>
         <div class="form-item form-code" v-if="switchShow">
           <input type="text" v-model="codeText" maxlength="6" placeholder="请输入验证码">
-          <button class="button font-21 color-light-blue bg-write" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
+          <button class="button font-21 color-light-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
         </div>
         <div class="form-item form-password" v-if="!switchShow">
           <input type="password" v-model="passwordText" placeholder="输入密码">

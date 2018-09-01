@@ -1,5 +1,5 @@
 module.exports = {
-  content: '展期',
+  content: '绑定银行卡',
   router: true,
   vuex: {
     'mutations': false,
@@ -16,25 +16,20 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '同意展期'
+          text: '确认绑定'
         }]
       }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': false,
+    'inputs': 1,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'tab': false,
-    'tip': `{
-        type: 'default',
-        content: '同意相关协议',
-        icon: 'cong',
-        selected: 'true'
-      }`,
+    'tip': false,
     'title': `{
-        contentText: '展期'
+        contentText: '绑定银行卡'
       }`,
     'work-card': false
   }
