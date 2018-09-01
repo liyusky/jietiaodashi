@@ -5,8 +5,8 @@ Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
-const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
+const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
@@ -24,6 +24,7 @@ const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../c
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
+const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ '../components/my-bank-card/my-bank-card.vue')
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
 const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../components/publish/publish.vue')
@@ -52,14 +53,14 @@ export default new Router({
       component: BindBankCardComponent
     },
     {
-      path: '/cancel-account',
-      name: 'cancel-account',
-      component: CancelAccountComponent
-    },
-    {
       path: '/borrow-list',
       name: 'borrow-list',
       component: BorrowListComponent
+    },
+    {
+      path: '/cancel-account',
+      name: 'cancel-account',
+      component: CancelAccountComponent
     },
     {
       path: '/confirm-cancel-account',
@@ -145,6 +146,11 @@ export default new Router({
       path: '/modefy-pay-password',
       name: 'modefy-pay-password',
       component: ModefyPayPasswordComponent
+    },
+    {
+      path: '/my-bank-card',
+      name: 'my-bank-card',
+      component: MyBankCardComponent
     },
     {
       path: '/news',

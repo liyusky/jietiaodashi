@@ -1,0 +1,66 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.my-bank-card {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  .card-list {
+    width: 100%;
+    padding: {
+      top: 30 / $unit * $symbol;
+      bottom: 30 / $unit * $symbol;
+    }
+    .list-item {
+      @include vertical_direction();
+      width: 100%;
+      height: 210 / $unit * $symbol;
+      padding: {
+        left: 24 / $unit * $symbol;
+        right: 24 / $unit * $symbol;
+      }
+      margin: {
+        bottom: 30 / $unit * $symbol;
+      }
+      border-radius: 10 / $unit * $symbol;
+      .item-detail {
+        @include vertical_center();
+        width: 100%;
+        height: 111 / $unit * $symbol;
+        .icon {
+          width: 78 / $unit * $symbol;
+          height: 78 / $unit * $symbol;
+        }
+        .detail-name {
+          width: 100%;
+          padding: {
+            left: 15 / $unit * $symbol;
+          }
+          p:first-of-type {
+            height: 45 / $unit * $symbol;
+          }
+          p:last-of-type {
+            height: 39 / $unit * $symbol;
+          }
+        }
+      }
+      .item-card {
+        $param: (flex flex) (alignItems center) (justifyContent flex-end);
+        @include flexSet($param);
+        flex: 1;
+        width: 100%;
+        font-size: 48 / $unit * $symbol;
+      }
+    }
+  }
+  .card-hint {
+    width: 100%;
+    p:first-of-type {
+      line-height: 54 / $unit * $symbol;
+    }
+    p {
+      line-height: 42 / $unit * $symbol;
+    }
+  }
+}
