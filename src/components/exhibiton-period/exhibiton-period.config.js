@@ -1,5 +1,5 @@
 module.exports = {
-  content: '展期状态',
+  content: '展期',
   router: true,
   vuex: {
     'mutations': false,
@@ -16,31 +16,25 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '确认'
+          text: '同意展期'
         }]
       }`,
     'deadline': false,
-    'detail-list': `[
-        {
-          type: 'default',
-          key: '展期日期',
-          value: '2017年12月14日'
-        },
-        {
-          type: 'default',
-          key: '展期利率',
-          value: '10%'
-        }
-      ]`,
+    'detail-list': false,
     'image-bg': false,
-    'inputs': false,
+    'inputs': 1,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'tab': false,
-    'tip': false,
+    'tip': `{
+        type: 'default',
+        content: '同意相关协议',
+        icon: 'cong',
+        selected: 'true'
+      }`,
     'title': `{
-        contentText: '展期状态'
+        contentText: '展期'
       }`,
     'work-card': false
   }

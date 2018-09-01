@@ -35,16 +35,16 @@ export default {
         }]
       },
       'detailList': [
-      {
-        type: 'default',
-        key: '展期日期',
-        value: '2017年12月14日'
-      },
-      {
-        type: 'default',
-        key: '展期利率',
-        value: '10%'
-      }
+        {
+          type: 'default',
+          key: '展期日期',
+          value: '2017年12月14日'
+        },
+        {
+          type: 'default',
+          key: '展期利率',
+          value: '10%'
+        }
       ],
       'title': {
         contentText: '展期状态'

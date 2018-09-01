@@ -6,10 +6,11 @@ const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'abo
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
-const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
+const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-status' */ '../components/exhibition-status/exhibition-status.vue')
+const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-period' */ '../components/exhibiton-period/exhibiton-period.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
@@ -53,14 +54,14 @@ export default new Router({
       component: BorrowListComponent
     },
     {
-      path: '/confirm-cancel-account',
-      name: 'confirm-cancel-account',
-      component: ConfirmCancelAccountComponent
-    },
-    {
       path: '/credit-extension',
       name: 'credit-extension',
       component: CreditExtensionComponent
+    },
+    {
+      path: '/confirm-cancel-account',
+      name: 'confirm-cancel-account',
+      component: ConfirmCancelAccountComponent
     },
     {
       path: '/empower',
@@ -71,6 +72,11 @@ export default new Router({
       path: '/exhibition-status',
       name: 'exhibition-status',
       component: ExhibitionStatusComponent
+    },
+    {
+      path: '/exhibiton-period',
+      name: 'exhibiton-period',
+      component: ExhibitonPeriodComponent
     },
     {
       path: '/familar-question',
