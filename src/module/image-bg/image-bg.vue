@@ -9,10 +9,7 @@
 <script>
 export default {
   name: 'ImageBgComponent',
-  props: ['imageBg'],
-  data () {
-    return {}
-  }
+  props: ['imageBg']
 }
 </script>
 

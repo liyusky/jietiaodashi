@@ -1,11 +1,12 @@
 module.exports = {
-  content: '借入',
-  router: 1,
+  content: '借出',
+  router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
+    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -20,7 +21,7 @@ module.exports = {
     'inputs': false,
     'modals': false,
     'nav': `{
-        content: ['当前', '已还清'],
+        content: ['当前', '已收回'],
         active: ''
       }`,
     'pay-password': false,
@@ -37,7 +38,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '借入'
+        contentText: '借出'
       }`,
     'work-card': false
   }

@@ -37,6 +37,16 @@ module.exports = {
         active: ''
       }`,
   board: '1 / 默认  center / 居中 ',
+  receipt: `[{
+        name: '幸福不会远',
+        type: '借出',
+        portrait: 'https://api.vtrois.com/image/81/fff7db/e62991',
+        rate: '0',
+        start: '2017-11-30',
+        end: '2017-12-01',
+        money: '200',
+        status: '已受理'
+      }]`,
   'detail-list': `[
         {
           type: 'title',

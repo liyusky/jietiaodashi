@@ -20,6 +20,7 @@ const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identit
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'Immediate-repayment' */ '../components/Immediate-repayment/Immediate-repayment.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
+const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
@@ -124,6 +125,11 @@ export default new Router({
       path: '/iou-detail',
       name: 'iou-detail',
       component: IouDetailComponent
+    },
+    {
+      path: '/lend-list',
+      name: 'lend-list',
+      component: LendListComponent
     },
     {
       path: '/lending-information',

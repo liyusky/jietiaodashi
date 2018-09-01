@@ -1,6 +1,6 @@
 <template>
-  <!-- s 借入 -->
-  <section class="borrow-list padding-top-126">
+  <!-- s 借出 -->
+  <section class="lend-list padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <NavComponent class="list-nav font-30 bg-white" :nav="nav"></NavComponent>
     <BoardComponent class="list-board color-white padding-left-30">
@@ -9,12 +9,12 @@
         <i class="iconfont icon-chuyin font-39"></i>
       </div>
       <div class="font-72">51.9584.53</div>
-      <div class="font-27">已付利息 1.5710.00元</div>
+      <div class="font-27">应付利息 0元</div>
       <ImageBgComponent :imageBg="imageBg"></ImageBgComponent>
     </BoardComponent>
     <ReceiptComponent :receipt="item" v-for="(item, index) in receipt" :key="index"></ReceiptComponent>
   </section>
-  <!-- e 借入 -->
+  <!-- e 借出 -->
 </template>
 
 <script>
@@ -25,13 +25,13 @@ import NavComponent from '../../module/nav/nav.vue'
 import ReceiptComponent from '../../module/receipt/receipt.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
-  name: 'BorrowListComponent',
+  name: 'LendListComponent',
   data () {
     return {
       // start params
-      'imageBg': 'https://api.vtrois.com/image/750x300/ff8d7b',
+      'imageBg': 'https://api.vtrois.com/image/750x300/3697fc',
       'nav': {
-        content: ['当前', '已还清'],
+        content: ['当前', '已收回'],
         active: ''
       },
       'receipt': [{
@@ -45,7 +45,7 @@ export default {
         status: '已受理'
       }],
       'title': {
-        contentText: '借入'
+        contentText: '借出'
       }
       // end params
     }
@@ -62,5 +62,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./borrow-list.scss";
+@import "./lend-list.scss";
 </style>
