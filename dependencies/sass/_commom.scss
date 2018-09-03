@@ -25,6 +25,12 @@ button {
   }
 }
 
+.padding-horizontal-24 {
+  padding: {
+    left: 24 / $unit * $symbol;
+    right: 24 / $unit * $symbol;
+  }
+}
 .padding-horizontal-21 {
   padding: {
     left: 21 / $unit * $symbol;
@@ -143,6 +149,14 @@ button {
 
 .font-24 {
   font-size: 24 / $unit * $symbol;
+}
+
+.font-21 {
+  font-size: 21 / $unit * $symbol;
+}
+
+.font-18 {
+  font-size: 18 / $unit * $symbol;
 }
 
 .color-deep-black {

@@ -13,6 +13,7 @@ const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../comp
 const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-status' */ '../components/exhibition-status/exhibition-status.vue')
 const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-period' */ '../components/exhibiton-period/exhibiton-period.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
+const FeedbackComponent = () => import(/* webpackChunkName: 'feedback' */ '../components/feedback/feedback.vue')
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
@@ -29,6 +30,7 @@ const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
 const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../components/publish/publish.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
+const SearchFriendComponent = () => import(/* webpackChunkName: 'search-friend' */ '../components/search-friend/search-friend.vue')
 const SetPayPasswordComponent = () => import(/* webpackChunkName: 'set-pay-password' */ '../components/set-pay-password/set-pay-password.vue')
 const SettingsComponent = () => import(/* webpackChunkName: 'settings' */ '../components/settings/settings.vue')
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
@@ -91,6 +93,11 @@ export default new Router({
       path: '/familar-question',
       name: 'familar-question',
       component: FamilarQuestionComponent
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: FeedbackComponent
     },
     {
       path: '/find',
@@ -171,6 +178,11 @@ export default new Router({
       path: '/purpose',
       name: 'purpose',
       component: PurposeComponent
+    },
+    {
+      path: '/search-friend',
+      name: 'search-friend',
+      component: SearchFriendComponent
     },
     {
       path: '/set-pay-password',

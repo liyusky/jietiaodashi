@@ -1,0 +1,60 @@
+<template>
+  <!-- s 意见反馈 -->
+  <section class="feedback">
+    <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
+    <div class="feedback-advice bg-white  border-bottom-1">
+      <div class="advice-title border-bottom-1">
+        <i class="iconfont icon-cong font-21"></i>
+        <p>请描述你遇到的问题</p>
+      </div>
+      <div class="advice-opinion">
+        <textarea class="opinion-input font-27 color-black" id="opinion-input" v-model="textareaNum" maxlength="200" name="opinion-input" placeholder="描述你的问题"></textarea>
+        <div class="input-number font-27 color-light-black"><span>{{textareaNum.length}}/200</span></div>
+      </div>
+    </div>
+    <div class="feedback-contact-way bg-white">
+      <input class="font-27 color-black padding-left-30" type="text" placeholder="手机号/邮箱（选填，方便我们联系您）">
+    </div>
+    <div class="feedback-button padding-horizontal-30">
+      <ButtonComponent :button="button"></ButtonComponent>
+    </div>
+  </section>
+  <!-- e 意见反馈 -->
+</template>
+
+<script>
+// include dependence
+import ButtonComponent from '../../module/button/button.vue'
+import TitleComponent from '../../module/title/title.vue'
+export default {
+  name: 'FeedbackComponent',
+  data () {
+    return {
+      textareaNum: '',
+      // start params
+      'button': {
+        default: [{
+          type: 'primary',
+          text: '提交'
+        }]
+      },
+      'title': {
+        contentText: '意见反馈'
+      }
+      // end params
+    }
+  },
+  components: {
+    ButtonComponent,
+    TitleComponent
+    // include components
+  },
+  methods: {
+    backPage () {}
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+@import "./feedback.scss";
+</style>
