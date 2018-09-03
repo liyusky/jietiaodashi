@@ -1,7 +1,7 @@
 <template>
   <!-- s 我的 -->
   <section class="mine">
-    <div class="mine-information padding-horizontal-24 margin-bottom-21">
+    <div class="mine-information padding-horizontal-21 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
         <div class="detail-portrait" @click="gotoPage('personal-info')">
           <img src="https://api.vtrois.com/image/250x205">
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="mine-billboard-list">
+    <div class="mine-billboard-list padding-horizontal-30">
       <BillboardListComponent :billboardList="billboardList" @OPERATION_EVENT="target"></BillboardListComponent>
     </div>
     <TabComponent></TabComponent>

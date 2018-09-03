@@ -36,7 +36,7 @@
             <p class="font-30 color-black">联系人认证</p>
             <p class="font-24 color-black color-light-grey">补全联系人资料，获取更高额度</p>
           </div>
-          <button class="item-button button bg-blue color-white font-24"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
+          <button class="item-button button bg-blue color-white font-24"><div>{{contactShow ? '已完成' : '去认证'}}</div></button>
         </div>
         <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="sesameShow">
@@ -49,7 +49,7 @@
             <p class="font-30 color-black">芝麻分认证</p>
             <p class="font-24 color-black color-light-grey">做信用达人，晒晒芝麻信用分吧</p>
           </div>
-          <button class="item-button button bg-blue color-white font-24"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
+          <button class="item-button button bg-blue color-white font-24"><div>{{sesameShow ? '已完成' : '去认证'}}</div></button>
         </div>
         <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="operatorShow">
@@ -62,7 +62,7 @@
             <p class="font-30 color-black">运营商认证</p>
             <p class="font-24 color-black color-light-grey">最后一步授权运行商查询</p>
           </div>
-          <button class="item-button button bg-blue color-white font-24"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
+          <button class="item-button button bg-blue color-white font-24"><div>{{operatorShow ? '已完成' : '去认证'}}</div></button>
         </div>
         <div class="step-item bg-white">
           <svg class="icon" aria-hidden="true" v-if="cardShow">
@@ -75,7 +75,7 @@
             <p class="font-30 color-black">银行卡认证</p>
             <p class="font-24 color-black color-light-grey">添加银行卡</p>
           </div>
-          <button class="item-button button bg-blue color-white font-24"><div>{{identityShow ? '已完成' : '去认证'}}</div></button>
+          <button class="item-button button bg-blue color-white font-24"><div>{{cardShow ? '已完成' : '去认证'}}</div></button>
         </div>
       </div>
     </div>
@@ -90,7 +90,6 @@ export default {
   name: 'CreditExtensionComponent',
   data () {
     return {
-      iconShow: false,
       identityShow: false,
       contactShow: false,
       sesameShow: false,

@@ -15,13 +15,13 @@ const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-pe
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
-const FriendComponent = () => import(/* webpackChunkName: 'friend' */ '../components/friend/friend.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'Immediate-repayment' */ '../components/Immediate-repayment/Immediate-repayment.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
+const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../components/message/message.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
 const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ '../components/my-bank-card/my-bank-card.vue')
@@ -103,11 +103,6 @@ export default new Router({
       component: ForgetPasswordComponent
     },
     {
-      path: '/friend',
-      name: 'friend',
-      component: FriendComponent
-    },
-    {
       path: '/identity-verification',
       name: 'identity-verification',
       component: IdentityVerificationComponent
@@ -136,6 +131,11 @@ export default new Router({
       path: '/lending-information',
       name: 'lending-information',
       component: LendingInformationComponent
+    },
+    {
+      path: '/message',
+      name: 'message',
+      component: MessageComponent
     },
     {
       path: '/mine',
