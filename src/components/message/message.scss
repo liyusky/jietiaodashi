@@ -34,10 +34,6 @@
       @include vertical_center();
       width: 100%;
       height: 99 / $unit * $symbol;
-      padding: {
-        left: 30 / $unit * $symbol;
-        right: 30 / $unit * $symbol;
-      }
       background-color: #f0f0f0;
       .search-content {
         @include center();
@@ -59,7 +55,7 @@
         @include vertical_center_horizontal_between();
         width: 100%;
         height: 129 / $unit * $symbol;
-        .detail-portrait {
+        .item-portrait {
           width: 87 / $unit * $symbol;
           height: 87 / $unit * $symbol;
           img {
@@ -67,7 +63,7 @@
             height: 100%;
           }
         }
-        .detail-message {
+        .item-message {
           flex-grow: 1;
           div {
             width: 100%;

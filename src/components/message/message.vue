@@ -6,7 +6,7 @@
       <i class="iconfont icon-cong"></i>
     </div>
     <div class="message-content">
-      <div class="content-search font-24 border-bottom-1" @click="gotoPage('search-friend')">
+      <div class="content-search padding-horizontal-30 font-24 border-bottom-1" @click="gotoPage('search-friend')">
         <div class="search-content">
           <i class="iconfont icon-cong"></i>
           <span>搜索手机号</span>
@@ -14,10 +14,10 @@
       </div>
       <ul class="content-list padding-horizontal-30">
         <li class="list-item border-bottom-1" v-for="(item, index) in 10" :key="index">
-          <div class="detail-portrait border-bottom-1">
+          <div class="item-portrait border-bottom-1">
             <img src="http://iph.href.lu/87x87">
           </div>
-          <div class="detail-message padding-horizontal-30">
+          <div class="item-message padding-horizontal-30">
             <div class="message-title">
               <p class="font-27 color-light-blue">
                 <span>借条大师助手</span>
