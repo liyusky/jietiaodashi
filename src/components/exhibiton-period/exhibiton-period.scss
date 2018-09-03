@@ -1,0 +1,128 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.exhibiton-period {
+  width: 100vw;
+  height: 100vh;
+  .period-hint {
+    @include vertical_center();
+    width: 100%;
+    height: 69 / $unit * $symbol;
+  }
+  .period-form {
+    width: 100%;
+    .form-delayed {
+      width: 100%;
+      padding: {
+        top: 21 / $unit * $symbol;
+      }
+      .delayed-title {
+        @include vertical_center();
+        width: 100%;
+        height: 42 / $unit * $symbol;
+        i {
+          margin: {
+            right: 21 / $unit * $symbol;
+          }
+        }
+      }
+      .delayed-deadline {
+        @include vertical_center_horizontal_between();
+        width: 100%;
+        height: 75 / $unit * $symbol;
+        padding: {
+          left: 30 / $unit * $symbol;
+        }
+        .deadline-number {
+          @include vertical_center();
+          height: 100%;
+          span:last-of-type {
+            padding: {
+              left: 12 / $unit * $symbol;
+              right: 12 / $unit * $symbol;
+            }
+          }
+          i {
+            color: #adadad;
+          }
+        }
+      }
+    }
+    .form-item {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 99 / $unit * $symbol;
+      border: {
+        bottom: 1px solid #dddddd;
+      }
+      .item-left {
+        @include vertical_center();
+        height: 100%;
+        i {
+          margin: {
+            right: 21 / $unit * $symbol;
+          }
+          font-size: 12 / $unit * $symbol;
+        }
+      }
+      .item-right {
+        input {
+          height: 100%;
+          text-align: right;
+          font-size: 30 / $unit * $symbol;
+          color: #333333;
+          background-color: transparent;
+        }
+        input::-webkit-input-placeholder {
+          font-size: 30 / $unit * $symbol;
+          color: #999999;
+        }
+        .right-switch {
+          @include vertical_center();
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          width: 102 / $unit * $symbol;
+          height: 62 / $unit * $symbol;
+          padding: {
+            left: 3 / $unit * $symbol;
+            right: 3 / $unit * $symbol;
+          }
+          background: #666;
+          border-radius: 30 / $unit * $symbol;
+          .switch-btn {
+            width: 56 / $unit * $symbol;
+            height: 56 / $unit * $symbol;
+            background: #fff;
+            border-radius: 50%;
+          }
+        }
+        div.switch-active {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          background-color: #4d7bfe;
+        }
+      }
+    }
+    .form-tip {
+      @include vertical_center();
+      width: 100%;
+      height: 78 / $unit * $symbol;
+      padding: {
+        left: 9 / $unit * $symbol;
+      }
+    }
+  }
+  .period-tip {
+    width: 100%;
+    padding: {
+      top: 51 / $unit * $symbol;
+    }
+  }
+  .period-button {
+    width: 100%;
+    padding: {
+      top: 84 / $unit * $symbol;
+    }
+  }
+}

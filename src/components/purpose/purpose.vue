@@ -1,7 +1,7 @@
 <template>
-  <!-- s  -->
+  <!-- s 借款用途 -->
   <section class="purpose">
-     <TitlteComponent :title="title" @OTHER_EVENT="savePurpose" @BACK_EVENT="back"></TitlteComponent>
+     <TitleComponent :title="title" @OTHER_EVENT="savePurpose" @BACK_EVENT="back"></TitleComponent>
       <p class="purpose-title">借款用途</p>
       <div class="purpose-option">
         <div class="option-itme" :class="{active: setPurposeIndex === index}" v-for="(item, index) in optionList" :key="index" @click="setPurpose(index, item)">{{item}}</div>
@@ -16,22 +16,32 @@
             <i class="iconfont icon-cong"></i>
           </div>
           <div class="photo-default" v-if="imgArr.length" v-for="(item, index) in imgArr" :key="index">
-            <img src="../../../assets/images/index-banner.gif">
+            <img src="">
           </div>
         </div>
         <p class="upload-suggest">建议附加内容，户口本，学历证明，工资单，社保信息，营业执照，房产证明...</p>
       </div>
   </section>
-  <!-- e  -->
+  <!-- e 借款用途 -->
 </template>
 
 <script>
 // include dependence
+import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'PurposeComponent',
   data () {
     return {
+      optionList: ['临时周转', '个体经营', '消费', '旅游', '装修', '教育', '结婚', '学习', '出行'],
+      textareaNum: '',
+      purposeText: '',
+      setPurposeIndex: 0,
+      imgArr: [],
       // start params
+      'title': {
+        contentText: '借款用途',
+        rightText: '保存'
+      }
       // end params
     }
   },
@@ -42,16 +52,14 @@ export default {
       this.purposeText = item
       this.setPurposeIndex = index
     },
-    savePurpose () {
-      this.$emit('SAVE_PURPOSE_EVENT', this.purposeText)
-    },
+    savePurpose () {},
     back () {
-      this.$emit('BACK_EVENT')
+      this.$router.back(-1)
     }
   },
   components: {
+    TitleComponent
     // include components
-    TitlteComponent
   }
 }
 </script>

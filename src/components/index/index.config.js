@@ -1,12 +1,11 @@
 module.exports = {
-  content: '',
+  content: '首页',
   router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false

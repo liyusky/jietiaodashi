@@ -1,7 +1,7 @@
 <template>
-  <!-- s  -->
+  <!-- s 借条发布期 -->
   <section class="publish">
-    <TitlteComponent :title="title" @OTHER_EVENT="savePublish" @BACK_EVENT="back"></TitlteComponent>
+    <TitleComponent :title="title" @OTHER_EVENT="savePublish" @BACK_EVENT="back"></TitleComponent>
       <div class="publish-form">
        <div class="form-item">
         <div class="item-left">
@@ -24,16 +24,23 @@
       </div>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e 借条发布期 -->
 </template>
 
 <script>
 // include dependence
+import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'PurposeComponent',
   data () {
     return {
+      publishData: '',
+      placeholder: '20',
+      switchShow: false,
       // start params
+      'title': {
+        contentText: '借条发布期'
+      }
       // end params
     }
   },
@@ -45,17 +52,20 @@ export default {
     },
     savePublish () {
       this.publishData = this.publishData ? this.publishData : this.placeholder
-      this.$emit('SAVE_PUBLISH_EVENT', this.publishData, this.switchShow)
+      // this.$emit('SAVE_PUBLISH_EVENT', this.publishData, this.switchShow)
       this.publishData = ''
     },
     back () {
-      this.$emit('BACK_EVENT')
+      // this.$emit('BACK_EVENT')
+      this.$router.push({
+        name: 'borrow'
+      })
       this.publishData = ''
     }
   },
   components: {
+    TitleComponent
     // include components
-    TitlteComponent
   }
 }
 </script>

@@ -1,12 +1,11 @@
 module.exports = {
-  content: '我的',
+  content: '好友',
   router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false

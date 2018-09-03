@@ -1,9 +1,9 @@
 <template>
-  <!-- s 我的 -->
+  <!-- s 好友 -->
   <section class="friend">
     <TabComponent></TabComponent>
   </section>
-  <!-- e 我的 -->
+  <!-- e 好友 -->
 </template>
 
 <script>

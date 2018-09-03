@@ -1,5 +1,5 @@
 <template>
-  <!-- s undefined -->
+  <!-- s 发现 -->
   <section class="find">
     <TabComponent></TabComponent>
   </section>

@@ -6,7 +6,6 @@ module.exports = {
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false
@@ -20,7 +19,7 @@ module.exports = {
           text: '发布借条'
         }]
       }`,
-    'deadline': false,
+    'deadline': 1,
     'detail-list': false,
     'image-bg': false,
     'inputs': false,

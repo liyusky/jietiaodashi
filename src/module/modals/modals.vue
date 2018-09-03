@@ -13,16 +13,16 @@
             <i class="iconfont icon-cong" v-show="clearCodeShow" @click="clearCode"></i>
           </div>
           <div class="input-getcode">
-            <button class="getcode-btn" :class="{active: getCodeShow}" :disabled="codeDisabled" @click="getCodeMessage"><div>{{getCodeText}}</div></button>
+            <button class="getcode-btn button" :class="{active: getCodeShow}" :disabled="codeDisabled" @click="getCodeMessage"><div>{{getCodeText}}</div></button>
           </div>
         </div>
         <div class="content-tip" v-if="modal.tip">
           <Tip :tip="modal.tip"></Tip>
         </div>
       </div>
-      <div class="button">
-        <button @click="firstBtnClick"><div>{{modal.firstName}}</div></button>
-        <button v-if="modal.type != 'default'" @click="secondBtnClick"><div>{{modal.secondName}}</div></button>
+      <div class="buttons">
+        <button class="button" @click="firstBtnClick"><div>{{modal.firstName}}</div></button>
+        <button class="button" v-if="modal.type != 'default'" @click="secondBtnClick"><div>{{modal.secondName}}</div></button>
       </div>
     </div>
   </section>

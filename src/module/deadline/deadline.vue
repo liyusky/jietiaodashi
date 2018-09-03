@@ -25,12 +25,22 @@
 </template>
 
 <script>
+import data from '../../data/data.js'
 // include dependence
 export default {
   name: 'DeadlineComponent',
-  props: ['yearList', 'data'],
   data () {
     return {
+      yearList: ['2018', '2019', '2020'],
+      mouthList: [],
+      dayList: [],
+      mouth: '',
+      day: '',
+      year: '',
+      yearStr: [],
+      mouthStr: [],
+      dayStr: []
+
       // start params
       // end params
     }
@@ -44,7 +54,7 @@ export default {
       this.day = ''
       this.year = item
       this.mouthList = []
-      for (var key in this.data[item]) {
+      for (var key in data[item]) {
         this.mouthList.push(key)
       }
       this.yearStr = item
@@ -52,7 +62,7 @@ export default {
     selectMouth (item, index) {
       this.day = ''
       this.mouth = item
-      this.dayList = this.data[this.year][item]
+      this.dayList = data[this.year][item]
       this.mouthStr = item
     },
     selectDay (item, index) {

@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 忘记密码 -->
   <section class="forget-password">
     <TitleComponent :title="title" @BACK_EVENT="backPage('empower')"></TitleComponent>
     <div class="password-form">
@@ -8,7 +8,7 @@
       </div>
       <div class="form-item form-code">
         <input type="text" v-model="codeText" maxlength="6" placeholder="请输入验证码">
-        <button @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
+        <button class="button font-21 color-light-blue bg-write" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
       </div>
       <div class="form-item form-password" >
         <input type="password" v-model="passwordText" placeholder="请输入新的登录密码">
@@ -23,7 +23,7 @@
       <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e 忘记密码 -->
 </template>
 
 <script>

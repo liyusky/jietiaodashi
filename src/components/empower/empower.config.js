@@ -1,12 +1,11 @@
 module.exports = {
-  content: 'undefined',
+  content: '登录',
   router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false

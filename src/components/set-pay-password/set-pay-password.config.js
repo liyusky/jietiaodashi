@@ -6,7 +6,6 @@ module.exports = {
     'state': false
   },
   class: {
-    'Data': false,
     'Http': false,
     'Time': false,
     'Url': false

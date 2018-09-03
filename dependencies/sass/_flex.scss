@@ -118,7 +118,7 @@
 }
 
 @mixin column_center () {
-  $param: (flex flex) (direction column) (alignItems center) (justifyContent space-around);
+  $param: (flex flex) (direction column) (alignItems center) (justifyContent center);
   @include flexSet($param);
 }
 

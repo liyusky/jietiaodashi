@@ -1,23 +1,16 @@
 <template>
   <!-- s input组件 -->
-  <section class="input" :class="inputs.type">
+  <section class="inputs" :class="inputs.type">
     <div class="left">
-      <i class="iconfont left-icon" :class="inputs.leftIcon" v-if="inputs.leftIcon"></i>
+      <i class="iconfont left-icon" :class="'icon-' + inputs.leftIcon" v-if="inputs.leftIcon"></i>
       <div class="leftText" v-if="inputs.leftText">{{inputs.leftText}}</div>
     </div>
-    <div class="right" @click="openModal">
-      <div class="right-center" v-if="inputs.centerText">{{inputs.centerText}}</div>
-      <input class="right-input" type="text" v-model="inputText" :placeholder="inputs.placeholder">
-      <i class="iconfont right-icon" :class="inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
-      <p class="right-text" v-if="inputs.rightText" @click="getCode">{{inputs.rightText}}</p>
+    <div class="right">
+      <input class="right-input" type="text" :disabled="disabledSwitch" v-model="inputText" :placeholder="inputs.placeholder">
+      <i class="iconfont right-icon" :class="'icon-' + inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
+      <p class="right-text" v-if="inputs.rightText">{{inputs.rightText}}</p>
       <div class="right-switch" :class="{'switch-active': switchShow}" v-if="inputs.type === 'switch'" @click="switchToggle">
         <div class="switch-btn"></div>
-      </div>
-      <div class="right-rate" v-if="inputs.type === 'rate'">
-        <input type="text" placeholder="0~36%">
-        <span>%</span>
-        <input type="text" placeholder="利率金额">
-        <span>￥</span>
       </div>
     </div>
   </section>
@@ -25,23 +18,19 @@
 </template>
 
 <script>
-// inputs: {
-//   type: 'default' / 'text' / 'slide' / 'icon' / 'switch' / 'center' / 'rate',
-//   placeholder: ''
-//   rightText: ''
-//   rightIcon: ''
-//   leftText: ''
-//   leftIcon: '',
-//   centerText: ''
-// }
 export default {
   name: 'InputComponent',
-  props: ['inputs'],
+  props: ['inputs', 'receiveInput'],
   data () {
     return {
       inputText: '',
-      switchShow: true
+      switchShow: true,
+      disabledSwitch: false
     }
+  },
+  created () {
+    if (this.receiveInput) this.disabledSwitch = true
+    this.inputText = this.receiveInput
   },
   methods: {
     openModal () {
@@ -57,16 +46,9 @@ export default {
       }
     },
     clearInput () {
-      if (this.inputs.type === 'default') {
-        this.inputText = ''
-        return
-      }
+      if (this.inputs.type !== 'default') return
+      this.inputText = ''
       this.$emit('CLEAR_INPUT_EVENT')
-    },
-    getCode () {
-      if (this.inputs.type === 'center' || this.inputs.type === 'default') {
-        this.$emit('GET_CODE_EVENT')
-      }
     }
   },
   watch: {
