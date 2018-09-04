@@ -7,46 +7,52 @@ module.exports = {
   },
   class: {
     'Http': false,
+    'Router': true,
     'Time': false,
     'Url': false
   },
   components: {
-    'billboard-list': `[
+    'billboard': `[
         {
-          type: 'guide',
           key: '收还款计划',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          target: 'account-statistic',
+          border: true
         },
         {
-          type: 'guide',
           key: '我的银行卡',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          target: 'my-bank-card',
+          border: true
         },
         {
-          type: 'guide',
           key: '常见问题',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          target: 'familar-question',
+          border: true
         },
         {
-          type: 'guide',
           key: '在线客服',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          border: true
         },
         {
-          type: 'guide',
           key: '授信',
+          svg: 'cangjian',
           icon: 'chuyin',
-          target: ''
+          target: 'credit',
+          border: true
         },
         {
-          type: 'guide',
           key: '意见反馈',
+          svg: 'cangjian',
           icon: 'chuyin',
-          target: ''
+          target: '',
+          border: true
         }
       ]`,
     'board': false,

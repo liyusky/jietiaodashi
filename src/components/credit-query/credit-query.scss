@@ -1,0 +1,29 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.credit-query {
+  width: 100%;
+  height: 100vh;
+  .query-board {
+    width: 100%;
+    height: 387 / $unit * $symbol;
+    padding: {
+      top: 54 / $unit * $symbol;
+      bottom: 39 / $unit * $symbol;
+    }
+    img {
+      width: 363 / $unit * $symbol;
+      height: 258 / $unit * $symbol;
+    }
+  }
+  .query-input {
+    width: 100%;
+    height: 102 / $unit * $symbol;
+  }
+  .query-button {
+    margin: {
+      top: 90 / $unit * $symbol;
+    }
+  }
+}

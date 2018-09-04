@@ -4,13 +4,21 @@ import Router from 'vue-router'
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
+<<<<<<< HEAD
 const AddFriendComponent = () => import(/* webpackChunkName: 'add-friend' */ '../components/add-friend/add-friend.vue')
+=======
+const AccountDetailComponent = () => import(/* webpackChunkName: 'account-detail' */ '../components/account-detail/account-detail.vue')
+const AccountStatisticComponent = () => import(/* webpackChunkName: 'account-statistic' */ '../components/account-statistic/account-statistic.vue')
+>>>>>>> fbb4137a4c3c8470089d26e17ccb618271df06a6
 const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
+const BlackListComponent = () => import(/* webpackChunkName: 'black-list' */ '../components/black-list/black-list.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const ChatComponent = () => import(/* webpackChunkName: 'chat' */ '../components/chat/chat.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
-const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
+const CreditComponent = () => import(/* webpackChunkName: 'credit' */ '../components/credit/credit.vue')
+const CreditQueryComponent = () => import(/* webpackChunkName: 'credit-query' */ '../components/credit-query/credit-query.vue')
+const CreditQueryResultComponent = () => import(/* webpackChunkName: 'credit-query-result' */ '../components/credit-query-result/credit-query-result.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-status' */ '../components/exhibition-status/exhibition-status.vue')
 const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-period' */ '../components/exhibiton-period/exhibiton-period.vue')
@@ -33,7 +41,11 @@ const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
 const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../components/publish/publish.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
+<<<<<<< HEAD
 const SearchFriendComponent = () => import(/* webpackChunkName: 'search-friend' */ '../components/search-friend/search-friend.vue')
+=======
+const SelectBankCardComponent = () => import(/* webpackChunkName: 'select-bank-card' */ '../components/select-bank-card/select-bank-card.vue')
+>>>>>>> fbb4137a4c3c8470089d26e17ccb618271df06a6
 const SetPayPasswordComponent = () => import(/* webpackChunkName: 'set-pay-password' */ '../components/set-pay-password/set-pay-password.vue')
 const SettingsComponent = () => import(/* webpackChunkName: 'settings' */ '../components/settings/settings.vue')
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
@@ -53,14 +65,30 @@ export default new Router({
       component: AccountBalanceComponent
     },
     {
+<<<<<<< HEAD
       path: '/add-friend',
       name: 'add-friend',
       component: AddFriendComponent
+=======
+      path: '/account-detail',
+      name: 'account-detail',
+      component: AccountDetailComponent
+    },
+    {
+      path: '/account-statistic',
+      name: 'account-statistic',
+      component: AccountStatisticComponent
+>>>>>>> fbb4137a4c3c8470089d26e17ccb618271df06a6
     },
     {
       path: '/bind-bank-card',
       name: 'bind-bank-card',
       component: BindBankCardComponent
+    },
+    {
+      path: '/black-list',
+      name: 'black-list',
+      component: BlackListComponent
     },
     {
       path: '/borrow-list',
@@ -83,9 +111,19 @@ export default new Router({
       component: ConfirmCancelAccountComponent
     },
     {
-      path: '/credit-extension',
-      name: 'credit-extension',
-      component: CreditExtensionComponent
+      path: '/credit',
+      name: 'credit',
+      component: CreditComponent
+    },
+    {
+      path: '/credit-query',
+      name: 'credit-query',
+      component: CreditQueryComponent
+    },
+    {
+      path: '/credit-query-result',
+      name: 'credit-query-result',
+      component: CreditQueryResultComponent
     },
     {
       path: '/empower',
@@ -198,9 +236,15 @@ export default new Router({
       component: PurposeComponent
     },
     {
+<<<<<<< HEAD
       path: '/search-friend',
       name: 'search-friend',
       component: SearchFriendComponent
+=======
+      path: '/select-bank-card',
+      name: 'select-bank-card',
+      component: SelectBankCardComponent
+>>>>>>> fbb4137a4c3c8470089d26e17ccb618271df06a6
     },
     {
       path: '/set-pay-password',

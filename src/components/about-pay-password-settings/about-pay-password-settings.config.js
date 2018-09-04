@@ -7,11 +7,12 @@ module.exports = {
   },
   class: {
     'Http': false,
+    'Router': false,
     'Time': false,
     'Url': false
   },
   components: {
-    'billboard-list': `[
+    'billboard': `[
         {
           type: 'guide',
           key: '修改支付密码',

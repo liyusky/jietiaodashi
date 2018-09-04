@@ -2,7 +2,9 @@
   <!-- s 设置 -->
   <section class="settings padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
-    <BillboardListComponent class="settings-billboard margin-top-30 padding-left-30 bg-white" :billboardList="billboardList"></BillboardListComponent>
+    <div class="settings-billboard margin-top-30 padding-left-30 bg-white">
+      <BillboardComponent class="billboard-item padding-right-30 border-bottom-1" :billboard="item" v-for="(item, index) in billboard" :key="index"></BillboardComponent>
+    </div>
     <ButtonComponent class="margin-top-30" :button="button"></ButtonComponent>
   </section>
   <!-- e 设置 -->
@@ -10,7 +12,7 @@
 
 <script>
 // include dependence
-import BillboardListComponent from '../../module/billboard-list/billboard-list.vue'
+import BillboardComponent from '../../module/billboard/billboard.vue'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -18,7 +20,7 @@ export default {
   data () {
     return {
       // start params
-      'billboardList': [
+      'billboard': [
         {
           type: 'guide',
           key: '支付设置',
@@ -63,7 +65,7 @@ export default {
     }
   },
   components: {
-    BillboardListComponent,
+    BillboardComponent,
     ButtonComponent,
     TitleComponent
     // include components
