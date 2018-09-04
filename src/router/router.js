@@ -6,8 +6,9 @@ const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'abo
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const AddFriendComponent = () => import(/* webpackChunkName: 'add-friend' */ '../components/add-friend/add-friend.vue')
 const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
-const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
+const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
+const ChatComponent = () => import(/* webpackChunkName: 'chat' */ '../components/chat/chat.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
@@ -62,14 +63,19 @@ export default new Router({
       component: BindBankCardComponent
     },
     {
+      path: '/borrow-list',
+      name: 'borrow-list',
+      component: BorrowListComponent
+    },
+    {
       path: '/cancel-account',
       name: 'cancel-account',
       component: CancelAccountComponent
     },
     {
-      path: '/borrow-list',
-      name: 'borrow-list',
-      component: BorrowListComponent
+      path: '/chat',
+      name: 'chat',
+      component: ChatComponent
     },
     {
       path: '/confirm-cancel-account',

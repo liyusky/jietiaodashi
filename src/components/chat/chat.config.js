@@ -2,8 +2,8 @@ module.exports = {
   content: '好友聊天',
   router: true,
   vuex: {
-    mutations: false,
-    state: false
+    'mutations': false,
+    'state': false
   },
   class: {
     'Http': false,
@@ -24,7 +24,7 @@ module.exports = {
     'receipt': false,
     'tab': false,
     'tip': false,
-    'title': true,
+    'title': 1,
     'work-card': false
   }
 }
