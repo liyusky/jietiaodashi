@@ -1,6 +1,6 @@
 module.exports = {
-  content: '',
-  router: false,
+  content: '好友聊天',
+  router: true,
   vuex: {
     mutations: false,
     state: false
@@ -24,7 +24,7 @@ module.exports = {
     'receipt': false,
     'tab': false,
     'tip': false,
-    'title': false,
+    'title': true,
     'work-card': false
   }
 }
