@@ -1,0 +1,78 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.credit-query-result {
+  @include vertical_direction_center();
+  width: 100%;
+  min-height: 100vw;
+
+  .result-content {
+    position: relative;
+    width: 699 / $unit * $symbol;
+    height: (81 + 318 + 270 + 393) / $unit * $symbol;
+
+    .content-tip {
+      width: 100%;
+      height: 81 / $unit * $symbol;
+      background-color: #f8f8f8;
+    }
+
+    .content-board {
+      width: 100%;
+      height: 318 / $unit * $symbol;
+      padding: {
+        top: 33 / $unit * $symbol;
+        bottom: 42 / $unit * $symbol;
+      }
+      img {
+        width: 90 / $unit * $symbol;
+        height: 90 / $unit * $symbol; 
+      }
+      .board-message {
+        @include vertical_direction_between();
+        width: 480 / $unit * $symbol;
+        height: 132 / $unit * $symbol;
+      }
+    }
+
+    .content-detail-list {
+      width: 100%;
+      height: 270 / $unit * $symbol;
+      padding: 42 / $unit * $symbol;
+    }
+
+    .content-note {
+      @include vertical_direction_between();
+      width: 100%;
+      height: 393 / $unit * $symbol;
+      padding: {
+        left: 27 / $unit * $symbol;
+        right: 27 / $unit * $symbol;
+        top: 51 / $unit * $symbol;
+        bottom: 60 / $unit * $symbol;
+      }
+    }
+  }
+
+  .chamfer::before,
+  .chamfer::after {
+    position: absolute;
+    top: 66 / $unit * $symbol;
+    z-index: 100;
+    display: block;
+    content: '';
+    width: 30 / $unit * $symbol;
+    height: 30 / $unit * $symbol;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
+
+  .chamfer::before {
+    left: -15 / $unit * $symbol;
+  }
+
+  .chamfer::after {
+    right: -15 / $unit * $symbol;
+  }
+}

@@ -2,11 +2,11 @@
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
 // current sass
-.credit-extension {
+.credit {
   width: 100vw;
   height: 100vh;
   background-color: #f0f0f0;
-  .extension-content {
+  &-content {
     position: relative;
     @include horizontal_center();
     width: 100%;

@@ -6,6 +6,10 @@
   width: 100%;
   .settings-billboard {
     width: 100%;
-    height: 501 / $unit * $symbol;
+    height: (5 * 102) / $unit * $symbol;
+    .billboard-item {
+      width: 100%;
+      height: 102 / $unit * $symbol;
+    }
   }
 }

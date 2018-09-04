@@ -1,0 +1,30 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.black-list {
+  width: 100%;
+  min-height: 100vh;
+  .list-item {
+    @include vertical_center_horizontal_between();
+    width: 100%;
+    height: 117 / $unit * $symbol;
+    .item-portrait {
+      width: 81 / $unit * $symbol;
+      height: 81 / $unit * $symbol;
+    }
+    .item-detail {
+      @include vertical_center_horizontal_between();
+      flex-grow: 1;
+      height: 100%;
+      padding: {
+        left: 24 / $unit * $symbol;
+      }
+      .detail-btn {
+        width: 150 / $unit * $symbol;
+        height: 54 / $unit * $symbol;
+        border: 1px solid #4d7bfe;
+      }
+    }
+  }
+}

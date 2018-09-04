@@ -1,0 +1,56 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.billboard {
+  @include horizontal_between();
+  .billboard-icon {
+    @include center();
+    width: 102 / $unit * $symbol;
+    height: 100%;
+    .icon {
+      width: 60 / $unit * $symbol;
+      height: 60 / $unit * $symbol;
+    }
+  }
+
+  .billboard-content {
+    @include vertical_center_horizontal_between();
+    flex-grow: 1;
+    height: 100%;
+
+    .content-key {
+      @include vertical_center();
+      height: 100%;
+
+      p {
+        @include vertical_center();
+        height: 100%;
+      }
+
+      .key-dot {
+        margin: {
+          right: 1rem;
+        }
+      }
+    }
+
+    .content-value {
+      @include vertical_center_horizontal_between();
+      height: 100%;
+
+      p {
+        @include vertical_center();
+        height: 100%;
+      }
+
+      i {
+        font-size: 33 / $unit * $symbol;
+      }
+    }
+  }
+}
+
+.billboard:last-of-type {
+  border: none !important;
+}

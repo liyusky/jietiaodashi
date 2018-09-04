@@ -1,8 +1,8 @@
 <template>
   <!-- s 授信 -->
-  <section class="credit-extension padding-top-126">
+  <section class="credit padding-top-126">
     <TitleComponent :title="title"  @BACK_EVENT="backPage"></TitleComponent>
-    <div class="extension-content bg-blue">
+    <div class="credit-content bg-blue">
       <div class="content-progress color-white">
         <p class="progress-title font-33">你已完成1项认证,继续加油哦</p>
         <div class="progress-bar">
@@ -119,5 +119,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./credit-extension.scss";
+@import "./credit.scss";
 </style>

@@ -36,7 +36,7 @@ module.exports = {
         content: [],
         active: ''
       }`,
-  board: '1 / 默认  center / 居中 ',
+  board: `'1 / 默认  center / 居中'`,
   receipt: `[{
         name: '幸福不会远',
         type: '借出',
@@ -70,16 +70,15 @@ module.exports = {
           icon: 'cong'
         }
       ]`,
-  'billboard-list': `[
-        {
-          type: 'guide',
-          svg: '',
-          key: '',
-          value: '',
-          icon: '',
-          target: ''
-        }
-      ]`,
+  'billboard': `[{
+        svg: '',
+        key: '',
+        value: '',
+        icon: '',
+        target: '',
+        dot: false,
+        border: false
+      }]`,
   'work-card': `{
         portrait: '头像地址',
         name: '姓名',
@@ -87,7 +86,6 @@ module.exports = {
         tip: ''
       }`,
   'pay-password': `[]`,
-  'tab': `''`,
   inputs: `{
         type: 'default / text / slide / icon / switch / center',
         placeholder: '',

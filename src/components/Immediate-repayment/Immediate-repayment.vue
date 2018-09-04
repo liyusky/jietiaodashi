@@ -14,7 +14,7 @@
         <InputsComponent :inputs="totalMountInput" @SWITCH_TOGGLE_EVENT="getTotalMOunt"></InputsComponent>
       </div>
       <div class="form-balance">
-        <p class="font-27 color-light-black">账户余额<span class="font-24 color-light-blue">58.00</span>元</p>
+        <p class="font-27 color-light-black">账户余额<span class="font-24 color-blue">58.00</span>元</p>
       </div>
     </div>
     <div class="repayment-tip padding-left-30">

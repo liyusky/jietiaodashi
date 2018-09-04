@@ -1,17 +1,18 @@
 module.exports = {
   content: '借入',
-  router: 1,
+  router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
     'Http': false,
+    'Router': false,
     'Time': false,
     'Url': false
   },
   components: {
-    'billboard-list': false,
+    'billboard': false,
     'board': 1,
     'button': false,
     'deadline': false,

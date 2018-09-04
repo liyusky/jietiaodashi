@@ -66,7 +66,7 @@ function formatConfig(router, vuexStr, classesStr, componentsStr, contentStr, te
 
 // 处理 vue 模板
 function formatVue (template, name, result) {
-  template = template.replace('SITE_CLASS_NAME', name)
+  template = template.replace('SITE_CLASS_NAME', name + ' padding-top-126')
   template = template.replace('SITE_MODULE_NAME', setComponentsName(name))
   template = template.replace('SITE_PARAMS_NAME', result.params)
   template = template.replace('SITE_DEPENDENCE_NAME', result.dependence)

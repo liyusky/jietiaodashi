@@ -1,5 +1,5 @@
 module.exports = {
-  content: '授信',
+  content: '',
   router: true,
   vuex: {
     'mutations': false,
@@ -7,11 +7,12 @@ module.exports = {
   },
   class: {
     'Http': false,
+    'Router': false,
     'Time': false,
     'Url': false
   },
   components: {
-    'billboard-list': false,
+    'billboard': false,
     'board': false,
     'button': false,
     'deadline': false,
@@ -25,7 +26,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '授信'
+        contentText: '黑名单'
       }`,
     'work-card': false
   }

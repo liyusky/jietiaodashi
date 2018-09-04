@@ -41,8 +41,8 @@
         </div>
       </div>
     </div>
-    <div class="mine-billboard-list">
-      <BillboardListComponent :billboardList="billboardList" @OPERATION_EVENT="target"></BillboardListComponent>
+    <div class="mine-billboard-list padding-left-30 bg-white">
+      <BillboardComponent class="list-item padding-right-30" :billboard="item" v-for="(item, index) in billboard" :key="index" @OPERATION_EVENT="target"></BillboardComponent>
     </div>
     <TabComponent></TabComponent>
   </section>
@@ -51,49 +51,55 @@
 
 <script>
 // include dependence
-import BillboardListComponent from '../../module/billboard-list/billboard-list.vue'
+import Router from '../../class/Router.class.js'
+import BillboardComponent from '../../module/billboard/billboard.vue'
 import TabComponent from '../../module/tab/tab.vue'
 export default {
   name: 'MineComponent',
   data () {
     return {
       // start params
-      'billboardList': [
+      'billboard': [
         {
-          type: 'guide',
           key: '收还款计划',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          target: 'account-statistic',
+          border: true
         },
         {
-          type: 'guide',
           key: '我的银行卡',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          target: 'my-bank-card',
+          border: true
         },
         {
-          type: 'guide',
           key: '常见问题',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          target: 'familar-question',
+          border: true
         },
         {
-          type: 'guide',
           key: '在线客服',
           icon: 'chuyin',
-          target: ''
+          svg: 'cangjian',
+          border: true
         },
         {
-          type: 'guide',
           key: '授信',
+          svg: 'cangjian',
           icon: 'chuyin',
-          target: ''
+          target: 'credit',
+          border: true
         },
         {
-          type: 'guide',
           key: '意见反馈',
+          svg: 'cangjian',
           icon: 'chuyin',
-          target: ''
+          target: '',
+          border: true
         }
       ],
       'tab': ''
@@ -101,9 +107,16 @@ export default {
     }
   },
   components: {
-    BillboardListComponent,
+    BillboardComponent,
     TabComponent
     // include components
+  },
+  methods: {
+    target (page) {
+      Router.push({
+        name: page
+      })
+    }
   }
 }
 </script>

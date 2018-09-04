@@ -8,7 +8,7 @@
           <p class="goal-account font-27 color-black">{{receipt.type}}</p>
           <p class="font-27 color-deep-black">
             <span>{{receipt.name}}</span>
-            <i class="iconfont icon-chuyin color-light-blue" v-if="receipt.icon"></i>
+            <i class="iconfont icon-chuyin color-blue" v-if="receipt.icon"></i>
           </p>
         </div>
         <div class="info-status">

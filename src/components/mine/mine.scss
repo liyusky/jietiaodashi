@@ -1,8 +1,9 @@
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
 .mine {
+  @include vertical_direction();
   width: 100%;
-  min-height: 100vw;
+  height: 100vh;
   &-information {
     width: 100%;
     height: 231 / $unit * $symbol;
@@ -84,7 +85,10 @@
   }
   &-billboard-list {
     width: 100%;
-    height: 501 / $unit * $symbol;
-    background-color: #fff;
+    flex-grow: 1;
+    .list-item {
+      width: 100%;
+      height: 102 / $unit * $symbol;
+    }
   }
 }

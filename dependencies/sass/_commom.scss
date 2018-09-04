@@ -25,10 +25,10 @@ button {
   }
 }
 
-.padding-horizontal-21 {
+.padding-horizontal-24 {
   padding: {
-    left: 21 / $unit * $symbol;
-    right: 21 / $unit * $symbol;
+    left: 24 / $unit * $symbol;
+    right: 24 / $unit * $symbol;
   }
 }
 
@@ -173,7 +173,11 @@ button {
   color: #999999;
 }
 
-.color-light-blue {
+.color-deep-grey {
+  color: #666666;
+}
+
+.color-blue {
   color: #4d7bfe;
 }
 

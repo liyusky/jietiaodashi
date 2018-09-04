@@ -8,7 +8,7 @@
     <div class="period-form padding-horizontal-30 border-bottom-1 bg-white">
       <div class="form-delayed border-bottom-1">
         <div class="delayed-title">
-          <i class="iconfont icon-cong font-24 color-light-blue"></i>
+          <i class="iconfont icon-cong font-24 color-blue"></i>
           <p class="font-27 color-black">延后到期日</p>
         </div>
         <div class="delayed-deadline">
@@ -22,7 +22,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong color-light-blue"></i>
+          <i class="iconfont icon-cong color-blue"></i>
           <p class="font-27 color-black">展期利率</p>
         </div>
         <div class="item-right">
@@ -32,7 +32,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong color-light-blue"></i>
+          <i class="iconfont icon-cong color-blue"></i>
           <p class="font-27 color-black">使用原借利率</p>
         </div>
         <div class="item-right">
@@ -43,7 +43,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong color-light-blue"></i>
+          <i class="iconfont icon-cong color-blue"></i>
           <p class="font-27 color-black">已结费用</p>
         </div>
         <div class="item-right">
