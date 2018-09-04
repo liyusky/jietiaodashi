@@ -86,5 +86,22 @@
         background-color: #4c7bfd;
       }
     }
+    .content-without {
+      @include column_center();
+      width: 100%;
+      height: 100%;
+      .without-img {
+        width: 120 / $unit * $symbol;
+        height: 150 / $unit * $symbol;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      p {
+        @include vertical_center();
+        height: 60 / $unit * $symbol;
+      }
+    }
   }
 }

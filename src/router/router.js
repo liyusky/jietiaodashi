@@ -5,9 +5,9 @@ Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const AddFriendComponent = () => import(/* webpackChunkName: 'add-friend' */ '../components/add-friend/add-friend.vue')
+const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
-const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditExtensionComponent = () => import(/* webpackChunkName: 'credit-extension' */ '../components/credit-extension/credit-extension.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
@@ -17,6 +17,7 @@ const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-ques
 const FeedbackComponent = () => import(/* webpackChunkName: 'feedback' */ '../components/feedback/feedback.vue')
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
+const FriendTransferComponent = () => import(/* webpackChunkName: 'friend-transfer' */ '../components/friend-transfer/friend-transfer.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'Immediate-repayment' */ '../components/Immediate-repayment/Immediate-repayment.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
@@ -56,6 +57,11 @@ export default new Router({
       component: AddFriendComponent
     },
     {
+      path: '/bind-bank-card',
+      name: 'bind-bank-card',
+      component: BindBankCardComponent
+    },
+    {
       path: '/cancel-account',
       name: 'cancel-account',
       component: CancelAccountComponent
@@ -64,11 +70,6 @@ export default new Router({
       path: '/borrow-list',
       name: 'borrow-list',
       component: BorrowListComponent
-    },
-    {
-      path: '/bind-bank-card',
-      name: 'bind-bank-card',
-      component: BindBankCardComponent
     },
     {
       path: '/confirm-cancel-account',
@@ -114,6 +115,11 @@ export default new Router({
       path: '/forget-password',
       name: 'forget-password',
       component: ForgetPasswordComponent
+    },
+    {
+      path: '/friend-transfer',
+      name: 'friend-transfer',
+      component: FriendTransferComponent
     },
     {
       path: '/identity-verification',

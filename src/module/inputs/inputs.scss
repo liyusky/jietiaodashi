@@ -108,6 +108,12 @@
       color: #999;
     }
   }
+  .right {
+    input::-webkit-input-placeholder {
+      font-size: 45 / $unit * $symbol;
+      color: #cccccc;
+    }
+  }
 }
 .text {
 
