@@ -7,11 +7,12 @@ module.exports = {
   },
   class: {
     'Http': false,
+    'Router': false,
     'Time': false,
     'Url': false
   },
   components: {
-    'billboard-list': false,
+    'billboard': false,
     'board': false,
     'button': false,
     'deadline': false,

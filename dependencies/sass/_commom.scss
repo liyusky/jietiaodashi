@@ -31,12 +31,6 @@ button {
     right: 24 / $unit * $symbol;
   }
 }
-.padding-horizontal-21 {
-  padding: {
-    left: 21 / $unit * $symbol;
-    right: 21 / $unit * $symbol;
-  }
-}
 
 .padding-vertical-15 {
   padding: {
@@ -187,7 +181,11 @@ button {
   color: #999999;
 }
 
-.color-light-blue {
+.color-deep-grey {
+  color: #666666;
+}
+
+.color-blue {
   color: #4d7bfe;
 }
 

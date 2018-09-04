@@ -16,7 +16,7 @@
             <p class="say-text font-30 color-black">我通过了你的朋友验证请求，现在我们可以开始聊天了</p>
           </div>
         </section>
-        <!-- e 默认 -->
+        <!-- e 好友聊天 -->
         <!-- s 文字信息 -->
         <section class="item-text">
           <div class="waiter">
