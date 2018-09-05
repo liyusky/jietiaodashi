@@ -16,7 +16,7 @@
     </div>
     <div class="transfer-content bg-white">
       <div class="content-amount">
-        <i class="iconfont icon-cong color-light-blue"></i>
+        <i class="iconfont icon-cong color-blue"></i>
         <span class="font-30 color-black">转账金额</span>
       </div>
       <div class="content-input border-bottom-1">
