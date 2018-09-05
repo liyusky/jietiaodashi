@@ -4,8 +4,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'about-pay-password-settings' */ '../components/about-pay-password-settings/about-pay-password-settings.vue')
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
-const AccountStatisticComponent = () => import(/* webpackChunkName: 'account-statistic' */ '../components/account-statistic/account-statistic.vue')
 const AccountDetailComponent = () => import(/* webpackChunkName: 'account-detail' */ '../components/account-detail/account-detail.vue')
+const AccountStatisticComponent = () => import(/* webpackChunkName: 'account-statistic' */ '../components/account-statistic/account-statistic.vue')
 const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
 const AddFriendComponent = () => import(/* webpackChunkName: 'add-friend' */ '../components/add-friend/add-friend.vue')
 const BlackListComponent = () => import(/* webpackChunkName: 'black-list' */ '../components/black-list/black-list.vue')
@@ -37,6 +37,7 @@ const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ 
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
 const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../components/publish/publish.vue')
+const PublishObjectComponent = () => import(/* webpackChunkName: 'publish-object' */ '../components/publish-object/publish-object.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
 const SearchFriendComponent = () => import(/* webpackChunkName: 'search-friend' */ '../components/search-friend/search-friend.vue')
 const SelectBankCardComponent = () => import(/* webpackChunkName: 'select-bank-card' */ '../components/select-bank-card/select-bank-card.vue')
@@ -59,14 +60,14 @@ export default new Router({
       component: AccountBalanceComponent
     },
     {
-      path: '/account-statistic',
-      name: 'account-statistic',
-      component: AccountStatisticComponent
-    },
-    {
       path: '/account-detail',
       name: 'account-detail',
       component: AccountDetailComponent
+    },
+    {
+      path: '/account-statistic',
+      name: 'account-statistic',
+      component: AccountStatisticComponent
     },
     {
       path: '/bind-bank-card',
@@ -222,6 +223,11 @@ export default new Router({
       path: '/publish',
       name: 'publish',
       component: PublishComponent
+    },
+    {
+      path: '/publish-object',
+      name: 'publish-object',
+      component: PublishObjectComponent
     },
     {
       path: '/purpose',

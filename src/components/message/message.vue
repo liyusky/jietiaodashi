@@ -14,7 +14,7 @@
       </div>
       <ul class="content-list padding-horizontal-30">
         <li class="list-item border-bottom-1" v-for="(item, index) in 10" :key="index">
-          <div class="item-portrait border-bottom-1">
+          <div class="item-portrait">
             <img src="http://iph.href.lu/87x87">
           </div>
           <div class="item-message padding-horizontal-30">
