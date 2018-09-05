@@ -145,6 +145,14 @@ button {
   font-size: 24 / $unit * $symbol;
 }
 
+.font-21 {
+  font-size: 21 / $unit * $symbol;
+}
+
+.font-18 {
+  font-size: 18 / $unit * $symbol;
+}
+
 .color-deep-black {
   color: #000;
 }
@@ -191,6 +199,10 @@ button {
 
 .bg-blue {
   background-color: #4d7bfe;
+}
+
+.bg-grey {
+  background-color: #bdbdbd;
 }
 
 .border-circle {

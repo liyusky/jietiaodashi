@@ -8,7 +8,7 @@
     <div class="title-content font-36">{{title.contentText}}</div>
     <div class="title-right">
       <span class="font-30" v-if="title.rightText">{{title.rightText}}</span>
-      <i class="iconfont font-39" :class="title.icon" v-if="title.icon"></i>
+      <i class="iconfont font-39" :class="['icon-' + title.icon]" v-if="title.icon"></i>
       <svg class="icon" v-if="title.svg" aria-hidden="true">
         <use :xlink:href="title.svg"></use>
       </svg>

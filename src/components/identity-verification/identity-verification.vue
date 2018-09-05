@@ -25,7 +25,12 @@
         <InputsComponent :inputs="identityNumber" @GET_INPUT_TEXT_EVENT="getIdentityNumber"></InputsComponent>
       </div>
       <div class="form-item">
-        <InputsComponent :inputs="phoneNumber" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent>
+        <p class="font-30 color-black">手机验证</p>
+        <div class="item-right">
+          <input type="text" v-model="codeNumber" placeholder="请输入手机验证码">
+          <button class="button font-21 color-light-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
+        </div>
+        <!-- <InputsComponent :inputs="phoneNumber" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent> -->
       </div>
     </div>
     <div class="verification-button">
@@ -70,6 +75,9 @@ export default {
       cardNumberText: '',
       phoneNumberText: '',
       identityNumberText: '',
+      codeNumber: '',
+      getCodeText: '获取验证码',
+      codeDisabled: false,
       // start params
       'button': {
         default: [{
@@ -98,6 +106,21 @@ export default {
     },
     getPhoneNumber (text) {
       this.phoneNumberText = text
+    },
+    getCode () {
+      this.codeDisabled = true
+      this.getCodeText = '60秒后重发'
+      let time = 60
+      let animation = setInterval(() => {
+        time--
+        if (time > 0) {
+          this.getCodeText = `${time}秒后重发`
+        } else {
+          this.getCodeText = '发送验证码'
+          clearInterval(animation)
+          this.codeDisabled = false
+        }
+      }, 1000)
     },
     backPage () {
       this.$router.back(-1)
