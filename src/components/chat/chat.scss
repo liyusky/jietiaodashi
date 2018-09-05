@@ -1,0 +1,726 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.chat {
+  width: 100vw;
+  height: 100vh;
+  padding: {
+    top: 159 / $unit * $symbol;
+  }
+  &-time {
+    @include center();
+    width: 100%;
+    height: 42 / $unit * $symbol;
+    .time {
+      @include center();
+      width: 111 / $unit * $symbol;
+      height: 42 / $unit * $symbol;
+      background-color: #dddddd;
+      border-radius: 6 / $unit * $symbol;
+    }
+  }
+  &-list {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    .list-item {
+      width: 100%;
+      section {
+        width: 100%;
+        padding: {
+          left: 18 / $unit * $symbol;
+          right: 18 / $unit * $symbol;
+          top: 30 / $unit * $symbol;
+          bottom: 30 / $unit * $symbol;
+        }
+        .waiter, .customer{
+          width: 100%;
+          .waiter-portrait, .customer-portrait{
+            width: 90 / $unit * $symbol;
+            height: 90 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 6 / $unit * $symbol;
+            }
+          }
+        }
+      }
+      .item-default {
+        $param: (flex flex) (justifyContent flex-start);
+        @include flexSet($param);
+        width: 100%;
+        padding: {
+          left: 18 / $unit * $symbol;
+          right: 18 / $unit * $symbol;
+          top: 30 / $unit * $symbol;
+          bottom: 30 / $unit * $symbol;
+        }
+        .default-portrait {
+          width: 90 / $unit * $symbol;
+          height: 90 / $unit * $symbol;
+          border-radius: 6 / $unit * $symbol;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 6 / $unit * $symbol;
+          }
+        }
+        .default-say {
+          position: relative;
+          width: 477 / $unit * $symbol;
+          height: 129 / $unit * $symbol;
+          padding: {
+            top: 12 / $unit * $symbol;
+            right: 24 / $unit * $symbol;
+            bottom: 12 / $unit * $symbol;
+            left: 24 / $unit * $symbol;
+          }
+          margin: {
+            left: 27 / $unit * $symbol;
+          }
+          border-radius: 6 / $unit * $symbol;
+          border: 1px solid #dedede;
+          .say-text {
+            width: 100%;
+            line-height: 51 / $unit * $symbol;
+          }
+          &::before {
+            position: absolute;
+            left: -12 / $unit * $symbol;
+            top: 0 / $unit * $symbol;
+            z-index: 9;
+            display: block;
+            content: '';
+            width: 0 / $unit * $symbol;
+            height: 0 / $unit * $symbol;
+            border-width:  12 / $unit * $symbol;
+            border-style: solid;
+            border-color: #fff transparent transparent transparent;
+          }
+        }
+      }
+      .item-text {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            position: relative;
+            max-width: 477 / $unit * $symbol;
+            padding: {
+              top: 15 / $unit * $symbol;
+              right: 30 / $unit * $symbol;
+              bottom: 15 / $unit * $symbol;
+              left: 30 / $unit * $symbol;
+            }
+            border-radius: 6 / $unit * $symbol;
+            .say-text {
+              width: 100%;
+              line-height: 51 / $unit * $symbol;
+              font-size: 30 / $unit * $symbol;
+            }
+            &::before {
+              position: absolute;
+              top: 0 / $unit * $symbol;
+              z-index: 9;
+              display: block;
+              content: '';
+              width: 0 / $unit * $symbol;
+              height: 0 / $unit * $symbol;
+              border-width:  12 / $unit * $symbol;
+              border-style: solid;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+            background-color: #4d7bfe;
+            .say-text {
+              color: #fff;
+            }
+            &::before {
+              right: -12 / $unit * $symbol;
+              border-color: #4d7bfe transparent transparent transparent;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+            border: 1px solid #dedede;
+            background-color: #fff;
+            .say-text {
+              color: #333;
+            }
+            &::before {
+              left: -12 / $unit * $symbol;
+              border-color: #fff transparent transparent transparent;
+            }
+          }
+        }
+      }
+      .item-image {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            max-width: 477 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            img {
+              width: 100%;
+              border-radius: 6 / $unit * $symbol;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+          }
+        }
+      }
+      .item-voice {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            position: relative;
+            @include vertical-center();
+            max-width: 477 / $unit * $symbol;
+            height: 81 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            .say-seconds {
+              position: absolute;
+              top: 21 / $unit * $symbol;
+              z-index: 9;
+            }
+            &::before {
+              position: absolute;
+              top: 0 / $unit * $symbol;
+              z-index: 9;
+              display: block;
+              content: '';
+              width: 0 / $unit * $symbol;
+              height: 0 / $unit * $symbol;
+              border-width:  12 / $unit * $symbol;
+              border-style: solid;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            $param: (flex flex) (justifyContent flex-end);
+            @include flexSet($param);
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+            padding: {
+              right: 21 / $unit * $symbol;
+              left: 39 / $unit * $symbol;
+            }
+            background-color: #4d7bfe;
+            .say-text {
+              color: #fff;
+            }
+            .say-seconds {
+              left: -60 / $unit * $symbol;
+            }
+            &::before {
+              right: -12 / $unit * $symbol;
+              border-color: #4d7bfe transparent transparent transparent;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+            padding: {
+              left: 21 / $unit * $symbol;
+              right: 39 / $unit * $symbol;
+            }
+            border: 1px solid #dedede;
+            background-color: #fff;
+            .say-text {
+              color: #333;
+            }
+            .say-seconds {
+              right: -60 / $unit * $symbol;
+            }
+            &::before {
+              left: -12 / $unit * $symbol;
+              border-color: #fff transparent transparent transparent;
+            }
+          }
+        }
+      }
+      .item-transfer {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            position: relative;
+            @include vertical_direction();
+            width: 477 / $unit * $symbol;
+            height: 195 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            background-color: #e6494e;
+            .say-detail {
+              @include vertical-center();
+              width: 100%;
+              height: 141 / $unit * $symbol;
+              i {
+                margin: {
+                  left: 21 / $unit * $symbol;
+                  right: 21 / $unit * $symbol;
+                }
+                font-size: 60 / $unit * $symbol;
+                color: #fff;
+              }
+              .detail-text {
+                width: 100%;
+                .text-price {
+                  @include vertical-center();
+                  height: 60 / $unit * $symbol;
+                  font-size: 33 / $unit * $symbol;
+                  color: #fff;
+                }
+                .text-title {
+                  font-size: 30 / $unit * $symbol;
+                  color: #fff;
+                }
+              }
+            }
+            .say-origin {
+              @include vertical-center();
+              flex: 1;
+              width: 100%;
+              height: 51 / $unit * $symbol;
+              padding: {
+                left: 21 / $unit * $symbol;
+              }
+              font-size: 27 / $unit * $symbol;
+              color: #999999;
+              background-color: #fff;
+              border-bottom-left-radius: 6 / $unit * $symbol;
+              border-bottom-right-radius: 6 / $unit * $symbol;
+            }
+            &::before {
+              position: absolute;
+              top: 0 / $unit * $symbol;
+              z-index: 9;
+              display: block;
+              content: '';
+              width: 0 / $unit * $symbol;
+              height: 0 / $unit * $symbol;
+              border-width:  12 / $unit * $symbol;
+              border-style: solid;
+              border-color: #e6494e transparent transparent transparent;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+            &::before {
+              right: -12 / $unit * $symbol;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+            &::before {
+              left: -12 / $unit * $symbol;
+            }
+          }
+        }
+      }
+      .item-iou {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            position: relative;
+            @include vertical_direction();
+            width: 477 / $unit * $symbol;
+            height: 195 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            background-color: #ff9808;
+            .say-detail {
+              @include vertical-center();
+              width: 100%;
+              height: 141 / $unit * $symbol;
+              i {
+                margin: {
+                  left: 21 / $unit * $symbol;
+                  right: 21 / $unit * $symbol;
+                }
+                font-size: 60 / $unit * $symbol;
+                color: #fff;
+              }
+              .detail-text {
+                width: 100%;
+                .text-price {
+                  @include vertical-center();
+                  height: 60 / $unit * $symbol;
+                  font-size: 33 / $unit * $symbol;
+                  color: #fff;
+                }
+                .text-title {
+                  font-size: 30 / $unit * $symbol;
+                  color: #fff;
+                }
+              }
+            }
+            .say-origin {
+              @include vertical-center();
+              flex: 1;
+              width: 100%;
+              height: 51 / $unit * $symbol;
+              padding: {
+                left: 21 / $unit * $symbol;
+              }
+              font-size: 27 / $unit * $symbol;
+              color: #999999;
+              background-color: #fff;
+              border-bottom-left-radius: 6 / $unit * $symbol;
+              border-bottom-right-radius: 6 / $unit * $symbol;
+            }
+            &::before {
+              position: absolute;
+              top: 0 / $unit * $symbol;
+              z-index: 9;
+              display: block;
+              content: '';
+              width: 0 / $unit * $symbol;
+              height: 0 / $unit * $symbol;
+              border-width:  12 / $unit * $symbol;
+              border-style: solid;
+              border-color: #ff9808 transparent transparent transparent;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+            &::before {
+              right: -12 / $unit * $symbol;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+            &::before {
+              left: -12 / $unit * $symbol;
+            }
+          }
+        }
+      }
+      .item-receipt {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            position: relative;
+            @include vertical_direction();
+            width: 477 / $unit * $symbol;
+            height: 195 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            background-color: #4d7bfe;
+            .say-detail {
+              @include vertical-center();
+              width: 100%;
+              height: 141 / $unit * $symbol;
+              i {
+                margin: {
+                  left: 21 / $unit * $symbol;
+                  right: 21 / $unit * $symbol;
+                }
+                font-size: 60 / $unit * $symbol;
+                color: #fff;
+              }
+              .detail-text {
+                width: 100%;
+                .text-price {
+                  @include vertical-center();
+                  height: 60 / $unit * $symbol;
+                  font-size: 33 / $unit * $symbol;
+                  color: #fff;
+                }
+                .text-title {
+                  font-size: 30 / $unit * $symbol;
+                  color: #fff;
+                }
+              }
+            }
+            .say-origin {
+              @include vertical-center();
+              flex: 1;
+              width: 100%;
+              height: 51 / $unit * $symbol;
+              padding: {
+                left: 21 / $unit * $symbol;
+              }
+              font-size: 27 / $unit * $symbol;
+              color: #999999;
+              background-color: #fff;
+              border-bottom-left-radius: 6 / $unit * $symbol;
+              border-bottom-right-radius: 6 / $unit * $symbol;
+            }
+            &::before {
+              position: absolute;
+              top: 0 / $unit * $symbol;
+              z-index: 9;
+              display: block;
+              content: '';
+              width: 0 / $unit * $symbol;
+              height: 0 / $unit * $symbol;
+              border-width:  12 / $unit * $symbol;
+              border-style: solid;
+              border-color: #4d7bfe transparent transparent transparent;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+            &::before {
+              right: -12 / $unit * $symbol;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+            &::before {
+              left: -12 / $unit * $symbol;
+            }
+          }
+        }
+      }
+      .item-credit {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            position: relative;
+            @include vertical_direction();
+            width: 477 / $unit * $symbol;
+            height: 195 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            background-color: #fff;
+            border: 1px solid #dedede;
+            .say-detail {
+              @include vertical-center();
+              width: 100%;
+              height: 141 / $unit * $symbol;
+              border: {
+                bottom: 1px solid #dedede;
+              }
+              .icon {
+                width: 69 / $unit * $symbol;
+                height: 69 / $unit * $symbol;
+                margin: {
+                  left: 21 / $unit * $symbol;
+                  right: 21 / $unit * $symbol;
+                }
+              }
+              .detail-title {
+                width: 100%;
+                font-size: 30 / $unit * $symbol;
+                color: #333;
+              }
+            }
+            .say-origin {
+              @include vertical-center();
+              flex: 1;
+              width: 100%;
+              height: 51 / $unit * $symbol;
+              padding: {
+                left: 21 / $unit * $symbol;
+              }
+              font-size: 27 / $unit * $symbol;
+              color: #999999;
+              border-bottom-left-radius: 6 / $unit * $symbol;
+              border-bottom-right-radius: 6 / $unit * $symbol;
+            }
+            &::before {
+              position: absolute;
+              top: 0 / $unit * $symbol;
+              z-index: 9;
+              display: block;
+              content: '';
+              width: 0 / $unit * $symbol;
+              height: 0 / $unit * $symbol;
+              border-width:  12 / $unit * $symbol;
+              border-style: solid;
+              border-color: #fff transparent transparent transparent;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+            &::before {
+              right: -12 / $unit * $symbol;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+            &::before {
+              left: -12 / $unit * $symbol;
+            }
+          }
+        }
+      }
+      .item-card {
+        .waiter, .customer{
+          .waiter-say, .customer-say{
+            position: relative;
+            @include vertical_direction();
+            width: 477 / $unit * $symbol;
+            height: 195 / $unit * $symbol;
+            border-radius: 6 / $unit * $symbol;
+            background-color: #fff;
+            border: 1px solid #dedede;
+            .say-detail {
+              @include vertical-center();
+              width: 100%;
+              height: 141 / $unit * $symbol;
+              border: {
+                bottom: 1px solid #dedede;
+              }
+              .detail-img {
+                width: 90 / $unit * $symbol;
+                height: 90 / $unit * $symbol;
+                border-radius: 6 / $unit * $symbol;
+                margin: {
+                  left: 21 / $unit * $symbol;
+                  right: 21 / $unit * $symbol;
+                }
+                img {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 6 / $unit * $symbol;
+                }
+              }
+              .detail-text {
+                width: 100%;
+                .text-name {
+                  @include vertical-center();
+                  height: 60 / $unit * $symbol;
+                  font-size: 27 / $unit * $symbol;
+                  color: #333333;
+                }
+                .text-id {
+                  font-size: 27 / $unit * $symbol;
+                  color: #333;
+                }
+              }
+            }
+            .say-origin {
+              @include vertical-center();
+              flex: 1;
+              width: 100%;
+              height: 51 / $unit * $symbol;
+              padding: {
+                left: 21 / $unit * $symbol;
+              }
+              font-size: 27 / $unit * $symbol;
+              color: #999999;
+              background-color: #fff;
+              border-bottom-left-radius: 6 / $unit * $symbol;
+              border-bottom-right-radius: 6 / $unit * $symbol;
+            }
+            &::before {
+              position: absolute;
+              top: 0 / $unit * $symbol;
+              z-index: 9;
+              display: block;
+              content: '';
+              width: 0 / $unit * $symbol;
+              height: 0 / $unit * $symbol;
+              border-width:  12 / $unit * $symbol;
+              border-style: solid;
+              border-color: #fff transparent transparent transparent;
+            }
+          }
+        }
+        .waiter {
+          $param: (flex flex) (justifyContent flex-end);
+          @include flexSet($param);
+          .waiter-say {
+            margin: {
+              right: 27 / $unit * $symbol;
+            }
+            &::before {
+              right: -12 / $unit * $symbol;
+            }
+          }
+        }
+        .customer {
+          $param: (flex flex) (justifyContent flex-start);
+          @include flexSet($param);
+          .customer-say {
+            margin: {
+              left: 27 / $unit * $symbol;
+            }
+            &::before {
+              left: -12 / $unit * $symbol;
+            }
+          }
+        }
+      }
+    }
+  }
+}

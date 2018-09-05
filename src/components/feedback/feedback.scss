@@ -1,0 +1,70 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.feedback {
+  width: 100vw;
+  height: 100vh;
+  padding: {
+    top: 126 / $unit * $symbol;
+  }
+  &-advice {
+    width: 100%;
+    .advice-title {
+      @include vertical_center();
+      width: 100%;
+      height: 78 / $unit * $symbol;
+      i {
+        color: red;
+      }
+    }
+    padding: {
+      left: 39 / $unit * $symbol;
+      // right: 39 / $unit * $symbol;
+    }
+    .advice-opinion {
+      width: 100%;
+      .opinion-input {
+        width: 100%;
+        height: 348 / $unit * $symbol;
+        padding: {
+          top: 12 / $unit * $symbol;
+          left: 12 / $unit * $symbol;
+          right: 12 / $unit * $symbol;
+        }
+        resize: none;
+        outline: none;
+      }
+      .input-number{
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        width: 100%;
+        padding: {
+          bottom: 21 / $unit * $symbol;
+          right: 18 / $unit * $symbol;
+        }
+      }
+    }
+  }
+  &-contact-way {
+    width: 100%;
+    height: 90 / $unit * $symbol;
+    margin: {
+      top: 21 / $unit * $symbol;
+    }
+    input {
+      width: 100%;
+      height: 100%;
+      outline: none;
+    }
+    input::-webkit-input-placeholder {
+      font-size: 27 / $unit * $symbol;
+      color: #999999;
+    }
+  }
+  &-button {
+    padding: {
+      top: 72 / $unit * $symbol;
+    }
+  }
+}

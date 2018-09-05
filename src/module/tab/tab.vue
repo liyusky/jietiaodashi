@@ -11,23 +11,23 @@
         </svg>
         <p class="item-name" :class="{active: tabPath === '/index'}">首页</p>
       </div>
-      <div class="tab-item" @click="gotoPage('friend')">
-        <svg class="icon" aria-hidden="true" v-if="tabPath === '/friend'">
+      <div class="tab-item" @click="gotoPage('message')">
+        <svg class="icon" aria-hidden="true" v-if="tabPath === '/message'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/friend'">
+        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/message'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: tabPath === '/friend'}">好友</p>
+        <p class="item-name" :class="{active: tabPath === '/message'}">消息</p>
       </div>
-      <div class="tab-item" @click="gotoPage('borrow')">
-        <svg class="icon" aria-hidden="true" v-if="tabPath === '/borrow'">
+      <div class="tab-item" @click="gotoPage('wanna-borrow')">
+        <svg class="icon" aria-hidden="true" v-if="tabPath === '/wanna-borrow'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/borrow'">
+        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/wanna-borrow'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: tabPath === '/borrow'}">我要借</p>
+        <p class="item-name" :class="{active: tabPath === '/wanna-borrow'}">我要借</p>
       </div>
       <div class="tab-item" @click="gotoPage('find')">
         <svg class="icon" aria-hidden="true" v-if="tabPath === '/find'">

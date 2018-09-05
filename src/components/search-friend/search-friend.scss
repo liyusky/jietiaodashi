@@ -1,0 +1,107 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.search-friend {
+  @include vertical_direction();
+  width: 100vw;
+  height: 100vh;
+  background-color: #fafafa;
+  .friend-header {
+    width: 100%;
+    padding: {
+      top: 54 / $unit * $symbol;
+    }
+    background-color: #508dff;
+    .header-title {
+      @include vertical_center();
+      width: 100%;
+      height: 54 / $unit * $symbol;
+      background-color: #fff;
+      height: 93 / $unit * $symbol;
+      i {
+        color: #555555;
+      }
+      .header-search {
+        @include vertical_center_horizontal_between();
+        flex: 1;
+        height: 100%;
+        padding: {
+          left: 27 / $unit * $symbol;
+          right: 48 / $unit * $symbol;
+        }
+        i {
+          color: #bfbfbf;
+        }
+        input {
+          flex: 1;
+          height: 100%;
+          font-size: 27 / $unit * $symbol;
+          color: #333333;
+          background-color: transparent;
+        }
+        input::-webkit-input-placeholder {
+          font-size: 24 / $unit * $symbol;
+          color: #999999;
+        }
+      }
+      .button {
+        height: 100%;
+        padding: {
+          left: 12 / $unit * $symbol;
+          right: 12 / $unit * $symbol;
+        }
+      }
+    }
+  }
+  .friend-content {
+    flex: 1;
+    width: 100%;
+    padding: {
+      top: 42 / $unit * $symbol;
+    }
+    .content-item {
+      @include vertical_center();
+      width: 100%;
+      height: 120 / $unit * $symbol;
+      background-color: #fff;
+      .item-portrait {
+        width: 93 / $unit * $symbol;
+        height: 93 / $unit * $symbol;
+        border-radius: 6 / $unit * $symbol;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 6 / $unit * $symbol;
+        }
+      }
+      .item-name {
+        flex: 1;
+        padding: {
+          left: 33 / $unit * $symbol;
+        }
+      }
+      .button {
+        height: 60 / $unit * $symbol;
+        background-color: #4c7bfd;
+      }
+    }
+    .content-without {
+      @include column_center();
+      width: 100%;
+      height: 100%;
+      .without-img {
+        width: 120 / $unit * $symbol;
+        height: 150 / $unit * $symbol;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      p {
+        @include vertical_center();
+        height: 60 / $unit * $symbol;
+      }
+    }
+  }
+}
