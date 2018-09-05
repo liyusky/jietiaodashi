@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '黑名单',
   router: true,
   vuex: {
     'mutations': false,
