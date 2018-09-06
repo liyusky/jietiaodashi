@@ -1,5 +1,5 @@
 module.exports = {
-  content: '消息',
+  content: '提现',
   router: true,
   vuex: {
     'mutations': false,
@@ -15,18 +15,30 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': false,
+    'button': `{
+        default: [{
+          type: 'primary',
+          text: '立即提现'
+        }]
+      }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': false,
+    'inputs': `{
+        type: 'icon',
+        placeholder: '请输入金额',
+        leftIcon: 'cong'
+      }`,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'receipt': false,
     'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '提现',
+        rightText: '限额说明'
+      }`,
     'work-card': false
   }
 }

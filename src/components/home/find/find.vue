@@ -1,14 +1,13 @@
 <template>
   <!-- s 发现 -->
   <section class="find">
-    <TabComponent></TabComponent>
+    <!-- <TabComponent></TabComponent> -->
   </section>
   <!-- s  -->
 </template>
 
 <script>
 // include dependence
-import TabComponent from '../../module/tab/tab.vue'
 export default {
   name: 'FindComponent',
   data () {
@@ -16,7 +15,7 @@ export default {
   },
   components: {
     // include components
-    TabComponent
+    // TabComponent
   }
 }
 </script>

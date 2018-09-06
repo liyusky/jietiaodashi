@@ -82,14 +82,13 @@
         <img src="https://api.vtrois.com/image/750x160">
       </div>
     </div>
-    <TabComponent></TabComponent>
+    <!-- <TabComponent></TabComponent> -->
   </section>
   <!-- e  首页-->
 </template>
 
 <script>
 // include dependence
-import TabComponent from '../../../module/tab/tab.vue'
 export default {
   name: 'IndexComponent',
   data () {
@@ -99,7 +98,7 @@ export default {
     }
   },
   components: {
-    TabComponent
+    // TabComponent
   }
 }
 </script>

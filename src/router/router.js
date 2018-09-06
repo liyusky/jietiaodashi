@@ -21,25 +21,29 @@ const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-
 const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-period' */ '../components/exhibiton-period/exhibiton-period.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const FeedbackComponent = () => import(/* webpackChunkName: 'feedback' */ '../components/feedback/feedback.vue')
-const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/find/find.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendTransferComponent = () => import(/* webpackChunkName: 'friend-transfer' */ '../components/friend-transfer/friend-transfer.vue')
+const FriendsComponent = () => import(/* webpackChunkName: 'friends' */ '../components/friends/friends.vue')
 const HomeComponent = () => import(/* webpackChunkName: 'home' */ '../components/home/home.vue')
+const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/home/find/find.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/home/index/index.vue')
 const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../components/home/message/message.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
 const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/home/wanna-borrow/wanna-borrow.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
-const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'immediate-repayment' */ '../components/immediate-repayment/immediate-repayment.vue')
+const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'Immediate-repayment' */ '../components/Immediate-repayment/Immediate-repayment.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
 const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ '../components/my-bank-card/my-bank-card.vue')
+const NewFriendComponent = () => import(/* webpackChunkName: 'new-friend' */ '../components/new-friend/new-friend.vue')
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
 const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../components/publish/publish.vue')
+const PublishObjectComponent = () => import(/* webpackChunkName: 'publish-object' */ '../components/publish-object/publish-object.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
+const RechargeComponent = () => import(/* webpackChunkName: 'recharge' */ '../components/recharge/recharge.vue')
 const SearchFriendComponent = () => import(/* webpackChunkName: 'search-friend' */ '../components/search-friend/search-friend.vue')
 const SelectBankCardComponent = () => import(/* webpackChunkName: 'select-bank-card' */ '../components/select-bank-card/select-bank-card.vue')
 const SetPayPasswordComponent = () => import(/* webpackChunkName: 'set-pay-password' */ '../components/set-pay-password/set-pay-password.vue')
@@ -47,6 +51,8 @@ const SettingsComponent = () => import(/* webpackChunkName: 'settings' */ '../co
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
 const TransferDetailComponent = () => import(/* webpackChunkName: 'transfer-detail' */ '../components/transfer-detail/transfer-detail.vue')
 const TransferRecordComponent = () => import(/* webpackChunkName: 'transfer-record' */ '../components/transfer-record/transfer-record.vue')
+const WithdrawComponent = () => import(/* webpackChunkName: 'withdraw' */ '../components/withdraw/withdraw.vue')
+const WithdrawSuccessComponent = () => import(/* webpackChunkName: 'withdraw-success' */ '../components/withdraw-success/withdraw-success.vue')
 export default new Router({
   routes: [
     {
@@ -145,11 +151,6 @@ export default new Router({
       component: FeedbackComponent
     },
     {
-      path: '/find',
-      name: 'find',
-      component: FindComponent
-    },
-    {
       path: '/forget-password',
       name: 'forget-password',
       component: ForgetPasswordComponent
@@ -160,10 +161,20 @@ export default new Router({
       component: FriendTransferComponent
     },
     {
+      path: '/friends',
+      name: 'friends',
+      component: FriendsComponent
+    },
+    {
       path: '/',
       name: 'home',
       component: HomeComponent,
       children: [
+        {
+          path: '/find',
+          name: 'find',
+          component: FindComponent
+        },
         {
           path: '/index',
           name: 'index',
@@ -193,8 +204,8 @@ export default new Router({
       component: IdentityVerificationComponent
     },
     {
-      path: '/immediate-repayment',
-      name: 'immediate-repayment',
+      path: '/Immediate-repayment',
+      name: 'Immediate-repayment',
       component: ImmediateRepaymentComponent
     },
     {
@@ -223,6 +234,11 @@ export default new Router({
       component: MyBankCardComponent
     },
     {
+      path: '/new-friend',
+      name: 'new-friend',
+      component: NewFriendComponent
+    },
+    {
       path: '/news',
       name: 'news',
       component: NewsComponent
@@ -238,9 +254,19 @@ export default new Router({
       component: PublishComponent
     },
     {
+      path: '/publish-object',
+      name: 'publish-object',
+      component: PublishObjectComponent
+    },
+    {
       path: '/purpose',
       name: 'purpose',
       component: PurposeComponent
+    },
+    {
+      path: '/recharge',
+      name: 'recharge',
+      component: RechargeComponent
     },
     {
       path: '/search-friend',
@@ -276,6 +302,16 @@ export default new Router({
       path: '/transfer-record',
       name: 'transfer-record',
       component: TransferRecordComponent
+    },
+    {
+      path: '/withdraw',
+      name: 'withdraw',
+      component: WithdrawComponent
+    },
+    {
+      path: '/withdraw-success',
+      name: 'withdraw-success',
+      component: WithdrawSuccessComponent
     }
   ]
 })

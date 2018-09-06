@@ -1,5 +1,5 @@
 module.exports = {
-  content: '发现',
+  content: '好友',
   router: true,
   vuex: {
     'mutations': false,
@@ -24,9 +24,12 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'receipt': false,
-    'tab': `''`,
+    'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '好友',
+        icon: 'cong'
+      }`,
     'work-card': false
   }
 }

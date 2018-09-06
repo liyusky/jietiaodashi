@@ -14,7 +14,7 @@
         <i class="iconfont icon-cong"></i>
       </div>
       <div class="bank-item">
-        <InputsComponent :inputs="cardHolder" :receiveInput="cardName"></InputsComponent>
+        <InputsComponent :inputs="cardHolder"></InputsComponent>
       </div>
       <div class="bank-item">
         <InputsComponent :inputs="cardNumber" @GET_INPUT_TEXT_EVENT="getCardNumber"></InputsComponent>
@@ -28,7 +28,7 @@
         <p class="font-30 color-black">手机验证</p>
         <div class="item-right">
           <input type="text" v-model="codeNumber" placeholder="请输入手机验证码">
-          <button class="button font-21 color-light-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
+          <button class="button font-21 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
         </div>
         <!-- <InputsComponent :inputs="phoneNumber" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent> -->
       </div>
@@ -52,14 +52,16 @@ export default {
     return {
       cardHolder: {
         type: 'text',
-        placeholder: '输入持卡人',
         rightIcon: 'cong',
-        leftText: '持卡人'
+        leftText: '持卡人',
+        receiveInput: '张玉',
+        dsiabled: 'true'
       },
       cardNumber: {
         type: 'text',
         placeholder: '请输入银行卡号',
-        leftText: '卡号'
+        leftText: '卡号',
+        maxLength: '19'
       },
       identityNumber: {
         type: 'text',
@@ -71,7 +73,6 @@ export default {
         placeholder: '输入手机号',
         leftText: '手机号'
       },
-      cardName: '张玉',
       cardNumberText: '',
       phoneNumberText: '',
       identityNumberText: '',

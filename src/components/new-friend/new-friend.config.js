@@ -1,5 +1,5 @@
 module.exports = {
-  content: '消息',
+  content: '验证消息',
   router: true,
   vuex: {
     'mutations': false,
@@ -26,7 +26,10 @@ module.exports = {
     'receipt': false,
     'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '验证消息',
+        rightText: '清空'
+      }`,
     'work-card': false
   }
 }

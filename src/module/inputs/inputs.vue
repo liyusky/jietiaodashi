@@ -6,7 +6,7 @@
       <div class="leftText" v-if="inputs.leftText">{{inputs.leftText}}</div>
     </div>
     <div class="right">
-      <input class="right-input" type="text" :disabled="disabledSwitch" v-model="inputText" :placeholder="inputs.placeholder">
+      <input class="right-input" type="text" :maxlength="inputs.maxLength" :disabled="inputs.dsiabled" v-model="inputText" :placeholder="inputs.placeholder">
       <i class="iconfont right-icon" :class="'icon-' + inputs.rightIcon" v-if="inputs.rightIcon" @click="clearInput"></i>
       <p class="right-text" v-if="inputs.rightText">{{inputs.rightText}}</p>
       <div class="right-switch" :class="{'switch-active': switchShow}" v-if="inputs.type === 'switch'" @click="switchToggle">
@@ -20,17 +20,15 @@
 <script>
 export default {
   name: 'InputComponent',
-  props: ['inputs', 'receiveInput'],
+  props: ['inputs'],
   data () {
     return {
       inputText: '',
-      switchShow: true,
-      disabledSwitch: false
+      switchShow: true
     }
   },
   created () {
-    if (this.receiveInput) this.disabledSwitch = true
-    this.inputText = this.receiveInput
+    this.inputText = this.inputs.receiveInput
   },
   methods: {
     openModal () {
