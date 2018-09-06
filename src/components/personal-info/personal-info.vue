@@ -2,7 +2,7 @@
   <!-- s 个人信息 -->
   <section class="personal-info">
     <div class="info-header">
-      <div class="header">
+      <div class="header font-30">
         <i class="iconfont icon-cong" @click="back"></i>
         <span>个人资料</span>
         <i class="iconfont icon-cong"></i>
@@ -140,6 +140,7 @@
 
 <script>
 // include dependence
+import Router from '../../class/Router.class.js'
 export default {
   name: 'PersonalInfoComponent',
   data () {
@@ -154,7 +155,7 @@ export default {
   },
   methods: {
     back () {
-      this.$router.back(-1)
+      Router.back()
     },
     tabSwitchHome () {
       this.tabSwitchShow = true

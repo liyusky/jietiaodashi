@@ -25,6 +25,7 @@ module.exports = {
     'detail-list': false,
     'image-bg': false,
     'inputs': 1,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,

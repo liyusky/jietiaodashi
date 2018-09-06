@@ -15,23 +15,28 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': false,
+    'button': `{
+        default: [{
+          type: 'primary',
+          text: '完成'
+        }]
+      }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
     'inputs': false,
+    'keyboard': 1,
     'modals': false,
     'nav': false,
-    'pay-password': false,
+    'pay-password': `[]`,
     'receipt': false,
     'tab': false,
-    'tip': false,
+    'tip': `{
+        type: 'center',
+        content: '请输入原始支付密码'
+      }`,
     'title': `{
-        contentText: '中间内容',
-        leftText: '左边箭头后文字',
-        rightText: '右边文字内容',
-        icon: '右边icon',
-        svg: '右边svg'
+        contentText: '修改支付密码'
       }`,
     'work-card': false
   }

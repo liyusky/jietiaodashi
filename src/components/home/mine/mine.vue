@@ -3,7 +3,7 @@
   <section class="mine">
     <div class="mine-information padding-horizontal-24 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
-        <div class="detail-portrait" @click="gotoPage('personal-info')">
+        <div class="detail-portrait" @click="target('personal-info')">
           <img src="https://api.vtrois.com/image/250x205">
         </div>
         <div class="detail-content">
@@ -12,11 +12,11 @@
         </div>
       </div>
       <div class="information-operation">
-        <p class="operation-item">
+        <p class="operation-item" @click="target('news')">
           <i class="iconfont icon-cong margin-right-12"></i>
           <span class="font-27">消息</span>
         </p>
-        <p class="operation-item">
+        <p class="operation-item" @click="target('settings')">
           <i class="iconfont icon-cong margin-right-12"></i>
           <span class="font-27">设置</span>
         </p>
@@ -24,18 +24,18 @@
     </div>
     <div class="mine-balance padding-horizontal-30 margin-bottom-21">
       <div class="balance-count">
-        <p class="count-content">
+        <p class="count-content" @click="target('account-balance')">
           <span class="color-deep-black font-27">我的总资产（元）</span>
           <span class="color-deep-black font-60">0.00</span>
         </p>
         <i class="iconfont icon-chuyin color-grey"></i>
       </div>
       <div class="balance-detail">
-        <div class="detail-item border-radius-12">
+        <div class="detail-item border-radius-12" @click="target('borrow-list')">
           <p class="font-30 color-white">借入</p>
           <p class="font-36 color-white">{{0.00}}</p>
         </div>
-        <div class="detail-item border-radius-12">
+        <div class="detail-item border-radius-12" @click="target('lend-list')">
           <p class="font-30 color-white">借出</p>
           <p class="font-36 color-white">{{0.00}}</p>
         </div>
@@ -97,7 +97,7 @@ export default {
           key: '意见反馈',
           svg: 'cangjian',
           icon: 'chuyin',
-          target: '',
+          target: 'feedback',
           border: true
         }
       ]
@@ -109,14 +109,9 @@ export default {
     // TabComponent
     // include components
   },
-  created () {
-    Router.mark()
-  },
   methods: {
     target (page) {
-      Router.push({
-        name: page
-      })
+      Router.push(page)
     }
   }
 }

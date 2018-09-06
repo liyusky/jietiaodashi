@@ -52,7 +52,7 @@ module.exports = {
           key: '意见反馈',
           svg: 'cangjian',
           icon: 'chuyin',
-          target: '',
+          target: 'feedback',
           border: true
         }
       ]`,
@@ -62,6 +62,7 @@ module.exports = {
     'detail-list': false,
     'image-bg': false,
     'inputs': false,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,

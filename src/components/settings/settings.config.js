@@ -8,7 +8,7 @@ module.exports = {
   class: {
     'Check': false,
     'Http': false,
-    'Router': false,
+    'Router': true,
     'Time': false,
     'Url': false
   },
@@ -18,7 +18,7 @@ module.exports = {
           type: 'guide',
           key: '支付设置',
           icon: 'chuyin',
-          target: ''
+          target: 'about-pay-password-settings'
         },
         {
           type: 'guide',
@@ -36,13 +36,13 @@ module.exports = {
           type: 'guide',
           key: '黑名单',
           icon: 'chuyin',
-          target: ''
+          target: 'black-list'
         },
         {
           type: 'guide',
           key: '意见反馈',
           icon: 'chuyin',
-          target: ''
+          target: 'feedback'
         }
       ]`,
     'board': false,
@@ -56,6 +56,7 @@ module.exports = {
     'detail-list': false,
     'image-bg': false,
     'inputs': false,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,

@@ -20,6 +20,7 @@ module.exports = {
     'detail-list': false,
     'image-bg': `'https://api.vtrois.com/image/750x300/ff8d7b'`,
     'inputs': false,
+    'keyboard': false,
     'modals': false,
     'nav': `{
         content: ['当前', '已还清'],

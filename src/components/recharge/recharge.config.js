@@ -29,6 +29,7 @@ module.exports = {
         placeholder: '请输入金额',
         leftIcon: 'cong'
       }`,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
