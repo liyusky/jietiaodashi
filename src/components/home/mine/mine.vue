@@ -44,7 +44,7 @@
     <div class="mine-billboard-list padding-left-30 bg-white">
       <BillboardComponent class="list-item padding-right-30" :billboard="item" v-for="(item, index) in billboard" :key="index" @OPERATION_EVENT="target"></BillboardComponent>
     </div>
-    <TabComponent></TabComponent>
+    <!-- <TabComponent></TabComponent> -->
   </section>
   <!-- e 我的 -->
 </template>
@@ -53,7 +53,6 @@
 // include dependence
 import Router from '../../../class/Router.class.js'
 import BillboardComponent from '../../../module/billboard/billboard.vue'
-import TabComponent from '../../../module/tab/tab.vue'
 export default {
   name: 'MineComponent',
   data () {
@@ -101,14 +100,13 @@ export default {
           target: '',
           border: true
         }
-      ],
-      'tab': ''
+      ]
       // end params
     }
   },
   components: {
-    BillboardComponent,
-    TabComponent
+    BillboardComponent
+    // TabComponent
     // include components
   },
   created () {

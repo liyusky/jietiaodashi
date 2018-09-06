@@ -19,7 +19,7 @@
         <!-- e 好友聊天 -->
         <!-- s 文字信息 -->
         <section class="item-text">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <!-- <div class="say-itme">
                 <p class="say-text"></p>
@@ -31,7 +31,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -43,7 +43,7 @@
         <!-- e 文字信息-->
         <!-- s 图片信息 -->
         <section class="item-image">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <img src="http://iph.href.lu/590x190">
             </div>
@@ -51,7 +51,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -63,7 +63,7 @@
         <!-- e 好友聊天 -->
         <!-- s 语音信息 -->
         <section class="item-voice">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <div class="say-seconds font-30 color-light-grey">15"</div>
               <i class="iconfont icon-cong font-33 color-white"></i>
@@ -72,7 +72,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -85,7 +85,7 @@
         <!-- e 语音信息 -->
         <!-- s 转账 -->
         <section class="item-transfer">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <div class="say-detail">
                 <i class="iconfont icon-cong"></i>
@@ -100,7 +100,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -119,7 +119,7 @@
         <!-- e 转账 -->
         <!-- s 欠条 -->
         <section class="item-iou">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <div class="say-detail">
                 <i class="iconfont icon-cong"></i>
@@ -134,7 +134,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -153,7 +153,7 @@
         <!-- e 欠条 -->
         <!-- s 借条 -->
         <section class="item-receipt">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <div class="say-detail">
                 <i class="iconfont icon-cong"></i>
@@ -168,7 +168,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -187,7 +187,7 @@
         <!-- e 借条 -->
         <!-- s 信用报告 -->
         <section class="item-credit">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <div class="say-detail">
                 <svg class="icon" aria-hidden="true">
@@ -201,7 +201,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -219,7 +219,7 @@
         <!-- e 信用报告 -->
         <!-- s 个人名片 -->
         <section class="item-card">
-          <div class="waiter">
+          <div class="waiter" v-if="true">
             <div class="waiter-say">
               <div class="say-detail">
                 <div class="detail-img">
@@ -236,7 +236,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
           </div>
-          <div class="customer">
+          <div class="customer" v-if="false">
             <div class="customer-portrait">
               <img src="http://iph.href.lu/90x90">
             </div>
@@ -258,10 +258,86 @@
       </li>
     </ul>
     <div class="chat-input">
-      <i class="iconfont icon-cong"></i>
-      <input type="text">
-      <i class="iconfont icon-cong"></i>
-      <i class="iconfont icon-cong"></i>
+      <div class="input-eara">
+        <i class="iconfont icon-cong" :class="{'icon-jianyu' : inputType}" @click="toggleInputType"></i>
+        <div class="eara-content bg-white">
+          <div class="content-text" v-if="!inputType">
+            <input type="text">
+          </div>
+          <div class="content-voice" v-if="inputType">
+            <span>按住说话</span>
+          </div>
+        </div>
+        <i class="iconfont icon-cong"></i>
+        <i class="iconfont icon-cong" @click="switchMore"></i>
+      </div>
+      <!-- <div class="input-emoji"></div> -->
+      <div class="input-more" v-if="switchMoreShow">
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">图片</p>
+        </div>
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">视频通话</p>
+        </div>
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">语音通话</p>
+        </div>
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">我要借</p>
+        </div>
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">打欠条</p>
+        </div>
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">转账</p>
+        </div>
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">信用报告</p>
+        </div>
+        <div class="more-item">
+          <div class="item-icon bg-white">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-cong"></use>
+            </svg>
+          </div>
+          <p class="font-24">个人名片</p>
+        </div>
+      </div>
     </div>
   </section>
   <!-- e 好友聊天 -->
@@ -278,7 +354,9 @@ export default {
         contentText: 'Name',
         leftText: '好友',
         icon: 'cong'
-      }
+      },
+      inputType: false,
+      switchMoreShow: false
       // start params
       // end params
     }
@@ -286,6 +364,14 @@ export default {
   components: {
     TitleComponent
     // include components
+  },
+  methods: {
+    toggleInputType () {
+      this.inputType = !this.inputType
+    },
+    switchMore () {
+      this.switchMoreShow = !this.switchMoreShow
+    }
   }
 }
 </script>

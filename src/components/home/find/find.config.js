@@ -1,5 +1,5 @@
 module.exports = {
-  content: '消息',
+  content: '发现',
   router: true,
   vuex: {
     'mutations': false,

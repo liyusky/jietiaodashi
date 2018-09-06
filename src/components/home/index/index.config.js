@@ -24,7 +24,7 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'receipt': false,
-    'tab': `$route.path`,
+    'tab': false,
     'tip': false,
     'title': false,
     'work-card': false

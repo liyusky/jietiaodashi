@@ -2,4 +2,7 @@
 @import '../../../dependencies/sass/_flex.scss';
 @import '../../../dependencies/sass/_unit.scss';
 // current sass
-.home {}
+.home {
+  width: 100vw;
+  height: 100vh;
+}

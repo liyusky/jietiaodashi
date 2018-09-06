@@ -15,7 +15,7 @@
           <span>借款金额</span>
         </div>
         <div class="itme-default">
-          <input type="text" v-model="borrowAmount" placeholder="10的倍数(最大可借10000.0)">
+          <input type="text" v-model="borrowAmount" placeholder="10的倍数(最大可借10000)">
           <span>元</span>
         </div>
       </div>

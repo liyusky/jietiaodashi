@@ -92,7 +92,10 @@ module.exports = {
         rightText: '',
         rightIcon: '',
         leftText: '',
-        leftIcon: ''
+        leftIcon: '',
+        maxLength: '',
+        disabled: '',
+        receiveInput: '默认内容'
       }`,
   deadline: ``,
   'image-bg': `''`

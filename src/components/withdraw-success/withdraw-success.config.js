@@ -1,5 +1,5 @@
 module.exports = {
-  content: '消息',
+  content: '提现申请成功',
   router: true,
   vuex: {
     'mutations': false,
@@ -15,7 +15,12 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': false,
+    'button': `{
+        default: [{
+          type: 'primary',
+          text: '完成'
+        }]
+      }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
@@ -26,7 +31,9 @@ module.exports = {
     'receipt': false,
     'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '提现申请成功'
+      }`,
     'work-card': false
   }
 }
