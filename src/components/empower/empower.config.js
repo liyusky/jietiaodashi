@@ -6,7 +6,8 @@ module.exports = {
     'state': false
   },
   class: {
-    'Http': false,
+    'Check': true,
+    'Http': true,
     'Router': false,
     'Time': false,
     'Url': false

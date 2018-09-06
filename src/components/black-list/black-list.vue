@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 黑名单 -->
   <section class="black-list padding-top-126 bg-white">
     <TitleComponent :title="title"></TitleComponent>
     <div class="list-item padding-horizontal-30 border-bottom-1" v-for="(item, index) in blacklist" :key="index">
@@ -13,7 +13,7 @@
       </div>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e 黑名单 -->
 </template>
 
 <script>

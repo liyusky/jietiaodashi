@@ -6,8 +6,8 @@ const AboutPayPasswordSettingsComponent = () => import(/* webpackChunkName: 'abo
 const AccountBalanceComponent = () => import(/* webpackChunkName: 'account-balance' */ '../components/account-balance/account-balance.vue')
 const AccountDetailComponent = () => import(/* webpackChunkName: 'account-detail' */ '../components/account-detail/account-detail.vue')
 const AccountStatisticComponent = () => import(/* webpackChunkName: 'account-statistic' */ '../components/account-statistic/account-statistic.vue')
-const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
 const AddFriendComponent = () => import(/* webpackChunkName: 'add-friend' */ '../components/add-friend/add-friend.vue')
+const BindBankCardComponent = () => import(/* webpackChunkName: 'bind-bank-card' */ '../components/bind-bank-card/bind-bank-card.vue')
 const BlackListComponent = () => import(/* webpackChunkName: 'black-list' */ '../components/black-list/black-list.vue')
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
@@ -25,14 +25,15 @@ const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendTransferComponent = () => import(/* webpackChunkName: 'friend-transfer' */ '../components/friend-transfer/friend-transfer.vue')
 const FriendsComponent = () => import(/* webpackChunkName: 'friends' */ '../components/friends/friends.vue')
+const HomeComponent = () => import(/* webpackChunkName: 'home' */ '../components/home/home.vue')
+const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/home/index/index.vue')
+const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'Immediate-repayment' */ '../components/Immediate-repayment/Immediate-repayment.vue')
-const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/index/index.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../components/message/message.vue')
-const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/mine/mine.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
 const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ '../components/my-bank-card/my-bank-card.vue')
 const NewFriendComponent = () => import(/* webpackChunkName: 'new-friend' */ '../components/new-friend/new-friend.vue')
@@ -74,14 +75,14 @@ export default new Router({
       component: AccountStatisticComponent
     },
     {
-      path: '/bind-bank-card',
-      name: 'bind-bank-card',
-      component: BindBankCardComponent
-    },
-    {
       path: '/add-friend',
       name: 'add-friend',
       component: AddFriendComponent
+    },
+    {
+      path: '/bind-bank-card',
+      name: 'bind-bank-card',
+      component: BindBankCardComponent
     },
     {
       path: '/black-list',
@@ -169,6 +170,23 @@ export default new Router({
       component: FriendsComponent
     },
     {
+      path: '/home',
+      name: 'home',
+      component: HomeComponent,
+      children: [
+        {
+          path: '/index',
+          name: 'index',
+          component: IndexComponent
+        },
+        {
+          path: '/mine',
+          name: 'mine',
+          component: MineComponent
+        }
+      ]
+    },
+    {
       path: '/identity-verification',
       name: 'identity-verification',
       component: IdentityVerificationComponent
@@ -177,11 +195,6 @@ export default new Router({
       path: '/Immediate-repayment',
       name: 'Immediate-repayment',
       component: ImmediateRepaymentComponent
-    },
-    {
-      path: '/index',
-      name: 'index',
-      component: IndexComponent
     },
     {
       path: '/iou-detail',
@@ -202,11 +215,6 @@ export default new Router({
       path: '/message',
       name: 'message',
       component: MessageComponent
-    },
-    {
-      path: '/mine',
-      name: 'mine',
-      component: MineComponent
     },
     {
       path: '/modefy-pay-password',

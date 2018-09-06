@@ -1,11 +1,12 @@
 module.exports = {
-  content: '首页',
+  content: '',
   router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
+    'Check': false,
     'Http': false,
     'Router': false,
     'Time': false,
@@ -23,7 +24,7 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'receipt': false,
-    'tab': `$route.path`,
+    'tab': false,
     'tip': false,
     'title': false,
     'work-card': false

@@ -1,11 +1,12 @@
 module.exports = {
-  content: '',
+  content: '黑名单',
   router: true,
   vuex: {
     'mutations': false,
     'state': false
   },
   class: {
+    'Check': false,
     'Http': false,
     'Router': false,
     'Time': false,
