@@ -60,14 +60,16 @@ export default {
       tabPath: '/index'
     }
   },
-  created () {
-    this.tabPath = this.$route.path
-  },
+  // created () {
+  //   this.tabPath = this.$route.path
+  // },
   methods: {
     gotoPage (page) {
-      if (this.tabPath !== '/' + page) {
-        this.$router.push({name: page})
-      }
+      this.tabPath = '/' + page
+      this.$router.push({name: page})
+      // if (this.tabPath !== '/' + page) {
+      //   this.$router.push({name: page})
+      // }
     }
   }
 }

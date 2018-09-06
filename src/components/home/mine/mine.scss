@@ -1,5 +1,7 @@
-@import '../../../dependencies/sass/_flex.scss';
-@import '../../../dependencies/sass/_unit.scss';
+// include module
+@import '../../../../dependencies/sass/_flex.scss';
+@import '../../../../dependencies/sass/_unit.scss';
+// current sass
 .mine {
   @include vertical_direction();
   width: 100%;

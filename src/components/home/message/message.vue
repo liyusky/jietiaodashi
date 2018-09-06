@@ -32,25 +32,23 @@
         </li>
       </ul>
     </div>
-    <TabComponent></TabComponent>
+    <!-- <TabComponent></TabComponent> -->
   </section>
   <!-- e 消息 -->
 </template>
 
 <script>
 // include dependence
-import TabComponent from '../../module/tab/tab.vue'
 export default {
   name: 'MessageComponent',
   data () {
     return {
       // start params
-      'tab': ''
       // end params
     }
   },
   components: {
-    TabComponent
+    // TabComponent
     // include components
   },
   methods: {

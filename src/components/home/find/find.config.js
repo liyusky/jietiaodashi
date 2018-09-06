@@ -1,5 +1,5 @@
 module.exports = {
-  content: '',
+  content: '发现',
   router: true,
   vuex: {
     'mutations': false,
@@ -24,7 +24,7 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'receipt': false,
-    'tab': `''`,
+    'tab': false,
     'tip': false,
     'title': false,
     'work-card': false
