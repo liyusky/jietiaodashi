@@ -51,9 +51,9 @@
 
 <script>
 // include dependence
-import Router from '../../class/Router.class.js'
-import BillboardComponent from '../../module/billboard/billboard.vue'
-import TabComponent from '../../module/tab/tab.vue'
+import Router from '../../../class/Router.class.js'
+import BillboardComponent from '../../../module/billboard/billboard.vue'
+import TabComponent from '../../../module/tab/tab.vue'
 export default {
   name: 'MineComponent',
   data () {
@@ -110,6 +110,9 @@ export default {
     BillboardComponent,
     TabComponent
     // include components
+  },
+  created () {
+    Router.mark()
   },
   methods: {
     target (page) {

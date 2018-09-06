@@ -1,5 +1,5 @@
 module.exports = {
-  content: '借条发布期',
+  content: '首页',
   router: true,
   vuex: {
     'mutations': false,
@@ -24,11 +24,9 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'receipt': false,
-    'tab': false,
+    'tab': `$route.path`,
     'tip': false,
-    'title': `{
-        contentText: '借条发布期'
-      }`,
+    'title': false,
     'work-card': false
   }
 }

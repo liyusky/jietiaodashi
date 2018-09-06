@@ -189,14 +189,17 @@ function createFile (dir, content, refresh) {
 }
 
 // 循环
-function loop (files, dir, callback) {
+function loop (files, dir, callback, res) {
   files.forEach(item => {
     let currentDir = path.join(dir, item)
-    fs.stat(currentDir, (err, stats) => {
-      if (stats.isDirectory()) {
-        return callback(currentDir)
+    let stats = fs.statSync(currentDir)
+    if (stats.isDirectory()) {
+      if (res) {
+        console.log(currentDir)
+        console.log(res)
       }
-    });
+      return callback(currentDir, res)
+    }
   })
 }
 
@@ -204,15 +207,40 @@ function loop (files, dir, callback) {
 function buildRouter () {
   let pathsStr = ''
   let componentsStr = ''
+  let children = ''
+  
   Object.keys(routers).forEach(name => {
-    componentsStr += `const ${setComponentsName(name)} = () => import(/* webpackChunkName: '${name}' */ '../${path.relative('./src', routers[name]).replace(/\\/g, '/')}/${name}.vue')\n`
+    componentsStr += `const ${setComponentsName(name)} = () => import(/* webpackChunkName: '${name}' */ '../${path.relative('./src', routers[name].dir).replace(/\\/g, '/')}/${name}.vue')\n`
+    if (routers[name].children) {
+      children = '['
+      Object.keys(routers[name].children).forEach(child => {
+        componentsStr += `const ${setComponentsName(child)} = () => import(/* webpackChunkName: '${child}' */ '../${path.relative('./src', routers[name].children[child].dir).replace(/\\/g, '/')}/${child}.vue')\n`
+        children +=
+        `
+        {
+          path: '/${child}',
+          name: '${child}',
+          component: ${setComponentsName(child)}
+        },`
+      })
+      children = children.substr(0, children.length - 1)
+      children += 
+      `
+      ]`
+    }
     pathsStr += 
     `
     {
       path: '/${name}',
       name: '${name}',
-      component: ${setComponentsName(name)}
+      component: ${setComponentsName(name)}${children ? ',' : ''}`
+    pathsStr += children ? 
+      `
+      children: ${children}` : ''
+    pathsStr += 
+    `
     },`
+    children = ''
   })
   pathsStr = pathsStr.substr(0, pathsStr.length - 1) + '\n\t'
   componentsStr = componentsStr.substr(0, componentsStr.length - 1)
@@ -242,9 +270,10 @@ function initConfig() {
 }
 
 // 更新 所有的 config 文件
-function refreshConfig(dir) {
+function refreshConfig(dir, res) {
   let files = fs.readdirSync(dir, 'utf8')
   let name = path.basename(dir)
+  let currentRes = routers[name]
   // 如果出错
   if (!(files instanceof Array)) {
     console.log(files)
@@ -290,8 +319,26 @@ function refreshConfig(dir) {
           })
         }
       })
-      if (newConfig.router) routers[name] = dir
-      buildRouter()
+      if (newConfig.router) {
+        let content = {
+          dir: dir,
+          children: false
+        }
+        if (res) {
+          if (typeof res.children === 'boolean') {
+            res.children = {
+              [name]: content
+            }
+          }
+          else {
+            res.children[name] = content
+          }
+          currentRes = res.children[name]
+        }
+        else {
+          routers[name] = content
+        }
+      }
       contentStr = newConfig.content
       for (let item in newConfig.vuex) vuexStr += `\n\t\t'${item}': ${newConfig.vuex[item]},`
       for (let item in newConfig.class) classesStr += `\n\t\t'${firstChatUp(item.split('.')[0])}': ${newConfig.class[item]},`
@@ -300,7 +347,7 @@ function refreshConfig(dir) {
     }
     createFile(goal, currentTemplate, refresh)
   }
-  return loop(files, dir, refreshConfig)
+  return loop(files, dir, refreshConfig, routers[name])
 }
 
 // 创建 module 文件
@@ -381,5 +428,6 @@ function buildComponents (dir) {
 
 initConfig()
 refreshConfig('./src/components')
+buildRouter()
 buildModule('./src/module')
 buildComponents('./src/components')

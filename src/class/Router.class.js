@@ -1,5 +1,6 @@
 export default class Router {
-  mark () {
+  static mark () {
+    console.log(window.app._route)
     window.app.$store.commit('saveOrigin', window.app._route)
   }
 
@@ -8,6 +9,8 @@ export default class Router {
     window.app.$router.push(params)
   }
 
-  static back () {
+  static back (params) {
+    if (!params) params = window.app.$store.state.origin
+    window.app.$router.push(params)
   }
 }
