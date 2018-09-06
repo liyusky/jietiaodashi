@@ -1,4 +1,6 @@
 const state = {
-  origin
+  origin,
+  purpose: '',
+  route: null
 }
 export default state

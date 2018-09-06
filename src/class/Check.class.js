@@ -54,4 +54,7 @@ export default class Check {
     }
     return true
   }
+
+  // check money
+  static money (money) {}
 }

@@ -24,7 +24,7 @@ module.exports = {
     'nav': false,
     'pay-password': false,
     'receipt': false,
-    'tab': `''`,
+    'tab': 1,
     'tip': false,
     'title': false,
     'work-card': false

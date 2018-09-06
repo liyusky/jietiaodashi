@@ -2,7 +2,7 @@
   <!-- s  -->
   <section class="home">
     <router-view></router-view>
-    <TabComponent></TabComponent>
+    <TabComponent :path="$route.path"></TabComponent>
   </section>
   <!-- e  -->
 </template>
@@ -15,7 +15,6 @@ export default {
   data () {
     return {
       // start params
-      'tab': ''
       // end params
     }
   },

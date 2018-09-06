@@ -8,7 +8,7 @@
           <input type="text" v-model="phoneNumber" placeholder="搜索手机号">
           <i class="iconfont icon-cong font-27" @click="clearInput"></i>
         </div>
-        <button class="button bg-white font-30 color-black" @click="searchFriend"><div>搜索</div></button>
+        <button class="button bg-white font-30 color-black" @click="searchFriend"><div>{{searchBtnName}}</div></button>
       </div>
     </div>
     <div class="friend-content">
@@ -39,7 +39,8 @@ export default {
       phoneNumber: '',
       buttonText: '添加好友',
       addDisabled: false,
-      searchFriendData: null
+      searchFriendData: null,
+      searchBtnName: '取消'
       // start params
       // end params
     }

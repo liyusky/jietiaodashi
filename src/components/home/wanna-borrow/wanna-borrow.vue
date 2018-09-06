@@ -15,7 +15,7 @@
           <span>借款金额</span>
         </div>
         <div class="itme-default">
-          <input type="text" v-model="borrowAmount" placeholder="10的倍数(最大可借10000)">
+          <input type="number" v-model="borrowAmount" placeholder="10的倍数" @keyup="limitBorrowAmount">
           <span>元</span>
         </div>
       </div>
@@ -25,9 +25,9 @@
           <span>年华利率</span>
         </div>
         <div class="item-rate">
-          <input type="text" placeholder="0~36%" v-model="ratePercent">
+          <input type="number" placeholder="0~24" v-model="ratePercent" @keyup="limitRatePercent">
           <span>%</span>
-          <input type="text" placeholder="利率金额" v-model="rateAmount">
+          <input type="number" placeholder="利率金额" v-model="rateAmount">
           <span>￥</span>
         </div>
       </div>
@@ -50,7 +50,7 @@
           <span>借款用途</span>
         </div>
         <div class="itme-default" @click="gotoPage('purpose')">
-          <input type="text" v-model="borrowPurpose" placeholder="临时周转">
+          <span class="default-value">{{borrowPurpose}}</span>
           <i class="iconfont icon-cong"></i>
         </div>
       </div>
@@ -59,8 +59,8 @@
           <i class="iconfont icon-cong"></i>
           <span>发布对象</span>
         </div>
-        <div class="itme-default">
-          <input type="text" v-model="borrowObject" placeholder="请选择">
+        <div class="itme-default" @click="gotoPage('publish-object')">
+          <span class="default-value">{{borrowObject}}</span>
           <i class="iconfont icon-cong"></i>
         </div>
       </div>
@@ -69,8 +69,8 @@
           <i class="iconfont icon-cong"></i>
           <span>借款发布期</span>
         </div>
-        <div class="itme-default" @click="gotoPage('publish')">
-          <input type="text" v-model="borrowPublish" placeholder="20天(自动续借)">
+        <div class="itme-default" @click="openPublishMadol">
+          <span class="default-value">{{borrowPublish}}</span>
           <i class="iconfont icon-cong"></i>
         </div>
       </div>
@@ -82,18 +82,21 @@
       </div>
     </div>
     <div class="borrow-potocol">
-      <TipComponent :tip="tip"></TipComponent>
+      <TipComponent :tip="tip" @TOGGLE_SELECTED_EVENT="getTipSelected"></TipComponent>
     </div>
     <div class="borrow-submit">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="publishSubmit"></ButtonComponent>
     </div>
     <DeadlineComponent v-show="deadLineShow" @SELECT_DATA_EVENT="getDeadline" @CANCEL_EVENT="closeModal"></DeadlineComponent>
+    <PublishComponent v-show="purposeShow" @SELECT_PUBLISH_EVENT="getPublish" @CANCEL_PUBLISH_EVENT="closeModal"></PublishComponent>
   </section>
   <!-- e  我要借款-->
 </template>
 
 <script>
+import PublishComponent from './publish/publish.vue'
 // include dependence
+import Http from '../../../class/Http.class.js'
 import ButtonComponent from '../../../module/button/button.vue'
 import DeadlineComponent from '../../../module/deadline/deadline.vue'
 import TipComponent from '../../../module/tip/tip.vue'
@@ -103,13 +106,13 @@ export default {
   data () {
     return {
       borrowDate: '',
-      rateAmount: '',
+      rateAmount: '0',
       ratePercent: '',
       borrowAmount: '',
-      borrowObject: '',
+      borrowObject: '请选择',
       borrowDeadline: '7',
-      borrowPublish: '',
-      borrowPurpose: '',
+      borrowPublish: '3',
+      borrowPurpose: '临时周转',
       purposeShow: false,
       deadLineShow: false,
       // start params
@@ -127,8 +130,7 @@ export default {
         selected: 'true'
       },
       'title': {
-        contentText: '我要借款',
-        icon: 'cong'
+        contentText: '我要借款'
       }
       // end params
     }
@@ -138,11 +140,17 @@ export default {
     TitleComponent,
     ButtonComponent,
     TipComponent,
-    DeadlineComponent
+    DeadlineComponent,
+    PublishComponent
   },
   mounted () {
     this.scroll()
     this.getDate(7)
+    if (this.$store.state.route === '/purpose') {
+      this.borrowPurpose = this.$store.state.purpose
+      return
+    }
+    this.borrowPurpose = '临时周转'
   },
   methods: {
     getDate (AddDayCount) {
@@ -154,6 +162,12 @@ export default {
       this.borrowDate = y + '-' + m + '-' + d
     },
     backPage () {
+      if (this.$store.state.route === '/purpose') {
+        this.$router.push({
+          name: 'index'
+        })
+        return
+      }
       this.$router.back(-1)
     },
     scroll () {
@@ -173,17 +187,6 @@ export default {
         name: page
       })
     },
-    gotoPublishPage () {
-      this.publishShow = true
-    },
-    // getPurpose (item) {
-    //   this.borrowPurpose = item
-    //   this.purposeShow = false
-    // },
-    // getPublish (item, switchShow) {
-    //   this.borrowPublish = switchShow ? item + '天(自动续借)' : item + '天'
-    //   this.publishShow = false
-    // },
     getDeadline (year, mouth, day) {
       var date = new Date()
       date.setHours(0)
@@ -196,16 +199,58 @@ export default {
       this.borrowDate = year + '-' + mouth + '-' + day
       this.deadLineShow = false
     },
+    getPublish (publish) {
+      this.purposeShow = false
+      this.borrowPublish = publish
+    },
+    getTipSelected (selected) {
+      this.tip.selected = selected
+    },
     openDeadlineModal () {
       this.deadLineShow = true
     },
+    openPublishMadol () {
+      this.purposeShow = true
+    },
     closeModal () {
+      this.purposeShow = false
       this.deadLineShow = false
+    },
+    limitBorrowAmount () {
+      if (parseInt(this.borrowAmount) < 0 || parseInt(this.borrowAmount) > 10000) {
+        alert('输入0~10000值')
+        this.borrowAmount = ''
+      }
+    },
+    limitRatePercent () {
+      if (this.ratePercent < 0 || this.ratePercent > 24) {
+        alert('请输入0~24的利率')
+        this.ratePercent = ''
+      }
+    },
+    publishSubmit () {
+      if (!this.borrowAmount) return
+      if (!this.ratePercent) return
+      if (!this.tip.selected) return
+      Http.send({
+        url: 'SendSMS',
+        data: {
+          phone: this.phone,
+          type: this.SMSType
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
     }
   },
   watch: {
-    rateAmount (newNum, oldNum) {
-      this.rateAmount = this.ratePercent * this.borrowAmount
+    borrowAmount (newNum, oldNum) {
+      if (!this.ratePercent) return
+      this.rateAmount = this.ratePercent * newNum
+    },
+    ratePercent (newNum, oldNum) {
+      if (!this.borrowAmount) return
+      this.rateAmount = this.borrowAmount * newNum
     }
   }
 }

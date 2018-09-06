@@ -1,0 +1,60 @@
+// include module
+@import '../../../../../dependencies/sass/_flex.scss';
+@import '../../../../../dependencies/sass/_unit.scss';
+// current sass
+.publish {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  @include vertical_direction();
+  $param: (flex flex) (justifyContent flex-end);
+  @include flexSet($param);
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  &-content {
+    @include vertical_direction();
+    width: 100%;
+    height: 390 / $unit * $symbol;
+    background-color: #fff;
+    .content-button {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 81 / $unit * $symbol;
+      background-color: #eeeeee;
+      button {
+        @include center();
+        height: 100%;
+        padding: {
+          left: 30 / $unit * $symbol;
+          right: 30 / $unit * $symbol;
+        }
+        font-size: 33 / $unit * $symbol;
+        color: #4d7bfe;
+        background-color: #eeeeee;
+      }
+    }
+    .content-nav {
+      @include center();
+      flex: 1;
+      width: 100%;
+      .nav-list {
+        width: 250 / $unit * $symbol;
+        height: 258 / $unit * $symbol;
+        overflow: auto;
+        .list-item {
+          @include center();
+          width: 100%;
+          height: 69 / $unit * $symbol;
+          font-size: 42 / $unit * $symbol;
+          color: #999;
+        }
+        .active {
+          color: #000;
+        }
+      }
+    }
+  }
+}

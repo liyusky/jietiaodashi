@@ -70,7 +70,11 @@ export default {
   },
   methods: {
     confirm () {},
-    back () {},
+    back () {
+      this.$router.push({
+        name: 'wanna-borrow'
+      })
+    },
     selectFriend (item, index) {
       this.selectIndex = index
     }

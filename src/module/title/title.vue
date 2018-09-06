@@ -6,7 +6,7 @@
       <span class="font-30" v-if="title.leftText">{{title.leftText}}</span>
     </div>
     <div class="title-content font-36">{{title.contentText}}</div>
-    <div class="title-right">
+    <div class="title-right" @click="otherBtn">
       <span class="font-30" v-if="title.rightText">{{title.rightText}}</span>
       <i class="iconfont font-39" :class="['icon-' + title.icon]" v-if="title.icon"></i>
       <svg class="icon" v-if="title.svg" aria-hidden="true">

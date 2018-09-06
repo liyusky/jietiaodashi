@@ -2,7 +2,7 @@
   <!-- s 个人信息 -->
   <section class="personal-info">
     <div class="info-header">
-      <div class="header">
+      <div class="header font-30">
         <i class="iconfont icon-cong" @click="back"></i>
         <span>个人资料</span>
         <i class="iconfont icon-cong"></i>
