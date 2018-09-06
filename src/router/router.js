@@ -29,6 +29,7 @@ const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/home/index/index.vue')
 const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../components/home/message/message.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
+const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/home/wanna-borrow/wanna-borrow.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'Immediate-repayment' */ '../components/Immediate-repayment/Immediate-repayment.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
@@ -50,7 +51,6 @@ const SettingsComponent = () => import(/* webpackChunkName: 'settings' */ '../co
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
 const TransferDetailComponent = () => import(/* webpackChunkName: 'transfer-detail' */ '../components/transfer-detail/transfer-detail.vue')
 const TransferRecordComponent = () => import(/* webpackChunkName: 'transfer-record' */ '../components/transfer-record/transfer-record.vue')
-const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/wanna-borrow/wanna-borrow.vue')
 const WithdrawComponent = () => import(/* webpackChunkName: 'withdraw' */ '../components/withdraw/withdraw.vue')
 const WithdrawSuccessComponent = () => import(/* webpackChunkName: 'withdraw-success' */ '../components/withdraw-success/withdraw-success.vue')
 export default new Router({
@@ -166,7 +166,7 @@ export default new Router({
       component: FriendsComponent
     },
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: HomeComponent,
       children: [
@@ -189,8 +189,14 @@ export default new Router({
           path: '/mine',
           name: 'mine',
           component: MineComponent
+        },
+        {
+          path: '/wanna-borrow',
+          name: 'wanna-borrow',
+          component: WannaBorrowComponent
         }
-      ]
+      ],
+      redirect: 'index'
     },
     {
       path: '/identity-verification',
@@ -296,11 +302,6 @@ export default new Router({
       path: '/transfer-record',
       name: 'transfer-record',
       component: TransferRecordComponent
-    },
-    {
-      path: '/wanna-borrow',
-      name: 'wanna-borrow',
-      component: WannaBorrowComponent
     },
     {
       path: '/withdraw',
