@@ -3,7 +3,7 @@
   <section class="settings padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <div class="settings-billboard margin-top-30 padding-left-30 bg-white">
-      <BillboardComponent class="billboard-item padding-right-30 border-bottom-1" :billboard="item" v-for="(item, index) in billboard" :key="index"></BillboardComponent>
+      <BillboardComponent class="billboard-item padding-right-30 border-bottom-1" :billboard="item" v-for="(item, index) in billboard" :key="index" @OPERATION_EVENT="target"></BillboardComponent>
     </div>
     <ButtonComponent class="margin-top-30" :button="button"></ButtonComponent>
   </section>
@@ -12,6 +12,7 @@
 
 <script>
 // include dependence
+import Router from '../../class/Router.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -25,7 +26,7 @@ export default {
           type: 'guide',
           key: '支付设置',
           icon: 'chuyin',
-          target: ''
+          target: 'about-pay-password-settings'
         },
         {
           type: 'guide',
@@ -43,13 +44,13 @@ export default {
           type: 'guide',
           key: '黑名单',
           icon: 'chuyin',
-          target: ''
+          target: 'black-list'
         },
         {
           type: 'guide',
           key: '意见反馈',
           icon: 'chuyin',
-          target: ''
+          target: 'feedback'
         }
       ],
       'button': {
@@ -69,6 +70,11 @@ export default {
     ButtonComponent,
     TitleComponent
     // include components
+  },
+  methods: {
+    target (page) {
+      Router.push(page)
+    }
   }
 }
 </script>

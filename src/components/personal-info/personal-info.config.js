@@ -8,7 +8,7 @@ module.exports = {
   class: {
     'Check': false,
     'Http': false,
-    'Router': false,
+    'Router': true,
     'Time': false,
     'Url': false
   },
@@ -20,6 +20,7 @@ module.exports = {
     'detail-list': false,
     'image-bg': false,
     'inputs': false,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,

@@ -26,6 +26,7 @@ const Template = {
 
 var config = { ...defaultConfig}, configTemplate = ''
 var routers = {}
+var directory = {}
 
 // tool fn
 // 首字母大写
@@ -344,6 +345,7 @@ function refreshConfig(dir, res) {
           routers[name] = content
         }
       }
+      directory[name] = newConfig.content
       contentStr = newConfig.content
       for (let item in newConfig.vuex) vuexStr += `\n\t\t'${item}': ${newConfig.vuex[item]},`
       for (let item in newConfig.class) classesStr += `\n\t\t'${firstChatUp(item.split('.')[0])}': ${newConfig.class[item]},`
@@ -434,5 +436,6 @@ function buildComponents (dir) {
 initConfig()
 refreshConfig('./src/components')
 buildRouter()
+createFile('./directory/directory.json', JSON.stringify(directory))
 buildModule('./src/module')
 buildComponents('./src/components')

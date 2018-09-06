@@ -1,0 +1,49 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.keyboard {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  $param: (flex flex) (flexWrap wrap) (alignItems space-between) (justifyContent space-between);
+  @include flexSet($param);
+  width: 100%;
+  height: 435 / $unit * $symbol;
+
+  padding: {
+    top: 12 / $unit * $symbol;
+    left: 12 / $unit * $symbol;
+    right: 12 / $unit * $symbol;
+  }
+  background-color: #d1d5db;
+  .keyboard-item {
+    $param: (flex flex) (alignItems center) (justifyContent center) (flexWrap wrap);
+    @include flexSet($param);
+    width: 234 / $unit * $symbol;
+    height: 93 / $unit * $symbol;
+    font-size: 51 / $unit * $symbol;
+    color: #000;
+    background-color: #fff;
+    border-radius: 9 / $unit * $symbol;
+  }
+
+  .keyboard-item:nth-last-of-type(3),
+  .keyboard-item:last-of-type {
+    background-color: transparent;
+
+    i {
+      font-size: 60 / $unit * $symbol;
+    }
+  }
+
+  .keyboard-item:hover {
+    background-color: #707070;
+  }
+
+  .keyboard-item:nth-last-of-type(3):hover {
+    background-color: transparent;
+  }
+}

@@ -28,6 +28,7 @@ module.exports = {
         type: 'default',
         placeholder: '输入查询对象的账号/身份证号'
       }`,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,

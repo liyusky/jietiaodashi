@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import Router from '../../class/Router.class.js'
 export default {
   name: 'titleComponent',
   props: ['title'],
@@ -26,7 +27,8 @@ export default {
       this.$emit('OTHER_EVENT')
     },
     back () {
-      this.$emit('BACK_EVENT')
+      Router.back()
+      // this.$emit('BACK_EVENT')
     }
   }
 }

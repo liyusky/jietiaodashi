@@ -8,7 +8,7 @@ module.exports = {
   class: {
     'Check': false,
     'Http': false,
-    'Router': false,
+    'Router': true,
     'Time': false,
     'Url': false
   },
@@ -18,13 +18,13 @@ module.exports = {
           type: 'guide',
           key: '修改支付密码',
           icon: 'chuyin',
-          target: ''
+          target: 'modefy-pay-password'
         },
         {
           type: 'guide',
           key: '忘记支付密码',
           icon: 'chuyin',
-          target: ''
+          target: 'identity-verification'
         }
       ]`,
     'board': false,
@@ -33,6 +33,7 @@ module.exports = {
     'detail-list': false,
     'image-bg': false,
     'inputs': false,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,

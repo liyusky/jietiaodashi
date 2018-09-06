@@ -37,6 +37,7 @@ module.exports = {
         active: ''
       }`,
   board: `'1 / 默认  center / 居中'`,
+  keyboard: 1,
   receipt: `[{
         name: '幸福不会远',
         type: '借出',

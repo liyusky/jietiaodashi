@@ -140,6 +140,7 @@
 
 <script>
 // include dependence
+import Router from '../../class/Router.class.js'
 export default {
   name: 'PersonalInfoComponent',
   data () {
@@ -154,7 +155,7 @@ export default {
   },
   methods: {
     back () {
-      this.$router.back(-1)
+      Router.back()
     },
     tabSwitchHome () {
       this.tabSwitchShow = true

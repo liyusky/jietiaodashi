@@ -50,6 +50,7 @@ module.exports = {
       ]`,
     'image-bg': false,
     'inputs': false,
+    'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
