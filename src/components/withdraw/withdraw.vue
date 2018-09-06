@@ -19,10 +19,13 @@
         </div>
         <p class="card-number font-24 color-deep-grey"><span>123485546441316464</span>储蓄卡</p>
       </div>
-      <div class="content-introduce">
-        <p class="">当前账户可提现金额<span>2200</span>,<span>全部提现</span></p>
-        <p class="">最低提现金额为5元，提现的手续费=3元+提现金额*0.6%，不足1元按1元收取</p>
+      <div class="content-introduce font-24 color-black">
+        <p>当前账户可提现金额<span>2200</span>，<span class="color-blue" @click.stop="allWithout">全部提现</span></p>
+        <p>最低提现金额为5元，提现的手续费=3元+提现金额*0.6%，不足1元按1元收取</p>
       </div>
+    </div>
+    <div class="withdraw-tip">
+      <span class="font-24 color-deep-grey">24小时内到账</span>
     </div>
     <div class="withdraw-button padding-horizontal-30">
       <ButtonComponent :button="button"></ButtonComponent>
@@ -40,6 +43,7 @@ export default {
   name: 'WithdrawComponent',
   data () {
     return {
+      amountInputText: '',
       // start params
       'button': {
         default: [{
@@ -64,6 +68,16 @@ export default {
     InputsComponent,
     TitleComponent
     // include components
+  },
+  methods: {
+    backPage () {
+      this.$router.back(-1)
+    },
+    gotoPage () {},
+    getAmountInputText (text) {
+      this.amountInputText = text
+    },
+    allWithout () {}
   }
 }
 </script>

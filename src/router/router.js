@@ -50,6 +50,7 @@ const TransferDetailComponent = () => import(/* webpackChunkName: 'transfer-deta
 const TransferRecordComponent = () => import(/* webpackChunkName: 'transfer-record' */ '../components/transfer-record/transfer-record.vue')
 const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/wanna-borrow/wanna-borrow.vue')
 const WithdrawComponent = () => import(/* webpackChunkName: 'withdraw' */ '../components/withdraw/withdraw.vue')
+const WithdrawSuccessComponent = () => import(/* webpackChunkName: 'withdraw-success' */ '../components/withdraw-success/withdraw-success.vue')
 export default new Router({
   routes: [
     {
@@ -291,6 +292,11 @@ export default new Router({
       path: '/withdraw',
       name: 'withdraw',
       component: WithdrawComponent
+    },
+    {
+      path: '/withdraw-success',
+      name: 'withdraw-success',
+      component: WithdrawSuccessComponent
     }
   ]
 })

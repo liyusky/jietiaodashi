@@ -38,9 +38,9 @@ export default {
     return {
       // start params
       'title': {
-      contentText: '验证消息',
-      rightText: '清空'
-    }
+        contentText: '验证消息',
+        rightText: '清空'
+      }
       // end params
     }
   },

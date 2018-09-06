@@ -50,5 +50,25 @@
         }
       }
     }
+    .content-introduce {
+      width: 100%;
+      padding: {
+        top: 12 / $unit * $symbol;
+        right: 30 / $unit * $symbol;
+        bottom: 12 / $unit * $symbol;
+      }
+      p {
+        line-height: 42 / $unit * $symbol;
+      }
+    }
+  }
+  &-tip {
+    @include center();
+    width: 100%;
+    height: 132 / $unit * $symbol;
+  }
+  &-button {
+    width: 100%;
+    height: 99 / $unit * $symbol;
   }
 }
