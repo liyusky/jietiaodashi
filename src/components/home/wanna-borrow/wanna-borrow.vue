@@ -94,10 +94,10 @@
 
 <script>
 // include dependence
-import ButtonComponent from '../../module/button/button.vue'
-import DeadlineComponent from '../../module/deadline/deadline.vue'
-import TipComponent from '../../module/tip/tip.vue'
-import TitleComponent from '../../module/title/title.vue'
+import ButtonComponent from '../../../module/button/button.vue'
+import DeadlineComponent from '../../../module/deadline/deadline.vue'
+import TipComponent from '../../../module/tip/tip.vue'
+import TitleComponent from '../../../module/title/title.vue'
 export default {
   name: 'BorrowComponent',
   data () {

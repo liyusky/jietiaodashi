@@ -1,6 +1,6 @@
 <template>
   <!-- s 立即还款 -->
-  <section class="Immediate-repayment padding-top-126">
+  <section class="immediate-repayment padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <div class="repayment-board bg-blue color-white">
       <p>100.00</p>
@@ -93,5 +93,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "./Immediate-repayment.scss";
+@import "./immediate-repayment.scss";
 </style>

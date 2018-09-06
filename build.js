@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const Params = require('./dependencies/config/params.js')
+const routerConfig = require('./src/router/router.config')
 const defaultConfig = require('./dependencies/config/config.js')
 
 const classes = fs.readdirSync('./src/class', 'utf8')
@@ -194,10 +195,6 @@ function loop (files, dir, callback, res) {
     let currentDir = path.join(dir, item)
     let stats = fs.statSync(currentDir)
     if (stats.isDirectory()) {
-      if (res) {
-        console.log(currentDir)
-        console.log(res)
-      }
       return callback(currentDir, res)
     }
   })
@@ -210,6 +207,7 @@ function buildRouter () {
   let children = ''
   
   Object.keys(routers).forEach(name => {
+    let title = name
     componentsStr += `const ${setComponentsName(name)} = () => import(/* webpackChunkName: '${name}' */ '../${path.relative('./src', routers[name].dir).replace(/\\/g, '/')}/${name}.vue')\n`
     if (routers[name].children) {
       children = '['
@@ -228,15 +226,21 @@ function buildRouter () {
       `
       ]`
     }
+    if (name === routerConfig.home.name) title = ''
     pathsStr += 
     `
     {
-      path: '/${name}',
+      path: '/${title}',
       name: '${name}',
       component: ${setComponentsName(name)}${children ? ',' : ''}`
     pathsStr += children ? 
       `
       children: ${children}` : ''
+    if (name === routerConfig.home.name) {
+      pathsStr +=
+      `,
+      redirect: '${routerConfig.home.redirect}'`
+    }
     pathsStr += 
     `
     },`
@@ -248,6 +252,7 @@ function buildRouter () {
   routerStr = routerStr.replace('// include path', pathsStr)
   routerStr = routerStr.replace('// include components', componentsStr)
   routerStr = routerStr.replace(/\t/, '  ')
+  routerStr = routerStr.replace(',,', ',')
   createFile('./src/router/router.js', routerStr, true)
 }
 

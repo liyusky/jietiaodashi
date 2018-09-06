@@ -1,6 +1,9 @@
 <template>
   <!-- s  -->
-  <section class="home padding-top-126"></section>
+  <section class="home padding-top-126">
+    <router-view></router-view>
+
+  </section>
   <!-- e  -->
 </template>
 

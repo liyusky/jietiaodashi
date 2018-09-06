@@ -39,7 +39,7 @@
 
 <script>
 // include dependence
-import TabComponent from '../../module/tab/tab.vue'
+import TabComponent from '../../../module/tab/tab.vue'
 export default {
   name: 'MessageComponent',
   data () {
