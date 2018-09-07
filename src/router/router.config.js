@@ -1,6 +1,6 @@
 module.exports = {
-  home: {
-    name: 'home',
-    redirect: 'index'
+  home: 'empower',
+  redirect: {
+    home: 'index'
   }
 }

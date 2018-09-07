@@ -126,7 +126,7 @@ export default new Router({
       component: CreditQueryResultComponent
     },
     {
-      path: '/empower',
+      path: '/',
       name: 'empower',
       component: EmpowerComponent
     },
@@ -166,7 +166,7 @@ export default new Router({
       component: FriendsComponent
     },
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: HomeComponent,
       children: [

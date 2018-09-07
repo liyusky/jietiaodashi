@@ -35,6 +35,7 @@
 // include dependence
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 export default {
   name: 'EmpowerComponent',
@@ -68,7 +69,7 @@ export default {
       this.switcher = false
     },
     clearPasswordText () {
-      this.passwordText = ''
+      this.password = ''
     },
     waitOneMinute () {
       this.codeDisabled = true
@@ -92,23 +93,57 @@ export default {
         url: 'SendSMS',
         data: {
           phone: this.phone,
-          type: this.SMSType
+          type: 6
         }
       }).success(data => {
       }).fail(data => {
       })
     },
     login () {
+      console.log(0)
+      let url = null
+      let data = null
       if (!Check.phone(this.phone)) return // phone is not correct
+      console.log(1)
       if (this.switcher && !Check.code(this.code)) return // code is not correct
+      console.log(2)
       if (!this.switcher && !Check.password(this.password)) return // password is not correct
-      Http.send({
-        url: 'SendSMS',
-        data: {
+      console.log(3)
+      if (this.switcher) {
+        url = 'UserSmsLogin'
+        data = {
+          deviceId: '',
           phone: this.phone,
-          type: this.SMSType
+          code: this.code,
+          deviceModel: '',
+          deviceName: '',
+          operator: '',
+          connectionType: '',
+          lat: '',
+          lng: '',
+          address: ''
         }
+      } else {
+        url = 'UserLogin'
+        data = {
+          deviceId: '',
+          phone: this.phone,
+          password: this.password,
+          deviceModel: '',
+          deviceName: '',
+          operator: '',
+          connectionType: '',
+          lat: '',
+          lng: '',
+          address: ''
+        }
+      }
+      Http.send({
+        url: url,
+        data: data
       }).success(data => {
+        console.log(data)
+        Router.push('home')
       }).fail(data => {
       })
     }

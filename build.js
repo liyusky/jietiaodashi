@@ -101,10 +101,10 @@ function formatComponents (dir, name, goal, refresh) {
         case 'vuex':
           let vuexArr = []
           if (config.vuex.mutations) {
-            vuexArr.push('mutations')
+            vuexArr.push('mapMutations')
           }
           if (config.vuex.state) {
-            vuexArr.push('state')
+            vuexArr.push('mapState')
           }
           if (vuexArr.length > 0) {
             dependence += `import { ${vuexArr.join(', ')} } from 'vuex'\n`
@@ -227,7 +227,7 @@ function buildRouter () {
       `
       ]`
     }
-    if (name === routerConfig.home.name) title = ''
+    if (name === routerConfig.home) title = ''
     pathsStr += 
     `
     {
@@ -237,10 +237,10 @@ function buildRouter () {
     pathsStr += children ? 
       `
       children: ${children}` : ''
-    if (name === routerConfig.home.name) {
+    if (routerConfig.redirect[name]) {
       pathsStr +=
       `,
-      redirect: '${routerConfig.home.redirect}'`
+      redirect: '${routerConfig.redirect[name]}'`
     }
     pathsStr += 
     `

@@ -10,7 +10,7 @@
         <div>{{button.group[1].text}}</div>
       </button>
     </div>
-    <button v-if="button.default" :class="item.type" v-for="(item, index) in button.default" :key="index">
+    <button v-if="button.default" :class="item.type" v-for="(item, index) in button.default" :key="index" @click="submit(index)">
       <div class="button-content">{{item.text}}</div>
     </button>
   </section>
@@ -31,8 +31,8 @@ export default {
     secondSubmit () {
       this.$emit('SECOND_SUBMIT_EVENT')
     },
-    submit () {
-      this.$emit('SUBMIT_EVENT')
+    submit (index) {
+      this.$emit('SUBMIT_EVENT', index)
     }
   }
 }

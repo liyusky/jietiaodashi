@@ -7,7 +7,7 @@ module.exports = {
   },
   class: {
     'Check': false,
-    'Http': false,
+    'Http': true,
     'Router': false,
     'Time': false,
     'Url': false
