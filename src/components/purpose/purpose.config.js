@@ -2,7 +2,7 @@ module.exports = {
   content: '借款用途',
   router: true,
   vuex: {
-    'mutations': false,
+    'mutations': true,
     'state': false
   },
   class: {

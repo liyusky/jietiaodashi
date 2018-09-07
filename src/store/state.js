@@ -1,6 +1,7 @@
 const state = {
   origin,
   purpose: '',
-  route: null
+  route: null,
+  card: null
 }
 export default state

@@ -18,10 +18,10 @@
       </div>
     </div>
     <div class="repayment-tip padding-left-30">
-      <TipComponent :tip="tip"></TipComponent>
+      <TipComponent :tip="tip" @TOGGLE_SELECTED_EVENT="getTipToggle"></TipComponent>
     </div>
     <div class="repayment-button">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="payMentSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 立即还款 -->
@@ -29,6 +29,8 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TipComponent from '../../module/tip/tip.vue'
@@ -40,12 +42,14 @@ export default {
       cancelMount: '',
       totalMountShow: true,
       cancelReason: '',
+      tipToggle: true,
       cancelMountInput: {
         type: 'slide',
         leftText: '金额',
         leftIcon: 'cong',
         placeholder: '请输入10的倍数',
-        rightText: '元'
+        rightText: '元',
+        style: 'number'
       },
       totalMountInput: {
         type: 'switch',
@@ -87,6 +91,19 @@ export default {
     },
     getCancelReason (text) {
       this.cancelReason = text
+    },
+    getTipToggle (toggle) {
+      this.tipToggle = toggle
+    },
+    payMentSubmit () {
+      if (!Check.money(this.cancelMount)) return
+      if (!this.tipToggle) return
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
     }
   }
 }

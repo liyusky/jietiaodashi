@@ -6,8 +6,8 @@ module.exports = {
     'state': false
   },
   class: {
-    'Check': false,
-    'Http': false,
+    'Check': true,
+    'Http': true,
     'Router': false,
     'Time': false,
     'Url': false
@@ -27,7 +27,8 @@ module.exports = {
     'inputs': `{
         type: 'icon',
         placeholder: '请输入金额',
-        leftIcon: 'cong'
+        leftIcon: 'cong',
+        style: 'number'
       }`,
     'keyboard': false,
     'modals': false,

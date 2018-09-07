@@ -9,6 +9,10 @@ const mutations = {
   // 保存路由来源
   saveRoute (state, route) {
     state.route = route
+  },
+  // 保存银卡卡
+  saveBankCard (state, card) {
+    this.state.card = card
   }
 }
 export default mutations

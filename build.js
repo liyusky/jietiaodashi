@@ -101,10 +101,10 @@ function formatComponents (dir, name, goal, refresh) {
         case 'vuex':
           let vuexArr = []
           if (config.vuex.mutations) {
-            vuexArr.push('mutations')
+            vuexArr.push('mapMutations')
           }
           if (config.vuex.state) {
-            vuexArr.push('state')
+            vuexArr.push('mapState')
           }
           if (vuexArr.length > 0) {
             dependence += `import { ${vuexArr.join(', ')} } from 'vuex'\n`

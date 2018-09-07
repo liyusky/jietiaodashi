@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="recharge-button padding-horizontal-30">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="rechargeSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 充值 -->
@@ -29,6 +29,8 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -36,7 +38,7 @@ export default {
   name: 'RechargeComponent',
   data () {
     return {
-      amountInputText: '',
+      amountNumber: '',
       // start params
       'button': {
         default: [{
@@ -47,7 +49,8 @@ export default {
       'inputs': {
         type: 'icon',
         placeholder: '请输入金额',
-        leftIcon: 'cong'
+        leftIcon: 'cong',
+        style: 'number'
       },
       'title': {
         contentText: '充值',
@@ -68,7 +71,16 @@ export default {
       this.$router.back(-1)
     },
     getAmountInputText (text) {
-      this.amountInputText = text
+      this.amountNumber = text
+    },
+    rechargeSubmit () {
+      if (!Check.money(this.amountNumber)) return
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
     }
   }
 }

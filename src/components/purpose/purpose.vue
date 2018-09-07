@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 // include dependence
+import { mapMutations } from 'vuex'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'PurposeComponent',

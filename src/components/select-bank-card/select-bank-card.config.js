@@ -2,7 +2,7 @@ module.exports = {
   content: '选择所属银行',
   router: true,
   vuex: {
-    'mutations': false,
+    'mutations': true,
     'state': false
   },
   class: {

@@ -28,7 +28,7 @@
       <span class="font-24 color-deep-grey">24小时内到账</span>
     </div>
     <div class="withdraw-button padding-horizontal-30">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button"  @SINGLE_SUBMIT_EVENT="withdrawSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 提现 -->
@@ -36,6 +36,8 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -43,7 +45,7 @@ export default {
   name: 'WithdrawComponent',
   data () {
     return {
-      amountInputText: '',
+      amountNumber: '',
       // start params
       'button': {
         default: [{
@@ -54,7 +56,8 @@ export default {
       'inputs': {
         type: 'icon',
         placeholder: '请输入金额',
-        leftIcon: 'cong'
+        leftIcon: 'cong',
+        style: 'number'
       },
       'title': {
         contentText: '提现',
@@ -75,9 +78,18 @@ export default {
     },
     gotoPage () {},
     getAmountInputText (text) {
-      this.amountInputText = text
+      this.amountNumber = text
     },
-    allWithout () {}
+    allWithout () {},
+    withdrawSubmit () {
+      if (!Check.money(this.amountNumber)) return
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
+    }
   }
 }
 </script>

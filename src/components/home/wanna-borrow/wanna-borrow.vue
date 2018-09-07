@@ -153,23 +153,6 @@ export default {
     this.borrowPurpose = '临时周转'
   },
   methods: {
-    getDate (AddDayCount) {
-      var date = new Date()
-      date.setDate(date.getDate() + AddDayCount)
-      var y = date.getFullYear()
-      var m = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
-      var d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
-      this.borrowDate = y + '-' + m + '-' + d
-    },
-    backPage () {
-      if (this.$store.state.route === '/purpose') {
-        this.$router.push({
-          name: 'index'
-        })
-        return
-      }
-      this.$router.back(-1)
-    },
     scroll () {
       var tip = document.getElementById('tip')
       var left = tip.offsetLeft
@@ -182,10 +165,13 @@ export default {
         }
       }, 8)
     },
-    gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
+    getDate (AddDayCount) {
+      var date = new Date()
+      date.setDate(date.getDate() + AddDayCount)
+      var y = date.getFullYear()
+      var m = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)
+      var d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+      this.borrowDate = y + '-' + m + '-' + d
     },
     getDeadline (year, mouth, day) {
       var date = new Date()
@@ -199,22 +185,26 @@ export default {
       this.borrowDate = year + '-' + mouth + '-' + day
       this.deadLineShow = false
     },
+    backPage () {
+      if (this.$store.state.route === '/purpose') {
+        this.$router.push({
+          name: 'index'
+        })
+        return
+      }
+      this.$router.back(-1)
+    },
+    gotoPage (page) {
+      this.$router.push({
+        name: page
+      })
+    },
     getPublish (publish) {
       this.purposeShow = false
       this.borrowPublish = publish
     },
     getTipSelected (selected) {
       this.tip.selected = selected
-    },
-    openDeadlineModal () {
-      this.deadLineShow = true
-    },
-    openPublishMadol () {
-      this.purposeShow = true
-    },
-    closeModal () {
-      this.purposeShow = false
-      this.deadLineShow = false
     },
     limitBorrowAmount () {
       if (parseInt(this.borrowAmount) < 0 || parseInt(this.borrowAmount) > 10000) {
@@ -228,19 +218,27 @@ export default {
         this.ratePercent = ''
       }
     },
+    // 发布借条
     publishSubmit () {
       if (!this.borrowAmount) return
       if (!this.ratePercent) return
       if (!this.tip.selected) return
       Http.send({
-        url: 'SendSMS',
-        data: {
-          phone: this.phone,
-          type: this.SMSType
-        }
+        url: 'url',
+        data: {}
       }).success(data => {
       }).fail(data => {
       })
+    },
+    openDeadlineModal () {
+      this.deadLineShow = true
+    },
+    openPublishMadol () {
+      this.purposeShow = true
+    },
+    closeModal () {
+      this.purposeShow = false
+      this.deadLineShow = false
     }
   },
   watch: {
