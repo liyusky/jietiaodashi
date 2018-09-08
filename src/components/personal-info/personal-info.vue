@@ -10,11 +10,11 @@
     </div>
     <div class="info-user">
       <div class="user-portrait">
-        <!-- <img :src="personalDetail.Photo"> -->
+        <img src="../../assets/images/master.png">
       </div>
       <div class="user-detail">
         <p class="detail-id"><span>借条ID：</span><span>123546</span></p>
-        <p class="detail-name">熊大</p>
+        <p class="detail-name">{{personalDetail.Name}}</p>
         <div class="detail-attestation">
           <div class="attestation-item">实名</div>
           <div class="attestation-item">肖像</div>
@@ -24,47 +24,47 @@
     </div>
     <div class="info-tab">
       <div class="tab-nav">
-        <div class="nav-item" :class="{'nav-active': tabSwitchShow}" @click="tabSwitchHome">主页</div>
-        <div class="nav-item" :class="{'nav-active': !tabSwitchShow}" @click="tabSwitchDeal">交易</div>
+        <div class="nav-item" :class="{'nav-active': !tabSwitchShow}" @click="tabSwitchHome">主页</div>
+        <div class="nav-item" :class="{'nav-active': tabSwitchShow}" @click="tabSwitchDeal">交易</div>
       </div>
       <div class="tab-content">
-        <div class="content-home" v-if="tabSwitchShow">
+        <div class="content-home" v-if="!tabSwitchShow">
           <ul class="home-list">
             <li class="list-item">
               <div class="item-value">
                 <span>进行中的借款</span>
-                <span>当前无借款</span>
+                <span>{{personalDetail.BorrowCount}}</span>
               </div>
               <i class="iconfont icon-cong"></i>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>手机号</span>
-                <span>15468632154</span>
+                <span>{{personalDetail.ContactTel}}</span>
               </div>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>注册于</span>
-                <span>2017-01-24</span>
+                <span>{{personalDetail.RegTime}}</span>
               </div>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>信用记录</span>
-                <span>无逾期</span>
+                <span>{{personalDetail.OverdueCount}}</span>
               </div>
             </li>
-            <li class="list-item">
+            <li class="list-item" @click="gotoPage('credit')">
               <div class="item-value">
                 <span>认证中心</span>
-                <span>已通过认证</span>
+                <span>{{personalDetail.creditCenter}}</span>
               </div>
               <i class="iconfont icon-cong"></i>
             </li>
           </ul>
         </div>
-        <div class="content-deal" v-if="!tabSwitchShow">
+        <div class="content-deal" v-if="tabSwitchShow">
           <div class="deal-total">
             <div class="title">全部借贷情况</div>
             <ul class="list">
@@ -78,22 +78,22 @@
               <li class="list-item">
                 <p class="item-title">累计笔数</p>
                 <div class="itme-right">
-                  <p>0</p>
-                  <p>0</p>
+                  <p>{{transferInfo.BorrowCount_All}}</p>
+                  <p>{{transferInfo.LoanCount_All}}</p>
                 </div>
               </li>
               <li class="list-item">
                 <p class="item-title">当前金额</p>
                 <div class="itme-right">
-                  <p>0</p>
-                  <p>0</p>
+                  <p>{{transferInfo.BorrowAmount_All}}</p>
+                  <p>{{transferInfo.LoanAmount_All}}</p>
                 </div>
               </li>
               <li class="list-item">
                 <p class="item-title">未偿还金额</p>
                 <div class="itme-right">
-                  <p>0</p>
-                  <p>0</p>
+                  <p>{{transferInfo.UnpaidBorrowAmount_All}}</p>
+                  <p>{{transferInfo.UnpaidLoanAmount_All}}</p>
                 </div>
               </li>
             </ul>
@@ -111,22 +111,22 @@
               <li class="list-item">
                 <p class="item-title">累计笔数</p>
                 <div class="itme-right">
-                  <p>0</p>
-                  <p>0</p>
+                  <p>{{transferInfo.BorrowCount_Conduct}}</p>
+                  <p>{{transferInfo.LoanCount_Conduct}}</p>
                 </div>
               </li>
               <li class="list-item">
                 <p class="item-title">当前金额</p>
                 <div class="itme-right">
-                  <p>0</p>
-                  <p>0</p>
+                  <p>{{transferInfo.BorrowAmount_Conduct}}</p>
+                  <p>{{transferInfo.LoanAmount_Conduct}}</p>
                 </div>
               </li>
               <li class="list-item">
                 <p class="item-title">未偿还金额</p>
                 <div class="itme-right">
-                  <p>0</p>
-                  <p>0</p>
+                  <p>{{transferInfo.UnpaidBorrowAmount_Conduct}}</p>
+                  <p>{{transferInfo.UnpaidLoanAmount_Conduct}}</p>
                 </div>
               </li>
             </ul>
@@ -147,6 +147,7 @@ export default {
   data () {
     return {
       personalDetail: null,
+      transferInfo: null,
       tabSwitchShow: false
       // start params
       // end params
@@ -155,31 +156,61 @@ export default {
   components: {
     // include components
   },
-  mounted () {
-    console.log(3333)
+  created () {
     Http.send({
       url: 'PersonalDetail',
       data: {
-        token: '3199E762E297C70F83A68D98A21A3580CCB019E1C2761DCFBF5471CE63EEE2EB5DEE06736F9F7750A4968069DF5280A75ED88218135B0EED2D43230EC9DE3ECD8A3CE84AE359D7EAF3C09C85AB89749ABD6C376146B340D3816F30B5C647C6F8904B15B047D3FE47BB91A665BB75D8EAC26704824C38D55027A26D2910EEF889694257A3B6EE8BF40AD56B8DBC34FA5A1D063FC709177C550A9A9D592BAC07940E4C7A10088352EB07DFA1E941D7452FA3DE886340C106FFE2B54AF2DAA6264F',
+        token: '30DE8D620685C4126C33A4D71A9F2F2CD49BC5EA8093A79E0AD2E762BEC435A96B39DE72264700D705A899E01839D4FF3F4634535E54AFEAB25551BD736AA688BFC9F53A87F47720AACF9D7704288AF30105B655CE82C4F4A3661BB4EC9476A0CDBF0D6577ACD32621B880CE8D15B85DC6D64DDCDAABE6667F50D8FC92DE6634C71AD455DA368A338F57F1D82AA4E3663C76683EDB70BCB1A2C42934040A0E272CF2F264F90181C901AC2467878085A8E67D5898CC1749C001F69CEFC19B2F57',
         phone: '17730127131'
       }
     }).success(data => {
-      console.log(1111)
-      this.personalDetail = data.data
-      console.log(this.personalDetail)
+      this.filterData(data)
+      console.log(data)
+      this.personalDetail = data.MemberInfo
+      this.transferInfo = data.TransactionInfo
     }).fail(data => {
     })
-    console.log(444)
   },
   methods: {
+    filterData (data) {
+      var info = data.MemberInfo
+      if (!info.OverdueCount) {
+        data.MemberInfo.OverdueCount = '无逾期'
+      } else {
+        data.MemberInfo.BorrowCount = info.BorrowCount + '笔逾期'
+      }
+      if (!info.BorrowCount) {
+        data.MemberInfo.BorrowCount = '当前无借款'
+      } else {
+        data.MemberInfo.BorrowCount = info.BorrowCount + '笔'
+      }
+      data.MemberInfo.RegTime = info.RegTime.substr(0, 10)
+      let creditCenter = ''
+      let credit = [info.IsIdentityPass, info.IsContactPass, info.IsPhonePass, info.IsZhiMaPass, info.IsBankCardPass]
+      let creditArr = ['请认证身份信息', '请认证联系人', '请认证手机号', '请认证银行卡', '请认证芝麻信用']
+      for (let i = 0; i < credit.length; i++) {
+        if (!credit[i]) {
+          creditCenter = creditArr[i]
+          break
+        } else {
+          creditCenter = '已通过认证'
+        }
+      }
+      data.MemberInfo.creditCenter = creditCenter
+    },
     back () {
       Router.back()
     },
     tabSwitchHome () {
-      this.tabSwitchShow = true
+      this.tabSwitchShow = false
     },
     tabSwitchDeal () {
-      this.tabSwitchShow = false
+      this.tabSwitchShow = true
+    },
+    gotoPage (page) {
+      this.$router.push({
+        name: page
+      })
     }
   }
 }
