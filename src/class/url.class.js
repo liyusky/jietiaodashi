@@ -5,4 +5,5 @@ export default class Url {
   static SendSMS = '/Member/SendSMS'
   static PersonalDetail ='/Member/Detail'
   static UserLogout = '/Member/UserLogout'
+  static PersonalCenter = '/Member/PersonalCenter'
 }

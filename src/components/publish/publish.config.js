@@ -2,8 +2,8 @@ module.exports = {
   content: '借条发布期',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

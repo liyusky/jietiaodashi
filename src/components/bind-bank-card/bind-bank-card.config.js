@@ -2,8 +2,15 @@ module.exports = {
   content: '绑定银行卡',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: {
+      saveOrigin: true,
+      savePurpose: false,
+      saveRoute: true,
+      saveBankCard: false,
+      saveToken: false,
+      savePhone: false
+    },
+    state: false
   },
   class: {
     'Check': true,

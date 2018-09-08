@@ -2,8 +2,8 @@ module.exports = {
   content: '立即还款',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': true,

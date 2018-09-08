@@ -11,7 +11,7 @@ export default {
     return {
       SITE_PARAMS_NAME
     }
-  },SITE_COMPONENTS_NAME
+  },SITE_COMPONENTS_NAMESITE_MUTATIONS_NAME
 }
 </script>
 

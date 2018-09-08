@@ -21,4 +21,4 @@ const mutations = {
     state.phone = phone
   }
 }
-export default mutations
+module.exports = mutations

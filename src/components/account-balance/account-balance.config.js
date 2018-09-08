@@ -2,8 +2,8 @@ module.exports = {
   content: '账单明细',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

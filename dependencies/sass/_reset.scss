@@ -24,9 +24,8 @@ svg, img {
 }
 html {
   background-color: #f0f0f0;
-  font-size: 9 / $unit * $symbol;
 }
 
 input {
-  letter-spacing: 0.3rem;
+  letter-spacing: 3 / $unit * $symbol;
 }

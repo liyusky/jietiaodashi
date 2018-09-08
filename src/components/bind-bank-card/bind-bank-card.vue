@@ -48,6 +48,7 @@
 
 <script>
 // include dependence
+import { mapMutations } from 'vuex'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
@@ -200,7 +201,10 @@ export default {
         return
       }
       this.$router.back(-1)
-    }
+    },
+    // start mutations
+    ...mapMutations(['saveOrigin', 'saveRoute'])
+    // end mutations
   }
 }
 </script>

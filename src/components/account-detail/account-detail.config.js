@@ -2,8 +2,8 @@ module.exports = {
   content: '当日收还款详情',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

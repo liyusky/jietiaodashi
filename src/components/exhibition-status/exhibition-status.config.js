@@ -2,8 +2,8 @@ module.exports = {
   content: '展期状态',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

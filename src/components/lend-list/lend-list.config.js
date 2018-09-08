@@ -2,8 +2,8 @@ module.exports = {
   content: '借出',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

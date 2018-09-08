@@ -2,8 +2,8 @@ module.exports = {
   content: '提现申请成功',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

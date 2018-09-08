@@ -21,7 +21,9 @@ const Template = {
   scss: fs.readFileSync('./dependencies/tempalte/tempalte.scss', 'utf8'),
   js: fs.readFileSync('./dependencies/tempalte/tempalte.js', 'utf8'),
   config: fs.readFileSync('./dependencies/tempalte/config.tempalte', 'utf8'),
-  router: fs.readFileSync('./dependencies/tempalte/router.tempalte', 'utf8')
+  router: fs.readFileSync('./dependencies/tempalte/router.tempalte', 'utf8'),
+  mutations: fs.readFileSync('./src/store/mutations.js', 'utf8'),
+  state: fs.readFileSync('./src/store/state.js', 'utf8')
 }
 
 var config = { ...defaultConfig}, configTemplate = ''
@@ -73,6 +75,7 @@ function formatVue (template, name, result) {
   template = template.replace('SITE_PARAMS_NAME', result.params)
   template = template.replace('SITE_DEPENDENCE_NAME', result.dependence)
   template = template.replace(',SITE_COMPONENTS_NAME', result.components)
+  template = template.replace('SITE_MUTATIONS_NAME', result.mutations)
   template = template.replace('SITE_SASS_NAME', `./${name}.scss`)
   return template
 }
@@ -94,6 +97,8 @@ function formatComponents (dir, name, goal, refresh) {
   let params = '// start params'
   let start = '<!-- s  -->'
   let end = '<!-- e  -->'
+  let mutations = ''
+  let mutationsArr = []
   try {
     let config = require(resolvePath(dir, name, 'config'))
     for (let key in config) {
@@ -102,6 +107,13 @@ function formatComponents (dir, name, goal, refresh) {
           let vuexArr = []
           if (config.vuex.mutations) {
             vuexArr.push('mapMutations')
+            if (typeof config.vuex.mutations === 'object') {
+              for (let key in config.vuex.mutations) {
+                if (config.vuex.mutations[key]) {
+                  mutationsArr.push(key)
+                }
+              }
+            }
           }
           if (config.vuex.state) {
             vuexArr.push('mapState')
@@ -134,11 +146,23 @@ function formatComponents (dir, name, goal, refresh) {
       }
     }
     dependence = dependence.substr(0, dependence.length - 1)
-    if (refresh) dependence += `\nexport default {`
     if (components != ',\n\tcomponents: {') components = components.substr(0, components.length - 1)
     if (params != '// start params') params = params.substr(0, params.length - 1)
     params += `\n\t\t\t// end params`
+    let mutationsStr = `...mapMutations(['${mutationsArr.join('\', \'')}'])`
+    mutations = 
+    `// start mutations
+    ${mutationsArr.length > 0 ? mutationsStr : ''}
+    // end mutations`
+    if (!refresh) {
+      mutations =
+  `,
+  methods: {
+    ${mutations}
+  }`
+    }
     if (refresh) {
+      dependence += `\nexport default {`
       start = `<!-- s ${config.content} -->`
       end = `<!-- e ${config.content} -->`
     }
@@ -154,7 +178,8 @@ function formatComponents (dir, name, goal, refresh) {
     components,
     params,
     start,
-    end
+    end,
+    mutations
   }
 }
 
@@ -257,6 +282,15 @@ function buildRouter () {
   createFile('./src/router/router.js', routerStr, true)
 }
 
+function initStore () {
+  let mutationsStr = Template.mutations.replace('export default mutations', 'module.exports = mutations')
+  let stateStr = Template.state.replace('export default state', 'module.exports = state')
+  createFile('./dependencies/config/mutations.js', mutationsStr)
+  createFile('./dependencies/config/state.js', stateStr)
+  global.mutations = require('./dependencies/config/mutations.js')
+  global.state = require('./dependencies/config/state.js')
+}
+
 // 设置 完整的 config
 function initConfig() {
   let componentsStr = '', classesStr = ''
@@ -294,7 +328,7 @@ function refreshConfig(dir, res) {
 
     if (files.includes(file)) {
       refresh = true
-      let componentsStr = '', classesStr = '', vuexStr = '', contentStr = ''
+      let [componentsStr, classesStr, vuexStr, contentStr, vstr] = ['', '', '', '', '']
       let configPath = './' + path.join(dir, `${name}.config.js`).replace('\\', '\/')
       let currentConfig = require(configPath)
       let newConfig = { ...config}
@@ -305,22 +339,40 @@ function refreshConfig(dir, res) {
         }
         else if (typeof unit === 'object') {
           Object.keys(unit).forEach(item => {
-            if (key === 'components') {
-              if (typeof currentConfig[key][item] === 'string') {
-                unit[item] = '`' + currentConfig[key][item] + '`'
-              }
-              else if (typeof currentConfig[key][item] === 'number') {
-                unit[item] = 1
-              }
-              else if (currentConfig[key][item]) {
-                unit[item] = '`' + Params[item] + '`'
-              }
-              else {
-                unit[item] = false
-              }
-            }
-            else {
-              unit[item] = currentConfig[key][item] || false
+            switch (key) {
+              case 'components':
+                if (typeof currentConfig[key][item] === 'string') {
+                  unit[item] = '`' + currentConfig[key][item] + '`'
+                } else if (typeof currentConfig[key][item] === 'number') {
+                  unit[item] = 1
+                } else if (currentConfig[key][item]) {
+                  unit[item] = '`' + Params[item] + '`'
+                } else {
+                  unit[item] = false
+                }
+                break
+              case 'vuex':
+                let vuexContentStr = ''
+                if (!currentConfig.vuex[item]) {
+                  vuexStr += `\n\t\t${item}: false,`
+                } else {
+                  if (typeof currentConfig.vuex[item] === 'boolean') {
+                    for (let key in global[item]) {
+                      vuexContentStr += `${key}: false,\n\t\t\t`
+                    }
+                  } else if (typeof currentConfig.vuex[item] === 'object') {
+                    for (let key in global[item]) {
+                      vuexContentStr += `${key}: ${currentConfig.vuex[item][key] || false},\n\t\t\t`
+                    }
+                  }
+                  vuexStr +=
+                `\n\t\t${item}: {
+      ${vuexContentStr.substr(0, vuexContentStr.length - 5)}
+    },`
+                }
+              default:
+                unit[item] = currentConfig[key][item] || false
+                break
             }
           })
         }
@@ -347,7 +399,7 @@ function refreshConfig(dir, res) {
       }
       directory[name] = newConfig.content
       contentStr = newConfig.content
-      for (let item in newConfig.vuex) vuexStr += `\n\t\t'${item}': ${newConfig.vuex[item]},`
+      // for (let item in newConfig.vuex) vuexStr += `\n\t\t'${item}': ${newConfig.vuex[item]},`
       for (let item in newConfig.class) classesStr += `\n\t\t'${firstChatUp(item.split('.')[0])}': ${newConfig.class[item]},`
       for (let item in newConfig.components) componentsStr += `\n\t\t'${item}': ${newConfig.components[item]},`
       currentTemplate = formatConfig(newConfig.router, vuexStr, classesStr, componentsStr, contentStr, currentTemplate)
@@ -420,6 +472,7 @@ function buildComponents (dir) {
           content = content.replace(/\/\/ start params[^]*\/\/ end params/, result.params)
           content = content.replace(/\n\/\/ include dependence[^]*export default {/, result.dependence)
           content = content.replace(/,\n  components: {[^]*\/\/ include components\n  }/, result.components)
+          content = content.replace(/\/\/ start mutations[^]*\/\/ end mutations/, result.mutations)
           createFile(goal, content, true)
         } else if (type == 'scss') {
           content = fs.readFileSync(resolvePath(dir, name, 'sass'), 'utf8')
@@ -433,6 +486,7 @@ function buildComponents (dir) {
   return loop(files, dir, buildComponents)
 }
 
+initStore()
 initConfig()
 refreshConfig('./src/components')
 buildRouter()

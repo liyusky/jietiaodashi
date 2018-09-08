@@ -6,4 +6,4 @@ const state = {
   phone: null,
   token: null
 }
-export default state
+module.exports = state
