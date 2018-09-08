@@ -1,5 +1,7 @@
 export default class Url {
-  static login = '/home/CommodityPhoneList'
+  static UserLogin = '/Member/UserLogin'
+  static UserSmsLogin = '/Member/UserSmsLogin'
   static FindPassword = '/Member/FindPassword'
   static SendSMS = '/Member/SendSMS'
+  static PersonalDetail ='/Member/Detail'
 }

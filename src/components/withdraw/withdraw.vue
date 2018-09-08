@@ -28,7 +28,7 @@
       <span class="font-24 color-deep-grey">24小时内到账</span>
     </div>
     <div class="withdraw-button padding-horizontal-30">
-      <ButtonComponent :button="button"  @SINGLE_SUBMIT_EVENT="withdrawSubmit"></ButtonComponent>
+      <ButtonComponent :button="button"  @SUBMIT_EVENT="withdrawSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 提现 -->

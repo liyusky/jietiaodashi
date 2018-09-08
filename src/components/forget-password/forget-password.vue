@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="password-button">
-      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="findPasswordSubmit"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="findPasswordSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 忘记密码 -->
@@ -81,7 +81,7 @@ export default {
         url: 'SendSMS',
         data: {
           phone: this.phoneNumber,
-          type: 6
+          type: 2
         }
       }).success(data => {
         console.log(data)
@@ -105,13 +105,16 @@ export default {
     },
     findPasswordSubmit () {
       if (!Check.phone(this.phoneNumber)) return
+      console.log(1)
       if (!Check.code(this.codeText)) return
+      console.log(2)
       if (!Check.password(this.passwordNumber)) return
-      if (!Check.password(this.AgainPasswordNumber)) return
+      console.log(3)
       if (this.passwordNumber !== this.AgainPasswordNumber) {
         alert('密码不一致')
         return
       }
+      console.log(4)
       Http.send({
         url: 'FindPassword',
         data: {
@@ -120,7 +123,10 @@ export default {
           verificationCode: this.codeText
         }
       }).success(data => {
-
+        console.log(1111)
+        this.$router.push({
+          name: 'empower'
+        })
       }).fail(data => {
       })
     }

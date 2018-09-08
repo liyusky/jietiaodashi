@@ -10,7 +10,7 @@
     </div>
     <div class="info-user">
       <div class="user-portrait">
-        <img src="https://api.vtrois.com/image/150x150">
+        <!-- <img :src="personalDetail.Photo"> -->
       </div>
       <div class="user-detail">
         <p class="detail-id"><span>借条ID：</span><span>123546</span></p>
@@ -140,11 +140,13 @@
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 export default {
   name: 'PersonalInfoComponent',
   data () {
     return {
+      personalDetail: null,
       tabSwitchShow: false
       // start params
       // end params
@@ -152,6 +154,22 @@ export default {
   },
   components: {
     // include components
+  },
+  mounted () {
+    console.log(3333)
+    Http.send({
+      url: 'PersonalDetail',
+      data: {
+        token: '3199E762E297C70F83A68D98A21A3580CCB019E1C2761DCFBF5471CE63EEE2EB5DEE06736F9F7750A4968069DF5280A75ED88218135B0EED2D43230EC9DE3ECD8A3CE84AE359D7EAF3C09C85AB89749ABD6C376146B340D3816F30B5C647C6F8904B15B047D3FE47BB91A665BB75D8EAC26704824C38D55027A26D2910EEF889694257A3B6EE8BF40AD56B8DBC34FA5A1D063FC709177C550A9A9D592BAC07940E4C7A10088352EB07DFA1E941D7452FA3DE886340C106FFE2B54AF2DAA6264F',
+        phone: '17730127131'
+      }
+    }).success(data => {
+      console.log(1111)
+      this.personalDetail = data.data
+      console.log(this.personalDetail)
+    }).fail(data => {
+    })
+    console.log(444)
   },
   methods: {
     back () {

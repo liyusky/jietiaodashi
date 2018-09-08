@@ -18,7 +18,6 @@ export default class Http {
       url: Url[args.url],
       method: 'post',
       // baseURL: 'http://api2.jietiaodashi.com',
-      // baseURL: 'http://xqapi.jietiaodashi.com',
       baseURL: 'http://101.37.27.97:8001',
       // baseURL: 'http://192.168.0.101:8082',
       headers: headers,
@@ -26,7 +25,6 @@ export default class Http {
     }).then(response => {
       console.log(args.url)
       console.log(response)
-      // instance.dispense(response.data)
       if (instance.defaultCallback) instance.defaultCallback()
     }).catch(() => {
       if (instance.defaultCallback) instance.defaultCallback()

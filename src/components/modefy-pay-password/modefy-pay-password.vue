@@ -5,7 +5,7 @@
     <TipComponent class="password-tip" :tip="tip"></TipComponent>
     <PayPasswordComponent class="password-input" :payPassword="payPassword"></PayPasswordComponent>
     <ButtonComponent class="password-btn padding-horizontal-30" :button="button"></ButtonComponent>
-    <KeyboardComponent></KeyboardComponent>
+    <KeyboardComponent @PRESS_EVENT="input"></KeyboardComponent>
   </section>
   <!-- e 修改支付密码 -->
 </template>
@@ -21,6 +21,7 @@ export default {
   name: 'ModefyPayPasswordComponent',
   data () {
     return {
+      mark: true,
       // start params
       'button': {
         default: [{
@@ -46,6 +47,15 @@ export default {
     TipComponent,
     TitleComponent
     // include components
+  },
+  methods: {
+    input (number) {
+      if (this.mark && this.payPassword.length < 6) this.payPassword.push(number)
+      if (this.payPassword.length === 6) this.submit()
+    },
+    submit () {
+      this.mark = false
+    }
   }
 }
 </script>

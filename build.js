@@ -227,7 +227,7 @@ function buildRouter () {
       `
       ]`
     }
-    if (name === routerConfig.home.name) title = ''
+    if (name === routerConfig.home) title = ''
     pathsStr += 
     `
     {
@@ -237,10 +237,10 @@ function buildRouter () {
     pathsStr += children ? 
       `
       children: ${children}` : ''
-    if (name === routerConfig.home.name) {
+    if (routerConfig.redirect[name]) {
       pathsStr +=
       `,
-      redirect: '${routerConfig.home.redirect}'`
+      redirect: '${routerConfig.redirect[name]}'`
     }
     pathsStr += 
     `
