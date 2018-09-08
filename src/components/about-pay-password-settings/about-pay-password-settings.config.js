@@ -2,8 +2,14 @@ module.exports = {
   content: '支付密码设置',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: {
+      saveOrigin: true,
+      saveToken: false
+    },
+    state: {
+      origin: false,
+      token: false
+    }
   },
   class: {
     'Check': false,

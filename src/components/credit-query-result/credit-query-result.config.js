@@ -2,8 +2,8 @@ module.exports = {
   content: '查询结果',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

@@ -33,6 +33,7 @@
 
 <script>
 // include dependence
+import { mapMutations } from 'vuex'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -100,15 +101,11 @@ export default {
       })
     },
     login () {
-      console.log(0)
       let url = null
       let data = null
       if (!Check.phone(this.phone)) return // phone is not correct
-      console.log(1)
       if (this.switcher && !Check.code(this.code)) return // code is not correct
-      console.log(2)
       if (!this.switcher && !Check.password(this.password)) return // password is not correct
-      console.log(3)
       if (this.switcher) {
         url = 'UserSmsLogin'
         data = {
@@ -142,11 +139,14 @@ export default {
         url: url,
         data: data
       }).success(data => {
-        console.log(data)
+        this.saveToken(data.Token)
         Router.push('home')
       }).fail(data => {
       })
-    }
+    },
+    // start mutations
+    ...mapMutations(['saveToken'])
+    // end mutations
   }
 }
 </script>

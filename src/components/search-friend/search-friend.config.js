@@ -2,8 +2,8 @@ module.exports = {
   content: '搜索好友',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,

@@ -12,6 +12,7 @@
 
 <script>
 // include dependence
+import { mapMutations, mapState } from 'vuex'
 import Router from '../../class/Router.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import TitleComponent from '../../module/title/title.vue'

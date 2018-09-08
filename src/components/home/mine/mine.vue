@@ -51,6 +51,8 @@
 
 <script>
 // include dependence
+import { mapMutations } from 'vuex'
+import Http from '../../../class/Http.class.js'
 import Router from '../../../class/Router.class.js'
 import BillboardComponent from '../../../module/billboard/billboard.vue'
 export default {
@@ -112,7 +114,23 @@ export default {
   methods: {
     target (page) {
       Router.push(page)
-    }
+    },
+    init () {
+      Http.send({
+        url: 'PersonalCenter',
+        data: {
+          token: window.token,
+          phone: "xxxxxx",
+          maxNumber: 100
+        }
+      }).success(data => {
+
+        console.log(data)
+        Router.push('home')
+      }).fail(data => {
+      })
+    },
+    ...mapMutations(['saveToken'])
   }
 }
 </script>

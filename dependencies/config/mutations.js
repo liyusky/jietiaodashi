@@ -6,4 +6,4 @@ const mutations = {
     state.token = token
   }
 }
-export default mutations
+module.exports = mutations

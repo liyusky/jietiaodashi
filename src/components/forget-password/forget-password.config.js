@@ -2,8 +2,8 @@ module.exports = {
   content: '忘记密码',
   router: true,
   vuex: {
-    'mutations': false,
-    'state': false
+    mutations: false,
+    state: false
   },
   class: {
     'Check': false,
