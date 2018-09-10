@@ -8,4 +8,6 @@ export default class Url {
   static PersonalCenter = '/Member/PersonalCenter'
   static GrapheCode = '/Member/GrapheCode'
   static ForgetPaymentPwd = '/Member/ForgetPaymentPwd'
+  static CreateNew = '/Loan/Create_New'
+  static BankCardList = '/Member/BankCardList'
 }

@@ -51,6 +51,8 @@
 import { mapMutations } from 'vuex'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -138,7 +140,7 @@ export default {
     Http.send({
       url: 'GrapheCode',
       data: {
-        phone: this.$store.state.phone
+        phone: Storage.phone
       }
     }).success(data => {
       console.log(data)
@@ -187,9 +189,7 @@ export default {
       }, 1000)
     },
     gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
+      Router.push(page)
     },
     getOpenAccount () {
       this.openAccountShow = true

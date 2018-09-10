@@ -11,14 +11,13 @@
     <div class="info-user">
       <div class="user-portrait">
         <img src="../../assets/images/master.png">
+        <!-- <img :src="personalDetail.Photo"> -->
       </div>
       <div class="user-detail">
         <p class="detail-id"><span>借条ID：</span><span>{{account}}</span></p>
-        <p class="detail-name"><span>{{name}}</span><span>{{personalDetail.Rank}}</span></p>
+        <p class="detail-name"><span>{{personalDetail.Name}}</span><span>{{personalDetail.Rank}}</span></p>
         <div class="detail-attestation">
-          <div class="attestation-item">实名</div>
-          <div class="attestation-item">肖像</div>
-          <div class="attestation-item">银行卡</div>
+          <div class="attestation-item">{{personalDetail.RankName}}</div>
         </div>
       </div>
     </div>
