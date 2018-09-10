@@ -13,8 +13,8 @@
         <img src="../../assets/images/master.png">
       </div>
       <div class="user-detail">
-        <p class="detail-id"><span>借条ID：</span><span>123546</span></p>
-        <!-- <p class="detail-name">{{personalDetail.Name}}</p> -->
+        <p class="detail-id"><span>借条ID：</span><span>{{account}}</span></p>
+        <p class="detail-name"><span>{{name}}</span><span>{{personalDetail.Rank}}</span></p>
         <div class="detail-attestation">
           <div class="attestation-item">实名</div>
           <div class="attestation-item">肖像</div>
@@ -33,32 +33,32 @@
             <li class="list-item">
               <div class="item-value">
                 <span>进行中的借款</span>
-                <!-- <span>{{personalDetail.BorrowCount}}</span> -->
+                <span>{{personalDetail.BorrowCount}}</span>
               </div>
               <i class="iconfont icon-cong"></i>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>手机号</span>
-                <!-- <span>{{personalDetail.ContactTel}}</span> -->
+                <span>{{account}}</span>
               </div>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>注册于</span>
-                <!-- <span>{{personalDetail.RegTime}}</span> -->
+                <span>{{personalDetail.RegTime}}</span>
               </div>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>信用记录</span>
-                <!-- <span>{{personalDetail.OverdueCount}}</span> -->
+                <span>{{personalDetail.OverdueCount}}</span>
               </div>
             </li>
             <li class="list-item" @click="gotoPage('credit')">
               <div class="item-value">
                 <span>认证中心</span>
-                <!-- <span>{{personalDetail.creditCenter}}</span> -->
+                <span>{{personalDetail.creditCenter}}</span>
               </div>
               <i class="iconfont icon-cong"></i>
             </li>
@@ -93,7 +93,7 @@
                 <p class="item-title">未偿还金额</p>
                 <div class="itme-right">
                   <p>{{transferInfo.UnpaidBorrowAmount_All}}</p>
-                  <p>{{transferInfo.UnpaidLoanAmount_All}}</p>
+                  <p>{{transferInfo.UnpaidloanAmount_All}}</p>
                 </div>
               </li>
             </ul>
@@ -142,10 +142,13 @@
 // include dependence
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 export default {
   name: 'PersonalInfoComponent',
   data () {
     return {
+      name: Storage.name,
+      account: Storage.phone,
       personalDetail: null,
       transferInfo: null,
       tabSwitchShow: false
@@ -157,7 +160,6 @@ export default {
     // include components
   },
   created () {
-    console.log(Storage.phone)
     Http.send({
       url: 'PersonalDetail',
       data: {
