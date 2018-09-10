@@ -53,16 +53,19 @@ export default {
   data () {
     return {
       cardNumber: '',
+      cardHolder: '张玉',
       phoneNumber: '',
       identityNumber: '',
       codeNumber: '',
+      graphCode: '1234',
+      paymentPwd: '265465',
       getCodeText: '获取验证码',
       codeDisabled: false,
       cardHolderInput: {
         type: 'text',
         rightIcon: 'cong',
         leftText: '持卡人',
-        receiveInput: '张玉',
+        receiveInput: this.cardHolder,
         dsiabled: 'true'
       },
       cardNumberInput: {
@@ -128,10 +131,21 @@ export default {
       if (!Check.identity(this.identityNumber)) return // identity is not correct
       if (!Check.code(this.codeNumber)) return // code is not correct
       Http.send({
-        url: 'url',
-        data: {}
+        url: 'ForgetPaymentPwd',
+        data: {
+          token: this.$store.state.token,
+          phone: this.$store.state.token,
+          cardholder: this.cardHolder,
+          cardNumber: this.cardNumber,
+          idNumber: this.identityNumber,
+          smsCode: this.codeNumber,
+          graphCode: this.graphCode,
+          paymentPwd: this.paymentPwd
+        }
       }).success(data => {
+        console.log(data)
       }).fail(data => {
+        console.log(data)
       })
     },
     waitOneMinute () {

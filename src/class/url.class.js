@@ -6,4 +6,6 @@ export default class Url {
   static PersonalDetail ='/Member/Detail'
   static UserLogout = '/Member/UserLogout'
   static PersonalCenter = '/Member/PersonalCenter'
+  static GrapheCode = '/Member/GrapheCode'
+  static ForgetPaymentPwd = '/Member/ForgetPaymentPwd'
 }

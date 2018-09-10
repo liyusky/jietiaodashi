@@ -135,6 +135,16 @@ export default {
     }
     this.selectBankInput.placeholder = '请选择银行'
     this.selectBank = ''
+    Http.send({
+      url: 'GrapheCode',
+      data: {
+        phone: this.$store.state.phone
+      }
+    }).success(data => {
+      console.log(data)
+    }).fail(data => {
+      console.log(data)
+    })
   },
   methods: {
     getCode () {

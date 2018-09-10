@@ -81,7 +81,7 @@ export default {
       Http.send({
         url: 'UserLogout',
         data: {
-          phone: '17768327110'
+          phone: this.$store.state.phone
         }
       }).success(data => {
         console.log(1111)
