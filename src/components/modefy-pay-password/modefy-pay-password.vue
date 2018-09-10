@@ -12,7 +12,6 @@
 
 <script>
 // include dependence
-import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import KeyboardComponent from '../../module/keyboard/keyboard.vue'
 import PayPasswordComponent from '../../module/pay-password/pay-password.vue'

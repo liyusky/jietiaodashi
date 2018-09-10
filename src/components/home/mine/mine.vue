@@ -7,8 +7,8 @@
           <img src="https://api.vtrois.com/image/250x205">
         </div>
         <div class="detail-content">
-          <p class="font-36 color-deep-black">{{'name'}}</p>
-          <p class="font-24 color-light-black">借条ID: {{'id'}}</p>
+          <p class="font-36 color-deep-black">{{name}}</p>
+          <p class="font-24 color-light-black">借条ID: {{account}}</p>
         </div>
       </div>
       <div class="information-operation">
@@ -26,18 +26,18 @@
       <div class="balance-count">
         <p class="count-content" @click="target('account-balance')">
           <span class="color-deep-black font-27">我的总资产（元）</span>
-          <span class="color-deep-black font-60">0.00</span>
+          <span class="color-deep-black font-60">{{balance.Balance}}</span>
         </p>
         <i class="iconfont icon-chuyin color-grey"></i>
       </div>
       <div class="balance-detail">
         <div class="detail-item border-radius-12" @click="target('borrow-list')">
           <p class="font-30 color-white">借入</p>
-          <p class="font-36 color-white">{{0.00}}</p>
+          <p class="font-36 color-white">{{balance.BorrowAmount}}</p>
         </div>
         <div class="detail-item border-radius-12" @click="target('lend-list')">
           <p class="font-30 color-white">借出</p>
-          <p class="font-36 color-white">{{0.00}}</p>
+          <p class="font-36 color-white">{{balance.LendAmount}}</p>
         </div>
       </div>
     </div>
@@ -51,14 +51,17 @@
 
 <script>
 // include dependence
-import { mapMutations } from 'vuex'
 import Http from '../../../class/Http.class.js'
 import Router from '../../../class/Router.class.js'
+import Storage from '../../../class/Storage.class.js'
 import BillboardComponent from '../../../module/billboard/billboard.vue'
 export default {
   name: 'MineComponent',
   data () {
     return {
+      name: Storage.name,
+      account: Storage.phone,
+      balance: {},
       // start params
       'billboard': [
         {
@@ -111,6 +114,9 @@ export default {
     // TabComponent
     // include components
   },
+  created () {
+    this.init()
+  },
   methods: {
     target (page) {
       Router.push(page)
@@ -119,18 +125,18 @@ export default {
       Http.send({
         url: 'PersonalCenter',
         data: {
-          token: window.token,
-          phone: "xxxxxx",
+          token: Storage.token,
+          phone: Storage.phone,
           maxNumber: 100
         }
       }).success(data => {
-
         console.log(data)
-        Router.push('home')
+        this.balance = data
       }).fail(data => {
       })
-    },
-    ...mapMutations(['saveToken'])
+    }
+    // start mutations
+    // end mutations
   }
 }
 </script>

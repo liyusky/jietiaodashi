@@ -1,5 +1,7 @@
 const state = {
-  origin: false,
-  token: false
+  origin: null,
+  token: null,
+  phone: null,
+  name: null
 }
 export default state

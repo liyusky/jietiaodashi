@@ -149,7 +149,7 @@ function formatComponents (dir, name, goal, refresh) {
     if (components != ',\n\tcomponents: {') components = components.substr(0, components.length - 1)
     if (params != '// start params') params = params.substr(0, params.length - 1)
     params += `\n\t\t\t// end params`
-    let mutationsStr = `...mapMutations(['${mutationsArr.join('\',\'')}'])`
+    let mutationsStr = `...mapMutations(['${mutationsArr.join('\', \'')}'])`
     mutations = 
     `// start mutations
     ${mutationsArr.length > 0 ? mutationsStr : ''}

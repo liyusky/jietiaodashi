@@ -69,7 +69,7 @@ export default {
     switchPassword () {
       this.switcher = false
     },
-    clearPasswordText () {
+    clearPassword () {
       this.password = ''
     },
     waitOneMinute () {
@@ -140,12 +140,14 @@ export default {
         data: data
       }).success(data => {
         this.saveToken(data.Token)
+        this.savePhone(this.phone)
+        this.saveName(data.Name)
         Router.push('home')
       }).fail(data => {
       })
     },
     // start mutations
-    ...mapMutations(['saveToken'])
+    ...mapMutations(['saveToken', 'savePhone', 'saveName'])
     // end mutations
   }
 }
