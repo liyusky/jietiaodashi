@@ -14,7 +14,7 @@
       </div>
       <div class="user-detail">
         <p class="detail-id"><span>借条ID：</span><span>123546</span></p>
-        <p class="detail-name">{{personalDetail.Name}}</p>
+        <!-- <p class="detail-name">{{personalDetail.Name}}</p> -->
         <div class="detail-attestation">
           <div class="attestation-item">实名</div>
           <div class="attestation-item">肖像</div>
@@ -33,32 +33,32 @@
             <li class="list-item">
               <div class="item-value">
                 <span>进行中的借款</span>
-                <span>{{personalDetail.BorrowCount}}</span>
+                <!-- <span>{{personalDetail.BorrowCount}}</span> -->
               </div>
               <i class="iconfont icon-cong"></i>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>手机号</span>
-                <span>{{personalDetail.ContactTel}}</span>
+                <!-- <span>{{personalDetail.ContactTel}}</span> -->
               </div>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>注册于</span>
-                <span>{{personalDetail.RegTime}}</span>
+                <!-- <span>{{personalDetail.RegTime}}</span> -->
               </div>
             </li>
             <li class="list-item">
               <div class="item-value">
                 <span>信用记录</span>
-                <span>{{personalDetail.OverdueCount}}</span>
+                <!-- <span>{{personalDetail.OverdueCount}}</span> -->
               </div>
             </li>
             <li class="list-item" @click="gotoPage('credit')">
               <div class="item-value">
                 <span>认证中心</span>
-                <span>{{personalDetail.creditCenter}}</span>
+                <!-- <span>{{personalDetail.creditCenter}}</span> -->
               </div>
               <i class="iconfont icon-cong"></i>
             </li>
@@ -157,26 +157,23 @@ export default {
     // include components
   },
   created () {
-    console.log(this.$store.state.token)
-    console.log(this.$store.state.phone)
+    console.log(Storage.phone)
     Http.send({
       url: 'PersonalDetail',
       data: {
-        // token: '30DE8D620685C4126C33A4D71A9F2F2CD49BC5EA8093A79E0AD2E762BEC435A96B39DE72264700D705A899E01839D4FF3F4634535E54AFEAB25551BD736AA688BFC9F53A87F47720AACF9D7704288AF30105B655CE82C4F4A3661BB4EC9476A0CDBF0D6577ACD32621B880CE8D15B85DC6D64DDCDAABE6667F50D8FC92DE6634C71AD455DA368A338F57F1D82AA4E3663C76683EDB70BCB1A2C42934040A0E272CF2F264F90181C901AC2467878085A8E67D5898CC1749C001F69CEFC19B2F57',
-        // phone: '17730127131'
-        token: this.$store.state.token,
-        phone: this.$store.state.phone
+        token: Storage.token,
+        phone: Storage.phone
       }
     }).success(data => {
-      this.filterData(data)
       console.log(data)
+      this.formatData(data)
       this.personalDetail = data.MemberInfo
       this.transferInfo = data.TransactionInfo
     }).fail(data => {
     })
   },
   methods: {
-    filterData (data) {
+    formatData (data) {
       var info = data.MemberInfo
       if (!info.OverdueCount) {
         data.MemberInfo.OverdueCount = '无逾期'

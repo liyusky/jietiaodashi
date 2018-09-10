@@ -8,7 +8,8 @@ module.exports = {
       saveRoute: true,
       saveBankCard: false,
       saveToken: false,
-      savePhone: false
+      savePhone: false,
+      saveName: false
     },
     state: false
   },
