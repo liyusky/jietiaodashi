@@ -1,6 +1,6 @@
 export default class Router {
   static mark () {
-    console.log(window.app._route)
+    console.log(window.app)
     window.app.$store.commit('saveOrigin', window.app._route)
   }
 

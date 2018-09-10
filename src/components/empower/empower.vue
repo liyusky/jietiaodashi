@@ -140,7 +140,8 @@ export default {
         data: data
       }).success(data => {
         this.saveToken(data.Token)
-        this.savePhone(data.Nim_Accid)
+        this.savePhone(this.phone)
+        this.saveName(data.Name)
         Router.push('home')
       }).fail(data => {
         console.log(112123)
@@ -152,7 +153,7 @@ export default {
       })
     },
     // start mutations
-    ...mapMutations(['saveToken', 'savePhone'])
+    ...mapMutations(['saveToken', 'savePhone', 'saveName'])
     // end mutations
   }
 }

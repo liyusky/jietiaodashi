@@ -9,6 +9,7 @@ module.exports = {
     'Check': false,
     'Http': true,
     'Router': true,
+    'Storage': false,
     'Time': false,
     'Url': false
   },

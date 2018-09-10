@@ -4,11 +4,17 @@ module.exports = {
   vuex: {
     mutations: {
       saveOrigin: false,
+<<<<<<< HEAD
       savePurpose: false,
       saveRoute: false,
       saveBankCard: false,
       saveToken: true,
       savePhone: true
+=======
+      saveToken: true,
+      savePhone: true,
+      saveName: true
+>>>>>>> 57d2ccf2f4e2e340a472f32f1e18d8934b927a70
     },
     state: false
   },
@@ -16,6 +22,7 @@ module.exports = {
     'Check': true,
     'Http': true,
     'Router': true,
+    'Storage': false,
     'Time': false,
     'Url': false
   },

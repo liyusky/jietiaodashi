@@ -19,6 +19,9 @@ const mutations = {
   },
   savePhone (state, phone) {
     state.phone = phone
+  },
+  saveName (state, name) {
+    state.name = name
   }
 }
 module.exports = mutations

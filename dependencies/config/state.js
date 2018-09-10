@@ -1,9 +1,7 @@
 const state = {
   origin: null,
-  purpose: '',
-  route: null,
-  card: null,
+  token: null,
   phone: null,
-  token: null
+  name: null
 }
 module.exports = state

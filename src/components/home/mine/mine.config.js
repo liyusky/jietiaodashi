@@ -2,20 +2,14 @@ module.exports = {
   content: '我的',
   router: true,
   vuex: {
-    mutations: {
-      saveOrigin: false,
-      savePurpose: false,
-      saveRoute: false,
-      saveBankCard: false,
-      saveToken: false,
-      savePhone: false
-    },
+    mutations: false,
     state: false
   },
   class: {
     'Check': false,
     'Http': true,
     'Router': true,
+    'Storage': true,
     'Time': false,
     'Url': false
   },
