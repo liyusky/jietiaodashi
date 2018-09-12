@@ -4,7 +4,7 @@ module.exports = {
   vuex: {
     mutations: {
       saveOrigin: false,
-      savePurpose: false,
+      savePurpose: true,
       saveBankCard: false,
       saveToken: false,
       savePhone: false,

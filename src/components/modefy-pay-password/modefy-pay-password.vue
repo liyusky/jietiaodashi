@@ -61,12 +61,12 @@ export default {
         case 'modify':
           this.tip.content = '请输入原始支付密码'
           this.title.contentText = '修改支付密码'
-          this.submit = modify
+          this.submit = this.modify
           break
         case 'forget':
           this.tip.content = '请输入新的支付密码'
           this.title.contentText = '设置新支付密码'
-          this.submit = forget
+          this.submit = this.forget
           break
       }
     },
@@ -75,7 +75,7 @@ export default {
     },
     submit () {},
     modify () {
-      if (mark) {
+      if (this.mark) {
         this.oldPayment = this.payPassword
       } else {
         this.newPassword = this.payPassword
