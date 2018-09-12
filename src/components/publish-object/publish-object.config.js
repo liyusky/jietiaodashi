@@ -9,6 +9,9 @@ module.exports = {
       saveToken: false,
       savePhone: false,
       saveName: false,
+      saveId: false,
+      saveOid: false,
+      savePaySet: false,
       savePublishObject: true,
       clearPublishObject: true
     },
@@ -19,8 +22,10 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': true,
+    'Status': false,
     'Storage': false,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {

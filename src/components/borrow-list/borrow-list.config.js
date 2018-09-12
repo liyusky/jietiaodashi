@@ -7,11 +7,13 @@ module.exports = {
   },
   class: {
     'Check': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
-    'Router': false,
-    'Storage': false,
+    'Router': true,
+    'Status': true,
+    'Storage': true,
     'Time': false,
+    'Type': true,
     'Url': false
   },
   components: {
@@ -25,20 +27,11 @@ module.exports = {
     'keyboard': false,
     'modals': false,
     'nav': `{
-        content: ['当前', '已还清'],
+        content: ['当前', '已放款', '已逾期', '已还清', '已失效'],
         active: ''
       }`,
     'pay-password': false,
-    'receipt': `[{
-        name: '幸福不会远',
-        type: '借出',
-        portrait: 'https://api.vtrois.com/image/81/fff7db/e62991',
-        rate: '0',
-        start: '2017-11-30',
-        end: '2017-12-01',
-        money: '200',
-        status: '已受理'
-      }]`,
+    'receipt': `[]`,
     'tab': false,
     'tip': false,
     'title': `{

@@ -7,11 +7,13 @@ module.exports = {
   },
   class: {
     'Check': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
-    'Router': false,
-    'Storage': false,
+    'Router': true,
+    'Status': false,
+    'Storage': true,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {
@@ -19,36 +21,7 @@ module.exports = {
     'board': false,
     'button': false,
     'deadline': false,
-    'detail-list': `[
-        {
-          type: 'total',
-          time: '2012-11-11',
-          pay: '11111',
-          income: '22222',
-          icon: 'cong'
-        }, {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05',
-          icon: 'cong'
-        }, {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05',
-          icon: 'cong'
-        }, {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05',
-          icon: 'cong'
-        }
-      ]`,
+    'detail-list': `[]`,
     'image-bg': false,
     'inputs': false,
     'keyboard': false,

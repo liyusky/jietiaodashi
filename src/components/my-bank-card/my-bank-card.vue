@@ -28,7 +28,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 import Mock from '../../class/Mock.class.js'
 import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'

@@ -23,7 +23,7 @@
         </div>
         <i class="iconfont font-36" v-if="item.icon" :class="'icon-' + item.icon"></i>
       </div>
-      <div class="item-double padding-left-30" v-else-if="item.type == 'double'">
+      <div class="item-double padding-left-30" v-else-if="item.type == 'double'" @click="doubleEvent(item.oid)">
         <div class="item-content border-bottom-1">
           <div class="content-tip">
             <p class="font-27">{{item.title}}</p>
@@ -44,30 +44,14 @@
 </template>
 
 <script>
-// detailList: {
-//   type: 'default / double',
-//   content: [ //default
-//     {
-//       key: '',
-//       value: ''
-//     }
-//   ]
-//   content: [ //double
-//     [
-//        {
-//          key: '',
-//          value: ''
-//        }
-//     ]
-//     {
-//       key: '',
-//       value: ''
-//     }
-//   ]
-// }
 export default {
   name: 'DetailListComponent',
-  props: ['detailList']
+  props: ['detailList'],
+  methods: {
+    doubleEvent (oid) {
+      this.$emit('DOUBLE_EVENT', oid)
+    }
+  }
 }
 </script>
 

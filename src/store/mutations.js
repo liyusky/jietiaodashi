@@ -19,6 +19,15 @@ const mutations = {
   saveName (state, name) {
     state.name = name
   },
+  saveId (state, id) {
+    state.id = id
+  },
+  saveOid (state, oid) {
+    state.oid = oid
+  },
+  savePaySet (state, paySet) {
+    state.paySet = paySet
+  },
   // 保存选择的发布对象
   savePublishObject (state, friendList) {
     state.friendList.push(friendList)

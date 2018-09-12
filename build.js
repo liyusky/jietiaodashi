@@ -125,7 +125,7 @@ function formatComponents (dir, name, goal, refresh) {
         case 'class':
           for (let item in config.class) {
             if (config.class[item]) {
-              dependence += `import ${item} from '${path.relative(goal, paths.class).replace(/\\/g, '/').replace('../', '')}/${item}.class.js'\n`
+              dependence += `import ${item} from '${path.relative(goal, paths.class).replace(/\\/g, '/').replace('../', '')}/${global.cluster[item]}'\n`
             }
           }
           break
@@ -280,6 +280,17 @@ function buildRouter () {
   routerStr = routerStr.replace(/\t/, '  ')
   routerStr = routerStr.replace(',,', ',')
   createFile('./src/router/router.js', routerStr, true)
+}
+
+function initClass () {
+  let files = fs.readdirSync('./src/class', 'utf8')
+  let classJson = {}
+  files.forEach(item => {
+    let itemArr = item.split('.')
+    classJson[itemArr[0]] = item
+  });
+  createFile('./dependencies/config/class.js', 'module.exports = ' + JSON.stringify(classJson).replace(/"/g, '\'').replace(/:/g, ': ').replace(/,/g, ', ') + '\n')
+  global.cluster = require('./dependencies/config/class.js')
 }
 
 function initStore () {
@@ -486,6 +497,7 @@ function buildComponents (dir) {
   return loop(files, dir, buildComponents)
 }
 
+initClass()
 initStore()
 initConfig()
 refreshConfig('./src/components')

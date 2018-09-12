@@ -1,7 +1,7 @@
 <template>
   <!-- s  -->
   <section class="receipt bg-white">
-    <div class="receipt-target">
+    <div class="receipt-target" @click="headerEvent">
       <img class="target-portrait border-radius-12" :src="receipt.portrait">
       <div class="target-info">
         <div class="info-goal">
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="receipt-detail padding-horizontal-21 border-radius-12 font-24">
+    <div class="receipt-detail padding-horizontal-21 border-radius-12 font-24" @click="detailEvent">
       <div class="detail-item">
         <p class="item-message">
           <span class="color-light-grey">金额：</span>
@@ -46,7 +46,15 @@
 <script>
 export default {
   name: 'ReceiptComponent',
-  props: ['receipt']
+  props: ['receipt'],
+  methods: {
+    headerEvent () {
+      this.$emit('HEADER_EVENT')
+    },
+    detailEvent () {
+      this.$emit('DETAIL_EVENT')
+    },
+  }
 }
 </script>
 

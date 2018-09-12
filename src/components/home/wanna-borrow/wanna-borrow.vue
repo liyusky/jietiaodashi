@@ -96,7 +96,7 @@
 <script>
 import PublishComponent from './publish/publish.vue'
 // include dependence
-import Http from '../../../class/Http.class.js'
+import Http from '../../../class/undefined'
 import Storage from '../../../class/Storage.class.js'
 import ButtonComponent from '../../../module/button/button.vue'
 import DeadlineComponent from '../../../module/deadline/deadline.vue'

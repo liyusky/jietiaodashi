@@ -12,7 +12,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 import Router from '../../class/Router.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import ButtonComponent from '../../module/button/button.vue'

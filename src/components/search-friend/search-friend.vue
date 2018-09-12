@@ -33,7 +33,7 @@
 <script>
 // include dependence
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 export default {
   name: 'SearchFriendComponent',
   data () {

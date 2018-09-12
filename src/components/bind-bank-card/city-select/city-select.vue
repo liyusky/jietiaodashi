@@ -76,7 +76,8 @@ export default {
     }
   }
   // start mutations
-  // end mutations
+    
+    // end mutations
 }
 </script>
 

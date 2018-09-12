@@ -3,6 +3,9 @@ const state = {
   token: null,
   phone: null,
   name: null,
+  id: null,
+  oid: null,
+  paySet: null,
   card: null,
   friendList: []
 }

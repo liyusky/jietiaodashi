@@ -9,17 +9,17 @@
         <div>收款</div>
       </li>
       <li class="list-item color-deep-black border-bottom-1 padding-horizontal-30" v-for="(item, index) in statistic" :key="index">
-        <div>{{item.time}}</div>
-        <div>{{item.pay}}</div>
-        <div>{{item.receive}}</div>
+        <div>{{item.PlanDate}}</div>
+        <div>{{item.RepaymentAmount}}</div>
+        <div>{{item.IncomeAmount}}</div>
       </li>
     </ul>
     <div class="statistic-count padding-horizontal-30 font-30 color-deep-black bg-white">
       <div>合计</div>
       <div>
-        <p>1254.3万</p>
+        <p>{{TotalRepaymentAmount}}万</p>
       </div>
-      <div>154.3万</div>
+      <div>{{TotalIncomeAmount}}万</div>
     </div>
   </section>
   <!-- e 收还款计划 -->
@@ -32,13 +32,10 @@ export default {
   name: 'AccountStatisticComponent',
   data () {
     return {
-      statistic: [
-        {
-          time: '今天',
-          pay: '100',
-          receive: '1000'
-        }
-      ],
+      statistic: [],
+      pageIndex: 1,
+      TotalIncomeAmount: 0,
+      TotalRepaymentAmount: 0,
       // start params
       'title': {
         contentText: '收还款'
@@ -49,6 +46,27 @@ export default {
   components: {
     TitleComponent
     // include components
+  },
+  methods: {
+    init () {
+      Http.send({
+        url: 'BorrowList',
+        data: {
+          token: Storage.token,
+          userPhone: Storage.phone,
+          pageIndex: this.pageIndex,
+          pageSize:10
+        }
+      }).success(data => {
+        this.formatData(data)
+      }).fail(data => {
+      })
+    },
+    formatData (data) {
+      this.TotalIncomeAmount = data.TotalIncomeAmount
+      this.TotalRepaymentAmount = data.TotalRepaymentAmount
+      this.statistic = data.Rows
+    }
   }
 }
 </script>

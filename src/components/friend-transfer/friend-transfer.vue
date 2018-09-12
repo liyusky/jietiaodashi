@@ -41,7 +41,7 @@
 <script>
 // include dependence
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'

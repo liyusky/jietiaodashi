@@ -53,7 +53,7 @@ import { provinces as provinceList, cities } from '../../data/cities.js'
 import CitySelect from './city-select/city-select.vue'
 // include dependence
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'

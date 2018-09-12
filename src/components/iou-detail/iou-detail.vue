@@ -140,6 +140,26 @@ export default {
     TitleComponent,
     WorkCardComponent
     // include components
+  },
+  created () {
+    this.init()
+  },
+  methods: {
+    init () {
+      Http.send({
+        url: 'IouDetail',
+        data: {
+          token: Storage.token,
+          id: Storage.id,
+          userPhone: Storage.phone
+        }
+      }).success(data => {
+        this.formatData(data)
+      }).fail(data => {
+      })
+    },
+    formatData (data) {
+    }
   }
 }
 </script>

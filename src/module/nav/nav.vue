@@ -1,7 +1,7 @@
 <template>
   <!-- s  -->
   <ul class="nav">
-    <li class="nav-item" :class="selected == item ? nav.active : ''" v-for="(item, index) in nav.content" :key="index">{{item}}</li>
+    <li class="nav-item" :class="selected == item ? nav.active : ''" v-for="(item, index) in nav.content" :key="index" @click="select(index, item)">{{item}}</li>
   </ul>
   <!-- e  -->
 </template>
@@ -13,6 +13,12 @@ export default {
   data () {
     return {
       selected: ''
+    }
+  },
+  methods: {
+    select (index, item) {
+      this.selected = item
+      this.$emit('SELECTED_EVENT', index)
     }
   }
 }

@@ -2,11 +2,11 @@
   <!-- s  -->
   <section class="button" :class="button.type">
     <div class="button-group" v-if="button.group">
-      <button :class="button.group[0].class">
+      <button :class="button.group[0].class" @click="left">
         <div>{{button.group[0].text}}</div>
       </button>
       <div class="group-interval"></div>
-      <button :class="button.group[1].class">
+      <button :class="button.group[1].class" @click="right">
         <div>{{button.group[1].text}}</div>
       </button>
     </div>
@@ -33,6 +33,12 @@ export default {
     },
     submit (index) {
       this.$emit('SUBMIT_EVENT', index)
+    },
+    left () {
+      this.$emit('LEFT_EVENT')
+    },
+    right () {
+      this.$emit('RIGHT_EVENT')
     }
   }
 }

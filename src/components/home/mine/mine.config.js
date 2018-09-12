@@ -10,8 +10,10 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Status': false,
     'Storage': true,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {
