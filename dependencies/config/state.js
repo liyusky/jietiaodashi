@@ -7,6 +7,8 @@ const state = {
   oid: null,
   paySet: null,
   card: null,
-  friendList: []
+  friendList: [],
+  purpose: null,
+  
 }
 module.exports = state

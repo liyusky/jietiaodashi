@@ -32,8 +32,8 @@ const mutations = {
   savePublishObject (state, friendList) {
     state.friendList.push(friendList)
   },
-  clearPublishObject (state) {
-    state.friendList = []
+  clearPublishObject (state, friendList) {
+    state.friendList = friendList
   }
 }
 module.exports = mutations
