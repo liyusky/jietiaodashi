@@ -9,11 +9,11 @@ module.exports = {
     'Check': false,
     'Http': true,
     'Mock': false,
-    'Router': false,
-    'Status': false,
-    'Storage': false,
+    'Router': true,
+    'Status': true,
+    'Storage': true,
     'Time': false,
-    'Type': false,
+    'Type': true,
     'Url': false
   },
   components: {
@@ -40,17 +40,17 @@ module.exports = {
         {
           type: 'default',
           key: '借出本金：',
-          value: '0元'
+          value: ''
         },
         {
           type: 'default',
           key: '年利率：',
-          value: '10%'
+          value: ''
         },
         {
           type: 'default',
           key: '借款日：',
-          value: '2017-06-18'
+          value: ''
         },
         {
           type: 'default',
@@ -75,10 +75,6 @@ module.exports = {
     'title': `{
         contentText: '借条详情'
       }`,
-    'work-card': `{
-        portrait: '',
-        name: '李艳霞',
-        money: '1500.00'
-      }`
+    'work-card': false
   }
 }

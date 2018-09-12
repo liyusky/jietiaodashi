@@ -15,7 +15,6 @@ export default class Url {
   static ThisMonthTransferALL = '/Member/ThisMonthTransferALL'
   static UpdatePaymentPwd = '/Member/UpdatePaymentPwd'
   static ForgetPaymentPwd = '/Member/ForgetPaymentPwd'
-  // static GrapheCode = '/Member/GrapheCode'
   static BankCardList = '/Member/BankCardList'
   static Index = '/Common/Index'
   static CreateSys = '/Loan/Create_Sys'

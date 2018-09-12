@@ -8,18 +8,21 @@
           <img src="https://api.vtrois.com/image/81x81">
         </div>
         <div class="user-info font-27 color-black">
-          <p class="info-loan "><span></span><span>借出</span></p>
-          <p class="info-sign"><span>幸福不会远</span><i class="iconfont icon-cong font-30 color-blue"></i></p>
+          <p class="info-loan "><span></span><span>{{type}}</span></p>
+          <p class="info-sign"><span>{{name}}</span><i class="iconfont icon-cong font-30 color-blue"></i></p>
         </div>
         <div class="user-tip">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-cong"></use>
           </svg>
-          <p class="font-24 color-black">已逾期103天</p>
+          <p class="font-24 color-black">{{state}}{{overdueDay}}</p>
         </div>
       </div>
       <div class="hint-repayment">
-        <p class="font-27 color-black">待他还款金额<span class="font-39">45645元</span></p>
+        <p class="font-27 color-black">
+          <span>待还款金额</span>
+          <span class="font-39">{{repaymentAmount}}元</span>
+        </p>
       </div>
     </div>
     <div class="detail-loan bg-white">
@@ -70,6 +73,10 @@
 <script>
 // include dependence
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Status from '../../class/Status.enum.js'
+import Storage from '../../class/Storage.class.js'
+import Type from '../../class/Type.enum.js'
 import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TipComponent from '../../module/tip/tip.vue'
@@ -79,6 +86,11 @@ export default {
   name: 'IouDetailComponent',
   data () {
     return {
+      type: '',
+      name: '',
+      overdueDay: '',
+      state: '',
+      repaymentAmount: '',
       // start params
       'button': {
         default: [{
@@ -100,27 +112,27 @@ export default {
         {
           type: 'default',
           key: '借出本金：',
-          value: '0元'
+          value: ''
         },
         {
           type: 'default',
           key: '年利率：',
-          value: '10%'
+          value: ''
         },
         {
           type: 'default',
           key: '借款日：',
-          value: '2017-06-18'
+          value: ''
         },
         {
           type: 'default',
           key: '到期日：',
-          value: '2017-07-18'
+          value: ''
         },
         {
           type: 'default',
           key: '其他费用：',
-          value: '20元'
+          value: '0'
         }
       ],
       'title': {
@@ -160,6 +172,15 @@ export default {
       })
     },
     formatData (data) {
+      this.type = Type[data.Type]
+      this.overdueDay = data.OverdueDay ? data.OverdueDay + '天' : ''
+      this.state = data.StateName
+      this.repaymentAmount = data.RepaymentAmount
+      
+      this.detailList[0].value = data.Amount + '元'
+      this.detailList[1].value = data.YearRate + '%'
+      this.detailList[2].value = data.LoanDate
+      this.detailList[3].value = data.ExpireDate
     }
   }
 }
