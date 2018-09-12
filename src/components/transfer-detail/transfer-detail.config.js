@@ -7,10 +7,12 @@ module.exports = {
   },
   class: {
     'Check': false,
-    'Http': false,
+    'Http': true,
     'Router': false,
-    'Storage': false,
+    'Status': false,
+    'Storage': true,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {

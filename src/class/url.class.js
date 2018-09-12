@@ -3,4 +3,13 @@ export default class Url {
   static UserSmsLogin = '/Member/UserSmsLogin'
   static SendSMS = '/Member/SendSMS'
   static PersonalCenter = '/Member/PersonalCenter'
+  static BorrowList = '/Loan/BorrowList_New'
+  static LendList = '/Loan/LendList_New'
+  static IncomeRepaymentPlan = '/Loan/IncomeRepaymentPlan'
+  static IouDetail = '/Loan/Detail'
+  static IncomeRepaymentPlanDetail = '/Loan/IncomeRepaymentPlanDetail'
+  static TransferALL = '/Member/TransferALL'
+  static ThisMonthTransferALL = '/Member/ThisMonthTransferALL'
+  static UpdatePaymentPwd = '/Member/UpdatePaymentPwd'
+  static ForgetPaymentPwd = '/Member/ForgetPaymentPwd'
 }

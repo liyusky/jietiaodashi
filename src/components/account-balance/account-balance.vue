@@ -11,7 +11,7 @@
       </div>
       <div class="color-deep-blue font-27">不可用余额 {{0}}元</div>
     </div>
-    <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button"></ButtonComponent>
+    <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button" @LEFT_EVENT="target('withdraw')" @RIGHT_EVENT="target('recharge')"></ButtonComponent>
     <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent>
   </section>
   <!-- e 账单明细 -->
@@ -19,6 +19,9 @@
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -26,6 +29,7 @@ export default {
   name: 'AccountBalanceComponent',
   data () {
     return {
+      pageCurrent: 1,
       // start params
       'button': {
         group: [
@@ -39,26 +43,10 @@ export default {
           }
         ]
       },
-      'detailList': [
-        {
-          type: 'title',
-          content: '本月收支明细'
-        },
-        {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05'
-        },
-        {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05'
-        }
-      ],
+      'detailList': [{
+      type: 'title',
+      content: '本月收支明细'
+    }],
       'title': {
         contentText: '账户余额',
         rightText: '收支明细'
@@ -71,6 +59,39 @@ export default {
     DetailListComponent,
     TitleComponent
     // include components
+  },
+  created () {
+    this.init()
+  },
+  methods: {
+    init () {
+      Http.send({
+        url: 'ThisMonthTransferALL',
+        data: {
+          token: Storage.token,
+          phone: Storage.phone,
+          pageCurrent: this.pageCurrent,
+          pageSize:20
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
+    },
+    formatData (data) {
+      data.Rows.forEach(item => {
+        let detail = {
+          type: 'double',
+          title: item.tranTypeName,
+          count: item.amount,
+          time: item.transferTime,
+          remnant: item.balance_new
+        }
+        this.detailList.push(detail)
+      })
+    },
+    target (page) {
+      Router.push(page)
+    }
   }
 }
 </script>

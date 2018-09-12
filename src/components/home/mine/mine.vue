@@ -135,8 +135,6 @@ export default {
       }).fail(data => {
       })
     }
-    // start mutations
-    // end mutations
   }
 }
 </script>

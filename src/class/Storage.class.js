@@ -7,6 +7,22 @@ export default class Storage {
     return window.app.$store.state.token
   }
 
+  static set id (id) {
+    window.app.$store.commit('saveId', id)
+  }
+
+  static get id () {
+    return window.app.$store.state.id
+  }
+
+  static set oid (oid) {
+    window.app.$store.commit('saveOid', oid)
+  }
+
+  static get oid () {
+    return window.app.$store.state.oid
+  }
+
   static set token (token) {
     window.app.$store.commit('saveToken', token)
   }
@@ -29,5 +45,13 @@ export default class Storage {
 
   static get name () {
     return window.app.$store.state.name
+  }
+
+  static set paySet (paySet) {
+    window.app.$store.commit('savePaySet', paySet)
+  }
+
+  static get paySet () {
+    return window.app.$store.state.paySet
   }
 }

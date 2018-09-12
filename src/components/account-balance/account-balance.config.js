@@ -7,10 +7,12 @@ module.exports = {
   },
   class: {
     'Check': false,
-    'Http': false,
-    'Router': false,
-    'Storage': false,
+    'Http': true,
+    'Router': true,
+    'Status': false,
+    'Storage': true,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {
@@ -29,26 +31,10 @@ module.exports = {
         ]
       }`,
     'deadline': false,
-    'detail-list': `[
-        {
-          type: 'title',
-          content: '本月收支明细'
-        },
-        {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05'
-        },
-        {
-          type: 'double',
-          title: '提现',
-          count: '-3,049.00',
-          time: '11-19  15:14  周三',
-          remnant: '余额:0.05'
-        }
-      ]`,
+    'detail-list': `[{
+      type: 'title',
+      content: '本月收支明细'
+    }]`,
     'image-bg': false,
     'inputs': false,
     'keyboard': false,

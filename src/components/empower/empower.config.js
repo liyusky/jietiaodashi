@@ -2,20 +2,17 @@ module.exports = {
   content: '登录',
   router: true,
   vuex: {
-    mutations: {
-      saveOrigin: false,
-      saveToken: true,
-      savePhone: true,
-      saveName: true
-    },
+    mutations: false,
     state: false
   },
   class: {
     'Check': true,
     'Http': true,
     'Router': true,
-    'Storage': false,
+    'Status': false,
+    'Storage': true,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {

@@ -33,10 +33,10 @@
 
 <script>
 // include dependence
-import { mapMutations } from 'vuex'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 export default {
   name: 'EmpowerComponent',
@@ -139,16 +139,13 @@ export default {
         url: url,
         data: data
       }).success(data => {
-        this.saveToken(data.Token)
-        this.savePhone(this.phone)
-        this.saveName(data.Name)
+        Storage.token = data.Token
+        Storage.phone = this.phone
+        Storage.name = data.Name
         Router.push('home')
       }).fail(data => {
       })
-    },
-    // start mutations
-    ...mapMutations(['saveToken', 'savePhone', 'saveName'])
-    // end mutations
+    }
   }
 }
 </script>

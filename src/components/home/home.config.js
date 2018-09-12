@@ -9,8 +9,10 @@ module.exports = {
     'Check': false,
     'Http': false,
     'Router': false,
+    'Status': false,
     'Storage': false,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {
