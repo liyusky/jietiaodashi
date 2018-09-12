@@ -69,6 +69,7 @@
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TipComponent from '../../module/tip/tip.vue'

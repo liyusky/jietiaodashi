@@ -1,27 +1,15 @@
 module.exports = {
-  content: '发布对象',
-  router: true,
+  content: '',
+  router: false,
   vuex: {
-    mutations: {
-      saveOrigin: false,
-      savePurpose: false,
-      saveBankCard: false,
-      saveToken: false,
-      savePhone: false,
-      saveName: false,
-      saveId: false,
-      saveOid: false,
-      savePaySet: false,
-      savePublishObject: true,
-      clearPublishObject: true
-    },
+    mutations: false,
     state: false
   },
   class: {
     'Check': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
-    'Router': true,
+    'Router': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -43,10 +31,7 @@ module.exports = {
     'receipt': false,
     'tab': false,
     'tip': false,
-    'title': `{
-        contentText: '发布对象',
-        rightText: '确定'
-      }`,
+    'title': false,
     'work-card': false
   }
 }

@@ -53,7 +53,7 @@ export default {
     },
     detailEvent () {
       this.$emit('DETAIL_EVENT')
-    },
+    }
   }
 }
 </script>

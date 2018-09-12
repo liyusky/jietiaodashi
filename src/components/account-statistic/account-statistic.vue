@@ -27,6 +27,7 @@
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'AccountStatisticComponent',
@@ -55,7 +56,7 @@ export default {
           token: Storage.token,
           userPhone: Storage.phone,
           pageIndex: this.pageIndex,
-          pageSize:10
+          pageSize: 10
         }
       }).success(data => {
         this.formatData(data)
