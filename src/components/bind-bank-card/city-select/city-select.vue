@@ -75,9 +75,6 @@ export default {
       this.$emit('CANCEL_EVENT')
     }
   }
-  // start mutations
-    
-    // end mutations
 }
 </script>
 

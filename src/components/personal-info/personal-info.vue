@@ -139,7 +139,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/undefined'
+import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 export default {

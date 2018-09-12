@@ -8,7 +8,7 @@ module.exports = {
   class: {
     'Check': false,
     'Http': true,
-    'Mock': true,
+    'Mock': false,
     'Router': true,
     'Status': false,
     'Storage': true,
@@ -33,9 +33,9 @@ module.exports = {
       }`,
     'deadline': false,
     'detail-list': `[{
-      type: 'title',
-      content: '本月收支明细'
-    }]`,
+        type: 'title',
+        content: '本月收支明细'
+      }]`,
     'image-bg': false,
     'inputs': false,
     'keyboard': false,

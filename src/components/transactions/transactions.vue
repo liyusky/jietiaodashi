@@ -9,7 +9,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/undefined'
+import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
@@ -43,7 +43,7 @@ export default {
           phone: Storage.phone,
           lastTime: '',
           pageCurrent: 1,
-          pageSize:20
+          pageSize: 20
         }
       }).success(data => {
         this.formatData(data)
