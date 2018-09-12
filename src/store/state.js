@@ -6,7 +6,8 @@ const state = {
   id: null,
   oid: null,
   paySet: null,
-  card: null,
-  friendList: []
+  card: {},
+  publishObject: [],
+  purpose: null
 }
 export default state

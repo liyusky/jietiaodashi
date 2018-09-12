@@ -54,4 +54,35 @@ export default class Storage {
   static get paySet () {
     return window.app.$store.state.paySet
   }
+
+  static set publishObject (publishObject) {
+    window.app.$store.commit('savePublishObject', publishObject)
+  }
+
+  static get publishObject () {
+    return window.app.$store.state.publishObject
+  }
+
+  static set clearPublishObject (publishObject) {
+    window.app.$store.commit('clearPublishObject', publishObject)
+  }
+
+  static get clearPublishObject () {
+    return window.app.$store.state.publishObject
+  }
+
+  static set purpose (purpose) {
+    window.app.$store.commit('savePurpose', purpose)
+  }
+
+  static get purpose () {
+    return window.app.$store.state.purpose
+  }
+
+  static set card (card) {
+    window.app.$store.commit('saveBankCard', card)
+  }
+  static get card () {
+    return window.app.$store.state.card
+  }
 }

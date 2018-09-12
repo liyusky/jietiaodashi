@@ -137,8 +137,8 @@ export default {
   },
   created () {
     if (this.$store.state.origin.path === '/select-bank-card') {
-      this.selectBankInput.placeholder = this.$store.state.card.key
-      this.selectBank = this.$store.state.card.key
+      this.selectBankInput.placeholder = Storage.card.key
+      this.selectBank = Storage.card.key
       return
     }
     this.selectBankInput.placeholder = '请选择银行'

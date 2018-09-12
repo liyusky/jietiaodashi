@@ -27,7 +27,8 @@
 
 <script>
 // include dependence
-import { mapMutations } from 'vuex'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'PurposeComponent',
@@ -52,18 +53,15 @@ export default {
       this.setPurposeIndex = index
     },
     switchPurpose () {
-      this.savePurpose(this.optionList[this.setPurposeIndex])
-      this.$router.push({
-        name: 'wanna-borrow'
-      })
+      Storage.purpose = this.optionList[this.setPurposeIndex]
+      Router.push('wanna-borrow')
     },
     back () {
-      this.savePurpose(this.optionList[0])
+      Storage.purpose = this.optionList[0]
       this.$router.push({
         name: 'wanna-borrow'
       })
-    },
-    ...mapMutations(['savePurpose'])
+    }
   },
   components: {
     TitleComponent

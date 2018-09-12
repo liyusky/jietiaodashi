@@ -2,14 +2,6 @@ const mutations = {
   saveOrigin (state, origin) {
     state.origin = origin
   },
-  // 保存借款用途
-  savePurpose (state, purpose) {
-    state.purpose = purpose
-  },
-  // 保存银卡卡
-  saveBankCard (state, card) {
-    this.state.card = card
-  },
   saveToken (state, token) {
     state.token = token
   },
@@ -29,11 +21,19 @@ const mutations = {
     state.paySet = paySet
   },
   // 保存选择的发布对象
-  savePublishObject (state, friendList) {
-    state.friendList.push(friendList)
+  savePublishObject (state, publishObject) {
+    state.publishObject.push(publishObject)
   },
-  clearPublishObject (state) {
-    state.friendList = []
+  clearPublishObject (state, publishObject) {
+    state.publishObject = publishObject
+  },
+  // 保存借款用途
+  savePurpose (state, purpose) {
+    state.purpose = purpose
+  },
+  // 保存银卡卡
+  saveBankCard (state, card) {
+    state.card = card
   }
 }
 export default mutations

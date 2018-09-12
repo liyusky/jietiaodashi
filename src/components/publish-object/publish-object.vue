@@ -50,8 +50,8 @@
 
 <script>
 // include dependence
-import { mapMutations } from 'vuex'
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'PublishObjectComponent',
@@ -116,13 +116,13 @@ export default {
     // include components
   },
   created () {
-    this.clearPublishObject()
+    Storage.clearPublishObject = []
   },
   methods: {
     confirm () {
       this.friendList.forEach(ele => {
         if (ele.checkFriend) {
-          this.savePublishObject(ele)
+          Storage.publishObject = ele
         }
       })
       Router.push('wanna-borrow')
@@ -134,8 +134,7 @@ export default {
     },
     selectFriend (item, index) {
       this.friendList[index].checkFriend = !this.friendList[index].checkFriend
-    },
-    ...mapMutations(['savePublishObject', 'clearPublishObject'])
+    }
   }
 }
 </script>
