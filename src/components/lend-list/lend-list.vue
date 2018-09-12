@@ -58,7 +58,6 @@ export default {
     // include components
   },
   methods: {
-    
     init () {
       Http.send({
         url: 'LendList',

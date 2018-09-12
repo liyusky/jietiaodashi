@@ -43,7 +43,7 @@ export default {
           phone: Storage.phone,
           lastTime: '',
           pageCurrent: 1,
-          pageSize:20
+          pageSize: 20
         }
       }).success(data => {
         this.formatData(data)

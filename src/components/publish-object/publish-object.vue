@@ -50,6 +50,7 @@
 
 <script>
 // include dependence
+import { mapMutations } from 'vuex'
 import Router from '../../class/Router.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
