@@ -24,8 +24,8 @@ const mutations = {
   savePublishObject (state, publishObject) {
     state.publishObject.push(publishObject)
   },
-  clearPublishObject (state, friendList) {
-    state.friendList = friendList
+  clearPublishObject (state, publishObject) {
+    state.publishObject = publishObject
   },
   // 保存借款用途
   savePurpose (state, purpose) {

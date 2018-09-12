@@ -63,12 +63,12 @@ export default class Storage {
     return window.app.$store.state.publishObject
   }
 
-  static set clearPublishObject (friendList) {
-    window.app.$store.commit('clearPublishObject', friendList)
+  static set clearPublishObject (publishObject) {
+    window.app.$store.commit('clearPublishObject', publishObject)
   }
 
   static get clearPublishObject () {
-    return window.app.$store.state.friendList
+    return window.app.$store.state.publishObject
   }
 
   static set purpose (purpose) {
