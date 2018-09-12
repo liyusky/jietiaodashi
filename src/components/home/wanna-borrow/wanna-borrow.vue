@@ -76,9 +76,9 @@
       </div>
       <div class="form-refund">
         <span>实际到账金额</span>
-        <span class="refund-actual">0.00元</span>
+        <span class="refund-actual">{{borrowAmount ? borrowAmount : 0.00}}元</span>
         <span>到期还款总额</span>
-        <span class="refund-total">0.00元</span>
+        <span class="refund-total">{{paymentTotl ? paymentTotl : 0.00}}元</span>
       </div>
     </div>
     <div class="borrow-potocol">
@@ -107,9 +107,10 @@ export default {
   data () {
     return {
       borrowDate: '',
-      rateAmount: '0',
+      rateAmount: 0,
       ratePercent: '',
       borrowAmount: '',
+      paymentTotl: '',
       borrowObject: '请选择',
       borrowObjectPhone: [],
       borrowObjectImAccid: [],
@@ -153,7 +154,6 @@ export default {
     this.getDate(7)
     if (this.$store.state.purpose) {
       this.borrowPurpose = this.$store.state.purpose
-      return
     }
     if (this.$store.state.friendList) {
       this.$store.state.friendList.forEach(ele => {
@@ -271,13 +271,10 @@ export default {
     }
   },
   watch: {
-    borrowAmount (newNum, oldNum) {
-      if (!this.ratePercent) return
-      this.rateAmount = this.ratePercent * newNum
-    },
     ratePercent (newNum, oldNum) {
       if (!this.borrowAmount) return
-      this.rateAmount = this.borrowAmount * newNum
+      this.rateAmount = parseFloat(this.borrowAmount * newNum)
+      this.paymentTotl = parseInt(this.borrowAmount) + this.rateAmount
     }
   }
 }

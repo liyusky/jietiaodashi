@@ -10,7 +10,8 @@ module.exports = {
       saveToken: false,
       savePhone: false,
       saveName: false,
-      savePublishObject: true
+      savePublishObject: true,
+      clearPublishObject: true
     },
     state: false
   },

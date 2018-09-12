@@ -115,6 +115,9 @@ export default {
     TitleComponent
     // include components
   },
+  created () {
+    this.clearPublishObject()
+  },
   methods: {
     confirm () {
       this.friendList.forEach(ele => {
@@ -132,7 +135,7 @@ export default {
     selectFriend (item, index) {
       this.friendList[index].checkFriend = !this.friendList[index].checkFriend
     },
-    ...mapMutations(['savePublishObject'])
+    ...mapMutations(['savePublishObject', 'clearPublishObject'])
   }
 }
 </script>

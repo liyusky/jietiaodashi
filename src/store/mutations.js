@@ -26,6 +26,9 @@ const mutations = {
   // 保存选择的发布对象
   savePublishObject (state, friendList) {
     state.friendList.push(friendList)
+  },
+  clearPublishObject (state) {
+    state.friendList = []
   }
 }
 export default mutations
