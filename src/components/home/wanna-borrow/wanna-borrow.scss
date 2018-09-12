@@ -90,11 +90,15 @@
         $param: (flex flex) (justifyContent flex-end);
         @include flexSet($param);
         height: 100%;
+        .default-value {
+          font-size: 30 / $unit * $symbol;
+          color: #999;
+        }
         input {
           flex: 1;
           height: 100%;
           font-size: 30 / $unit * $symbol;
-          color: #333333;
+          color: #333;
           text-align: right;
         }
         input::-webkit-input-placeholder {

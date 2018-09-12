@@ -1,6 +1,15 @@
 export default class Url {
   static UserLogin = '/Member/UserLogin'
   static UserSmsLogin = '/Member/UserSmsLogin'
+  static FindPassword = '/Member/FindPassword'
   static SendSMS = '/Member/SendSMS'
+  static PersonalDetail ='/Member/Detail'
+  static UserLogout = '/Member/UserLogout'
   static PersonalCenter = '/Member/PersonalCenter'
+  // static GrapheCode = '/Member/GrapheCode'
+  static ForgetPaymentPwd = '/Member/ForgetPaymentPwd'
+  static BankCardList = '/Member/BankCardList'
+  static BindCard = '/BM/account/reg.c'
+  static Index = '/Common/Index'
+  static CreateSys = '/Loan/Create_Sys'
 }

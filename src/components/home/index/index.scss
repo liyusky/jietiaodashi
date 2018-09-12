@@ -14,39 +14,66 @@
     position: relative;
     width: 100%;
     height: 405 / $unit * $symbol;
-    .header-bg {
+    .swiper-container {
       width: 100%;
       height: 100%;
-      img {
+      .swiper-slide {
         width: 100%;
         height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .swiper-pagination {
+        .swiper-pagination-bullet, .swiper-pagination-bullet-active {
+          color: #000;
+        }
       }
     }
     .header-list {
       position: absolute;
       top: 54 / $unit * $symbol;
       left: 0;
-      $param: (flex flex) (alignItems center) (justifyContent flex-end);
+      z-index: 9;
+      $param: (flex flex) (alignItems center) (justifyContent space-around);
       @include flexSet($param);
       width: 100%;
-      padding: {
-        left: 21 / $unit * $symbol;
-        right: 21 / $unit * $symbol;
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .list-search {
+        @include vertical_center();
+        width: 540 / $unit * $symbol;
+        height: 60 / $unit * $symbol;
+        background-color:rgba($color: #fff, $alpha: 0.4);
+        border-radius: 30 / $unit * $symbol;
+        input {
+          flex-grow: 1;
+          height: 100%;
+          padding: {
+            left: 12 / $unit * $symbol;
+          }
+          font-size: 24 / $unit * $symbol;
+          color: #fff;
+          background-color: transparent;
+          &::-webkit-input-placeholder {
+            font-size: 24 / $unit * $symbol;
+            color: #fff;
+          }
+        }
       }
       .list-item {
         @include vertical_direction();
         @include vertical_center();
         height: 100%;
-        padding: {
-          left: 9 / $unit * $symbol;
-          right: 9 / $unit * $symbol;
-        }
         i {
-          font-size: 33 / $unit * $symbol;
+          font-size: 27 / $unit * $symbol;
           color: #fff;
         }
         p {
-          font-size: 21 / $unit * $symbol;
+          font-size: 18 / $unit * $symbol;
           color: #fff;
         }
       }
@@ -96,11 +123,22 @@
       }
     }
     .message-right {
+      flex: 1;
+      height: 100%;
       padding: {
         left: 21 / $unit * $symbol;
       }
-      font-size: 24 / $unit * $symbol;
-      color: #222222;
+      .broad {
+        width: 100%;
+        height: 100%;
+        p {
+          @include vertical_center();
+          width: 100%;
+          height: 100%;
+          font-size: 24 / $unit * $symbol;
+          color: #222222;
+        }
+      }
     }
   }
   &-activity {

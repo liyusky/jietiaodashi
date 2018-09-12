@@ -1,5 +1,5 @@
 module.exports = {
-  content: '欠条详情',
+  content: '借条详情',
   router: true,
   vuex: {
     mutations: false,
@@ -8,6 +8,7 @@ module.exports = {
   class: {
     'Check': false,
     'Http': false,
+    'Mock': false,
     'Router': false,
     'Storage': false,
     'Time': false,
@@ -36,7 +37,7 @@ module.exports = {
     'detail-list': `[
         {
           type: 'default',
-          key: '本金：',
+          key: '借出本金：',
           value: '0元'
         },
         {
@@ -53,6 +54,11 @@ module.exports = {
           type: 'default',
           key: '到期日：',
           value: '2017-07-18'
+        },
+        {
+          type: 'default',
+          key: '其他费用：',
+          value: '20元'
         }
       ]`,
     'image-bg': false,
@@ -63,12 +69,9 @@ module.exports = {
     'pay-password': false,
     'receipt': false,
     'tab': false,
-    'tip': `{
-        type: 'center',
-        content: '欠条详情'
-      }`,
+    'tip': 1,
     'title': `{
-        contentText: '欠条详情'
+        contentText: '借条详情'
       }`,
     'work-card': `{
         portrait: '',

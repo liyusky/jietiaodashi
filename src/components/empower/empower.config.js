@@ -4,15 +4,21 @@ module.exports = {
   vuex: {
     mutations: {
       saveOrigin: false,
+      savePurpose: false,
+      saveRoute: false,
+      saveBankCard: false,
       saveToken: true,
       savePhone: true,
-      saveName: true
+      saveName: true,
+      savePublishObject: false,
+      clearPublishObject: false
     },
     state: false
   },
   class: {
     'Check': true,
     'Http': true,
+    'Mock': false,
     'Router': true,
     'Storage': false,
     'Time': false,

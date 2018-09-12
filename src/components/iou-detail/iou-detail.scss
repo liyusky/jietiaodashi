@@ -6,49 +6,147 @@
   @include vertical_direction_center();
   width: 100%;
   min-height: 100vw;
-  .detail-content {
-    position: relative;
-    width: 699 / $unit * $symbol;
-    .content-work-crad {
-      width: 100%;
-      height: 330 / $unit * $symbol;
+  padding: {
+    bottom: 114 / $unit * $symbol;
+  }
+  .detail-hint {
+    padding: {
+      left: 21 / $unit * $symbol;
     }
-    .content-tip {
+    width: 100%;
+    .hint-user {
+      $param: (flex flex) (alignItems center) (justifyContent flex-start);
+      @include flexSet($param);
       width: 100%;
-      height: 81 / $unit * $symbol;
-      background-color: #f8f8f8;
-    }
-    .content-detail-list {
-      width: 100%;
-      height: 324 / $unit * $symbol;
+      height: 132 / $unit * $symbol;
       padding: {
-        top: 66 / $unit * $symbol;
-        bottom: 66 / $unit * $symbol;
+        right: 30 / $unit * $symbol;
+      }
+      .user-img {
+        width: 81 / $unit * $symbol;
+        height: 81 / $unit * $symbol;
+        img {
+          width: 100%;
+          width: 100%;
+        }
+      }
+      .user-info {
+        flex-grow: 1;
+        padding: {
+          left: 24 / $unit * $symbol;
+        }
+        .info-loan {
+          @include vertical_center();
+          height: 42 / $unit * $symbol;
+          span:first-of-type {
+            display: inline-block;
+            height: 30 / $unit * $symbol;
+            width: 6 / $unit * $symbol;
+            margin: {
+              right: 12 / $unit * $symbol;
+            }
+            background-color: #4d7bfe;
+          }
+        }
+        .info-sign {
+          i {
+            margin: {
+              left: 12 / $unit * $symbol;
+            }
+          }
+        }
+      }
+      .user-tip {
+        @include vertical_center();
+        .icon {
+          width: 30 / $unit * $symbol;
+          height: 30 / $unit * $symbol;
+          margin: {
+            right: 12 / $unit * $symbol;
+          }
+        }
       }
     }
-    .content-button {
-      height: 285 / $unit * $symbol;
-      padding: {
-        bottom: 54 / $unit * $symbol;
+    .hint-repayment {
+      @include vertical_center();
+      width: 100%;
+      height: 96 / $unit * $symbol;
+    }
+  }
+  .detail-loan {
+    width: 100%;
+    margin: {
+      top: 12 / $unit * $symbol;
+    }
+    .loan-title {
+      @include vertical_center();
+      width: 100%;
+      height: 90 / $unit * $symbol;
+      .icon {
+        width: 33 / $unit * $symbol;
+        height: 33 / $unit * $symbol;
+      }
+      p {
+        font-weight: 700;
+        padding: {
+          left: 18 / $unit * $symbol;
+        }
       }
     }
   }
-  .chamfer::before,
-  .chamfer::after {
-    position: absolute;
-    top: 66 / $unit * $symbol;
-    z-index: 100;
-    display: block;
-    content: '';
-    width: 30 / $unit * $symbol;
-    height: 30 / $unit * $symbol;
-    background-color: #f0f0f0;
-    border-radius: 50%;
+  .detail-dept, .detail-law {
+    width: 100%;
+    margin: {
+      top: 12 / $unit * $symbol;
+    }
+    .loan-title, .law-title {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 90 / $unit * $symbol;
+      .title-left {
+        @include vertical_center();
+        height: 90 / $unit * $symbol;
+        .icon {
+          width: 33 / $unit * $symbol;
+          height: 33 / $unit * $symbol;
+        }
+        p {
+          font-weight: 700;
+          padding: {
+            left: 18 / $unit * $symbol;
+          }
+        }
+      }
+      .button {
+        width: 132 / $unit * $symbol;
+        height: 51 / $unit * $symbol;
+        background-color: #4d7bfe;
+        border-radius: 6 / $unit * $symbol;
+      }
+    }
+    .dept-content,.law-content {
+      width: 100%;
+      height: 141 / $unit * $symbol;
+      padding: {
+        top: 33 / $unit * $symbol;
+      }
+      p {
+        line-height: 42 / $unit * $symbol;
+      }
+    }
   }
-  .chamfer::before {
-    left: -15 / $unit * $symbol;
-  }
-  .chamfer::after {
-    right: -15 / $unit * $symbol;
+  .detail-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    @include vertical_center_horizontal_between();
+    width: 100%;
+    height: 99 / $unit * $symbol;
+    .button {
+      flex-grow: 1;
+      height: 100%;
+    }
   }
 }

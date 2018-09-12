@@ -2,12 +2,23 @@ module.exports = {
   content: '借款用途',
   router: true,
   vuex: {
-    mutations: false,
+    mutations: {
+      saveOrigin: false,
+      savePurpose: false,
+      saveRoute: false,
+      saveBankCard: false,
+      saveToken: false,
+      savePhone: false,
+      saveName: false,
+      savePublishObject: false,
+      clearPublishObject: false
+    },
     state: false
   },
   class: {
     'Check': false,
     'Http': false,
+    'Mock': false,
     'Router': false,
     'Storage': false,
     'Time': false,

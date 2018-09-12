@@ -7,9 +7,10 @@ module.exports = {
   },
   class: {
     'Check': false,
-    'Http': false,
+    'Http': true,
+    'Mock': false,
     'Router': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Url': false
   },
@@ -40,8 +41,7 @@ module.exports = {
         selected: 'true'
       }`,
     'title': `{
-        contentText: '我要借款',
-        icon: 'cong'
+        contentText: '我要借款'
       }`,
     'work-card': false
   }

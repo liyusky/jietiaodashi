@@ -9,23 +9,11 @@
             <use xlink:href="#icon-cong"></use>
           </svg>
           <div class="detail-name color-black">
-            <p class="font-33">农村商业银行</p>
+            <p class="font-33">{{myBankList.BankName}}</p>
             <p class="font-27">储蓄卡</p>
           </div>
         </div>
-        <p class="item-card color-deep-black">3265984532155787</p>
-      </li>
-      <li class="list-item bg-white">
-        <div class="item-detail">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-cong"></use>
-          </svg>
-          <div class="detail-name color-black">
-            <p class="font-33">农村商业银行</p>
-            <p class="font-27">储蓄卡</p>
-          </div>
-        </div>
-        <p class="item-card color-deep-black">3265984532155787</p>
+        <p class="item-card color-deep-black">{{myBankList.BankCard}}</p>
       </li>
     </ul>
     <div class="card-hint font-30 color-light-black padding-horizontal-30">
@@ -40,11 +28,15 @@
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
+import Mock from '../../class/Mock.class.js'
+import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'MyBankCardComponent',
   data () {
     return {
+      myBankList: null,
       // start params
       'title': {
         contentText: '我的银行卡'
@@ -55,6 +47,19 @@ export default {
   components: {
     TitleComponent
     // include components
+  },
+  created () {
+    Http.send({
+      url: 'BankCardList',
+      data: {
+        token: Storage.token,
+        phone: Storage.phone
+      }
+    }).success(data => {
+      console.log(data)
+      this.myBankList = Mock.myBank
+    }).fail(data => {
+    })
   }
 }
 </script>

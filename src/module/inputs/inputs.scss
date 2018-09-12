@@ -8,7 +8,7 @@
   .left {
     @include vertical_center();
     height: 100%;
-    width: 20%;
+    width: 30%;
     .left-icon {
       margin: {
         right: 21 / $unit * $symbol;

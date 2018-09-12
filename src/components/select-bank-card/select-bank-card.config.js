@@ -2,13 +2,24 @@ module.exports = {
   content: '选择所属银行',
   router: true,
   vuex: {
-    mutations: false,
+    mutations: {
+      saveOrigin: false,
+      savePurpose: false,
+      saveRoute: false,
+      saveBankCard: true,
+      saveToken: false,
+      savePhone: false,
+      saveName: false,
+      savePublishObject: false,
+      clearPublishObject: false
+    },
     state: false
   },
   class: {
     'Check': false,
     'Http': false,
-    'Router': false,
+    'Mock': false,
+    'Router': true,
     'Storage': false,
     'Time': false,
     'Url': false

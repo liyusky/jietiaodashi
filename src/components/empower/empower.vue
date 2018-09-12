@@ -24,7 +24,7 @@
         <div class="form-button">
           <ButtonComponent :button="button" @SUBMIT_EVENT="login"></ButtonComponent>
         </div>
-        <div class="form-forget" v-if="!switcher"><span @click="gotpage('forget-password')">忘记密码</span></div>
+        <div class="form-forget" v-if="!switcher"><span @click="gotoPage('forget-password')">忘记密码</span></div>
       </div>
     </div>
   </section>
@@ -144,6 +144,12 @@ export default {
         this.saveName(data.Name)
         Router.push('home')
       }).fail(data => {
+        console.log(112123)
+      })
+    },
+    gotoPage (page) {
+      this.$router.push({
+        name: page
       })
     },
     // start mutations
