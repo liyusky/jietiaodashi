@@ -29,7 +29,7 @@
         </svg>
         <p class="font-27 color-black">借出详情</p>
       </div>
-      <DetailListComponent class="content-detail-list bg-white padding-horizontal-30 font-27" :detailList="detailList"></DetailListComponent>
+      <DetailListComponent class="loan-list bg-white padding-horizontal-30 font-27" :detailList="detailList"></DetailListComponent>
     </div>
     <div class="detail-dept bg-white">
       <div class="loan-title padding-horizontal-30 border-bottom-1">

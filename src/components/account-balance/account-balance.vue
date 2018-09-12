@@ -19,8 +19,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/undefined'
-import Mock from '../../class/Mock.class.js'
+import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
@@ -45,9 +44,9 @@ export default {
         ]
       },
       'detailList': [{
-      type: 'title',
-      content: '本月收支明细'
-    }],
+        type: 'title',
+        content: '本月收支明细'
+      }],
       'title': {
         contentText: '账户余额',
         rightText: '收支明细'
@@ -72,7 +71,7 @@ export default {
           token: Storage.token,
           phone: Storage.phone,
           pageCurrent: this.pageCurrent,
-          pageSize:20
+          pageSize: 20
         }
       }).success(data => {
       }).fail(data => {

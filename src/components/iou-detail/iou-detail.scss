@@ -93,6 +93,9 @@
         }
       }
     }
+    .loan-list {
+      height: 318 / $unit * $symbol;
+    }
   }
   .detail-dept, .detail-law {
     width: 100%;

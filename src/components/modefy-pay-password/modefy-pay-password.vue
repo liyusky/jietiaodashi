@@ -12,8 +12,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/undefined'
-import Router from '../../class/Router.class.js'
+import Http from '../../class/Http.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import KeyboardComponent from '../../module/keyboard/keyboard.vue'
@@ -62,12 +61,12 @@ export default {
         case 'modify':
           this.tip.content = '请输入原始支付密码'
           this.title.contentText = '修改支付密码'
-          this.submit = modify
+          this.submit = this.modify
           break
         case 'forget':
           this.tip.content = '请输入新的支付密码'
           this.title.contentText = '设置新支付密码'
-          this.submit = forget
+          this.submit = this.forget
           break
       }
     },
@@ -76,10 +75,10 @@ export default {
     },
     submit () {},
     modify () {
-      if (mark) {
-        this.oldPayment = this.payPassword;
+      if (this.mark) {
+        this.oldPayment = this.payPassword
       } else {
-        this.newPassword = this.payPassword;
+        this.newPassword = this.payPassword
       }
       Http.send({
         url: 'UpdatePaymentPwd',
