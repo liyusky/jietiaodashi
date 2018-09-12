@@ -29,10 +29,10 @@
     </div>
     <div class="transfer-remark bg-white">
       <p class="font-30 color-black">备注</p>
-      <input type="text" placeholder="20字以内">
+      <input type="text" maxlength="20" placeholder="20字以内">
     </div>
     <div class="transfer-button padding-horizontal-30">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="transferSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 转账 -->
@@ -40,6 +40,8 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/undefined'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -47,11 +49,12 @@ export default {
   name: 'FriendTransferComponent',
   data () {
     return {
-      amountInputText: '',
+      amountNumber: '',
       amountInput: {
         type: 'icon',
         leftIcon: 'cong',
-        placeholder: '请输入金额'
+        placeholder: '请输入金额',
+        style: 'number'
       },
       // start params
       'button': {
@@ -80,7 +83,7 @@ export default {
     backPage () {},
     gotoPage () {},
     getAmountInputText (text) {
-      this.amountInputText = text
+      this.amountNumber = text
     },
     scroll () {
       var tip = document.getElementById('tip')
@@ -93,6 +96,15 @@ export default {
           tip.style.left = (tip.offsetWidth + left - 30) + 'px'
         }
       }, 8)
+    },
+    transferSubmit () {
+      if (!Check.money(this.amountNumber)) return // money is not correct
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
     }
   }
 }

@@ -3,49 +3,49 @@
     <!-- s 底部导航 -->
     <nav class="tab">
       <div class="tab-item" @click="gotoPage('index')">
-        <svg class="icon" aria-hidden="true" v-if="tabPath === '/index'">
+        <svg class="icon" aria-hidden="true" v-if="path === '/index' || path === '/'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/index'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/index' && path !== '/'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: tabPath === '/index'}">首页</p>
+        <p class="item-name" :class="{active: path === '/index' || path === '/'}">首页</p>
       </div>
       <div class="tab-item" @click="gotoPage('message')">
-        <svg class="icon" aria-hidden="true" v-if="tabPath === '/message'">
+        <svg class="icon" aria-hidden="true" v-if="path === '/message'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/message'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/message'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: tabPath === '/message'}">消息</p>
+        <p class="item-name" :class="{active: path === '/message'}">消息</p>
       </div>
       <div class="tab-item" @click="gotoPage('wanna-borrow')">
-        <svg class="icon" aria-hidden="true" v-if="tabPath === '/wanna-borrow'">
+        <svg class="icon" aria-hidden="true" v-if="path === '/wanna-borrow'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/wanna-borrow'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/wanna-borrow'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: tabPath === '/wanna-borrow'}">我要借</p>
+        <p class="item-name" :class="{active: path === '/wanna-borrow'}">我要借</p>
       </div>
       <div class="tab-item" @click="gotoPage('find')">
-        <svg class="icon" aria-hidden="true" v-if="tabPath === '/find'">
+        <svg class="icon" aria-hidden="true" v-if="path === '/find'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/find'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/find'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: tabPath === '/find'}">发现</p>
+        <p class="item-name" :class="{active: path === '/find'}">发现</p>
       </div>
       <div class="tab-item" @click="gotoPage('mine')">
-        <svg class="icon" aria-hidden="true" v-if="tabPath === '/mine'">
+        <svg class="icon" aria-hidden="true" v-if="path === '/mine'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="tabPath !== '/mine'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/mine'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: tabPath === '/mine'}">我的</p>
+        <p class="item-name" :class="{active: path === '/mine'}">我的</p>
       </div>
     </nav>
     <!-- e 底部导航 -->
@@ -55,9 +55,10 @@
 <script>
 export default {
   name: 'TabComponent',
+  props: ['path'],
   data () {
     return {
-      tabPath: '/index'
+      // tabPath: '/index'
     }
   },
   // created () {
@@ -65,7 +66,7 @@ export default {
   // },
   methods: {
     gotoPage (page) {
-      this.tabPath = '/' + page
+      // this.tabPath = '/' + page
       this.$router.push({name: page})
       // if (this.tabPath !== '/' + page) {
       //   this.$router.push({name: page})

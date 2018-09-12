@@ -14,27 +14,27 @@
         <i class="iconfont icon-cong"></i>
       </div>
       <div class="bank-item">
-        <InputsComponent :inputs="cardHolder"></InputsComponent>
+        <InputsComponent :inputs="cardHolderInput"></InputsComponent>
       </div>
       <div class="bank-item">
-        <InputsComponent :inputs="cardNumber" @GET_INPUT_TEXT_EVENT="getCardNumber"></InputsComponent>
+        <InputsComponent :inputs="cardNumberInput" @GET_INPUT_TEXT_EVENT="getCardNumber"></InputsComponent>
       </div>
     </div>
     <div class="verification-form">
       <div class="form-item">
-        <InputsComponent :inputs="identityNumber" @GET_INPUT_TEXT_EVENT="getIdentityNumber"></InputsComponent>
+        <InputsComponent :inputs="identityNumberInput" @GET_INPUT_TEXT_EVENT="getIdentityNumber"></InputsComponent>
       </div>
       <div class="form-item">
         <p class="font-30 color-black">手机验证</p>
         <div class="item-right">
-          <input type="text" v-model="codeNumber" placeholder="请输入手机验证码">
+          <input type="number" v-model="codeNumber" placeholder="请输入手机验证码">
           <button class="button font-21 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
         </div>
         <!-- <InputsComponent :inputs="phoneNumber" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent> -->
       </div>
     </div>
     <div class="verification-button">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="identitySubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 身份验证 -->
@@ -43,6 +43,8 @@
 <script>
 // import InputsComponent from '../../module/inputs/inputs.vue'
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/undefined'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -50,35 +52,41 @@ export default {
   name: 'IdentityVerificationComponent',
   data () {
     return {
-      cardHolder: {
+      cardNumber: '',
+      cardHolder: '张玉',
+      phoneNumber: '',
+      identityNumber: '',
+      codeNumber: '',
+      graphCode: '1234',
+      paymentPwd: '265465',
+      getCodeText: '获取验证码',
+      codeDisabled: false,
+      cardHolderInput: {
         type: 'text',
         rightIcon: 'cong',
         leftText: '持卡人',
-        receiveInput: '张玉',
+        receiveInput: this.cardHolder,
         dsiabled: 'true'
       },
-      cardNumber: {
+      cardNumberInput: {
         type: 'text',
         placeholder: '请输入银行卡号',
         leftText: '卡号',
-        maxLength: '19'
+        maxLength: '19',
+        style: 'number'
       },
-      identityNumber: {
+      identityNumberInput: {
         type: 'text',
         placeholder: '输入身份证号',
-        leftText: '身份证'
+        leftText: '身份证',
+        style: 'number'
       },
-      phoneNumber: {
+      phoneNumberInput: {
         type: 'text',
         placeholder: '输入手机号',
-        leftText: '手机号'
+        leftText: '手机号',
+        style: 'number'
       },
-      cardNumberText: '',
-      phoneNumberText: '',
-      identityNumberText: '',
-      codeNumber: '',
-      getCodeText: '获取验证码',
-      codeDisabled: false,
       // start params
       'button': {
         default: [{
@@ -100,15 +108,47 @@ export default {
   },
   methods: {
     getCardNumber (text) {
-      this.cardNumberText = text
+      this.cardNumber = text
     },
     getIdentityNumber (text) {
-      this.identityNumberText = text
+      this.identityNumber = text
     },
     getPhoneNumber (text) {
-      this.phoneNumberText = text
+      this.phoneNumber = text
     },
     getCode () {
+      // if (!Check.phone(this.phoneNumber)) return // phone is not correct
+      this.waitOneMinute()
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
+    },
+    identitySubmit () {
+      if (!Check.card(this.cardNumber)) return // card is not correct
+      if (!Check.identity(this.identityNumber)) return // identity is not correct
+      if (!Check.code(this.codeNumber)) return // code is not correct
+      Http.send({
+        url: 'ForgetPaymentPwd',
+        data: {
+          token: this.$store.state.token,
+          phone: this.$store.state.token,
+          cardholder: this.cardHolder,
+          cardNumber: this.cardNumber,
+          idNumber: this.identityNumber,
+          smsCode: this.codeNumber,
+          graphCode: this.graphCode,
+          paymentPwd: this.paymentPwd
+        }
+      }).success(data => {
+        console.log(data)
+      }).fail(data => {
+        console.log(data)
+      })
+    },
+    waitOneMinute () {
       this.codeDisabled = true
       this.getCodeText = '60秒后重发'
       let time = 60

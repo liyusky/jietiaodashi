@@ -10,10 +10,10 @@ export default class Http {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
     args.data = args.data ? args.data : {}
-    let needTokenArr = ['SendSMS', 'RegistCustomer', 'LoginCustomer', 'mall', 'product', 'ModifyCustomerPwd']
-    if (!needTokenArr.includes(args.url)) {
-      args.data.access_token = window.token
-    }
+    // let needTokenArr = ['SendSMS', 'RegistCustomer', 'LoginCustomer', 'mall', 'product', 'ModifyCustomerPwd']
+    // if (!needTokenArr.includes(args.url)) {
+    //   args.data.access_token = window.token
+    // }
     axios({
       url: Url[args.url],
       method: 'post',

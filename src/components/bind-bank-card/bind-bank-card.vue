@@ -1,51 +1,36 @@
 <template>
   <!-- s 绑定银行卡 -->
   <section class="bind-bank-card padding-top-126">
-    <TitleComponent :title="title"></TitleComponent>
+    <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
     <div class="card-hint padding-horizontal-30">
       <p class="font-24 color-light-black">请绑定持卡人本人的银行卡，借条大师保证您的用卡安全</p>
     </div>
     <div class="card-form padding-horizontal-30 bg-white">
       <div class="form-item">
-        <p class="font-30 color-black">持卡人</p>
-        <div class="item-right">
-          <input type="text" v-model="cardName" disabled>
-          <i class="iconfont icon-cong font-30"></i>
-        </div>
+        <InputsComponent :inputs="cardHolderInput"></InputsComponent>
       </div>
       <div class="form-item">
-        <p class="font-30 color-black">身份证</p>
-        <div class="item-right">
-          <input type="text" v-model="idNumber" disabled>
-        </div>
+        <InputsComponent :inputs="identityNumberInput"></InputsComponent>
       </div>
       <div class="form-item">
-        <p class="font-30 color-black">银行</p>
-        <div class="item-slide">
-          <input type="text" v-model="bankCardName" placeholder="请选择银行" disabled>
-          <i class="iconfont icon-cong font-30"></i>
-        </div>
+        <InputsComponent :inputs="cardNumberInput" @GET_INPUT_TEXT_EVENT="getCardNumber"></InputsComponent>
+      </div>
+      <div class="form-item" @click="gotoPage('select-bank-card')">
+        <InputsComponent :inputs="selectBankInput"></InputsComponent>
+      </div>
+      <div class="form-item" @click="getOpenAccount">
+        <InputsComponent :inputs="openAccountInput"></InputsComponent>
       </div>
       <div class="form-item">
-        <p class="font-30 color-black">开户地区</p>
-        <div class="item-slide">
-          <input type="text" v-model="accountArea" placeholder="请输入开户地区" disabled>
-          <i class="iconfont icon-cong font-30"></i>
-        </div>
+        <InputsComponent :inputs="phoneNumberInput" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent>
       </div>
-      <div class="form-item">
-        <p class="font-30 color-black">手机号</p>
-        <div class="item-right">
-          <input type="text" v-model="phoneNumber" placeholder="请输入银行预留手机号">
-        </div>
-      </div>
-      <div class="form-item">
+      <!-- <div class="form-item">
         <p class="font-30 color-black">图片验证码</p>
         <div class="item-right">
           <input type="text" v-model="imgCode" placeholder="请输入图片验证码">
           <div class="right-img-code"></div>
         </div>
-      </div>
+      </div> -->
       <div class="form-item">
         <p class="font-30 color-black">手机验证码</p>
         <div class="item-right">
@@ -55,14 +40,23 @@
       </div>
     </div>
     <div class="card-button padding-horizontal-30">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @click="bindSubmit"></ButtonComponent>
     </div>
+    <CitySelect v-if="openAccountShow" :provinceList="provinceList" :cities="cities" @CANCEL_EVENT="closeModal" @SELECT_AREA_EVENT="getArea"></CitySelect>
+     <!-- <CitySelect :provinceList="provinceList" :cities="cities" @SELECT_AREA_EVENT="getArea"></CitySelect> -->
   </section>
   <!-- e 绑定银行卡 -->
 </template>
 
 <script>
+import { provinces as provinceList, cities } from '../../data/cities.js'
+import CitySelect from './city-select/city-select.vue'
 // include dependence
+import { mapMutations } from 'vuex'
+import Check from '../../class/Check.class.js'
+import Http from '../../class/undefined'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -70,15 +64,58 @@ export default {
   name: 'BindBankCardComponent',
   data () {
     return {
-      cardName: '张玉',
-      idNumber: '342222199801020125',
+      cardNumber: '',
       phoneNumber: '',
-      accountArea: '',
+      selectBank: '',
+      openAccount: '',
       codeNumber: '',
-      bankCardName: '',
       imgCode: '',
       getCodeText: '获取验证码',
       codeDisabled: false,
+      openAccountShow: false,
+      provinceList: provinceList,
+      cities: cities,
+      cardHolderInput: {
+        type: 'text',
+        rightIcon: 'cong',
+        leftText: '持卡人',
+        receiveInput: '张xx',
+        dsiabled: 'true'
+      },
+      identityNumberInput: {
+        type: 'text',
+        placeholder: '输入身份证号',
+        leftText: '身份证',
+        receiveInput: '342222199812121010',
+        dsiabled: 'true'
+      },
+      cardNumberInput: {
+        type: 'text',
+        placeholder: '请输入银行卡号',
+        leftText: '卡号',
+        maxLength: '19',
+        style: 'number'
+      },
+      selectBankInput: {
+        type: 'slide',
+        placeholder: '请选择银行',
+        leftText: '银行',
+        rightIcon: 'cong',
+        dsiabled: 'true'
+      },
+      openAccountInput: {
+        type: 'slide',
+        placeholder: '请选择开户地区',
+        leftText: '开户地区',
+        rightIcon: 'cong',
+        dsiabled: 'true'
+      },
+      phoneNumberInput: {
+        type: 'text',
+        placeholder: '输入手机号',
+        leftText: '手机号',
+        style: 'number'
+      },
       // start params
       'button': {
         default: [{
@@ -95,11 +132,55 @@ export default {
   components: {
     ButtonComponent,
     InputsComponent,
-    TitleComponent
+    TitleComponent,
+    CitySelect
     // include components
+  },
+  created () {
+    if (this.$store.state.route === '/select-bank-card') {
+      this.selectBankInput.placeholder = this.$store.state.card.key
+      this.selectBank = this.$store.state.card.key
+      return
+    }
+    this.selectBankInput.placeholder = '请选择银行'
+    this.selectBank = ''
+    Http.send({
+      url: 'GrapheCode',
+      data: {
+        phone: Storage.phone
+      }
+    }).success(data => {
+      console.log(data)
+    }).fail(data => {
+      console.log(data)
+    })
   },
   methods: {
     getCode () {
+      if (!Check.phone(this.phoneNumber)) return // phone is not correct
+      this.waitOneMinute()
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
+    },
+    bindSubmit () {
+      if (!Check.card(this.cardNumber)) return // card is not correct
+      if (!Check.phone(this.phoneNumber)) return // phone is not correct
+      if (!Check.imgCode(this.imgCode)) return // imgCode is not correct
+      if (!Check.code(this.codeNumber)) return // code is not correct
+      if (!this.selectBank) return
+      if (!this.openAccount) return
+      Http.send({
+        url: 'BindCard',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
+    },
+    waitOneMinute () {
       this.codeDisabled = true
       this.getCodeText = '60秒后重发'
       let time = 60
@@ -113,7 +194,37 @@ export default {
           this.codeDisabled = false
         }
       }, 1000)
-    }
+    },
+    gotoPage (page) {
+      Router.push(page)
+    },
+    getOpenAccount () {
+      this.openAccountShow = true
+    },
+    getCardNumber (text) {
+      this.cardNumber = text
+    },
+    getPhoneNumber (text) {
+      this.phoneNumber = text
+    },
+    closeModal () {
+      this.openAccountShow = false
+    },
+    getArea (area) {
+      this.openAccountShow = false
+      this.openAccountInput.placeholder = area
+      this.openAccount = area
+    },
+    backPage () {
+      if (this.$store.state.route === '/select-bank-card') {
+        Router.push('index')
+        return
+      }
+      this.$router.back(-1)
+    },
+    // start mutations
+    ...mapMutations(['saveOrigin', 'saveRoute'])
+    // end mutations
   }
 }
 </script>

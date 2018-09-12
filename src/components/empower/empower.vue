@@ -24,7 +24,7 @@
         <div class="form-button">
           <ButtonComponent :button="button" @SUBMIT_EVENT="login"></ButtonComponent>
         </div>
-        <div class="form-forget" v-if="!switcher"><span @click="gotpage('forget-password')">忘记密码</span></div>
+        <div class="form-forget" v-if="!switcher"><span @click="gotoPage('forget-password')">忘记密码</span></div>
       </div>
     </div>
   </section>
@@ -34,7 +34,7 @@
 <script>
 // include dependence
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
@@ -144,6 +144,12 @@ export default {
         Storage.name = data.Name
         Router.push('home')
       }).fail(data => {
+        console.log(112123)
+      })
+    },
+    gotoPage (page) {
+      this.$router.push({
+        name: page
       })
     }
   }

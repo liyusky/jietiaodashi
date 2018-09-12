@@ -19,7 +19,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 import Status from '../../class/Status.enum.js'
 import Storage from '../../class/Storage.class.js'
 import Type from '../../class/Type.enum.js'

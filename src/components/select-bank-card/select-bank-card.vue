@@ -3,8 +3,8 @@
   <section class="select-bank-card padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <TipComponent class="card-tip padding-left-30" :tip="tip"></TipComponent>
-    <div class="card-billboard padding-left-30 bg-white" v-for="(item, index) in billboard" :key="index">
-      <BillboardComponent class="billboard-item font-33 color-black padding-right-30 border-bottom-1" :billboard="item" ></BillboardComponent>
+    <div class="card-billboard padding-left-30 bg-white " v-for="(item, index) in billboard" :key="index" @click="selectBankCard(item, index)">
+      <BillboardComponent class="billboard-item font-33 border-bottom-1 color-black padding-right-30 " :billboard="item" ></BillboardComponent>
     </div>
   </section>
   <!-- e 选择所属银行 -->
@@ -12,6 +12,7 @@
 
 <script>
 // include dependence
+import Router from '../../class/Router.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import TipComponent from '../../module/tip/tip.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -110,6 +111,13 @@ export default {
     TipComponent,
     TitleComponent
     // include components
+  },
+  methods: {
+    selectBankCard (item, index) {
+      this.saveBankCard(item)
+      Router.push('bind-bank-card')
+    },
+    ...mapMutations(['saveBankCard'])
   }
 }
 </script>

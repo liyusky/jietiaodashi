@@ -94,6 +94,7 @@ module.exports = {
         rightIcon: '',
         leftText: '',
         leftIcon: '',
+        style: 'input类型',
         maxLength: '',
         disabled: '',
         receiveInput: '默认内容'

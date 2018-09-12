@@ -1,7 +1,10 @@
 export default class Url {
   static UserLogin = '/Member/UserLogin'
   static UserSmsLogin = '/Member/UserSmsLogin'
+  static FindPassword = '/Member/FindPassword'
   static SendSMS = '/Member/SendSMS'
+  static PersonalDetail ='/Member/Detail'
+  static UserLogout = '/Member/UserLogout'
   static PersonalCenter = '/Member/PersonalCenter'
   static BorrowList = '/Loan/BorrowList_New'
   static LendList = '/Loan/LendList_New'
@@ -12,4 +15,9 @@ export default class Url {
   static ThisMonthTransferALL = '/Member/ThisMonthTransferALL'
   static UpdatePaymentPwd = '/Member/UpdatePaymentPwd'
   static ForgetPaymentPwd = '/Member/ForgetPaymentPwd'
+  // static GrapheCode = '/Member/GrapheCode'
+  static BankCardList = '/Member/BankCardList'
+  static Index = '/Common/Index'
+  static CreateSys = '/Loan/Create_Sys'
+  static BindCard = '/BM/account/reg.c'
 }

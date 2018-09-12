@@ -54,4 +54,13 @@ export default class Check {
     }
     return true
   }
+
+  // check money
+  static money (money) {}
+  // check imgcode
+  static imgCode (imgcode) {}
+  // check cardNumber
+  static card (cardNumber) {}
+  // check identityNumber
+  static identity (identityNumber) {}
 }

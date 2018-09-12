@@ -4,23 +4,23 @@
     <TitleComponent :title="title" @BACK_EVENT="backPage('empower')"></TitleComponent>
     <div class="password-form">
       <div class="form-item form-phone">
-        <input type="text" v-model="phoneText" maxlength="11" placeholder="输入手机号">
+        <input type="text" v-model="phoneNumber" maxlength="11" placeholder="输入手机号">
       </div>
       <div class="form-item form-code">
         <input type="text" v-model="codeText" maxlength="6" placeholder="请输入验证码">
-        <button class="button font-21 color-light-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
+        <button class="button font-21 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
       </div>
       <div class="form-item form-password" >
-        <input type="password" v-model="passwordText" placeholder="请输入新的登录密码">
-        <i class="iconfont icon-cong" v-if="passwordText" @click="clearPasswordText"></i>
+        <input type="password" v-model="passwordNumber" placeholder="请输入新的登录密码">
+        <i class="iconfont icon-cong" v-if="passwordNumber" @click="clearpasswordNumber"></i>
       </div>
       <div class="form-item form-password" >
-        <input type="password" v-model="AgainPasswordText" placeholder="请再次输入新的登录密码">
-        <i class="iconfont icon-cong" v-if="AgainPasswordText" @click="clearAgainPasswordText"></i>
+        <input type="password" v-model="AgainPasswordNumber" placeholder="请再次输入新的登录密码">
+        <i class="iconfont icon-cong" v-if="AgainPasswordNumber" @click="clearAgainPasswordNumber"></i>
       </div>
     </div>
     <div class="password-button">
-      <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="findPasswordSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 忘记密码 -->
@@ -28,6 +28,8 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/undefined'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -35,9 +37,9 @@ export default {
   data () {
     return {
       placeholder: '',
-      phoneText: '',
-      passwordText: '',
-      AgainPasswordText: '',
+      phoneNumber: '',
+      passwordNumber: '',
+      AgainPasswordNumber: '',
       codeText: '',
       getCodeText: '获取验证码',
       switchShow: true,
@@ -66,7 +68,27 @@ export default {
         name: page
       })
     },
+    clearpasswordNumber () {
+      this.passwordNumber = ''
+    },
+    clearAgainPasswordNumber () {
+      this.AgainPasswordNumber = ''
+    },
     getCode () {
+      if (!Check.phone(this.phoneNumber)) return // phone is not correct
+      this.waitOneMinute()
+      Http.send({
+        url: 'SendSMS',
+        data: {
+          phone: this.phoneNumber,
+          type: 2
+        }
+      }).success(data => {
+        console.log(data)
+      }).fail(data => {
+      })
+    },
+    waitOneMinute () {
       this.codeDisabled = true
       this.getCodeText = '60秒后重发'
       let time = 60
@@ -81,13 +103,33 @@ export default {
         }
       }, 1000)
     },
-    clearPasswordText () {
-      this.passwordText = ''
-    },
-    clearAgainPasswordText () {
-      this.AgainPasswordText = ''
-    },
-    submit () {}
+    findPasswordSubmit () {
+      if (!Check.phone(this.phoneNumber)) return
+      console.log(1)
+      if (!Check.code(this.codeText)) return
+      console.log(2)
+      if (!Check.password(this.passwordNumber)) return
+      console.log(3)
+      if (this.passwordNumber !== this.AgainPasswordNumber) {
+        alert('密码不一致')
+        return
+      }
+      console.log(4)
+      Http.send({
+        url: 'FindPassword',
+        data: {
+          phone: this.phoneNumber,
+          password: this.passwordNumber,
+          verificationCode: this.codeText
+        }
+      }).success(data => {
+        console.log(1111)
+        this.$router.push({
+          name: 'empower'
+        })
+      }).fail(data => {
+      })
+    }
   }
 }
 </script>

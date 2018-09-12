@@ -6,9 +6,9 @@
         <i class="iconfont icon-cong font-30"></i>
         <div class="header-search">
           <input type="text" v-model="phoneNumber" placeholder="搜索手机号">
-          <i class="iconfont icon-cong font-27" @click="clearInput"></i>
+          <i class="iconfont icon-cong font-27" v-show="clearInputShow" @click="clearInput"></i>
         </div>
-        <button class="button bg-white font-30 color-black" @click="searchFriend"><div>搜索</div></button>
+        <button class="button bg-white font-30 color-black" @click="searchFriend"><div>{{searchBtnName}}</div></button>
       </div>
     </div>
     <div class="friend-content">
@@ -32,6 +32,8 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/undefined'
 export default {
   name: 'SearchFriendComponent',
   data () {
@@ -39,7 +41,9 @@ export default {
       phoneNumber: '',
       buttonText: '添加好友',
       addDisabled: false,
-      searchFriendData: null
+      searchFriendData: null,
+      searchBtnName: '取消',
+      clearInputShow: true
       // start params
       // end params
     }
@@ -51,15 +55,47 @@ export default {
     clearInput () {
       if (!this.phoneNumber) return
       this.phoneNumber = ''
+      this.clearInputShow = false
     },
+    // 搜索好友
     searchFriend () {
-      // if (!this.phoneNumber) return
+      if (!this.phoneNumber) {
+        this.$router.back(-1)
+        return
+      }
+      if (!Check.phone(this.phoneNumber)) {
+        alert('请输入正确手机号')
+        return
+      }
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+        this.searchFriendData = data
+      }).fail(data => {
+      })
     },
+    // 添加好友
     addFriedn () {
       this.buttonText = '已发送'
       this.addDisabled = true
+      Http.send({
+        url: 'url',
+        data: {}
+      }).success(data => {
+      }).fail(data => {
+      })
     },
     gotoPage () {}
+  },
+  watch: {
+    phoneNumber (newData, oldData) {
+      if (!newData) this.searchBtnName = '取消'
+      if (newData) {
+        this.searchBtnName = '搜索'
+        this.clearInputShow = true
+      }
+    }
   }
 }
 </script>

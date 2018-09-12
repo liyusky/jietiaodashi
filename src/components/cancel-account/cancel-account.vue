@@ -46,7 +46,8 @@ export default {
         leftText: '销账金额',
         leftIcon: 'cong',
         placeholder: '请输入10的倍数',
-        rightText: '元'
+        rightText: '元',
+        style: 'number'
       },
       totalMountInput: {
         type: 'switch',

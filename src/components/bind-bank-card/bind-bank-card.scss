@@ -35,20 +35,20 @@
           height: 100%;
         }
       }
-      .item-slide {
-        $param: (flex flex) (alignItems center) (justifyContent flex-end);
-        @include flexSet($param);
-        flex: 1;
-        height: 100%;
-        input {
-          text-align: right;
-        }
-        i {
-          margin: {
-            left: 21 / $unit * $symbol;
-          }
-        }
-      }
+      // .item-slide {
+      //   $param: (flex flex) (alignItems center) (justifyContent flex-end);
+      //   @include flexSet($param);
+      //   flex: 1;
+      //   height: 100%;
+      //   input {
+      //     text-align: right;
+      //   }
+      //   i {
+      //     margin: {
+      //       left: 21 / $unit * $symbol;
+      //     }
+      //   }
+      // }
       input {
         flex: 1;
         height: 100%;

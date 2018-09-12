@@ -13,7 +13,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/Http.class.js'
+import Http from '../../class/undefined'
 import Storage from '../../class/Storage.class.js'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TitleComponent from '../../module/title/title.vue'

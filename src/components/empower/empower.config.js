@@ -8,6 +8,7 @@ module.exports = {
   class: {
     'Check': true,
     'Http': true,
+    'Mock': false,
     'Router': true,
     'Status': false,
     'Storage': true,

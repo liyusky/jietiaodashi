@@ -5,6 +5,8 @@ const state = {
   name: null,
   id: null,
   oid: null,
-  paySet: null
+  paySet: null,
+  card: null,
+  friendList: []
 }
 export default state
