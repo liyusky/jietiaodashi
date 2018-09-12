@@ -1,6 +1,8 @@
 <template>
   <!-- s  -->
-  <section class="iou-center padding-top-126"></section>
+  <section class="iou-center padding-top-126">
+    
+  </section>
   <!-- e  -->
 </template>
 
