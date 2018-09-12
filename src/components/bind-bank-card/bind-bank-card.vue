@@ -52,7 +52,6 @@
 import { provinces as provinceList, cities } from '../../data/cities.js'
 import CitySelect from './city-select/city-select.vue'
 // include dependence
-import { mapMutations } from 'vuex'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -137,13 +136,14 @@ export default {
     // include components
   },
   created () {
-    if (this.$store.state.route === '/select-bank-card') {
+    if (this.$store.state.origin.path === '/select-bank-card') {
       this.selectBankInput.placeholder = this.$store.state.card.key
       this.selectBank = this.$store.state.card.key
       return
     }
     this.selectBankInput.placeholder = '请选择银行'
     this.selectBank = ''
+    // 图形验证码
     Http.send({
       url: 'GrapheCode',
       data: {
@@ -152,7 +152,6 @@ export default {
     }).success(data => {
       console.log(data)
     }).fail(data => {
-      console.log(data)
     })
   },
   methods: {
@@ -216,14 +215,13 @@ export default {
       this.openAccount = area
     },
     backPage () {
-      if (this.$store.state.route === '/select-bank-card') {
+      if (this.$store.state.origin.path === '/select-bank-card') {
         Router.push('index')
         return
       }
       this.$router.back(-1)
-    },
+    }
     // start mutations
-    ...mapMutations(['saveOrigin', 'saveRoute'])
     // end mutations
   }
 }

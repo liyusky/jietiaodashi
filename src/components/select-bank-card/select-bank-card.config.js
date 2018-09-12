@@ -5,7 +5,6 @@ module.exports = {
     mutations: {
       saveOrigin: false,
       savePurpose: false,
-      saveRoute: false,
       saveBankCard: true,
       saveToken: false,
       savePhone: false,

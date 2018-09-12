@@ -152,7 +152,7 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    if (this.$store.state.purpose) {
+    if (this.$store.state.origin.path === '/publish-object') {
       this.borrowPurpose = this.$store.state.purpose
     }
     if (this.$store.state.friendList) {
@@ -199,7 +199,7 @@ export default {
       this.deadLineShow = false
     },
     backPage () {
-      if (this.$store.state.route === '/purpose') {
+      if (this.$store.state.origin.path === '/purpose') {
         this.$router.push({
           name: 'index'
         })
