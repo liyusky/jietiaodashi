@@ -116,8 +116,7 @@ export default {
     selectBankCard (item, index) {
       this.saveBankCard(item)
       Router.push('bind-bank-card')
-    },
-    ...mapMutations(['saveBankCard'])
+    }
   }
 }
 </script>
