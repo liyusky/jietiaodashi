@@ -6,8 +6,10 @@ export default class Url {
   static PersonalDetail ='/Member/Detail'
   static UserLogout = '/Member/UserLogout'
   static PersonalCenter = '/Member/PersonalCenter'
-  static GrapheCode = '/Member/GrapheCode'
+  // static GrapheCode = '/Member/GrapheCode'
   static ForgetPaymentPwd = '/Member/ForgetPaymentPwd'
-  static CreateNew = '/Loan/Create_New'
   static BankCardList = '/Member/BankCardList'
+  static BindCard = '/BM/account/reg.c'
+  static Index = '/Common/Index'
+  static CreateSys = '/Loan/Create_Sys'
 }

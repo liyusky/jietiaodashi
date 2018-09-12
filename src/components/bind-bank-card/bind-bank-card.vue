@@ -18,19 +18,19 @@
       <div class="form-item" @click="gotoPage('select-bank-card')">
         <InputsComponent :inputs="selectBankInput"></InputsComponent>
       </div>
-      <div class="form-item">
-        <InputsComponent :inputs="openAccountInput" @click="getOpenAccount"></InputsComponent>
+      <div class="form-item" @click="getOpenAccount">
+        <InputsComponent :inputs="openAccountInput"></InputsComponent>
       </div>
       <div class="form-item">
         <InputsComponent :inputs="phoneNumberInput" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent>
       </div>
-      <div class="form-item">
+      <!-- <div class="form-item">
         <p class="font-30 color-black">图片验证码</p>
         <div class="item-right">
           <input type="text" v-model="imgCode" placeholder="请输入图片验证码">
           <div class="right-img-code"></div>
         </div>
-      </div>
+      </div> -->
       <div class="form-item">
         <p class="font-30 color-black">手机验证码</p>
         <div class="item-right">
@@ -42,11 +42,15 @@
     <div class="card-button padding-horizontal-30">
       <ButtonComponent :button="button" @click="bindSubmit"></ButtonComponent>
     </div>
+    <CitySelect v-if="openAccountShow" :provinceList="provinceList" :cities="cities" @CANCEL_EVENT="closeModal" @SELECT_AREA_EVENT="getArea"></CitySelect>
+     <!-- <CitySelect :provinceList="provinceList" :cities="cities" @SELECT_AREA_EVENT="getArea"></CitySelect> -->
   </section>
   <!-- e 绑定银行卡 -->
 </template>
 
 <script>
+import { provinces as provinceList, cities } from '../../data/cities.js'
+import CitySelect from './city-select/city-select.vue'
 // include dependence
 import { mapMutations } from 'vuex'
 import Check from '../../class/Check.class.js'
@@ -69,6 +73,8 @@ export default {
       getCodeText: '获取验证码',
       codeDisabled: false,
       openAccountShow: false,
+      provinceList: provinceList,
+      cities: cities,
       cardHolderInput: {
         type: 'text',
         rightIcon: 'cong',
@@ -126,7 +132,8 @@ export default {
   components: {
     ButtonComponent,
     InputsComponent,
-    TitleComponent
+    TitleComponent,
+    CitySelect
     // include components
   },
   created () {
@@ -167,7 +174,7 @@ export default {
       if (!this.selectBank) return
       if (!this.openAccount) return
       Http.send({
-        url: 'url',
+        url: 'BindCard',
         data: {}
       }).success(data => {
       }).fail(data => {
@@ -203,11 +210,14 @@ export default {
     closeModal () {
       this.openAccountShow = false
     },
+    getArea (area) {
+      this.openAccountShow = false
+      this.openAccountInput.placeholder = area
+      this.openAccount = area
+    },
     backPage () {
       if (this.$store.state.route === '/select-bank-card') {
-        this.$router.push({
-          name: 'index'
-        })
+        Router.push('index')
         return
       }
       this.$router.back(-1)

@@ -9,7 +9,8 @@ module.exports = {
       saveBankCard: false,
       saveToken: true,
       savePhone: true,
-      saveName: true
+      saveName: true,
+      savePublishObject: false
     },
     state: false
   },

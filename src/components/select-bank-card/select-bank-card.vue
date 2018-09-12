@@ -13,6 +13,7 @@
 <script>
 // include dependence
 import { mapMutations } from 'vuex'
+import Router from '../../class/Router.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import TipComponent from '../../module/tip/tip.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -115,9 +116,7 @@ export default {
   methods: {
     selectBankCard (item, index) {
       this.saveBankCard(item)
-      this.$router.push({
-        name: 'bind-bank-card'
-      })
+      Router.push('bind-bank-card')
     },
     ...mapMutations(['saveBankCard'])
   }

@@ -85,7 +85,7 @@
       <TipComponent :tip="tip" @TOGGLE_SELECTED_EVENT="getTipSelected"></TipComponent>
     </div>
     <div class="borrow-submit">
-      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="publishSubmit"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="publishSubmit"></ButtonComponent>
     </div>
     <DeadlineComponent v-show="deadLineShow" @SELECT_DATA_EVENT="getDeadline" @CANCEL_EVENT="closeModal"></DeadlineComponent>
     <PublishComponent v-show="purposeShow" @SELECT_PUBLISH_EVENT="getPublish" @CANCEL_PUBLISH_EVENT="closeModal"></PublishComponent>
@@ -111,6 +111,10 @@ export default {
       ratePercent: '',
       borrowAmount: '',
       borrowObject: '请选择',
+      borrowObjectPhone: [],
+      borrowObjectImAccid: [],
+      phoneStr: '',
+      imAccidStr: '',
       borrowDeadline: '7',
       borrowPublish: '3',
       borrowPurpose: '临时周转',
@@ -147,11 +151,19 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    if (this.$store.state.route === '/purpose') {
+    if (this.$store.state.purpose) {
       this.borrowPurpose = this.$store.state.purpose
       return
     }
-    this.borrowPurpose = '临时周转'
+    if (this.$store.state.friendList) {
+      this.$store.state.friendList.forEach(ele => {
+        this.borrowObjectPhone.push(ele.phone)
+        this.borrowObjectImAccid.push(ele.imAccid)
+      })
+      this.phoneStr = this.borrowObjectPhone.toString().split(',')
+      this.imAccidStr = this.borrowObjectImAccid.toString().split(',')
+      this.borrowObject = '好友'
+    }
   },
   methods: {
     scroll () {
@@ -225,24 +237,23 @@ export default {
       if (!this.ratePercent) return
       if (!this.tip.selected) return
       Http.send({
-        url: 'CreateNew',
+        url: 'CreateSys',
         data: {
           token: Storage.token,
-          phone: Storage.phone
-          // type: 1,
-          // amount:500     //借款金额 int
-          // lendPhones:"13955131374,13955131375"     //出借人手机集合(多个借款方用","隔开)
-          // imAccid:"13955131374,6000405"         //出借人云信用id(多个借款方用","隔开)
-          // yearRate:20    //年利率  int
-          // Interest:50.3   //利息  double
-          // period:7        //借款期限 7天  int
-          // otherCost:20.1  //其他费用  double
-          // purpose: '零时周转'          //借款用途 string
-          // purposeReason: '借点钱周转一下'          //借款用途说明 string
-          // expireDay:20        //借款发布期 7天  int
-          // /*purposePicList(借款用途图片集合表单提交)    */
-          // taskId:'D34E1519-0558-44FA-9731-D0B34423E5AB,D34E1519-0558-44FA-9731-D0B34423E5AB'        //任务单集合(多个任务单用","隔开)
-          // source:1
+          phone: Storage.phone,
+          type: 1,
+          amount: this.borrowAmount, // 借款金额 int
+          lendPhones: this.phoneStr, // 出借人手机集合(多个借款方用","隔开)
+          imAccid: this.imAccidStr, // 出借人云信用id(多个借款方用","隔开)
+          yearRate: this.ratePercent, // 年利率  int
+          Interest: this.rateAmount, // 利息  double
+          period: this.borrowDeadline, // 借款期限 7天  int
+          otherCost: 20.1, // 其他费用  double
+          purpose: this.borrowPurpose, // 借款用途 string
+          purposeReason: '借点钱周转一下', // 借款用途说明 string
+          expireDay: this.borrowPublish, // 借款发布期 7天  int
+          taskId: 'D34E1519-0558-44FA-9731-D0B34423E5AB,D34E1519-0558-44FA-9731-D0B34423E5AB', // 任务单集合(多个任务单用","隔开)
+          source: 1
         }
       }).success(data => {
       }).fail(data => {

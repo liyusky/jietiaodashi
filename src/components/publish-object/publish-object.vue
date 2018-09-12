@@ -31,16 +31,16 @@
       <span class="font-27 color-deep-grey">我的好友</span>
     </div>
     <div class="object-friend padding-left-30 bg-white">
-      <div class="friend-item border-bottom-1" v-for="(item, index) in 12" :key="index" @click="selectFriend(item, index)">
+      <div class="friend-item border-bottom-1" v-for="(item, index) in friendList" :key="index" @click="selectFriend(item, index)">
         <div class="item-portrait">
-          <img src="http://iph.href.lu/87x87">
+          <img :src="item.url">
         </div>
         <div class="item-detail padding-horizontal-30">
           <div class="detail-title">
-            <p class="font-33 color-black">借条大师助手</p>
-            <p class="font-27 color-deep-grey"><span>借条ID：</span><span>121634546</span></p>
+            <p class="font-33 color-black">{{item.userName}}</p>
+            <p class="font-27 color-deep-grey"><span>借条ID：</span><span>{{item.phone}}</span></p>
           </div>
-          <i class="iconfont icon-cong font-30" :class="{'icon-jianyu': selectIndex === index}"></i>
+          <i class="iconfont icon-cong font-30" :class="{'icon-jianyu': item.checkFriend}"></i>
         </div>
       </div>
     </div>
@@ -50,12 +50,59 @@
 
 <script>
 // include dependence
+import { mapMutations } from 'vuex'
+import Router from '../../class/Router.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'PublishObjectComponent',
   data () {
     return {
       selectIndex: null,
+      selectShow: false,
+      friendList: [
+        {
+          url: 'http://iph.href.lu/87x87',
+          phone: '17764532154',
+          imAccid: '1546347878',
+          userName: '你好',
+          checkFriend: false
+        },
+        {
+          url: 'http://iph.href.lu/87x87',
+          phone: '17764532154',
+          imAccid: '1546347878',
+          userName: '你好',
+          checkFriend: false
+        },
+        {
+          url: 'http://iph.href.lu/87x87',
+          phone: '17764532154',
+          imAccid: '1546347878',
+          userName: '你好',
+          checkFriend: false
+        },
+        {
+          url: 'http://iph.href.lu/87x87',
+          phone: '17764532154',
+          imAccid: '1546347878',
+          userName: '你好',
+          checkFriend: false
+        },
+        {
+          url: 'http://iph.href.lu/87x87',
+          phone: '17764532154',
+          imAccid: '1546347878',
+          userName: '你好',
+          checkFriend: false
+        },
+        {
+          url: 'http://iph.href.lu/87x87',
+          phone: '17764532154',
+          imAccid: '1546347878',
+          userName: '你好',
+          checkFriend: false
+        }
+      ],
       // start params
       'title': {
         contentText: '发布对象',
@@ -69,15 +116,23 @@ export default {
     // include components
   },
   methods: {
-    confirm () {},
+    confirm () {
+      this.friendList.forEach(ele => {
+        if (ele.checkFriend) {
+          this.savePublishObject(ele)
+        }
+      })
+      Router.push('wanna-borrow')
+    },
     back () {
       this.$router.push({
         name: 'wanna-borrow'
       })
     },
     selectFriend (item, index) {
-      this.selectIndex = index
-    }
+      this.friendList[index].checkFriend = !this.friendList[index].checkFriend
+    },
+    ...mapMutations(['savePublishObject'])
   }
 }
 </script>

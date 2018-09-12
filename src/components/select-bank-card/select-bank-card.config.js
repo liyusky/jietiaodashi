@@ -6,10 +6,11 @@ module.exports = {
       saveOrigin: false,
       savePurpose: false,
       saveRoute: false,
-      saveBankCard: false,
+      saveBankCard: true,
       saveToken: false,
       savePhone: false,
-      saveName: false
+      saveName: false,
+      savePublishObject: false
     },
     state: false
   },
@@ -17,7 +18,7 @@ module.exports = {
     'Check': false,
     'Http': false,
     'Mock': false,
-    'Router': false,
+    'Router': true,
     'Storage': false,
     'Time': false,
     'Url': false

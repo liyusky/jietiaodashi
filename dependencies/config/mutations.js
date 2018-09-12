@@ -22,6 +22,10 @@ const mutations = {
   },
   saveName (state, name) {
     state.name = name
+  },
+  // 保存选择的发布对象
+  savePublishObject (state, friendList) {
+    state.friendList.push(friendList)
   }
 }
 module.exports = mutations

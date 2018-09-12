@@ -1,16 +1,16 @@
 module.exports = {
-  content: '首页',
-  router: true,
+  content: '',
+  router: false,
   vuex: {
     mutations: false,
     state: false
   },
   class: {
     'Check': false,
-    'Http': true,
+    'Http': false,
     'Mock': false,
     'Router': false,
-    'Storage': true,
+    'Storage': false,
     'Time': false,
     'Url': false
   },

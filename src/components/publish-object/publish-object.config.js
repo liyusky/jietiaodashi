@@ -2,14 +2,23 @@ module.exports = {
   content: '发布对象',
   router: true,
   vuex: {
-    mutations: false,
+    mutations: {
+      saveOrigin: false,
+      savePurpose: false,
+      saveRoute: false,
+      saveBankCard: false,
+      saveToken: false,
+      savePhone: false,
+      saveName: false,
+      savePublishObject: true
+    },
     state: false
   },
   class: {
     'Check': false,
     'Http': false,
     'Mock': false,
-    'Router': false,
+    'Router': true,
     'Storage': false,
     'Time': false,
     'Url': false

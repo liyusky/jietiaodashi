@@ -122,8 +122,6 @@ export default {
       Router.push(page)
     },
     init () {
-      console.log(111)
-      console.log(Storage.phone)
       Http.send({
         url: 'PersonalCenter',
         data: {
