@@ -8,6 +8,7 @@ const state = {
   paySet: null,
   card: {},
   publishObject: [],
-  purpose: null
+  purpose: null,
+  money: null
 }
 export default state

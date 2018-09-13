@@ -12,7 +12,7 @@
       <div class="font-27">应付利息 {{TotalInterest}}元</div>
       <ImageBgComponent :imageBg="imageBg"></ImageBgComponent>
     </BoardComponent>
-    <ReceiptComponent :receipt="item" v-for="(item, index) in receipt" :key="index"></ReceiptComponent>
+    <ReceiptComponent :receipt="item" v-for="(item, index) in receipt" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.id)"></ReceiptComponent>
   </section>
   <!-- e 借出 -->
 </template>
@@ -87,7 +87,8 @@ export default {
           start: item.LoanDate,
           end: item.RepaymentDate,
           money: item.Amount,
-          status: Status[item.State]
+          status: Status[item.State],
+          id: item.Id
         }
         this.receipt.push(receipt)
       })

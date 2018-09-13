@@ -3,7 +3,7 @@
   <section class="cancel-account padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <div class="account-board bg-blue color-white">
-      <p>100.00</p>
+      <p>{{money}}</p>
       <p class="font-27">当前应收款（元）</p>
     </div>
     <div class="account-form bg-white border-bottom-1 padding-horizontal-30">
@@ -21,7 +21,7 @@
       <TipComponent :tip="tip"></TipComponent>
     </div>
     <div class="account-button">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
   </section>
   <!-- e 销账 -->
@@ -29,6 +29,9 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
+import Storage from '../../class/Storage.class.js'
 import BoardComponent from '../../module/board/board.vue'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
@@ -38,6 +41,7 @@ export default {
   name: 'CancelAccountComponent',
   data () {
     return {
+      money: Storage.money,
       cancelMount: '',
       totalMountShow: true,
       cancelReason: '',
@@ -99,6 +103,21 @@ export default {
     },
     getCancelReason (text) {
       this.cancelReason = text
+    },
+    submit () {
+      if (!Check.number()) return
+      Http.send({
+        url: 'CancelAccount',
+        data: {
+          token: Storage.token,
+          id: Storage.id,
+          phone: Storage.phone,
+          amount: '销账金额',
+          reason: '销账原因(1、不要，2、其它方式付款，3、其它原因)'
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
     }
   }
 }

@@ -25,12 +25,6 @@ export default {
     return {}
   },
   methods: {
-    firstSubmit () {
-      this.$emit('FIRST_SUBMIT_EVENT')
-    },
-    secondSubmit () {
-      this.$emit('SECOND_SUBMIT_EVENT')
-    },
     submit (index) {
       this.$emit('SUBMIT_EVENT', index)
     },

@@ -1,11 +1,13 @@
 module.exports = {
-  content: '展期',
-  router: true,
+  content: '',
+  router: false,
   vuex: {
     mutations: false,
     state: false
   },
   class: {
+    'BM': false,
+    'Btn': false,
     'Check': false,
     'Http': false,
     'Mock': false,
@@ -19,12 +21,7 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': `{
-        default: [{
-          type: 'primary',
-          text: '同意展期'
-        }]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
@@ -33,18 +30,10 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
-    'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': `{
-        type: 'default',
-        content: '同意相关协议',
-        icon: 'cong',
-        selected: 'true'
-      }`,
-    'title': `{
-        contentText: '展期'
-      }`,
+    'tip': false,
+    'title': false,
     'work-card': false
   }
 }

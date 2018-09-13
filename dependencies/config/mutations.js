@@ -34,6 +34,9 @@ const mutations = {
   // 保存银卡卡
   saveBankCard (state, card) {
     state.card = card
+  },
+  saveMoney (state, money) {
+    state.money = money
   }
 }
 module.exports = mutations

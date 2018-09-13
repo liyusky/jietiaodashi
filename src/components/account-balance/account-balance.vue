@@ -7,9 +7,9 @@
       <div class="color-black font-27">可用余额(元)</div>
       <div class="color-deep-black">
         <span class="font-51">¥</span>
-        <span class="font-69">{{0}}</span>
+        <span class="font-69">{{usableMoney}}</span>
       </div>
-      <div class="color-deep-blue font-27">不可用余额 {{0}}元</div>
+      <div class="color-deep-blue font-27">不可用余额 {{unusableMoney}}元</div>
     </div>
     <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button" @LEFT_EVENT="target('withdraw')" @RIGHT_EVENT="target('recharge')"></ButtonComponent>
     <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent>
@@ -19,9 +19,11 @@
 
 <script>
 // include dependence
+import BM from '../../class/BM.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
+import Time from '../../class/Time.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -30,6 +32,8 @@ export default {
   data () {
     return {
       pageCurrent: 1,
+      usableMoney: 0,
+      unusableMoney: 0,
       // start params
       'button': {
         group: [
@@ -74,6 +78,17 @@ export default {
           pageSize: 20
         }
       }).success(data => {
+      }).fail(data => {
+      })
+      BM.send({
+        url: 'queryBalance',
+        data: {
+          jyrq: Time.current('YYYYMMDD'),
+          zh: Storage.phone
+        }
+      }).success(data => {
+        this.usableMoney = data[0].ca_balance
+        this.unusableMoney = data[0].cf_balance
       }).fail(data => {
       })
     },
