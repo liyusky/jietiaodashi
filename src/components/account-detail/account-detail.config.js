@@ -41,6 +41,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': `[]`,
     'tab': false,
     'tip': `{

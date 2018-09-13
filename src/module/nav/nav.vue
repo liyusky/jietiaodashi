@@ -1,7 +1,7 @@
 <template>
   <!-- s  -->
   <ul class="nav">
-    <li class="nav-item" :class="selected == item ? nav.active : ''" v-for="(item, index) in nav.content" :key="index" @click="select(index, item)">{{item}}</li>
+    <li class="nav-item" :class="selected === item ? nav.active : ''" v-for="(item, index) in nav.content" :key="index" @click="select(index, item)">{{item}}</li>
   </ul>
   <!-- e  -->
 </template>
@@ -12,7 +12,7 @@ export default {
   props: ['nav'],
   data () {
     return {
-      selected: ''
+      selected: this.nav.content[0]
     }
   },
   methods: {

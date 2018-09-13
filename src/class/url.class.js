@@ -20,4 +20,6 @@ export default class Url {
   static Index = '/Common/Index'
   static CreateSys = '/Loan/Create_Sys'
   static BindCard = '/BM/account/reg.c'
+  static LoanCenterList = '/Loan/LoanCenterList'
+  static Opinion = '/Member/Opinion'
 }

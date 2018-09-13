@@ -36,6 +36,7 @@
       height: 100%;
       font-size: 30 / $unit * $symbol;
       color: #333333;
+      overflow-x: auto;
       background-color: transparent;
     }
     input::-webkit-input-placeholder {

@@ -44,7 +44,7 @@
           @include flexSet($param);
           width: 100%;
           height: 60 / $unit * $symbol;
-          font-size: 30 / $unit * $symbol;
+          font-size: 27 / $unit * $symbol;
           color: #aaaaaa;
         }
         .active {

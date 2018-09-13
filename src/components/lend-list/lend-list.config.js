@@ -31,6 +31,7 @@ module.exports = {
         active: ''
       }`,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': `[]`,
     'tab': false,
     'tip': false,

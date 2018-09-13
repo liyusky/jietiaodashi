@@ -65,7 +65,7 @@ export default {
         type: 'text',
         rightIcon: 'cong',
         leftText: '持卡人',
-        receiveInput: this.cardHolder,
+        receiveInput: '',
         dsiabled: 'true'
       },
       cardNumberInput: {
@@ -105,6 +105,9 @@ export default {
     InputsComponent,
     ButtonComponent
     // include components
+  },
+  created () {
+    this.cardHolderInput.receiveInput = this.cardHolder
   },
   methods: {
     getCardNumber (text) {

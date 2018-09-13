@@ -38,7 +38,7 @@
         </svg>
         <p>贷款超市</p>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" @click="gotoPage('iou-center')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-cong"></use>
         </svg>
@@ -106,6 +106,7 @@
 import Swiper from 'Swiper'
 // include dependence
 import Http from '../../../class/Http.class.js'
+import Router from '../../../class/Router.class.js'
 import Storage from '../../../class/Storage.class.js'
 export default {
   name: 'IndexComponent',
@@ -165,6 +166,11 @@ export default {
         observeParents: true
       })
     })
+  },
+  methods: {
+    gotoPage (page) {
+      Router.push(page)
+    }
   }
 }
 </script>

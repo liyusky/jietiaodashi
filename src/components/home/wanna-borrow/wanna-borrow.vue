@@ -256,6 +256,7 @@ export default {
           source: 1
         }
       }).success(data => {
+        console.log(data)
       }).fail(data => {
       })
     },

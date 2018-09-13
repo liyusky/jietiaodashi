@@ -32,6 +32,7 @@ const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components
 const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/home/wanna-borrow/wanna-borrow.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'immediate-repayment' */ '../components/immediate-repayment/immediate-repayment.vue')
+const IouCenterComponent = () => import(/* webpackChunkName: 'iou-center' */ '../components/iou-center/iou-center.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
@@ -207,6 +208,11 @@ export default new Router({
       path: '/immediate-repayment',
       name: 'immediate-repayment',
       component: ImmediateRepaymentComponent
+    },
+    {
+      path: '/iou-center',
+      name: 'iou-center',
+      component: IouCenterComponent
     },
     {
       path: '/iou-detail',
