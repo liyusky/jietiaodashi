@@ -18,5 +18,10 @@ export default class Url {
   static BankCardList = '/Member/BankCardList'
   static Index = '/Common/Index'
   static CreateSys = '/Loan/Create_Sys'
+  static LoanCollectionCancel = '/Loan/LoanCollectionCancel'
+  static ConfirmLoan = '/Loan/ConfirmLoan'
+  static CancelAccount = '/Loan/CancelAccount'
+  // BM
   static BindCard = '/BM/account/reg.c'
+  static queryBalance = 'BM/query/balanceAction.c'
 }

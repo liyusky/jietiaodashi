@@ -152,11 +152,11 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    if (this.$store.state.origin.path === '/publish-object') {
-      this.borrowPurpose = this.$store.state.purpose
+    if (this.$store.state.origin.path === '/purpose') {
+      this.borrowPurpose = Storage.purpose
     }
-    if (this.$store.state.friendList) {
-      this.$store.state.friendList.forEach(ele => {
+    if (Storage.publishObject) {
+      Storage.publishObject.forEach(ele => {
         this.borrowObjectPhone.push(ele.phone)
         this.borrowObjectImAccid.push(ele.imAccid)
       })

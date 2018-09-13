@@ -34,7 +34,7 @@
       </div>
       <DetailListComponent class="loan-list bg-white padding-horizontal-30 font-27" :detailList="detailList"></DetailListComponent>
     </div>
-    <div class="detail-dept bg-white">
+    <div class="detail-dept bg-white" v-show="urge">
       <div class="loan-title padding-horizontal-30 border-bottom-1">
         <div class="title-left">
           <svg class="icon" aria-hidden="true">
@@ -48,7 +48,7 @@
         <p class="font-24 color-black">合法催收智慧化解债务债券矛盾</p>
       </div>
     </div>
-    <div class="detail-law bg-white">
+    <div class="detail-law bg-white" v-show="arbitrate">
       <div class="law-title padding-horizontal-30 border-bottom-1">
         <div class="title-left">
           <svg class="icon" aria-hidden="true">
@@ -63,8 +63,8 @@
       </div>
     </div>
     <div class="detail-button bg-white">
-      <button class="button font-30 color-blue bg-white"><div>展期</div></button>
-      <button class="button font-30 color-white bg-blue"><div>销账</div></button>
+      <button class="button font-30 color-blue bg-white" v-show="button[0]" @click="leftOperate(0)"><div>{{button[0]}}</div></button>
+      <button class="button font-30 color-white bg-blue" v-show="button[1]" @click="rightOperate(1)"><div>{{button[1]}}</div></button>
     </div>
   </section>
   <!-- e 借条详情 -->
@@ -72,16 +72,13 @@
 
 <script>
 // include dependence
+import Btn from '../../class/Btn.enum.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
-import Status from '../../class/Status.enum.js'
 import Storage from '../../class/Storage.class.js'
 import Type from '../../class/Type.enum.js'
-import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
-import TipComponent from '../../module/tip/tip.vue'
 import TitleComponent from '../../module/title/title.vue'
-import WorkCardComponent from '../../module/work-card/work-card.vue'
 export default {
   name: 'IouDetailComponent',
   data () {
@@ -91,23 +88,13 @@ export default {
       overdueDay: '',
       state: '',
       repaymentAmount: '',
+      urge: false,
+      arbitrate: false,
+      btnLeft: '',
+      btnRight: '',
+      button: [],
+      page: [],
       // start params
-      'button': {
-        default: [{
-          type: 'default',
-          text: '销账'
-        }],
-        group: [
-          {
-            text: '同意',
-            class: 'primary'
-          },
-          {
-            text: '拒绝',
-            class: 'danger'
-          }
-        ]
-      },
       'detailList': [
         {
           type: 'default',
@@ -132,26 +119,18 @@ export default {
         {
           type: 'default',
           key: '其他费用：',
-          value: '0'
+          value: '0元'
         }
       ],
       'title': {
         contentText: '借条详情'
-      },
-      'workCard': {
-        portrait: '',
-        name: '李艳霞',
-        money: '1500.00'
       }
       // end params
     }
   },
   components: {
-    ButtonComponent,
     DetailListComponent,
-    TipComponent,
-    TitleComponent,
-    WorkCardComponent
+    TitleComponent
     // include components
   },
   created () {
@@ -176,11 +155,115 @@ export default {
       this.overdueDay = data.OverdueDay ? data.OverdueDay + '天' : ''
       this.state = data.StateName
       this.repaymentAmount = data.RepaymentAmount
-      
       this.detailList[0].value = data.Amount + '元'
       this.detailList[1].value = data.YearRate + '%'
       this.detailList[2].value = data.LoanDate
       this.detailList[3].value = data.ExpireDate
+      this.button[0] = Btn[data.ButtonType][0]
+      this.button[1] = Btn[data.ButtonType][1]
+      this.arbitrate = Btn[data.ButtonType][2]
+      this.urge = Btn[data.ButtonType][3]
+      switch (data.ButtonType) {
+        case 1:
+          this.leftOperate = this.confirm
+          this.rightOperate = this.refuse
+          break
+        case 2:
+          this.page = ['transactions']
+          this.leftOperate = this.target
+          break
+        case 3:
+          this.leftOperate = this.repay
+          break
+        case 4:
+          this.leftOperate = this.repay
+          this.rightOperate = this.repay
+          break
+        case 5:
+          this.page = ['exhibiton-period', 'cancel-account']
+          this.leftOperate = this.target
+          this.rightOperate = this.target
+          break
+        case 6:
+          this.page = ['exhibiton-period', 'cancel-account']
+          this.leftOperate = this.target
+          this.rightOperate = this.target
+          break
+        case 7:
+          this.leftOperate = this.cancelAbitrate
+          break
+        case 8:
+          this.leftOperate = this.cancelApply
+          break
+        case 9:
+          this.leftOperate = this.waitConfirm
+          break
+        case 10:
+          this.page = ['exhibition-status']
+          this.leftOperate = this.target
+          break
+        case 11:
+          this.page = ['transactions']
+          this.leftOperate = this.target
+          break
+        case 12:
+          this.page = ['exhibiton-period', 'cancel-account']
+          this.leftOperate = this.target
+          this.rightOperate = this.target
+          break
+      }
+    },
+    leftOperate () {},
+    rightOperate () {},
+    confirm () {
+      Http.send({
+        url: 'LoanCollectionCancel',
+        data: {
+          token: Storage.token,
+          id: Storage.id,
+          state: 1
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
+    },
+    refuse () {
+      Http.send({
+        url: 'LoanCollectionCancel',
+        data: {
+          token: Storage.token,
+          id: Storage.id,
+          state: 0
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
+    },
+    target (index) {
+      if (this.page[index] === 'cancel-account') {
+        Storage.money = this.repaymentAmount
+      }
+      Router.push(this.page[index])
+    },
+    repay () {},
+    renewal () {
+    },
+    chargeOff () {},
+    cancelAbitrate () {
+    },
+    cancelApply () {
+      Http.send({
+        url: 'LoanCollectionCancel',
+        data: {
+          token: Storage.token,
+          id: Storage.id,
+          phone: Storage.phone
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
+    },
+    waitConfirm () {
     }
   }
 }

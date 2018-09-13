@@ -18,7 +18,6 @@ const CreditQueryComponent = () => import(/* webpackChunkName: 'credit-query' */
 const CreditQueryResultComponent = () => import(/* webpackChunkName: 'credit-query-result' */ '../components/credit-query-result/credit-query-result.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-status' */ '../components/exhibition-status/exhibition-status.vue')
-const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-period' */ '../components/exhibiton-period/exhibiton-period.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const FeedbackComponent = () => import(/* webpackChunkName: 'feedback' */ '../components/feedback/feedback.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
@@ -133,11 +132,6 @@ export default new Router({
       path: '/exhibition-status',
       name: 'exhibition-status',
       component: ExhibitionStatusComponent
-    },
-    {
-      path: '/exhibiton-period',
-      name: 'exhibiton-period',
-      component: ExhibitonPeriodComponent
     },
     {
       path: '/familar-question',

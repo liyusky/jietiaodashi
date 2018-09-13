@@ -6,13 +6,15 @@ module.exports = {
     state: false
   },
   class: {
+    'BM': true,
+    'Btn': false,
     'Check': false,
     'Http': true,
     'Mock': false,
     'Router': true,
     'Status': false,
     'Storage': true,
-    'Time': false,
+    'Time': true,
     'Type': false,
     'Url': false
   },

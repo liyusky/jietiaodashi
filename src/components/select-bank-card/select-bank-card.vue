@@ -12,8 +12,8 @@
 
 <script>
 // include dependence
-import { mapMutations } from 'vuex'
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import TipComponent from '../../module/tip/tip.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     selectBankCard (item, index) {
-      this.saveBankCard(item)
+      Storage.card = item
       Router.push('bind-bank-card')
     }
   }

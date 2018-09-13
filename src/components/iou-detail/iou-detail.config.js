@@ -6,11 +6,13 @@ module.exports = {
     state: false
   },
   class: {
+    'BM': false,
+    'Btn': true,
     'Check': false,
     'Http': true,
     'Mock': false,
     'Router': true,
-    'Status': true,
+    'Status': false,
     'Storage': true,
     'Time': false,
     'Type': true,
@@ -19,22 +21,7 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': `{
-        default: [{
-          type: 'default',
-          text: '销账'
-        }],
-        group: [
-          {
-            text: '同意',
-            class: 'primary'
-          },
-          {
-            text: '拒绝',
-            class: 'danger'
-          }
-        ]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': `[
         {
@@ -55,12 +42,12 @@ module.exports = {
         {
           type: 'default',
           key: '到期日：',
-          value: '2017-07-18'
+          value: ''
         },
         {
           type: 'default',
           key: '其他费用：',
-          value: '20元'
+          value: '0元'
         }
       ]`,
     'image-bg': false,
@@ -71,7 +58,7 @@ module.exports = {
     'pay-password': false,
     'receipt': false,
     'tab': false,
-    'tip': 1,
+    'tip': false,
     'title': `{
         contentText: '借条详情'
       }`,
