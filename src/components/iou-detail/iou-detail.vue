@@ -179,7 +179,7 @@ export default {
           break
         case 4:
           this.leftOperate = this.repay
-          this.rightOperate = this.repay
+          this.rightOperate = this.renewal
           break
         case 5:
           this.page = ['exhibiton-period', 'cancel-account']
@@ -249,9 +249,7 @@ export default {
       Router.push(this.page[index])
     },
     repay () {},
-    renewal () {
-    },
-    chargeOff () {},
+    renewal () {},
     cancelAbitrate () {
     },
     cancelApply () {
