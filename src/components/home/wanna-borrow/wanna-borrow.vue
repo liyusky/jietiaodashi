@@ -152,7 +152,9 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    if (this.$store.state.origin.path === '/purpose') {
+    console.log(Storage.origin)
+    if (Storage.origin) return
+    if (Storage.origin.path === '/purpose') {
       this.borrowPurpose = Storage.purpose
     }
     if (Storage.publishObject) {

@@ -67,6 +67,10 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import TipComponent from '../../module/tip/tip.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -104,6 +108,22 @@ export default {
   methods: {
     switchToggle () {
       this.switchShow = !this.switchShow
+    },
+    submit () {
+      if (!Check.rate() || !Check.date()) return
+      Http.send({
+        url: 'CreateDelay',
+        data: {
+          token: Storage.token,
+          id: Storage.id,
+          delayDay: '延期天数',
+          YearRate: '年利率',
+          amountReturned: Storage.payedMoney
+        }
+      }).success(data => {
+        Router.push('exhibition-status')
+      }).fail(data => {
+      })
     }
   }
 }

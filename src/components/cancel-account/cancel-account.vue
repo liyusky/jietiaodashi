@@ -41,7 +41,7 @@ export default {
   name: 'CancelAccountComponent',
   data () {
     return {
-      money: Storage.money,
+      money: Storage.gapMoney,
       cancelMount: '',
       totalMountShow: true,
       cancelReason: '',

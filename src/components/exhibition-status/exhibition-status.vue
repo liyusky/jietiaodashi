@@ -20,6 +20,8 @@
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -57,6 +59,41 @@ export default {
     ButtonComponent,
     DetailListComponent
     // include components
+  },
+  created () {
+    this.init()
+  },
+  methods: {
+    switchToggle () {
+      this.switchShow = !this.switchShow
+    },
+    init () {
+      Http.send({
+        url: 'DelayDetail',
+        data: {
+          token: Storage.token,
+          id: Storage.id
+        }
+      }).success(data => {
+        this.detailList[0].value = data.DelayDate
+        this.detailList[1].value = data.YearRate
+        this.detailList[2].value = data.AmountReturned
+        this.detailList[3].value = data.CreateTime
+      }).fail(data => {
+      })
+    },
+    submit () {
+      Http.send({
+        url: 'ConfirmDelay',
+        data: {
+          token: Storage.token,
+          id: Storage.id,
+          state: '1、确认，2、拒绝'
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
+    }
   }
 }
 </script>
