@@ -18,6 +18,7 @@ const CreditQueryComponent = () => import(/* webpackChunkName: 'credit-query' */
 const CreditQueryResultComponent = () => import(/* webpackChunkName: 'credit-query-result' */ '../components/credit-query-result/credit-query-result.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
 const ExhibitionStatusComponent = () => import(/* webpackChunkName: 'exhibition-status' */ '../components/exhibition-status/exhibition-status.vue')
+const ExhibitonPeriodComponent = () => import(/* webpackChunkName: 'exhibiton-period' */ '../components/exhibiton-period/exhibiton-period.vue')
 const FamilarQuestionComponent = () => import(/* webpackChunkName: 'familar-question' */ '../components/familar-question/familar-question.vue')
 const FeedbackComponent = () => import(/* webpackChunkName: 'feedback' */ '../components/feedback/feedback.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
@@ -30,6 +31,7 @@ const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../comp
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
 const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/home/wanna-borrow/wanna-borrow.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
+const IouCenterComponent = () => import(/* webpackChunkName: 'iou-center' */ '../components/iou-center/iou-center.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
@@ -134,6 +136,11 @@ export default new Router({
       component: ExhibitionStatusComponent
     },
     {
+      path: '/exhibiton-period',
+      name: 'exhibiton-period',
+      component: ExhibitonPeriodComponent
+    },
+    {
       path: '/familar-question',
       name: 'familar-question',
       component: FamilarQuestionComponent
@@ -195,6 +202,11 @@ export default new Router({
       path: '/identity-verification',
       name: 'identity-verification',
       component: IdentityVerificationComponent
+    },
+    {
+      path: '/iou-center',
+      name: 'iou-center',
+      component: IouCenterComponent
     },
     {
       path: '/iou-detail',
