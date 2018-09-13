@@ -21,6 +21,9 @@ export default class Url {
   static LoanCollectionCancel = '/Loan/LoanCollectionCancel'
   static ConfirmLoan = '/Loan/ConfirmLoan'
   static CancelAccount = '/Loan/CancelAccount'
+  static CreateDelay = '/Loan/CreateDelay'
+  static DelayDetail = '/Loan/DelayDetail'
+  static ConfirmDelay = '/Loan/ConfirmDelay'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = 'BM/query/balanceAction.c'

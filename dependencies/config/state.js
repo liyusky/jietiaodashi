@@ -9,6 +9,7 @@ const state = {
   card: {},
   publishObject: [],
   purpose: null,
-  money: null
+  payedMoney: null,
+  gapMoney: null
 }
 module.exports = state

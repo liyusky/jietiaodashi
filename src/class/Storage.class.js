@@ -87,11 +87,19 @@ export default class Storage {
     return window.app.$store.state.card
   }
 
-  static set money (money) {
-    window.app.$store.commit('saveMoney', money)
+  static set payedMoney (payedMoney) {
+    window.app.$store.commit('savePayedMoney', payedMoney)
   }
 
-  static get money () {
-    return window.app.$store.state.money
+  static get payedMoney () {
+    return window.app.$store.state.payedMoney
+  }
+
+  static set gapMoney (gapMoney) {
+    window.app.$store.commit('saveGapMoney', gapMoney)
+  }
+
+  static get gapMoney () {
+    return window.app.$store.state.gapMoney
   }
 }

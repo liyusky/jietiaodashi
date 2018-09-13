@@ -94,6 +94,7 @@ export default {
       btnRight: '',
       button: [],
       page: [],
+      amountReturned: 0,
       // start params
       'detailList': [
         {
@@ -152,8 +153,9 @@ export default {
     },
     formatData (data) {
       this.type = Type[data.Type]
-      this.overdueDay = data.OverdueDay ? data.OverdueDay + '天' : ''
       this.state = data.StateName
+      this.amountReturned = data.AmountReturned
+      this.overdueDay = data.OverdueDay ? data.OverdueDay + '天' : ''
       this.repaymentAmount = data.RepaymentAmount
       this.detailList[0].value = data.Amount + '元'
       this.detailList[1].value = data.YearRate + '%'
@@ -241,7 +243,8 @@ export default {
     },
     target (index) {
       if (this.page[index] === 'cancel-account') {
-        Storage.money = this.repaymentAmount
+        Storage.gapMoney = this.repaymentAmount
+        Storage.payedMoney = this.amountReturned
       }
       Router.push(this.page[index])
     },
