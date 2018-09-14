@@ -14,6 +14,7 @@ const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account
 const ChatComponent = () => import(/* webpackChunkName: 'chat' */ '../components/chat/chat.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditComponent = () => import(/* webpackChunkName: 'credit' */ '../components/credit/credit.vue')
+const CreditIdentityComponent = () => import(/* webpackChunkName: 'credit-identity' */ '../components/credit-identity/credit-identity.vue')
 const CreditQueryComponent = () => import(/* webpackChunkName: 'credit-query' */ '../components/credit-query/credit-query.vue')
 const CreditQueryResultComponent = () => import(/* webpackChunkName: 'credit-query-result' */ '../components/credit-query-result/credit-query-result.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
@@ -114,6 +115,11 @@ export default new Router({
       path: '/credit',
       name: 'credit',
       component: CreditComponent
+    },
+    {
+      path: '/credit-identity',
+      name: 'credit-identity',
+      component: CreditIdentityComponent
     },
     {
       path: '/credit-query',

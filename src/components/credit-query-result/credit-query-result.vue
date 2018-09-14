@@ -5,15 +5,15 @@
     <div class="result-content margin-top-30 chamfer">
       <TipComponent class="content-tip bg-grey border-radius-top-12" :tip="tip"></TipComponent>
       <BoardComponent class="content-board bg-white border-bottom-1 font-30" :board="board">
-        <img class="border-radius-12" src="https://api.vtrois.com/image/90x90/ff8d7b">
+        <img class="border-radius-12" :src="credtiQuery.Photo">
         <div class="board-message color-light-grey">
           <p class="color-black">
-            <span>李艳霞当前有超过</span>
-            <span class="color-red">45</span>
+            <span>{{credtiQuery.Name}}当前有超过</span>
+            <span class="color-red">{{credtiQuery.TotalOverdueDay}}</span>
             <span>天的逾期</span>
           </p>
-          <p>手机号：158****2555</p>
-          <p>身份证号：340824199888658956</p>
+          <p>手机号：{{credtiQuery.Phone}}</p>
+          <p>身份证号：{{credtiQuery.CardNo}}</p>
         </div>
       </BoardComponent>
       <DetailListComponent class="content-detail-list bg-white font-30 border-bottom-1" :detailList="detailList"></DetailListComponent>
@@ -43,6 +43,7 @@
 
 <script>
 // include dependence
+import Storage from '../../class/Storage.class.js'
 import BoardComponent from '../../module/board/board.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TipComponent from '../../module/tip/tip.vue'
@@ -51,6 +52,7 @@ export default {
   name: 'CreditQueryResultComponent',
   data () {
     return {
+      credtiQuery: null,
       // start params
       'board': 'center',
       'detailList': [
@@ -86,6 +88,17 @@ export default {
     TipComponent,
     TitleComponent
     // include components
+  },
+  created () {
+    this.formatData(Storage.credtiQuery)
+  },
+  methods: {
+    formatData (data) {
+      this.detailList[0].value = data.TotalOverdueCount + '笔'
+      this.detailList[1].value = data.TotalOverdueAmount + '元'
+      this.detailList[2].value = data.MaxOverdueDay + '天'
+      this.credtiQuery = data
+    }
   }
 }
 </script>

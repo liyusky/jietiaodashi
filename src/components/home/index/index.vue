@@ -44,7 +44,7 @@
         </svg>
         <p>借条中心</p>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" @click="gotoPage('credit-query')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-cong"></use>
         </svg>

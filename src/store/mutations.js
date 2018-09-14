@@ -40,6 +40,22 @@ const mutations = {
   },
   saveGapMoney (state, gapMoney) {
     state.gapMoney = gapMoney
+  },
+  // 保存借条id
+  saveBorrowId (state, borrowId) {
+    state.borrowId = borrowId
+  },
+  // 借条来源
+  saveBorrowOrigin (state, borrowOrigin) {
+    state.borrowOrigin = borrowOrigin
+  },
+  // 可用余额
+  saveUsableMoney (state, usableMoney) {
+    state.usableMoney = usableMoney
+  },
+  // 信用查询结果
+  saveCreditQuery (state, credtiQuery) {
+    state.credtiQuery = credtiQuery
   }
 }
 export default mutations

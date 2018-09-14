@@ -45,6 +45,8 @@
 // include dependence
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -136,8 +138,8 @@ export default {
       Http.send({
         url: 'ForgetPaymentPwd',
         data: {
-          token: this.$store.state.token,
-          phone: this.$store.state.token,
+          token: Storage.token,
+          phone: Storage.token,
           cardholder: this.cardHolder,
           cardNumber: this.cardNumber,
           idNumber: this.identityNumber,
@@ -147,6 +149,7 @@ export default {
         }
       }).success(data => {
         console.log(data)
+        Router.push('')
       }).fail(data => {
         console.log(data)
       })

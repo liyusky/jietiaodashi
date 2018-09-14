@@ -8,7 +8,9 @@
         <span class="font-30 color-black">充值金额</span>
       </div>
       <div class="content-input border-bottom-1">
-        <InputsComponent :inputs="inputs" @GET_INPUT_TEXT_EVENT="getAmountInputText"></InputsComponent>
+        <i class="iconfont icon-cong font-30 color-light-grey"></i>
+        <input type="number" v-model="rechargeMoney">
+        <!-- <InputsComponent :inputs="inputs" @GET_INPUT_TEXT_EVENT="getAmountInputText"></InputsComponent> -->
       </div>
       <div class="content-card">
         <div class="card-logo">
@@ -29,28 +31,21 @@
 
 <script>
 // include dependence
+import BM from '../../class/BM.class.js'
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
-import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'RechargeComponent',
   data () {
     return {
-      amountNumber: '',
+      rechargeMoney: '',
       // start params
       'button': {
         default: [{
           type: 'primary',
           text: '立即充值'
         }]
-      },
-      'inputs': {
-        type: 'icon',
-        placeholder: '请输入金额',
-        leftIcon: 'cong',
-        style: 'number'
       },
       'title': {
         contentText: '充值',
@@ -67,18 +62,16 @@ export default {
   },
   methods: {
     gotoPage () {},
-    back () {
-      this.$router.back(-1)
-    },
-    getAmountInputText (text) {
-      this.amountNumber = text
-    },
     rechargeSubmit () {
       if (!Check.money(this.amountNumber)) return
-      Http.send({
-        url: 'url',
-        data: {}
+      BM.send({
+        url: 'Recharge',
+        data: {
+          zh: Storage.phone,
+          amt: this.rechargeMoney
+        }
       }).success(data => {
+        console.log(data)
       }).fail(data => {
       })
     }

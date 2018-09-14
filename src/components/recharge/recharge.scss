@@ -20,9 +20,16 @@
     }
     .content-input {
       width: 100%;
-      height: 120 / $unit * $symbol;
       padding: {
         top: 45 / $unit * $symbol;
+      }
+      input {
+        height: 84 / $unit * $symbol;
+        padding: {
+          left: 21 / $unit * $symbol;
+        }
+        font-size: 30 / $unit * $symbol;
+        color: #666;
       }
     }
     .content-card {

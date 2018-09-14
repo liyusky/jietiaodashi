@@ -8,7 +8,9 @@
         <span class="font-30 color-black">提现金额</span>
       </div>
       <div class="content-input border-bottom-1">
-        <InputsComponent :inputs="inputs" @GET_INPUT_TEXT_EVENT="getAmountInputText"></InputsComponent>
+        <!-- <InputsComponent :inputs="inputs" ref="inputs" @GET_INPUT_TEXT_EVENT="getAmountInputText"></InputsComponent> -->
+        <i class="iconfont icon-cong font-30 color-light-grey"></i>
+        <input type="number" v-model="withdrawMoney">
       </div>
       <div class="content-card border-bottom-1">
         <div class="card-logo">
@@ -20,7 +22,7 @@
         <p class="card-number font-24 color-deep-grey"><span>123485546441316464</span>储蓄卡</p>
       </div>
       <div class="content-introduce font-24 color-black">
-        <p>当前账户可提现金额<span>2200</span>，<span class="color-blue" @click.stop="allWithout">全部提现</span></p>
+        <p>当前账户可提现金额<span>{{usableMoney}}</span>，<span class="color-blue" @click.stop="allWithout">全部提现</span></p>
         <p>最低提现金额为5元，提现的手续费=3元+提现金额*0.6%，不足1元按1元收取</p>
       </div>
     </div>
@@ -36,28 +38,23 @@
 
 <script>
 // include dependence
+import BM from '../../class/BM.class.js'
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
-import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'WithdrawComponent',
   data () {
     return {
-      amountNumber: '',
+      withdrawMoney: '',
+      usableMoney: 0,
       // start params
       'button': {
         default: [{
           type: 'primary',
           text: '立即提现'
         }]
-      },
-      'inputs': {
-        type: 'icon',
-        placeholder: '请输入金额',
-        leftIcon: 'cong',
-        style: 'number'
       },
       'title': {
         contentText: '提现',
@@ -68,25 +65,31 @@ export default {
   },
   components: {
     ButtonComponent,
-    InputsComponent,
+    // InputsComponent,
     TitleComponent
     // include components
+  },
+  created () {
+    this.usableMoney = Storage.usableMoney
   },
   methods: {
     backPage () {
       this.$router.back(-1)
     },
     gotoPage () {},
-    getAmountInputText (text) {
-      this.amountNumber = text
+    allWithout () {
+      this.withdrawMoney = this.usableMoney
     },
-    allWithout () {},
     withdrawSubmit () {
       if (!Check.money(this.amountNumber)) return
-      Http.send({
-        url: 'url',
-        data: {}
+      BM.send({
+        url: 'Withdraw',
+        data: {
+          zh: Storage.phone,
+          amt: this.withdrawMoney
+        }
       }).success(data => {
+        console.log(data)
       }).fail(data => {
       })
     }

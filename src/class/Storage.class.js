@@ -102,4 +102,36 @@ export default class Storage {
   static get gapMoney () {
     return window.app.$store.state.gapMoney
   }
+
+  static set borrowId (borrowId) {
+    window.app.$store.commit('saveBorrowId', borrowId)
+  }
+
+  static get borrowId () {
+    return window.app.$store.state.borrowId
+  }
+
+  static set borrowOrigin (borrowOrigin) {
+    window.app.$store.commit('saveBorrowOrigin', borrowOrigin)
+  }
+
+  static get borrowOrigin () {
+    return window.app.$store.state.borrowOrigin
+  }
+  // 可用余额
+  static set usableMoney (usableMoney) {
+    window.app.$store.commit('saveUsableMoney', usableMoney)
+  }
+
+  static get usableMoney () {
+    return window.app.$store.state.usableMoney
+  }
+  // 失信查询结果
+  static set credtiQuery (credtiQuery) {
+    window.app.$store.commit('saveCreditQuery', credtiQuery)
+  }
+
+  static get credtiQuery () {
+    return window.app.$store.state.credtiQuery
+  }
 }

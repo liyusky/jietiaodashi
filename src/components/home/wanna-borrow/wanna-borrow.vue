@@ -119,6 +119,7 @@ export default {
       borrowDeadline: '7',
       borrowPublish: '3',
       borrowPurpose: '临时周转',
+      otherCost: 0.0,
       purposeShow: false,
       deadLineShow: false,
       // start params
@@ -244,21 +245,22 @@ export default {
           token: Storage.token,
           phone: Storage.phone,
           type: 1,
-          amount: this.borrowAmount, // 借款金额 int
-          lendPhones: this.phoneStr, // 出借人手机集合(多个借款方用","隔开)
-          imAccid: this.imAccidStr, // 出借人云信用id(多个借款方用","隔开)
-          yearRate: this.ratePercent, // 年利率  int
-          Interest: this.rateAmount, // 利息  double
-          period: this.borrowDeadline, // 借款期限 7天  int
-          otherCost: 20.1, // 其他费用  double
-          purpose: this.borrowPurpose, // 借款用途 string
-          purposeReason: '借点钱周转一下', // 借款用途说明 string
-          expireDay: this.borrowPublish, // 借款发布期 7天  int
-          taskId: 'D34E1519-0558-44FA-9731-D0B34423E5AB,D34E1519-0558-44FA-9731-D0B34423E5AB', // 任务单集合(多个任务单用","隔开)
-          source: 1
+          amount: this.borrowAmount,
+          lendPhones: this.phoneStr,
+          imAccid: this.imAccidStr,
+          yearRate: this.ratePercent,
+          Interest: this.rateAmount,
+          period: this.borrowDeadline,
+          otherCost: this.otherCost,
+          purpose: this.borrowPurpose,
+          purposeReason: '借点钱周转一下',
+          expireDay: this.borrowPublish,
+          taskId: '',
+          source: Storage.borrowOrigin
         }
       }).success(data => {
         console.log(data)
+        Storage.borrowId = data.Id
       }).fail(data => {
       })
     },

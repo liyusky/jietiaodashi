@@ -26,7 +26,13 @@ export default class Url {
   static CreateDelay = '/Loan/CreateDelay'
   static DelayDetail = '/Loan/DelayDetail'
   static ConfirmDelay = '/Loan/ConfirmDelay'
+  static IdentityAuth = '/Member/IdentityAuth'
+  static CurrentStep = '/Member/CurrentStep'
+  static DiscreditQuery = '/Member/DiscreditQuery'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = 'BM/query/balanceAction.c'
+  // 提现充值
+  static Withdraw = '/BM/app/app500003.c'
+  static Recharge = '/BM/app/app500013.c'
 }

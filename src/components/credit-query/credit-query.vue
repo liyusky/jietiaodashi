@@ -6,14 +6,17 @@
       <img src="https://api.vtrois.com/image/750x300/ff8d7b">
       <h3 class="font-36 color-deep-black">今日有信，明日受用</h3>
     </BoardComponent>
-    <InputsComponent class="query-input padding-horizontal-30 font-30" :inputs="inputs"></InputsComponent>
-    <ButtonComponent class="query-button padding-horizontal-30" :button="button"></ButtonComponent>
+    <InputsComponent class="query-input padding-horizontal-30 font-30" :inputs="inputs" @GET_INPUT_TEXT_EVENT="getInputText"></InputsComponent>
+    <ButtonComponent class="query-button padding-horizontal-30" :button="button" @SUBMIT_EVENT="getCredit"></ButtonComponent>
   </section>
   <!-- e 失信查询 -->
 </template>
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import BoardComponent from '../../module/board/board.vue'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
@@ -22,6 +25,7 @@ export default {
   name: 'CreditQueryComponent',
   data () {
     return {
+      credit: '',
       // start params
       'board': 'center',
       'button': {
@@ -46,6 +50,26 @@ export default {
     InputsComponent,
     TitleComponent
     // include components
+  },
+  methods: {
+    getCredit () {
+      if (!this.credit) return
+      Http.send({
+        url: 'DiscreditQuery',
+        data: {
+          token: Storage.token,
+          key: this.credit
+        }
+      }).success(data => {
+        console.log(data)
+        Storage.credtiQuery = data
+        Router.push('credit-query-result')
+      }).fail(data => {
+      })
+    },
+    getInputText (text) {
+      this.credit = text
+    }
   }
 }
 </script>

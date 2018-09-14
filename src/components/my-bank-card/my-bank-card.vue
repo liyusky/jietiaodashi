@@ -49,17 +49,22 @@ export default {
     // include components
   },
   created () {
-    Http.send({
-      url: 'BankCardList',
-      data: {
-        token: Storage.token,
-        phone: Storage.phone
-      }
-    }).success(data => {
-      console.log(data)
-      this.myBankList = Mock.myBank
-    }).fail(data => {
-    })
+    this.init()
+  },
+  methods: {
+    init () {
+      Http.send({
+        url: 'BankCardList',
+        data: {
+          token: Storage.token,
+          phone: Storage.phone
+        }
+      }).success(data => {
+        console.log(data)
+        this.myBankList = Mock.myBank
+      }).fail(data => {
+      })
+    }
   }
 }
 </script>

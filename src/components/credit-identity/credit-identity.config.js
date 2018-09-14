@@ -1,19 +1,19 @@
 module.exports = {
-  content: '充值',
+  content: '身份认证',
   router: true,
   vuex: {
     mutations: false,
     state: false
   },
   class: {
-    'BM': true,
+    'BM': false,
     'Btn': false,
     'Check': true,
-    'Http': false,
+    'Http': true,
     'Mock': false,
-    'Router': false,
+    'Router': true,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false
@@ -24,7 +24,7 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '立即充值'
+          text: '立即提交'
         }]
       }`,
     'deadline': false,
@@ -40,8 +40,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '充值',
-        rightText: '限额说明'
+        contentText: '身份认证'
       }`,
     'work-card': false
   }
