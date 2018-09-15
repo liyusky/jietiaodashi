@@ -7,8 +7,8 @@
         <div class="option-itme" :class="{active: setPurposeIndex === index}" v-for="(item, index) in optionList" :key="index" @click="setPurpose(index)">{{item}}</div>
       </div>
       <div class="purpose-detail">
-        <textarea name="detail" v-model="textareaNum" maxlength="200" placeholder="建议详细描述周转详情：如所借资金周转去向，以及资金流转的方向和还款计划等"></textarea>
-        <div class="detail-num">{{textareaNum.length}}/200</div>
+        <textarea name="detail" v-model="opinion" maxlength="200" placeholder="建议详细描述周转详情：如所借资金周转去向，以及资金流转的方向和还款计划等"></textarea>
+        <div class="detail-num">{{opinion.length}}/200</div>
       </div>
       <div class="purpose-upload">
         <div class="upload-photo">
@@ -35,7 +35,7 @@ export default {
   data () {
     return {
       optionList: ['临时周转', '个体经营', '消费', '旅游', '装修', '教育', '结婚', '学习', '出行'],
-      textareaNum: '',
+      opinion: '',
       setPurposeIndex: 0,
       imgArr: [],
       // start params
@@ -54,13 +54,12 @@ export default {
     },
     switchPurpose () {
       Storage.purpose = this.optionList[this.setPurposeIndex]
+      Storage.opinion = this.opinion
       Router.push('wanna-borrow')
     },
     back () {
       Storage.purpose = this.optionList[0]
-      this.$router.push({
-        name: 'wanna-borrow'
-      })
+      Router.push('wanna-borrow')
     }
   },
   components: {

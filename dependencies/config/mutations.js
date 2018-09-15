@@ -31,6 +31,10 @@ const mutations = {
   savePurpose (state, purpose) {
     state.purpose = purpose
   },
+  // 保存借款用途建议
+  saveOpinion (state, opinion) {
+    state.opinion = opinion
+  },
   // 保存银卡卡
   saveBankCard (state, card) {
     state.card = card

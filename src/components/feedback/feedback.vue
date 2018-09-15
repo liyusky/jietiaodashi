@@ -8,15 +8,15 @@
         <p>请描述你遇到的问题</p>
       </div>
       <div class="advice-opinion">
-        <textarea class="opinion-input font-27 color-black" id="opinion-input" v-model="textareaNum" maxlength="200" name="opinion-input" placeholder="描述你的问题"></textarea>
-        <div class="input-number font-27 color-light-black"><span>{{textareaNum.length}}/200</span></div>
+        <textarea class="opinion-input font-27 color-black" id="opinion-input" v-model="opinion" maxlength="200" name="opinion-input" placeholder="描述你的问题"></textarea>
+        <div class="input-number font-27 color-light-black"><span>{{opinion.length}}/200</span></div>
       </div>
     </div>
     <div class="feedback-contact-way bg-white">
-      <input class="font-27 color-black padding-left-30" type="text" placeholder="手机号/邮箱（选填，方便我们联系您）">
+      <input class="font-27 color-black padding-left-30" v-model="contentWay" type="text" placeholder="手机号/邮箱（选填，方便我们联系您）">
     </div>
     <div class="feedback-button padding-horizontal-30">
-      <ButtonComponent :button="button"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="feedbackSubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 意见反馈 -->
@@ -24,13 +24,16 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'FeedbackComponent',
   data () {
     return {
-      textareaNum: '',
+      opinion: '',
+      contentWay: '',
       // start params
       'button': {
         default: [{
@@ -50,7 +53,23 @@ export default {
     // include components
   },
   methods: {
-    backPage () {}
+    backPage () {},
+    feedbackSubmit () {
+      if (!this.opinion) return
+      if (!Check.phont(this.contactWay)) return
+      Http.send({
+        url: 'Opinion',
+        data: {
+          token: Storage.token,
+          contactWay: this.contentWay,
+          opinion: this.opinion
+        }
+      }).success(data => {
+        console.log(data)
+      }).fail(data => {
+        console.log(data)
+      })
+    }
   }
 }
 </script>

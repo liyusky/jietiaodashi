@@ -44,11 +44,9 @@ const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ 
 const NewFriendComponent = () => import(/* webpackChunkName: 'new-friend' */ '../components/new-friend/new-friend.vue')
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
-const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../components/publish/publish.vue')
 const PublishObjectComponent = () => import(/* webpackChunkName: 'publish-object' */ '../components/publish-object/publish-object.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
 const RechargeComponent = () => import(/* webpackChunkName: 'recharge' */ '../components/recharge/recharge.vue')
-const RefreshComponent = () => import(/* webpackChunkName: 'refresh' */ '../components/refresh/refresh.vue')
 const SearchFriendComponent = () => import(/* webpackChunkName: 'search-friend' */ '../components/search-friend/search-friend.vue')
 const SelectBankCardComponent = () => import(/* webpackChunkName: 'select-bank-card' */ '../components/select-bank-card/select-bank-card.vue')
 const SetPayPasswordComponent = () => import(/* webpackChunkName: 'set-pay-password' */ '../components/set-pay-password/set-pay-password.vue')
@@ -274,11 +272,6 @@ export default new Router({
       component: PersonalInfoComponent
     },
     {
-      path: '/publish',
-      name: 'publish',
-      component: PublishComponent
-    },
-    {
       path: '/publish-object',
       name: 'publish-object',
       component: PublishObjectComponent
@@ -292,11 +285,6 @@ export default new Router({
       path: '/recharge',
       name: 'recharge',
       component: RechargeComponent
-    },
-    {
-      path: '/refresh',
-      name: 'refresh',
-      component: RefreshComponent
     },
     {
       path: '/search-friend',

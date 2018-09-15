@@ -79,6 +79,14 @@ export default class Storage {
     return window.app.$store.state.purpose
   }
 
+  static set opinion (opinion) {
+    window.app.$store.commit('saveOpinion', opinion)
+  }
+
+  static get opinion () {
+    return window.app.$store.state.opinion
+  }
+
   static set card (card) {
     window.app.$store.commit('saveBankCard', card)
   }

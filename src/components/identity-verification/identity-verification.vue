@@ -136,7 +136,7 @@ export default {
       if (!Check.identity(this.identityNumber)) return // identity is not correct
       if (!Check.code(this.codeNumber)) return // code is not correct
       Http.send({
-        url: 'ForgetPaymentPwd',
+        url: '',
         data: {
           token: Storage.token,
           phone: Storage.token,

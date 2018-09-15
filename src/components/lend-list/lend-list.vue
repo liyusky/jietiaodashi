@@ -13,7 +13,9 @@
       <ImageBgComponent :imageBg="imageBg"></ImageBgComponent>
     </BoardComponent>
     <div class="list-content">
-      <ReceiptComponent :receipt="item" v-for="(item, index) in receipt" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.id)"></ReceiptComponent>
+      <PullRefreshComponent :direction="'top'" v-if="receipt.length">
+        <ReceiptComponent :receipt="item" v-for="(item, index) in receipt" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.id)"></ReceiptComponent>
+      </PullRefreshComponent>
       <WithoutComponent  v-if="!receipt.length"></WithoutComponent>
     </div>
   </section>
@@ -29,6 +31,7 @@ import Type from '../../class/Type.enum.js'
 import BoardComponent from '../../module/board/board.vue'
 import ImageBgComponent from '../../module/image-bg/image-bg.vue'
 import NavComponent from '../../module/nav/nav.vue'
+import PullRefreshComponent from '../../module/pull-refresh/pull-refresh.vue'
 import ReceiptComponent from '../../module/receipt/receipt.vue'
 import TitleComponent from '../../module/title/title.vue'
 import WithoutComponent from '../../module/without/without.vue'
@@ -46,6 +49,7 @@ export default {
         content: ['当前', '已放款', '已逾期', '已还清', '已失效'],
         active: ''
       },
+      'pullRefresh': '',
       'receipt': [],
       'title': {
         contentText: '借出'
@@ -59,7 +63,8 @@ export default {
     NavComponent,
     ReceiptComponent,
     TitleComponent,
-    WithoutComponent
+    WithoutComponent,
+    PullRefreshComponent
     // include components
   },
   methods: {

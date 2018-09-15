@@ -13,6 +13,7 @@ const state = {
   gapMoney: null,
   borrowId: null,
   usableMoney: null,
-  credtiQuery: null
+  credtiQuery: null,
+  opinion: null
 }
 module.exports = state

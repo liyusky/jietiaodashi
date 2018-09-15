@@ -39,6 +39,7 @@
 
 <script>
 // include dependence
+import Router from '../../../class/Router.class.js'
 export default {
   name: 'MessageComponent',
   data () {
@@ -53,9 +54,7 @@ export default {
   },
   methods: {
     gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
+      Router.push(page)
     }
   }
 }

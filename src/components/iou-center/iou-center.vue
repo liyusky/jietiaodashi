@@ -17,9 +17,9 @@
     </div>
     <NavComponent class="center-nav font-30 bg-white" :nav="nav" @SELECTED_EVENT="toggleType"></NavComponent>
     <div class="center-tab">
-      <div class="tab-content" v-if="iouList.length">
+      <PullRefreshComponent :direction="'top'" v-if="iouList.length">
         <ReceiptComponent :receipt="item" v-for="(item, index) in iouList" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.accId)"></ReceiptComponent>
-      </div>
+      </PullRefreshComponent>
       <WithoutComponent  v-if="!iouList.length"></WithoutComponent>
     </div>
   </section>
@@ -34,6 +34,7 @@ import Status from '../../class/Status.enum.js'
 import Storage from '../../class/Storage.class.js'
 import Type from '../../class/Type.enum.js'
 import NavComponent from '../../module/nav/nav.vue'
+import PullRefreshComponent from '../../module/pull-refresh/pull-refresh.vue'
 import ReceiptComponent from '../../module/receipt/receipt.vue'
 import TitleComponent from '../../module/title/title.vue'
 import WithoutComponent from '../../module/without/without.vue'
@@ -62,7 +63,8 @@ export default {
     TitleComponent,
     ReceiptComponent,
     NavComponent,
-    WithoutComponent
+    WithoutComponent,
+    PullRefreshComponent
     // include components
   },
   created () {

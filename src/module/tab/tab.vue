@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import Router from '../../class/Router.class.js'
 export default {
   name: 'TabComponent',
   props: ['path'],
@@ -67,7 +68,8 @@ export default {
   methods: {
     gotoPage (page) {
       // this.tabPath = '/' + page
-      this.$router.push({name: page})
+      Router.push(page)
+      // this.$router.push({name: page})
       // if (this.tabPath !== '/' + page) {
       //   this.$router.push({name: page})
       // }
