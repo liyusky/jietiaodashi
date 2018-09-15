@@ -17,8 +17,11 @@
         </div>
       </div>
     </div>
-    <div class="receipt-detail padding-horizontal-21 border-radius-12 font-24" @click="detailEvent">
-      <div class="detail-item">
+    <div class="receipt-detail  border-radius-12 font-24" @click="detailEvent">
+      <div class="detail-mode">
+        <div class="mode color-white font-24">{{receipt.mode}}</div>
+      </div>
+      <div class="detail-item padding-horizontal-21">
         <p class="item-message">
           <span class="color-light-grey">金额：</span>
           <span class="color-black">{{receipt.money}}元</span>
@@ -28,7 +31,7 @@
           <span class="color-black">{{receipt.start}}</span>
         </p>
       </div>
-      <div class="detail-item">
+      <div class="detail-item padding-horizontal-21">
         <p class="item-message">
           <span class="color-light-grey">利率：</span>
           <span  class="color-black">{{receipt.rate}}%</span>

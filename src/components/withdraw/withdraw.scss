@@ -5,29 +5,25 @@
 .withdraw {
   width: 100vw;
   height: 100vh;
+  padding: {
+    top: (126 + 30) / $unit * $symbol;
+  }
   .withdraw-content {
     width: 100%;
-    .content-amount {
+    .content-title {
       @include vertical_center();
       width: 100%;
-      height: 87 / $unit * $symbol;
-      i {
-        margin: {
-          right: 18 / $unit * $symbol;
-        }
-        font-size: 12 / $unit * $symbol;
-      }
+      height: 99 / $unit * $symbol;
     }
     .content-input {
       @include vertical_center();
       width: 100%;
       height: 129 / $unit * $symbol;
       padding: {
-        top: 45 / $unit * $symbol;
-        left: 15 / $unit * $symbol;
+        top: 30 / $unit * $symbol;
       }
       input {
-        height: 84 / $unit * $symbol;
+        height: 99 / $unit * $symbol;
         padding: {
           left: 21 / $unit * $symbol;
         }
@@ -35,50 +31,21 @@
         color: #666;
       }
     }
-    .content-card {
-      @include vertical_direction();
-      @include horizontal_center();
-      width: 100%;
-      height: 153 / $unit * $symbol;
-      .card-logo {
-        @include vertical_center();
-        width: 100%;
-        height: 60 / $unit * $symbol;
-        .icon {
-          width: 60 / $unit * $symbol;
-          height: 60 / $unit * $symbol;
-        }
-      }
-      .card-number {
-        @include vertical_center();
-        width: 100%;
-        height: 60 / $unit * $symbol;
-        span {
-          padding: {
-            right: 15 / $unit * $symbol;
-          }
-        }
-      }
-    }
     .content-introduce {
+      @include vertical_center();
       width: 100%;
-      padding: {
-        top: 12 / $unit * $symbol;
-        right: 30 / $unit * $symbol;
-        bottom: 12 / $unit * $symbol;
-      }
-      p {
-        line-height: 42 / $unit * $symbol;
-      }
+      height: 99 / $unit * $symbol;
     }
-  }
-  &-tip {
-    @include center();
-    width: 100%;
-    height: 132 / $unit * $symbol;
+    .content-tip {
+      @include vertical_center();
+      width: 100%;
+      height: 99 / $unit * $symbol;
+    }
   }
   &-button {
     width: 100%;
-    height: 99 / $unit * $symbol;
+    padding: {
+      top: 81 / $unit * $symbol;
+    }
   }
 }

@@ -12,6 +12,7 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -24,7 +25,7 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '立即充值'
+          text: '充值'
         }]
       }`,
     'deadline': false,
@@ -43,6 +44,7 @@ module.exports = {
         contentText: '充值',
         rightText: '限额说明'
       }`,
+    'without': false,
     'work-card': false
   }
 }

@@ -12,6 +12,7 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -56,6 +57,7 @@ module.exports = {
     'title': `{
         contentText: '查询结果'
       }`,
+    'without': false,
     'work-card': false
   }
 }

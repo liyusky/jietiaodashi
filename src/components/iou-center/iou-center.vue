@@ -20,12 +20,7 @@
       <div class="tab-content" v-if="iouList.length">
         <ReceiptComponent :receipt="item" v-for="(item, index) in iouList" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.accId)"></ReceiptComponent>
       </div>
-      <div class="tab-without" v-if="!iouList.length">
-        <div class="without-img">
-          <img src="http://iph.href.lu/120x150">
-        </div>
-        <p class="font-24 color-light-grey">暂无数据信息</p>
-      </div>
+      <WithoutComponent  v-if="!iouList.length"></WithoutComponent>
     </div>
   </section>
   <!-- e 借条中心 -->
@@ -41,6 +36,7 @@ import Type from '../../class/Type.enum.js'
 import NavComponent from '../../module/nav/nav.vue'
 import ReceiptComponent from '../../module/receipt/receipt.vue'
 import TitleComponent from '../../module/title/title.vue'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'IouCenterComponent',
   data () {
@@ -65,7 +61,8 @@ export default {
   components: {
     TitleComponent,
     ReceiptComponent,
-    NavComponent
+    NavComponent,
+    WithoutComponent
     // include components
   },
   created () {
@@ -85,6 +82,7 @@ export default {
           pageSize: 10
         }
       }).success(data => {
+        console.log(data)
         this.formatData(data)
       }).fail(data => {
       })
@@ -102,7 +100,9 @@ export default {
           money: item.Amount,
           status: Status[item.State],
           targetPhone: item.TargetPhone,
-          accId: item.AccId
+          accId: item.AccId,
+          mode: item.Mode,
+          icon: 'cong'
         }
         this.iouList.push(iouList)
       })

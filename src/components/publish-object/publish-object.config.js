@@ -12,6 +12,7 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -38,6 +39,7 @@ module.exports = {
         contentText: '发布对象',
         rightText: '确定'
       }`,
+    'without': false,
     'work-card': false
   }
 }

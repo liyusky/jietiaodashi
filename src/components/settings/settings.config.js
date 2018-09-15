@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -73,6 +74,7 @@ module.exports = {
     'title': `{
         contentText: '设置'
       }`,
+    'without': false,
     'work-card': false
   }
 }

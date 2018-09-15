@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -42,6 +43,7 @@ module.exports = {
     'title': `{
         contentText: '忘记密码'
       }`,
+    'without': false,
     'work-card': false
   }
 }

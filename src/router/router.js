@@ -12,6 +12,8 @@ const BlackListComponent = () => import(/* webpackChunkName: 'black-list' */ '..
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const ChatComponent = () => import(/* webpackChunkName: 'chat' */ '../components/chat/chat.vue')
+const CollectionDetailComponent = () => import(/* webpackChunkName: 'collection-detail' */ '../components/collection-detail/collection-detail.vue')
+const CollectionScheduleComponent = () => import(/* webpackChunkName: 'collection-schedule' */ '../components/collection-schedule/collection-schedule.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditComponent = () => import(/* webpackChunkName: 'credit' */ '../components/credit/credit.vue')
 const CreditIdentityComponent = () => import(/* webpackChunkName: 'credit-identity' */ '../components/credit-identity/credit-identity.vue')
@@ -34,6 +36,7 @@ const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const IouCenterComponent = () => import(/* webpackChunkName: 'iou-center' */ '../components/iou-center/iou-center.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
+const IouTemplateComponent = () => import(/* webpackChunkName: 'iou-template' */ '../components/iou-template/iou-template.vue')
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
@@ -45,6 +48,7 @@ const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../comp
 const PublishObjectComponent = () => import(/* webpackChunkName: 'publish-object' */ '../components/publish-object/publish-object.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
 const RechargeComponent = () => import(/* webpackChunkName: 'recharge' */ '../components/recharge/recharge.vue')
+const RefreshComponent = () => import(/* webpackChunkName: 'refresh' */ '../components/refresh/refresh.vue')
 const SearchFriendComponent = () => import(/* webpackChunkName: 'search-friend' */ '../components/search-friend/search-friend.vue')
 const SelectBankCardComponent = () => import(/* webpackChunkName: 'select-bank-card' */ '../components/select-bank-card/select-bank-card.vue')
 const SetPayPasswordComponent = () => import(/* webpackChunkName: 'set-pay-password' */ '../components/set-pay-password/set-pay-password.vue')
@@ -105,6 +109,16 @@ export default new Router({
       path: '/chat',
       name: 'chat',
       component: ChatComponent
+    },
+    {
+      path: '/collection-detail',
+      name: 'collection-detail',
+      component: CollectionDetailComponent
+    },
+    {
+      path: '/collection-schedule',
+      name: 'collection-schedule',
+      component: CollectionScheduleComponent
     },
     {
       path: '/confirm-cancel-account',
@@ -220,6 +234,11 @@ export default new Router({
       component: IouDetailComponent
     },
     {
+      path: '/iou-template',
+      name: 'iou-template',
+      component: IouTemplateComponent
+    },
+    {
       path: '/lend-list',
       name: 'lend-list',
       component: LendListComponent
@@ -273,6 +292,11 @@ export default new Router({
       path: '/recharge',
       name: 'recharge',
       component: RechargeComponent
+    },
+    {
+      path: '/refresh',
+      name: 'refresh',
+      component: RefreshComponent
     },
     {
       path: '/search-friend',

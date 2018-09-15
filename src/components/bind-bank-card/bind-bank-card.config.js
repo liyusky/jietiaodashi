@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -42,6 +43,7 @@ module.exports = {
     'title': `{
         contentText: '绑定银行卡'
       }`,
+    'without': false,
     'work-card': false
   }
 }

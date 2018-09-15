@@ -5,7 +5,7 @@
     <div class="detail-hint bg-white">
       <div class="hint-user border-bottom-1">
         <div class="user-img">
-          <img src="https://api.vtrois.com/image/81x81">
+          <img src="http://iph.href.lu/120x150">
         </div>
         <div class="user-info font-27 color-black">
           <p class="info-loan "><span></span><span>{{type}}</span></p>
@@ -147,11 +147,13 @@ export default {
           userPhone: Storage.phone
         }
       }).success(data => {
+        console.log(data)
         this.formatData(data)
       }).fail(data => {
       })
     },
     formatData (data) {
+      this.name = data.LendName
       this.type = Type[data.Type]
       this.state = data.StateName
       this.amountReturned = data.AmountReturned

@@ -29,6 +29,9 @@ export default class Url {
   static IdentityAuth = '/Member/IdentityAuth'
   static CurrentStep = '/Member/CurrentStep'
   static DiscreditQuery = '/Member/DiscreditQuery'
+  static LoanCollectionList = '/Loan/LoanCollectionList'
+  static LoanCollectionProgress = '/Loan/LoanCollectionProgress'
+  static LoanCollectionDetail = '/Loan/LoanCollectionDetail'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = 'BM/query/balanceAction.c'

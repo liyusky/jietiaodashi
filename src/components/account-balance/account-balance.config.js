@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': true,
@@ -52,6 +53,7 @@ module.exports = {
         contentText: '账户余额',
         rightText: '收支明细'
       }`,
+    'without': false,
     'work-card': false
   }
 }

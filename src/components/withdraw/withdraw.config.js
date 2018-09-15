@@ -12,6 +12,7 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -24,7 +25,7 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '立即提现'
+          text: '提现'
         }]
       }`,
     'deadline': false,
@@ -40,9 +41,9 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '提现',
-        rightText: '限额说明'
+        contentText: '提现'
       }`,
+    'without': false,
     'work-card': false
   }
 }

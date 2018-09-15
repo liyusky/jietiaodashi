@@ -56,11 +56,11 @@
         </svg>
         <p>仲裁进度</p>
       </div>
-      <div class="nav-item">
+      <div class="nav-item"  @click="gotoPage('collection-schedule')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-cong"></use>
         </svg>
-        <p>在线客服</p>
+        <p>催收进度</p>
       </div>
       <div class="nav-item">
         <svg class="icon" aria-hidden="true">

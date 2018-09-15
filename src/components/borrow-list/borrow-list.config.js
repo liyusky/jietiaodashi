@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': true,
     'Storage': true,
     'Time': false,
@@ -24,7 +25,7 @@ module.exports = {
     'button': false,
     'deadline': false,
     'detail-list': false,
-    'image-bg': `'https://api.vtrois.com/image/750x300/ff8d7b'`,
+    'image-bg': `'http://iph.href.lu/750x150'`,
     'inputs': false,
     'keyboard': false,
     'modals': false,
@@ -40,6 +41,7 @@ module.exports = {
     'title': `{
         contentText: '借入'
       }`,
+    'without': 1,
     'work-card': false
   }
 }

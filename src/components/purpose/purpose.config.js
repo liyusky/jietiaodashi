@@ -12,6 +12,7 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -38,6 +39,7 @@ module.exports = {
         contentText: '借款用途',
         rightText: '保存'
       }`,
+    'without': false,
     'work-card': false
   }
 }

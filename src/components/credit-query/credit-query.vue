@@ -3,7 +3,7 @@
   <section class="credit-query padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <BoardComponent class="query-board bg-white border-bottom-1" :board="board">
-      <img src="https://api.vtrois.com/image/750x300/ff8d7b">
+      <img src="http://iph.href.lu/750x150">
       <h3 class="font-36 color-deep-black">今日有信，明日受用</h3>
     </BoardComponent>
     <InputsComponent class="query-input padding-horizontal-30 font-30" :inputs="inputs" @GET_INPUT_TEXT_EVENT="getInputText"></InputsComponent>

@@ -5,11 +5,11 @@
 .pull-refresh {
   position: relative;
   width: 100%;
-  min-height: 98%;
+  height: 100%;
+  overflow: auto;
   .refresh-list {
     position: relative;
     width: 100%;
-    height: auto;
   }
   .refresh-tip {
     position: absolute;

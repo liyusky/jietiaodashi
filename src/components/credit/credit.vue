@@ -137,11 +137,10 @@ export default {
       }
       if (this.stepNum < 5) {
         this.stepTip = '距离完成还差' + (5 - this.stepNum) + '步，抓紧时间哦'
-        this.setpHint = '你已完成' + this.stepNum + '项认证,继续加油哦'
       } else {
-        this.stepTip = '已全部通过认证'
-        this.setpHint = '您已完成全部认证'
+        this.stepTip = '恭喜你全部认证成功~'
       }
+      this.setpHint = '你已完成' + this.stepNum + '项认证,继续加油哦'
     },
     setProgress () {
       var bar = document.getElementById('bar')

@@ -12,6 +12,7 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -42,6 +43,7 @@ module.exports = {
     'title': `{
         contentText: '意见反馈'
       }`,
+    'without': false,
     'work-card': false
   }
 }

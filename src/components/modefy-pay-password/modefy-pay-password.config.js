@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -45,6 +46,7 @@ module.exports = {
     'title': `{
         contentText: '修改支付密码'
       }`,
+    'without': false,
     'work-card': false
   }
 }

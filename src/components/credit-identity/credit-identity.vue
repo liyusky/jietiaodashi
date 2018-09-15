@@ -55,7 +55,6 @@
 
 <script>
 // include dependence
-import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
@@ -71,6 +70,7 @@ export default {
       cardFront: '',
       cardBack: '',
       livingPhoto: '',
+      sex: '男',
       inputDisabled: false,
       // start params
       'button': {
@@ -110,7 +110,7 @@ export default {
           livingPhoto: this.livingPhoto,
           name: this.cardName,
           cardNo: this.cardId,
-          sex: '男'
+          sex: this.sex
         }
       }).success(data => {
         console.log(data)

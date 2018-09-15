@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': true,
     'Storage': true,
     'Time': false,
@@ -41,6 +42,7 @@ module.exports = {
         contentText: '借条中心',
         rightText: '排序'
       }`,
+    'without': 1,
     'work-card': false
   }
 }

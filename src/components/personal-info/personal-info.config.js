@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -35,6 +36,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': false,
+    'without': false,
     'work-card': false
   }
 }

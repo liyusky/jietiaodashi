@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': true,
     'Storage': true,
     'Time': false,
@@ -53,6 +54,7 @@ module.exports = {
     'title': `{
         contentText: '2018年5月17日收还款'
       }`,
+    'without': false,
     'work-card': false
   }
 }
