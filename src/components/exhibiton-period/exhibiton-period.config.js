@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -35,6 +36,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': `{
@@ -46,6 +48,7 @@ module.exports = {
     'title': `{
         contentText: '展期'
       }`,
+    'without': false,
     'work-card': false
   }
 }

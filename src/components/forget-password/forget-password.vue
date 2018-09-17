@@ -30,6 +30,7 @@
 // include dependence
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -64,9 +65,7 @@ export default {
   },
   methods: {
     backPage (page) {
-      this.$router.push({
-        name: page
-      })
+      Router.push(page)
     },
     clearpasswordNumber () {
       this.passwordNumber = ''
@@ -123,10 +122,7 @@ export default {
           verificationCode: this.codeText
         }
       }).success(data => {
-        console.log(1111)
-        this.$router.push({
-          name: 'empower'
-        })
+        Router.push('empower')
       }).fail(data => {
       })
     }

@@ -1,6 +1,6 @@
 module.exports = {
-  content: '',
-  router: false,
+  content: '借条中心',
+  router: true,
   vuex: {
     mutations: false,
     state: false
@@ -11,11 +11,12 @@ module.exports = {
     'Check': false,
     'Http': true,
     'Mock': false,
-    'Router': false,
-    'Status': false,
-    'Storage': false,
+    'Router': true,
+    'Stata': false,
+    'Status': true,
+    'Storage': true,
     'Time': false,
-    'Type': false,
+    'Type': true,
     'Url': false
   },
   components: {
@@ -28,12 +29,20 @@ module.exports = {
     'inputs': false,
     'keyboard': false,
     'modals': false,
-    'nav': false,
+    'nav': `{
+        content: ['谁欠我钱', '我欠谁钱', '待确认', '已还清', '已失效'],
+        active: 'active'
+      }`,
     'pay-password': false,
-    'receipt': false,
+    'pull-refresh': 1,
+    'receipt': 1,
     'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '借条中心',
+        rightText: '排序'
+      }`,
+    'without': 1,
     'work-card': false
   }
 }

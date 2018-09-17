@@ -89,6 +89,7 @@ export default {
       }).success(data => {
         this.usableMoney = data[0].ca_balance
         this.unusableMoney = data[0].cf_balance
+        Storage.usableMoney = this.usableMoney
       }).fail(data => {
       })
     },

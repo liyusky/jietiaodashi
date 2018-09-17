@@ -42,6 +42,7 @@
 
 <script>
 // include dependence
+import Router from '../../class/Router.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'AddFriendComponent',
@@ -60,9 +61,7 @@ export default {
   },
   methods: {
     gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
+      Router.push(page)
     },
     backPage () {}
   }

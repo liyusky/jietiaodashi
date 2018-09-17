@@ -12,6 +12,7 @@ module.exports = {
     'Http': false,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -67,6 +68,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': `{
@@ -77,6 +79,7 @@ module.exports = {
     'title': `{
         contentText: '出借信息'
       }`,
+    'without': false,
     'work-card': `{
         portrait: '头像地址',
         name: '李艳霞',

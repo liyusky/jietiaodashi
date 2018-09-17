@@ -97,6 +97,7 @@
 import PublishComponent from './publish/publish.vue'
 // include dependence
 import Http from '../../../class/Http.class.js'
+import Router from '../../../class/Router.class.js'
 import Storage from '../../../class/Storage.class.js'
 import ButtonComponent from '../../../module/button/button.vue'
 import DeadlineComponent from '../../../module/deadline/deadline.vue'
@@ -119,6 +120,7 @@ export default {
       borrowDeadline: '7',
       borrowPublish: '3',
       borrowPurpose: '临时周转',
+      otherCost: 0.0,
       purposeShow: false,
       deadLineShow: false,
       // start params
@@ -152,7 +154,9 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    if (this.$store.state.origin.path === '/purpose') {
+    console.log(Storage.origin)
+    if (Storage.origin) return
+    if (Storage.origin.path === '/purpose') {
       this.borrowPurpose = Storage.purpose
     }
     if (Storage.publishObject) {
@@ -195,22 +199,19 @@ export default {
       var date1 = new Date(year, mouth - 1, day)
       var timeDiff = date1.getTime() - date.getTime()
       this.borrowDeadline = parseInt(timeDiff / 1000 / 60 / 60 / 24) + 1
+      this.rateAmount = parseFloat(this.borrowAmount * this.ratePercent / 100 / 365 * this.borrowDeadline).toFixed(1)
       this.borrowDate = year + '-' + mouth + '-' + day
       this.deadLineShow = false
     },
     backPage () {
       if (this.$store.state.origin.path === '/purpose') {
-        this.$router.push({
-          name: 'index'
-        })
+        Router.push('index')
         return
       }
       this.$router.back(-1)
     },
     gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
+      Router.push(page)
     },
     getPublish (publish) {
       this.purposeShow = false
@@ -242,20 +243,22 @@ export default {
           token: Storage.token,
           phone: Storage.phone,
           type: 1,
-          amount: this.borrowAmount, // 借款金额 int
-          lendPhones: this.phoneStr, // 出借人手机集合(多个借款方用","隔开)
-          imAccid: this.imAccidStr, // 出借人云信用id(多个借款方用","隔开)
-          yearRate: this.ratePercent, // 年利率  int
-          Interest: this.rateAmount, // 利息  double
-          period: this.borrowDeadline, // 借款期限 7天  int
-          otherCost: 20.1, // 其他费用  double
-          purpose: this.borrowPurpose, // 借款用途 string
-          purposeReason: '借点钱周转一下', // 借款用途说明 string
-          expireDay: this.borrowPublish, // 借款发布期 7天  int
-          taskId: 'D34E1519-0558-44FA-9731-D0B34423E5AB,D34E1519-0558-44FA-9731-D0B34423E5AB', // 任务单集合(多个任务单用","隔开)
-          source: 1
+          amount: this.borrowAmount,
+          lendPhones: this.phoneStr,
+          imAccid: this.imAccidStr,
+          yearRate: this.ratePercent,
+          Interest: this.rateAmount,
+          period: this.borrowDeadline,
+          otherCost: this.otherCost,
+          purpose: this.borrowPurpose,
+          purposeReason: Storage.opinion,
+          expireDay: this.borrowPublish,
+          taskId: '',
+          source: Storage.borrowOrigin
         }
       }).success(data => {
+        console.log(data)
+        Storage.borrowId = data.Id
       }).fail(data => {
       })
     },
@@ -273,7 +276,7 @@ export default {
   watch: {
     ratePercent (newNum, oldNum) {
       if (!this.borrowAmount) return
-      this.rateAmount = parseFloat(this.borrowAmount * newNum)
+      this.rateAmount = parseFloat(this.borrowAmount * newNum / 100 / 365 * this.borrowDeadline).toFixed(1)
       this.paymentTotl = parseInt(this.borrowAmount) + this.rateAmount
     }
   }

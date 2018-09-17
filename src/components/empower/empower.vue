@@ -148,9 +148,7 @@ export default {
       })
     },
     gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
+      Router.push(page)
     }
   }
 }

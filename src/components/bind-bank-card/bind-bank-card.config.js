@@ -6,12 +6,13 @@ module.exports = {
     state: false
   },
   class: {
-    'BM': false,
+    'BM': true,
     'Btn': false,
     'Check': true,
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -35,12 +36,14 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
     'title': `{
         contentText: '绑定银行卡'
       }`,
+    'without': false,
     'work-card': false
   }
 }

@@ -45,6 +45,8 @@
 // include dependence
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -65,7 +67,7 @@ export default {
         type: 'text',
         rightIcon: 'cong',
         leftText: '持卡人',
-        receiveInput: this.cardHolder,
+        receiveInput: '',
         dsiabled: 'true'
       },
       cardNumberInput: {
@@ -106,6 +108,9 @@ export default {
     ButtonComponent
     // include components
   },
+  created () {
+    this.cardHolderInput.receiveInput = this.cardHolder
+  },
   methods: {
     getCardNumber (text) {
       this.cardNumber = text
@@ -131,10 +136,10 @@ export default {
       if (!Check.identity(this.identityNumber)) return // identity is not correct
       if (!Check.code(this.codeNumber)) return // code is not correct
       Http.send({
-        url: 'ForgetPaymentPwd',
+        url: '',
         data: {
-          token: this.$store.state.token,
-          phone: this.$store.state.token,
+          token: Storage.token,
+          phone: Storage.token,
           cardholder: this.cardHolder,
           cardNumber: this.cardNumber,
           idNumber: this.identityNumber,
@@ -144,6 +149,7 @@ export default {
         }
       }).success(data => {
         console.log(data)
+        Router.push('')
       }).fail(data => {
         console.log(data)
       })

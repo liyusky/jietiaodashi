@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': true,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -30,12 +31,14 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
     'title': `{
         contentText: '我的银行卡'
       }`,
+    'without': false,
     'work-card': false
   }
 }

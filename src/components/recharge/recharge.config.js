@@ -6,12 +6,13 @@ module.exports = {
     state: false
   },
   class: {
-    'BM': false,
+    'BM': true,
     'Btn': false,
     'Check': true,
-    'Http': true,
+    'Http': false,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -24,22 +25,18 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '立即充值'
+          text: '充值'
         }]
       }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': `{
-        type: 'icon',
-        placeholder: '请输入金额',
-        leftIcon: 'cong',
-        style: 'number'
-      }`,
+    'inputs': false,
     'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
@@ -47,6 +44,7 @@ module.exports = {
         contentText: '充值',
         rightText: '限额说明'
       }`,
+    'without': false,
     'work-card': false
   }
 }

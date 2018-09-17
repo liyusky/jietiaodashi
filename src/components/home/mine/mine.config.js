@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -72,10 +73,12 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
     'title': false,
+    'without': false,
     'work-card': false
   }
 }

@@ -10,8 +10,8 @@
     </div>
     <div class="info-user">
       <div class="user-portrait">
-        <img src="../../assets/images/master.png">
-        <!-- <img :src="personalDetail.Photo"> -->
+        <!-- <img src="../../assets/images/master.png"> -->
+        <img :src="personalDetail.Photo">
       </div>
       <div class="user-detail">
         <p class="detail-id"><span>借条ID：</span><span>{{account}}</span></p>
@@ -166,7 +166,6 @@ export default {
         phone: Storage.phone
       }
     }).success(data => {
-      console.log(data)
       this.formatData(data)
       this.personalDetail = data.MemberInfo
       this.transferInfo = data.TransactionInfo
@@ -179,12 +178,15 @@ export default {
       if (!info.OverdueCount) {
         data.MemberInfo.OverdueCount = '无逾期'
       } else {
-        data.MemberInfo.BorrowCount = info.BorrowCount + '笔逾期'
+        data.MemberInfo.OverdueCount = info.OverdueCount + '笔逾期'
       }
       if (!info.BorrowCount) {
         data.MemberInfo.BorrowCount = '当前无借款'
       } else {
         data.MemberInfo.BorrowCount = info.BorrowCount + '笔'
+      }
+      if (!info.Photo) {
+        data.MemberInfo.Photo = 'http://iph.href.lu/87x87'
       }
       data.MemberInfo.RegTime = info.RegTime.substr(0, 10)
       let creditCenter = ''
@@ -210,9 +212,7 @@ export default {
       this.tabSwitchShow = true
     },
     gotoPage (page) {
-      this.$router.push({
-        name: page
-      })
+      Router.push(page)
     }
   }
 }
