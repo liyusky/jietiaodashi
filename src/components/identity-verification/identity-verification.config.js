@@ -11,9 +11,10 @@ module.exports = {
     'Check': true,
     'Http': true,
     'Mock': false,
-    'Router': false,
+    'Router': true,
+    'Stata': false,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false
@@ -35,12 +36,14 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
     'title': `{
         contentText: '身份验证'
       }`,
+    'without': false,
     'work-card': false
   }
 }

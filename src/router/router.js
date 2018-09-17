@@ -12,8 +12,11 @@ const BlackListComponent = () => import(/* webpackChunkName: 'black-list' */ '..
 const BorrowListComponent = () => import(/* webpackChunkName: 'borrow-list' */ '../components/borrow-list/borrow-list.vue')
 const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account' */ '../components/cancel-account/cancel-account.vue')
 const ChatComponent = () => import(/* webpackChunkName: 'chat' */ '../components/chat/chat.vue')
+const CollectionDetailComponent = () => import(/* webpackChunkName: 'collection-detail' */ '../components/collection-detail/collection-detail.vue')
+const CollectionScheduleComponent = () => import(/* webpackChunkName: 'collection-schedule' */ '../components/collection-schedule/collection-schedule.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditComponent = () => import(/* webpackChunkName: 'credit' */ '../components/credit/credit.vue')
+const CreditIdentityComponent = () => import(/* webpackChunkName: 'credit-identity' */ '../components/credit-identity/credit-identity.vue')
 const CreditQueryComponent = () => import(/* webpackChunkName: 'credit-query' */ '../components/credit-query/credit-query.vue')
 const CreditQueryResultComponent = () => import(/* webpackChunkName: 'credit-query-result' */ '../components/credit-query-result/credit-query-result.vue')
 const EmpowerComponent = () => import(/* webpackChunkName: 'empower' */ '../components/empower/empower.vue')
@@ -31,7 +34,9 @@ const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../comp
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
 const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/home/wanna-borrow/wanna-borrow.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
+const IouCenterComponent = () => import(/* webpackChunkName: 'iou-center' */ '../components/iou-center/iou-center.vue')
 const IouDetailComponent = () => import(/* webpackChunkName: 'iou-detail' */ '../components/iou-detail/iou-detail.vue')
+const IouTemplateComponent = () => import(/* webpackChunkName: 'iou-template' */ '../components/iou-template/iou-template.vue')
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
@@ -39,7 +44,6 @@ const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ 
 const NewFriendComponent = () => import(/* webpackChunkName: 'new-friend' */ '../components/new-friend/new-friend.vue')
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
-const PublishComponent = () => import(/* webpackChunkName: 'publish' */ '../components/publish/publish.vue')
 const PublishObjectComponent = () => import(/* webpackChunkName: 'publish-object' */ '../components/publish-object/publish-object.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
 const RechargeComponent = () => import(/* webpackChunkName: 'recharge' */ '../components/recharge/recharge.vue')
@@ -105,6 +109,16 @@ export default new Router({
       component: ChatComponent
     },
     {
+      path: '/collection-detail',
+      name: 'collection-detail',
+      component: CollectionDetailComponent
+    },
+    {
+      path: '/collection-schedule',
+      name: 'collection-schedule',
+      component: CollectionScheduleComponent
+    },
+    {
       path: '/confirm-cancel-account',
       name: 'confirm-cancel-account',
       component: ConfirmCancelAccountComponent
@@ -113,6 +127,11 @@ export default new Router({
       path: '/credit',
       name: 'credit',
       component: CreditComponent
+    },
+    {
+      path: '/credit-identity',
+      name: 'credit-identity',
+      component: CreditIdentityComponent
     },
     {
       path: '/credit-query',
@@ -203,9 +222,19 @@ export default new Router({
       component: IdentityVerificationComponent
     },
     {
+      path: '/iou-center',
+      name: 'iou-center',
+      component: IouCenterComponent
+    },
+    {
       path: '/iou-detail',
       name: 'iou-detail',
       component: IouDetailComponent
+    },
+    {
+      path: '/iou-template',
+      name: 'iou-template',
+      component: IouTemplateComponent
     },
     {
       path: '/lend-list',
@@ -241,11 +270,6 @@ export default new Router({
       path: '/personal-info',
       name: 'personal-info',
       component: PersonalInfoComponent
-    },
-    {
-      path: '/publish',
-      name: 'publish',
-      component: PublishComponent
     },
     {
       path: '/publish-object',

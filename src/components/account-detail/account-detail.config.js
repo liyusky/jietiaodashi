@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': true,
+    'Stata': false,
     'Status': true,
     'Storage': true,
     'Time': false,
@@ -43,6 +44,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': `[]`,
     'tab': false,
     'tip': `{
@@ -52,6 +54,7 @@ module.exports = {
     'title': `{
         contentText: '2018年5月17日收还款'
       }`,
+    'without': false,
     'work-card': false
   }
 }

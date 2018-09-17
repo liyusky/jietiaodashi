@@ -12,6 +12,7 @@ module.exports = {
     'Http': true,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -35,6 +36,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
@@ -42,6 +44,7 @@ module.exports = {
         contentText: '转账',
         rightText: '转账记录'
       }`,
+    'without': false,
     'work-card': false
   }
 }

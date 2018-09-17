@@ -12,7 +12,12 @@
       <div class="font-27">已付利息 {{TotalInterest}}元</div>
       <ImageBgComponent :imageBg="imageBg"></ImageBgComponent>
     </BoardComponent>
-    <ReceiptComponent :receipt="item" v-for="(item, index) in receipt" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.id)"></ReceiptComponent>
+    <div class="list-content">
+      <PullRefreshComponent :direction="'top'" v-if="receipt.length">
+        <ReceiptComponent :receipt="item" v-for="(item, index) in receipt" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.id)"></ReceiptComponent>
+      </PullRefreshComponent>
+      <WithoutComponent  v-if="!receipt.length"></WithoutComponent>
+    </div>
   </section>
   <!-- e 借入 -->
 </template>
@@ -27,8 +32,10 @@ import Type from '../../class/Type.enum.js'
 import BoardComponent from '../../module/board/board.vue'
 import ImageBgComponent from '../../module/image-bg/image-bg.vue'
 import NavComponent from '../../module/nav/nav.vue'
+import PullRefreshComponent from '../../module/pull-refresh/pull-refresh.vue'
 import ReceiptComponent from '../../module/receipt/receipt.vue'
 import TitleComponent from '../../module/title/title.vue'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'BorrowListComponent',
   data () {
@@ -38,7 +45,7 @@ export default {
       type: 1,
       pageIndex: 1,
       // start params
-      'imageBg': 'https://api.vtrois.com/image/750x300/ff8d7b',
+      'imageBg': 'http://iph.href.lu/750x150',
       'nav': {
         content: ['当前', '已放款', '已逾期', '已还清', '已失效'],
         active: ''
@@ -55,7 +62,9 @@ export default {
     ImageBgComponent,
     NavComponent,
     ReceiptComponent,
-    TitleComponent
+    TitleComponent,
+    WithoutComponent,
+    PullRefreshComponent
     // include components
   },
   created () {
@@ -85,7 +94,7 @@ export default {
         let receipt = {
           name: item.TargetName,
           type: Type[item.Type],
-          portrait: 'https://api.vtrois.com/image/81/fff7db/e62991',
+          portrait: 'http://iph.href.lu/120x150',
           rate: item.YearRate,
           start: item.LoanDate,
           end: item.RepaymentDate,
@@ -93,7 +102,9 @@ export default {
           status: Status[item.State],
           targetPhone: item.TargetPhone,
           accId: item.Accid,
-          id: item.Id
+          id: item.Id,
+          mode: item.Mode,
+          icon: 'cong'
         }
         this.receipt.push(receipt)
       })

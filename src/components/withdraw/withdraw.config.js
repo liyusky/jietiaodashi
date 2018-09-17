@@ -6,14 +6,15 @@ module.exports = {
     state: false
   },
   class: {
-    'BM': false,
+    'BM': true,
     'Btn': false,
     'Check': true,
-    'Http': true,
+    'Http': false,
     'Mock': false,
     'Router': false,
+    'Stata': false,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false
@@ -24,29 +25,25 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '立即提现'
+          text: '提现'
         }]
       }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': `{
-        type: 'icon',
-        placeholder: '请输入金额',
-        leftIcon: 'cong',
-        style: 'number'
-      }`,
+    'inputs': false,
     'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '提现',
-        rightText: '限额说明'
+        contentText: '提现'
       }`,
+    'without': false,
     'work-card': false
   }
 }

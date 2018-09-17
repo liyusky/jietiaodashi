@@ -3,8 +3,9 @@
 @import '../../../dependencies/sass/_unit.scss';
 // current sass
 .borrow-list {
-  width: 100%;
-  min-height: 100vh;
+  @include vertical_direction();
+  width: 100vw;
+  height: 100vh;
   .list-nav {
     height: 99 / $unit * $symbol;
   }
@@ -26,5 +27,10 @@
       width: 100%;
       height: 45 / $unit * $symbol;
     }
+  }
+  .list-content {
+    flex: 1;
+    width: 100%;
+    overflow: auto;
   }
 }

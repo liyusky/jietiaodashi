@@ -21,10 +21,21 @@ export default class Url {
   static LoanCollectionCancel = '/Loan/LoanCollectionCancel'
   static ConfirmLoan = '/Loan/ConfirmLoan'
   static CancelAccount = '/Loan/CancelAccount'
+  static LoanCenterList = '/Loan/LoanCenterList'
+  static Opinion = '/Member/Opinion'
   static CreateDelay = '/Loan/CreateDelay'
   static DelayDetail = '/Loan/DelayDetail'
   static ConfirmDelay = '/Loan/ConfirmDelay'
+  static IdentityAuth = '/Member/IdentityAuth'
+  static CurrentStep = '/Member/CurrentStep'
+  static DiscreditQuery = '/Member/DiscreditQuery'
+  static LoanCollectionList = '/Loan/LoanCollectionList'
+  static LoanCollectionProgress = '/Loan/LoanCollectionProgress'
+  static LoanCollectionDetail = '/Loan/LoanCollectionDetail'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = 'BM/query/balanceAction.c'
+  // 提现充值
+  static Withdraw = '/BM/app/app500003.c'
+  static Recharge = '/BM/app/app500013.c'
 }

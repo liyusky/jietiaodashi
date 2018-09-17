@@ -10,6 +10,10 @@ const state = {
   publishObject: [],
   purpose: null,
   payedMoney: null,
-  gapMoney: null
+  gapMoney: null,
+  borrowId: null,
+  usableMoney: null,
+  credtiQuery: null,
+  opinion: null
 }
 export default state

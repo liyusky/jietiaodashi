@@ -1,5 +1,5 @@
 module.exports = {
-  content: '借条发布期',
+  content: '催收进度',
   router: true,
   vuex: {
     mutations: false,
@@ -9,13 +9,14 @@ module.exports = {
     'BM': false,
     'Btn': false,
     'Check': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
-    'Router': false,
+    'Router': true,
+    'Stata': true,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
-    'Type': false,
+    'Type': true,
     'Url': false
   },
   components: {
@@ -28,14 +29,19 @@ module.exports = {
     'inputs': false,
     'keyboard': false,
     'modals': false,
-    'nav': false,
+    'nav': `{
+        content: ['全部', '催收中', '已结束'],
+        active: 'active'
+      }`,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '借条发布期'
+        contentText: '催收进度'
       }`,
+    'without': 1,
     'work-card': false
   }
 }

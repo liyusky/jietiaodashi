@@ -100,5 +100,7 @@ module.exports = {
         receiveInput: '默认内容'
       }`,
   deadline: ``,
-  'image-bg': `''`
+  'image-bg': `''`,
+  'pull-refresh': `''`,
+  without: `''`
 }

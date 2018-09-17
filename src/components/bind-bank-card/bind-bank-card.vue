@@ -52,6 +52,7 @@
 import { provinces as provinceList, cities } from '../../data/cities.js'
 import CitySelect from './city-select/city-select.vue'
 // include dependence
+import BM from '../../class/BM.class.js'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -63,11 +64,13 @@ export default {
   name: 'BindBankCardComponent',
   data () {
     return {
+      cardHolder: '张玉',
       cardNumber: '',
       phoneNumber: '',
       selectBank: '',
       openAccount: '',
       codeNumber: '',
+      id: '342222199812121010',
       imgCode: '',
       getCodeText: '获取验证码',
       codeDisabled: false,
@@ -78,14 +81,14 @@ export default {
         type: 'text',
         rightIcon: 'cong',
         leftText: '持卡人',
-        receiveInput: '张xx',
+        receiveInput: '',
         dsiabled: 'true'
       },
       identityNumberInput: {
         type: 'text',
         placeholder: '输入身份证号',
         leftText: '身份证',
-        receiveInput: '342222199812121010',
+        receiveInput: '',
         dsiabled: 'true'
       },
       cardNumberInput: {
@@ -141,28 +144,25 @@ export default {
       this.selectBank = Storage.card.key
       return
     }
+    this.cardHolderInput.receiveInput = Storage.name
+    this.identityNumberInput.receiveInput = this.id
     this.selectBankInput.placeholder = '请选择银行'
     this.selectBank = ''
-    // 图形验证码
-    Http.send({
-      url: 'GrapheCode',
-      data: {
-        phone: Storage.phone
-      }
-    }).success(data => {
-      console.log(data)
-    }).fail(data => {
-    })
   },
   methods: {
     getCode () {
       if (!Check.phone(this.phoneNumber)) return // phone is not correct
       this.waitOneMinute()
       Http.send({
-        url: 'url',
-        data: {}
+        url: 'SendSMS',
+        data: {
+          phone: Storage.phone,
+          type: 1
+        }
       }).success(data => {
+        console.log(data)
       }).fail(data => {
+        console.log(data)
       })
     },
     bindSubmit () {
@@ -172,10 +172,23 @@ export default {
       if (!Check.code(this.codeNumber)) return // code is not correct
       if (!this.selectBank) return
       if (!this.openAccount) return
-      Http.send({
+      BM.send({
         url: 'BindCard',
-        data: {}
+        data: {
+          userPhone: this.phoneNumber,
+          xm: Storage.name,
+          zjlx: 0,
+          sfz: this.id,
+          sj: this.phoneNumber,
+          yx: '邮箱',
+          khhdm: '开户地代码',
+          khh: '开户行行别',
+          zhmc: '开户行支行名称',
+          zh: this.cardNumber,
+          pwd: '密码'
+        }
       }).success(data => {
+        console.log(data)
       }).fail(data => {
       })
     },
