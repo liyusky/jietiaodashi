@@ -5,7 +5,7 @@
     <div class="settings-billboard margin-top-30 padding-left-30 bg-white">
       <BillboardComponent class="billboard-item padding-right-30 border-bottom-1" :billboard="item" v-for="(item, index) in billboard" :key="index" @OPERATION_EVENT="target"></BillboardComponent>
     </div>
-    <ButtonComponent class="margin-top-30" :button="button" @SUBMIT_EVENT="safeSignOut"></ButtonComponent>
+    <ButtonComponent class="margin-top-30" :button="button" @SUBMIT_EVENT="logout"></ButtonComponent>
   </section>
   <!-- e 设置 -->
 </template>
@@ -14,6 +14,7 @@
 // include dependence
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -76,15 +77,13 @@ export default {
     target (page) {
       Router.push(page)
     },
-    safeSignOut () {
-      console.log(11121)
+    logout () {
       Http.send({
         url: 'UserLogout',
         data: {
-          phone: this.$store.state.phone
+          phone: Storage.phone
         }
       }).success(data => {
-        console.log(1111)
       }).fail(data => {
       })
     }
