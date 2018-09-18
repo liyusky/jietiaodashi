@@ -48,7 +48,7 @@
           <span class="font-30 color-black">联系人手机</span>
         </div>
         <div class="itme-default">
-          <input type="text" v-model="secondPhone">
+          <input type="text" v-model="secondPhone" maxlength="11">
           <i class="iconfont icon-cong font-30 color-blue"></i>
         </div>
       </div>

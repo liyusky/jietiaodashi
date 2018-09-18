@@ -1,5 +1,5 @@
 module.exports = {
-  content: '我要投诉',
+  content: '选择投诉对象',
   router: true,
   vuex: {
     mutations: false,
@@ -9,13 +9,13 @@ module.exports = {
     'Account': false,
     'BM': false,
     'Btn': false,
-    'Check': true,
+    'Check': false,
     'Hasten': false,
-    'Http': true,
+    'Http': false,
     'Mock': false,
-    'Router': true,
+    'Router': false,
     'Status': false,
-    'Storage': true,
+    'Storage': false,
     'Time': false,
     'Type': false,
     'Url': false
@@ -23,12 +23,7 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': `{
-        default: [{
-          type: 'primary',
-          text: '提交'
-        }]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
@@ -43,7 +38,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '我要投诉'
+        contentText: '选择投诉对象'
       }`,
     'without': false,
     'work-card': false

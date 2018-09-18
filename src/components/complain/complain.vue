@@ -1,11 +1,11 @@
 <template>
   <!-- s 我要投诉 -->
-  <section class="complain padding-top-126">
-    <TitleComponent :title="title" @OTHER_EVENT="switchPurpose"></TitleComponent>
+  <section class="complain padding-top-126 padding-bottom-39">
+    <TitleComponent :title="title"></TitleComponent>
     <div class="complain-option padding-horizontal-30">
       <div class="option-itme" :class="{active: setPurposeIndex === index}" v-for="(item, index) in optionList" :key="index" @click="setPurpose(index)">{{item}}</div>
     </div>
-    <p class="complain-title padding-horizontal-30 bg-white border-bottom-1">请输入你要投诉的内容</p>
+    <p class="complain-title font-27 padding-horizontal-30 bg-white border-bottom-1">请输入你要投诉的内容</p>
     <div class="complain-detail">
       <textarea name="detail" v-model="opinion" maxlength="200" placeholder="建议详细描述周转详情：如所借资金周转去向，以及资金流转的方向和还款计划等"></textarea>
       <div class="detail-num padding-horizontal-30">{{opinion.length}}/200</div>
@@ -21,7 +21,10 @@
         </div>
       </div>
     </div>
-    <div class="complain-select"></div>
+    <div class="complain-select bg-white padding-horizontal-30" @click="gotoPage('complain-object')">
+      <span class="font-27 color-deep-grey">选择投诉好友</span>
+      <i class="iconfont icon-cong font-27 color-light-grey"></i>
+    </div>
     <div class="complain-button padding-horizontal-30">
       <ButtonComponent :button="button" @SUBMIT_EVENT="complainSubmit"></ButtonComponent>
     </div>
@@ -31,6 +34,9 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -41,6 +47,7 @@ export default {
       optionList: ['暴力催收', '态度恶劣', '信息辱骂', '泄露信息', '不消条据', '违规收费', '套路贷', '其他'],
       opinion: '',
       setPurposeIndex: 0,
+      selectPhone: '',
       imgArr: [],
       // start params
       'button': {
@@ -63,19 +70,30 @@ export default {
   created () {},
   methods: {
     getImg () {},
+    gotoPage (page) {
+      Router.push(page)
+    },
     setPurpose (index) {
       this.setPurposeIndex = index
     },
-    switchPurpose () {
-      Storage.purpose = this.optionList[this.setPurposeIndex]
-      Storage.opinion = this.opinion
-      // Router.push('wanna-borrow')
-    },
-    back () {
-      Storage.purpose = this.optionList[0]
-      // Router.push('wanna-borrow')
-    },
-    complainSubmit () {}
+    complainSubmit () {
+      if (!this.opinion) return
+      if (!Check.phone(this.selectPhone)) return
+      Http.send({
+        url: 'Complain',
+        data: {
+          token: Storage.token,
+          from_phone: Storage.phone,
+          to_phone: this.selectPhone,
+          tag: this.optionList[this.setPurposeIndex],
+          opinion: this.opinion
+        }
+      }).success(data => {
+        console.log(data)
+      }).fail(data => {
+        console.log(data)
+      })
+    }
   }
 }
 </script>
