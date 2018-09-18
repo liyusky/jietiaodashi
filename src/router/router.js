@@ -14,6 +14,7 @@ const CancelAccountComponent = () => import(/* webpackChunkName: 'cancel-account
 const ChatComponent = () => import(/* webpackChunkName: 'chat' */ '../components/chat/chat.vue')
 const CollectionDetailComponent = () => import(/* webpackChunkName: 'collection-detail' */ '../components/collection-detail/collection-detail.vue')
 const CollectionScheduleComponent = () => import(/* webpackChunkName: 'collection-schedule' */ '../components/collection-schedule/collection-schedule.vue')
+const ComplainComponent = () => import(/* webpackChunkName: 'complain' */ '../components/complain/complain.vue')
 const ConfirmCancelAccountComponent = () => import(/* webpackChunkName: 'confirm-cancel-account' */ '../components/confirm-cancel-account/confirm-cancel-account.vue')
 const CreditComponent = () => import(/* webpackChunkName: 'credit' */ '../components/credit/credit.vue')
 const CreditIdentityComponent = () => import(/* webpackChunkName: 'credit-identity' */ '../components/credit-identity/credit-identity.vue')
@@ -117,6 +118,11 @@ export default new Router({
       path: '/collection-schedule',
       name: 'collection-schedule',
       component: CollectionScheduleComponent
+    },
+    {
+      path: '/complain',
+      name: 'complain',
+      component: ComplainComponent
     },
     {
       path: '/confirm-cancel-account',

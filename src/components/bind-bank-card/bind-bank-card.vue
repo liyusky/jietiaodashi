@@ -70,8 +70,6 @@ export default {
       selectBank: '',
       openAccount: '',
       codeNumber: '',
-      id: '342222199812121010',
-      imgCode: '',
       getCodeText: '获取验证码',
       codeDisabled: false,
       openAccountShow: false,
@@ -139,13 +137,13 @@ export default {
     // include components
   },
   created () {
-    if (this.$store.state.origin.path === '/select-bank-card') {
+    this.cardHolderInput.receiveInput = Storage.name
+    this.identityNumberInput.receiveInput = Storage.id
+    if (Storage.origin.path === '/select-bank-card') {
       this.selectBankInput.placeholder = Storage.card.key
       this.selectBank = Storage.card.key
       return
     }
-    this.cardHolderInput.receiveInput = Storage.name
-    this.identityNumberInput.receiveInput = this.id
     this.selectBankInput.placeholder = '请选择银行'
     this.selectBank = ''
   },
@@ -168,7 +166,6 @@ export default {
     bindSubmit () {
       if (!Check.card(this.cardNumber)) return // card is not correct
       if (!Check.phone(this.phoneNumber)) return // phone is not correct
-      if (!Check.imgCode(this.imgCode)) return // imgCode is not correct
       if (!Check.code(this.codeNumber)) return // code is not correct
       if (!this.selectBank) return
       if (!this.openAccount) return
@@ -178,9 +175,9 @@ export default {
           userPhone: this.phoneNumber,
           xm: Storage.name,
           zjlx: 0,
-          sfz: this.id,
+          sfz: Storage.id,
           sj: this.phoneNumber,
-          yx: '邮箱',
+          // yx: '邮箱',
           khhdm: '开户地代码',
           khh: '开户行行别',
           zhmc: '开户行支行名称',

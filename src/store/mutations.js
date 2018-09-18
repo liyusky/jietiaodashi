@@ -35,7 +35,7 @@ const mutations = {
   saveOpinion (state, opinion) {
     state.opinion = opinion
   },
-  // 保存银卡卡
+  // 保存银行卡
   saveBankCard (state, card) {
     state.card = card
   },

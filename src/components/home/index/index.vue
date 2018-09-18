@@ -62,7 +62,7 @@
         </svg>
         <p>催收进度</p>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" @click="gotoPage('complain')">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-cong"></use>
         </svg>

@@ -1,17 +1,22 @@
 module.exports = {
-  content: '立即还款',
+  content: '我要投诉',
   router: true,
   vuex: {
     mutations: false,
     state: false
   },
   class: {
-    'Check': true,
+    'BM': false,
+    'Btn': false,
+    'Check': false,
     'Http': true,
     'Mock': false,
-    'Router': false,
-    'Storage': false,
+    'Router': true,
+    'Stata': false,
+    'Status': false,
+    'Storage': true,
     'Time': false,
+    'Type': false,
     'Url': false
   },
   components: {
@@ -20,28 +25,25 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '立即还款'
+          text: '提交'
         }]
       }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': 1,
+    'inputs': false,
     'keyboard': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
+    'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': `{
-        type: 'default',
-        content: '已阅读并同意相关协议',
-        icon: 'cong',
-        selected: 'true'
-      }`,
+    'tip': false,
     'title': `{
-        contentText: '立即还款'
+        contentText: '我要投诉'
       }`,
+    'without': false,
     'work-card': false
   }
 }

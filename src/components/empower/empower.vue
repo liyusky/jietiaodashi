@@ -142,6 +142,7 @@ export default {
         Storage.token = data.Token
         Storage.phone = this.phone
         Storage.name = data.Name
+        Storage.id = data.CardNo
         Router.push('home')
       }).fail(data => {
         console.log(112123)

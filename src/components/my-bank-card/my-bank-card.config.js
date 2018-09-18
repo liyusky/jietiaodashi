@@ -10,7 +10,7 @@ module.exports = {
     'Btn': false,
     'Check': false,
     'Http': true,
-    'Mock': true,
+    'Mock': false,
     'Router': false,
     'Stata': false,
     'Status': false,
