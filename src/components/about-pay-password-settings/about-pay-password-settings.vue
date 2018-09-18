@@ -5,7 +5,7 @@
     <div class="settings-billboard margin-top-30 padding-left-30 bg-white">
       <BillboardComponent class="billboard-item padding-right-30 border-bottom-1" :billboard="item" v-for="(item, index) in billboard" :key="index" @OPERATION_EVENT="target"></BillboardComponent>
     </div>
-    <KeyboardComponent></KeyboardComponent>
+    <!-- <KeyboardComponent></KeyboardComponent> -->
   </section>
   <!-- e 支付密码设置 -->
 </template>

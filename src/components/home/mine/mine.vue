@@ -4,7 +4,7 @@
     <div class="mine-information padding-horizontal-24 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
         <div class="detail-portrait" @click="target('personal-info')">
-          <img src="https://api.vtrois.com/image/250x205">
+          <img src="http://iph.href.lu/750x150">
         </div>
         <div class="detail-content">
           <p class="font-36 color-deep-black">{{name}}</p>

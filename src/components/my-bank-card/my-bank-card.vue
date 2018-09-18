@@ -1,22 +1,25 @@
 <template>
   <!-- s 我的银行卡 -->
-  <section class="my-bank-card padding-top-126">
+  <section class="my-bank-card padding-top-126 padding-horizontal-30">
     <TitleComponent :title="title"></TitleComponent>
-    <ul class="card-list padding-horizontal-30">
-      <li class="list-item bg-white">
+    <div class="card-content">
+      <div class="content-without" v-if="!myBankList.length">
+        <p class="font-27 color-light-grey">暂无银行卡</p>
+      </div>
+      <div class="content-item bg-white" v-for="(item, index) in myBankList" :key="index" v-if="myBankList.length">
         <div class="item-detail">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-cong"></use>
           </svg>
           <div class="detail-name color-black">
-            <p class="font-33">{{myBankList.BankName}}</p>
+            <p class="font-33">{{item.BankName}}</p>
             <p class="font-27">储蓄卡</p>
           </div>
         </div>
-        <p class="item-card color-deep-black">{{myBankList.BankCard}}</p>
-      </li>
-    </ul>
-    <div class="card-hint font-30 color-light-black padding-horizontal-30">
+        <p class="item-card color-deep-black">{{item.BankCard}}</p>
+      </div>
+    </div>
+    <div class="card-hint font-27 color-light-black">
       <p>温馨提示</p>
       <p>1、账户只能绑定一张银行卡，开户即绑卡；</p>
       <p>2、更换银行卡需注销账户，注销前请确认系统无有效借条以及账户余额为零；</p>
@@ -29,14 +32,13 @@
 <script>
 // include dependence
 import Http from '../../class/Http.class.js'
-import Mock from '../../class/Mock.class.js'
 import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'MyBankCardComponent',
   data () {
     return {
-      myBankList: null,
+      myBankList: [],
       // start params
       'title': {
         contentText: '我的银行卡'
@@ -61,7 +63,7 @@ export default {
         }
       }).success(data => {
         console.log(data)
-        this.myBankList = Mock.myBank
+        this.myBankList = data
       }).fail(data => {
       })
     }

@@ -30,7 +30,6 @@
           <input type="number" v-model="codeNumber" placeholder="请输入手机验证码">
           <button class="button font-21 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
         </div>
-        <!-- <InputsComponent :inputs="phoneNumber" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent> -->
       </div>
     </div>
     <div class="verification-button">
@@ -56,7 +55,6 @@ export default {
     return {
       cardNumber: '',
       cardHolder: '张玉',
-      phoneNumber: '',
       identityNumber: '',
       codeNumber: '',
       graphCode: '1234',
@@ -109,7 +107,7 @@ export default {
     // include components
   },
   created () {
-    this.cardHolderInput.receiveInput = this.cardHolder
+    this.cardHolderInput.receiveInput = Storage.name
   },
   methods: {
     getCardNumber (text) {
@@ -118,33 +116,32 @@ export default {
     getIdentityNumber (text) {
       this.identityNumber = text
     },
-    getPhoneNumber (text) {
-      this.phoneNumber = text
-    },
     getCode () {
-      // if (!Check.phone(this.phoneNumber)) return // phone is not correct
       this.waitOneMinute()
       Http.send({
-        url: 'url',
-        data: {}
+        url: 'SendSMS',
+        data: {
+          phone: Storage.phone,
+          type: 3
+        }
       }).success(data => {
+        console.log(data)
       }).fail(data => {
       })
     },
     identitySubmit () {
-      if (!Check.card(this.cardNumber)) return // card is not correct
-      if (!Check.identity(this.identityNumber)) return // identity is not correct
-      if (!Check.code(this.codeNumber)) return // code is not correct
+      if (!Check.card(this.cardNumber)) return
+      if (!Check.identity(this.identityNumber)) return
+      if (!Check.code(this.codeNumber)) return
       Http.send({
-        url: '',
+        url: 'ForgetPaymentPwd',
         data: {
           token: Storage.token,
-          phone: Storage.token,
-          cardholder: this.cardHolder,
+          phone: Storage.phone,
+          cardholder: Storage.name,
           cardNumber: this.cardNumber,
           idNumber: this.identityNumber,
           smsCode: this.codeNumber,
-          graphCode: this.graphCode,
           paymentPwd: this.paymentPwd
         }
       }).success(data => {

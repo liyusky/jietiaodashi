@@ -1,5 +1,5 @@
 module.exports = {
-  content: '添加联系人',
+  content: '我要投诉',
   router: true,
   vuex: {
     mutations: false,
@@ -15,7 +15,7 @@ module.exports = {
     'Mock': false,
     'Router': false,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false
@@ -26,28 +26,24 @@ module.exports = {
     'button': `{
         default: [{
           type: 'primary',
-          text: '确认添加'
+          text: '提交'
         }]
       }`,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': 1,
+    'inputs': false,
     'keyboard': false,
-    'modal': 1,
+    'modal': false,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': `{
-        type: 'default',
-        content: '借条大师保障您的信息安全。',
-        icon: 'chuyin'
-      }`,
+    'tip': false,
     'title': `{
-        contentText: '添加联系人'
+        contentText: '我要投诉'
       }`,
     'without': false,
     'work-card': false
