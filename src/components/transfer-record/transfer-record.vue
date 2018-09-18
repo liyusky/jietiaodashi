@@ -7,7 +7,7 @@
       <TipComponent class="list-balance bg-white padding-left-30 border-bottom-1" v-else-if="item.type === 'balance'" :tip="item.content"></TipComponent>
       <div class="list-detail padding-left-30 bg-white" v-else-if="item.type === 'detail'">
         <div class="detail-portrait border-bottom-1">
-          <img class="border-circle" src="https://api.vtrois.com/image/81/fff7db/e62991">
+          <img class="border-circle" src="http://iph.href.lu/750x150">
         </div>
         <div class="detail-message padding-horizontal-30 border-bottom-1">
           <div class="message-title">

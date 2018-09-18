@@ -12,7 +12,7 @@ module.exports = {
     'Check': false,
     'Hasten': false,
     'Http': true,
-    'Mock': true,
+    'Mock': false,
     'Router': false,
     'Status': false,
     'Storage': true,
