@@ -1,6 +1,6 @@
 <template>
   <!-- s 借款用途 -->
-  <section class="purpose">
+  <section class="purpose padding-top-126">
      <TitleComponent :title="title" @OTHER_EVENT="switchPurpose" @BACK_EVENT="back"></TitleComponent>
       <p class="purpose-title">借款用途</p>
       <div class="purpose-option">

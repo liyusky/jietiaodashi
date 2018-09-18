@@ -3,7 +3,7 @@
   <section class="account-balance">
     <TitleComponent :title="title"></TitleComponent>
     <div class="balance-card bg-white">
-      <img class="card-portrait border-circle" src="https://api.vtrois.com/image/141/fff7db/e62991">
+      <img class="card-portrait border-circle" src="http://iph.href.lu/150x150">
       <div class="color-black font-27">可用余额(元)</div>
       <div class="color-deep-black">
         <span class="font-51">¥</span>

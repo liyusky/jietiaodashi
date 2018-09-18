@@ -88,7 +88,7 @@ export default {
         let receipt = {
           name: item.TargetName,
           type: Type[item.Type],
-          portrait: 'https://api.vtrois.com/image/81/fff7db/e62991',
+          portrait: 'http://iph.href.lu/750x150',
           rate: item.YearRate,
           start: item.LoanDate,
           end: item.RepaymentDate,
