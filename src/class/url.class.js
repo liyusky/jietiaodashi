@@ -29,6 +29,7 @@ export default class Url {
   static IdentityAuth = '/Member/IdentityAuth'
   static CurrentStep = '/Member/CurrentStep'
   static DiscreditQuery = '/Member/DiscreditQuery'
+  static ContactsAuth = '/Member/ContactsAuth' // 联系人认证
   static LoanCollectionList = '/Loan/LoanCollectionList'
   static LoanCollectionProgress = '/Loan/LoanCollectionProgress'
   static LoanCollectionDetail = '/Loan/LoanCollectionDetail'
