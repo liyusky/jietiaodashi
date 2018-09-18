@@ -31,8 +31,6 @@
 
 <script>
 // include dependence
-// import Http from '../../class/Http.class.js'
-// import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'

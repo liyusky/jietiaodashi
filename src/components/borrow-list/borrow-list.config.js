@@ -6,13 +6,14 @@ module.exports = {
     state: false
   },
   class: {
+    'Account': false,
     'BM': false,
     'Btn': false,
     'Check': false,
+    'Hasten': false,
     'Http': true,
     'Mock': false,
     'Router': true,
-    'Stata': false,
     'Status': true,
     'Storage': true,
     'Time': false,
@@ -28,6 +29,7 @@ module.exports = {
     'image-bg': `'http://iph.href.lu/750x150'`,
     'inputs': false,
     'keyboard': false,
+    'modal': false,
     'modals': false,
     'nav': `{
         content: ['当前', '已放款', '已逾期', '已还清', '已失效'],

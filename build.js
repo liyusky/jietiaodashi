@@ -9,7 +9,7 @@ const classes = fs.readdirSync('./src/class', 'utf8')
 const components = fs.readdirSync('./src/module', 'utf8')
 
 const FileType = ['vue', 'scss', 'js'];
-const exDir = ['components', 'modal', 'module'];
+const exDir = ['components', 'module'];
 const paths = {
   flex: './dependencies/sass/_flex.scss',
   unit: './dependencies/sass/_unit.scss',

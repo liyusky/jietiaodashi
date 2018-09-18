@@ -6,13 +6,14 @@ module.exports = {
     state: false
   },
   class: {
+    'Account': false,
     'BM': false,
     'Btn': false,
     'Check': false,
+    'Hasten': true,
     'Http': true,
     'Mock': false,
     'Router': true,
-    'Stata': true,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -28,6 +29,7 @@ module.exports = {
     'image-bg': false,
     'inputs': false,
     'keyboard': false,
+    'modal': false,
     'modals': false,
     'nav': `{
         content: ['全部', '催收中', '已结束'],

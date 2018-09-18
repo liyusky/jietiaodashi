@@ -6,13 +6,14 @@ module.exports = {
     state: false
   },
   class: {
+    'Account': false,
     'BM': false,
     'Btn': false,
     'Check': false,
+    'Hasten': false,
     'Http': false,
     'Mock': false,
     'Router': false,
-    'Stata': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -33,6 +34,7 @@ module.exports = {
     'image-bg': false,
     'inputs': false,
     'keyboard': false,
+    'modal': false,
     'modals': false,
     'nav': false,
     'pay-password': `[]`,

@@ -14,6 +14,7 @@ const state = {
   borrowId: null,
   usableMoney: null,
   credtiQuery: null,
-  opinion: null
+  opinion: null,
+  account: null
 }
 module.exports = state

@@ -1,0 +1,142 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.add-contact {
+  width: 100vw;
+  height: 100vh;
+
+  .contact-tip {
+    width: 100%;
+    height: 75 / $unit * $symbol;
+    color: #f77f4f;
+    background-color: #fff7e7;
+  }
+
+  .modal-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+
+    .modal-content {
+      @include vertical_direction();
+      width: 100%;
+      height: 390 / $unit * $symbol;
+      background-color: #fff;
+
+      .content-button {
+        @include vertical_center_horizontal_between();
+        width: 100%;
+        height: 81 / $unit * $symbol;
+        background-color: #eeeeee;
+
+        button {
+          @include center();
+          height: 100%;
+
+          padding: {
+            left: 30 / $unit * $symbol;
+            right: 30 / $unit * $symbol;
+          }
+
+          font-size: 33 / $unit * $symbol;
+          color: #4d7bfe;
+          background-color: #eeeeee;
+        }
+      }
+
+      .content-nav {
+        @include center();
+        flex: 1;
+        width: 100%;
+
+        .nav-list {
+          width: 250 / $unit * $symbol;
+          height: 258 / $unit * $symbol;
+          overflow: auto;
+
+          .list-item {
+            @include center();
+            width: 100%;
+            height: 69 / $unit * $symbol;
+            font-size: 42 / $unit * $symbol;
+            color: #999;
+          }
+          .active {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    width: 100%;
+
+    margin: {
+      bottom: 21 / $unit * $symbol;
+    }
+
+    border: {
+      bottom: 1px solid #e1e1e1;
+      top: 1px solid #e1e1e1;
+    }
+
+    .form-item {
+      @include vertical_center_horizontal_between();
+      width: 100%;
+      height: 120 / $unit * $symbol;
+
+      .item-left {
+        @include vertical_center();
+        width: 30%;
+        height: 100%;
+
+        i {
+          font-size: 12 / $unit * $symbol;
+        }
+
+        span {
+          padding: {
+            left: 21 / $unit * $symbol;
+          }
+        }
+      }
+
+      .itme-default {
+        @include vertical_center();
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        flex: 1;
+        height: 100%;
+
+        input {
+          flex: 1;
+          height: 100%;
+          font-size: 30 / $unit * $symbol;
+          color: #333;
+          text-align: right;
+        }
+
+        input::-webkit-input-placeholder {
+          font-size: 30 / $unit * $symbol;
+          color: #999999;
+        }
+
+        span {
+          padding: {
+            right: 15 / $unit * $symbol;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-button {
+    padding: {
+      top: 51 / $unit * $symbol;
+    }
+  }
+}

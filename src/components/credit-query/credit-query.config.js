@@ -6,13 +6,14 @@ module.exports = {
     state: false
   },
   class: {
+    'Account': false,
     'BM': false,
     'Btn': false,
     'Check': false,
+    'Hasten': false,
     'Http': true,
     'Mock': false,
     'Router': true,
-    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -36,6 +37,7 @@ module.exports = {
         placeholder: '输入查询对象的账号/身份证号'
       }`,
     'keyboard': false,
+    'modal': false,
     'modals': false,
     'nav': false,
     'pay-password': false,

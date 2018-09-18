@@ -38,4 +38,5 @@ export default class Url {
   // 提现充值
   static Withdraw = '/BM/app/app500003.c'
   static Recharge = '/BM/app/app500013.c'
+  static Repay = '/BM/account/transferBu_ppwd.c'
 }

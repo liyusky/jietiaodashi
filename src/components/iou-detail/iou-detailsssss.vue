@@ -66,12 +66,8 @@
       <button class="button font-30 color-blue bg-white" v-show="button[0]" @click="leftOperate(0)"><div>{{button[0]}}</div></button>
       <button class="button font-30 color-white bg-blue" v-show="button[1]" @click="rightOperate(1)"><div>{{button[1]}}</div></button>
     </div>
-    <ModalComponent class="detail-modal" v-show="modalShow" @CLOSE_EVENT="close">
-      <div class="modal-content bg-white">
-        <TipComponent class="modal-tip color-deep-grey border-bottom-1" :tip="tip"></TipComponent>
-        <PayPasswordComponent class="modal-pay-password" :payPassword="payPassword"></PayPasswordComponent>
-        <KeyboardComponent class="modal-keyboard" @PRESS_EVENT="input" @REMOVE_EVENT="remove"></KeyboardComponent>
-      </div>
+    <ModalComponent v-show="modalShow" @CLOSE_EVENT="close">
+      
     </ModalComponent>
   </section>
   <!-- e 借条详情 -->
@@ -109,7 +105,7 @@ export default {
       page: [],
       amountReturned: 0,
       targetAccount: null,
-      modalShow: true,
+      modalShow: false,
       // start params
       'detailList': [
         {
@@ -150,12 +146,6 @@ export default {
     }
   },
   components: {
-    DetailListComponent,
-    KeyboardComponent,
-    ModalComponent,
-    PayPasswordComponent,
-    TipComponent,
-    TitleComponent
     // include components
   },
   created () {
@@ -278,6 +268,20 @@ export default {
     },
     repay () {
       this.modalShow = true
+
+      BM.send({
+        url: 'Repay',
+        data: {
+          czzh: Storage.phone,
+          rzzh: this.targetAccount,
+          je: this.repaymentAmount,
+          tranType: 1,
+          lid: this.id,
+          ppwd: ''
+        }
+      }).success(data => {
+      }).fail(data => {
+      })
     },
     renewal () {},
     cancelAbitrate () {
@@ -298,29 +302,6 @@ export default {
     },
     close () {
       this.modalShow = false
-    },
-    input (number) {
-      if (this.payPassword.length < 6) this.payPassword.push(number)
-      if (this.payPassword.length === 6) {
-        this.modalShow = false
-        BM.send({
-          url: 'Repay',
-          data: {
-            czzh: Storage.phone,
-            rzzh: this.targetAccount,
-            je: this.repaymentAmount,
-            tranType: 1,
-            lid: this.id,
-            ppwd: this.payPassword.join('')
-          }
-        }).success(data => {
-        }).fail(data => {
-        })
-        this.payPassword = []
-      }
-    },
-    remove () {
-      if (this.payPassword.length > 0) this.payPassword.pop()
     }
   }
 }
