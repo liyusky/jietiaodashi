@@ -22,8 +22,8 @@
           <i class="iconfont icon-cong color-blue"></i>
           <span class="font-30 color-black">联系人手机</span>
         </div>
-        <div class="itme-default" @click="gotoPage">
-          <span class="font-30 color-light-grey">{{firstPhone}}</span>
+        <div class="itme-default">
+          <input type="text" v-model="firstPhone">
           <i class="iconfont icon-cong font-30 color-blue"></i>
         </div>
       </div>
@@ -47,8 +47,8 @@
           <i class="iconfont icon-cong color-blue"></i>
           <span class="font-30 color-black">联系人手机</span>
         </div>
-        <div class="itme-default" @click="gotoPage">
-          <span class="font-30 color-light-grey">{{secondPhone}}</span>
+        <div class="itme-default">
+          <input type="text" v-model="secondPhone">
           <i class="iconfont icon-cong font-30 color-blue"></i>
         </div>
       </div>
@@ -152,7 +152,6 @@ export default {
       this.relationMark = mark
       this.modalShow = true
     },
-    gotoPage () {},
     addContactSubmit () {},
     getFirstContactName (text) {
       this.firstName = text

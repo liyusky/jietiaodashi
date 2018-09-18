@@ -115,6 +115,9 @@
         input {
           flex: 1;
           height: 100%;
+          padding: {
+            right: 21 / $unit * $symbol;
+          }
           font-size: 30 / $unit * $symbol;
           color: #333;
           text-align: right;
@@ -129,6 +132,11 @@
           padding: {
             right: 15 / $unit * $symbol;
           }
+        }
+      }
+      .item-phone {
+        i {
+          color: red;
         }
       }
     }
