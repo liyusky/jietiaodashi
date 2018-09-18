@@ -4,7 +4,9 @@
     <TitleComponent :title="title"></TitleComponent>
     <TipComponent class="contact-tip padding-horizontal-30 font-24" :tip="tip"></TipComponent>
     <ModalComponent>
-      <div class="modal-content"></div>
+      <div class="modal-content">
+        <div></div>
+      </div>
     </ModalComponent>
   </section>
   <!-- e 添加联系人 -->
