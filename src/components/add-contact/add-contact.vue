@@ -30,7 +30,7 @@
     </div>
     <div class="contact-form padding-horizontal-30  bg-white ">
       <div class="form-item border-bottom-1">
-        <InputsComponent :inputs="secondNameInput"  @GET_INPUT_TEXT_EVENT="getSecondContactName"></InputsComponent>
+        <InputsComponent :inputs="secondNameInput" @GET_INPUT_TEXT_EVENT="getSecondContactName"></InputsComponent>
       </div>
       <div class="form-item border-bottom-1">
         <div class="item-left">
@@ -54,19 +54,14 @@
       </div>
     </div>
     <div class="contact-button padding-horizontal-30">
-      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="addContactSubmit"></ButtonComponent>
+      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
     <ModalComponent v-show="modalShow">
-      <div class="modal-content">
-        <div class="content-button">
-          <button class="button" @click="cancel"><div>取消</div></button>
-          <button class="button" @click="getRelation"><div>确认</div></button>
-        </div>
-        <nav class="content-nav">
-          <ul class="nav-list">
-            <li class="list-item" :class="{active: isIndex === index}" v-for="(item, index) in relationList" :key="index" @click="switchtRelation(item, index)">{{item}}</li>
-          </ul>
-        </nav>
+      <div class="modal-content padding-horizontal-30">
+        <ul class="content-list">
+          <li class="list-item border-radius-12" v-for="(item, index) in relationList" :key="index" @click="getRelation(item)">{{item}}</li>
+        </ul>
+        <div class="content-btn color-red border-radius-12" @click="cancel">取消</div>
       </div>
     </ModalComponent>
   </section>
@@ -75,6 +70,10 @@
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import ModalComponent from '../../module/modal/modal.vue'
@@ -84,16 +83,15 @@ export default {
   name: 'AddContactComponent',
   data () {
     return {
+      mark: null,
       firstName: '',
       secondName: '',
       firstRelation: '',
       seconRelation: '',
       firstPhone: '',
       secondPhone: '',
-      relationList: ['父亲', '母亲', '哥哥', '姐姐', '弟弟', '妹妹', '爷爷', '奶奶', '配偶', '其他'],
+      relationList: null,
       modalShow: false,
-      relationMark: null,
-      isIndex: 0,
       firstNameInput: {
         type: 'text',
         leftText: '联系人姓名',
@@ -133,26 +131,67 @@ export default {
     // include components
   },
   methods: {
-    switchtRelation (item, index) {
-      this.isIndex = index
-    },
     cancel () {
       this.modalShow = false
     },
-    getRelation () {
-      this.modalShow = false
-      if (this.relationMark === 'first') {
-        this.firstRelation = this.relationList[this.isIndex]
-      } else {
-        this.seconRelation = this.relationList[this.isIndex]
+    getRelation (item) {
+      switch (this.mark) {
+        case 'first':
+          this.firstRelation = item
+          break
+        case 'second':
+          this.seconRelation = item
+          break
       }
+      this.modalShow = false
     },
     openModal (mark) {
-      this.isIndex = 0
-      this.relationMark = mark
+      switch (mark) {
+        case 'first':
+          this.relationList = ['父亲', '母亲', '配偶']
+          this.relationList.splice(this.relationList.findIndex(item => item === this.seconRelation), 1)
+          break
+        case 'second':
+          this.relationList = ['父亲', '母亲', '配偶', '亲戚', '朋友']
+          this.relationList.splice(this.relationList.findIndex(item => item === this.firstRelation), 1)
+          break
+      }
+      this.mark = mark
       this.modalShow = true
     },
-    addContactSubmit () {},
+    submit () {
+      if (Check.name(this.firstName) && Check.phone(this.firstPhone)) {
+        // 请检查第一个联系人的姓名与电话号码
+        return false
+      }
+      if (Check.name(this.secondName) && Check.phone(this.secondPhone)) {
+        // 请检查第二个联系人的姓名与电话号码
+        return false
+      }
+      Http.send({
+        url: 'ContactsAuth',
+        data: {
+          token: Storage.token,
+          userPhone: Storage.phone,
+          contactList: [
+            JSON.stringify({
+              ContactPhone: this.firstPhone,
+              ContactName: this.firstName,
+              Relationship: this.firstRelation
+            }),
+            JSON.stringify({
+              ContactPhone: this.secondPhone,
+              ContactName: this.secondName,
+              Relationship: this.seconRelation
+            })
+          ],
+          telList: null
+        }
+      }).success(data => {
+        Router.push('zhima-creadit')
+      }).fail(data => {
+      })
+    },
     getFirstContactName (text) {
       this.firstName = text
     },
