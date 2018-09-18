@@ -20,9 +20,9 @@
 
 <script>
 // include dependence
+import Hasten from '../../class/Hasten.enum.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
-import Stata from '../../class/Stata.Collection.js'
 import Storage from '../../class/Storage.class.js'
 import Type from '../../class/Type.enum.js'
 import NavComponent from '../../module/nav/nav.vue'
@@ -86,7 +86,7 @@ export default {
           start: item.LoanDate,
           end: item.RepaymentDate,
           money: item.Amount,
-          status: Stata[item.CollectionState],
+          status: Hasten[item.CollectionState],
           targetPhone: item.TargetPhone,
           accId: item.Accid,
           mode: item.Model,

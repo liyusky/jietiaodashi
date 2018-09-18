@@ -6,13 +6,13 @@ module.exports = {
     state: false
   },
   class: {
-    'BM': false,
+    'BM': true,
     'Btn': true,
     'Check': false,
+    'Hasten': false,
     'Http': true,
     'Mock': false,
     'Router': true,
-    'Stata': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -53,14 +53,18 @@ module.exports = {
       ]`,
     'image-bg': false,
     'inputs': false,
-    'keyboard': false,
+    'keyboard': 1,
+    'modal': 1,
     'modals': false,
     'nav': false,
-    'pay-password': false,
+    'pay-password': `[]`,
     'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': false,
+    'tip': `{
+        type: 'center',
+        content: '请输入支付密码'
+      }`,
     'title': `{
         contentText: '借条详情'
       }`,

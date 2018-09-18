@@ -1,18 +1,18 @@
 <template>
   <!-- s 充值 -->
   <section class="recharge padding-horizontal-30">
-    <TitleComponent :title="title" @OTHER_EVENT="gotoPage" @BACK_EVENT="back"></TitleComponent>
+    <TitleComponent :title="title"></TitleComponent>
     <div class="recharge-content padding-horizontal-30 bg-white">
       <div class="content-amount">
         <span class="font-30 color-black">充值金额</span>
       </div>
       <div class="content-input border-bottom-1">
         <i class="iconfont icon-cong font-30 color-light-grey"></i>
-        <input type="number" v-model="rechargeMoney">
+        <input type="number" v-model="money">
       </div>
     </div>
     <div class="recharge-button padding-horizontal-30">
-      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="rechargeSubmit"></ButtonComponent>
+      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="recharge"></ButtonComponent>
     </div>
   </section>
   <!-- e 充值 -->
@@ -28,7 +28,7 @@ export default {
   name: 'RechargeComponent',
   data () {
     return {
-      rechargeMoney: '',
+      money: '',
       // start params
       'button': {
         default: [{
@@ -49,18 +49,16 @@ export default {
     // include components
   },
   methods: {
-    gotoPage () {},
-    back () {},
-    rechargeSubmit () {
-      if (!Check.money(this.amountNumber)) return
+    recharge () {
+      if (!Check.money(this.money)) return
+      if (this.money % 10 !== 0 || this.money < 10) return
       BM.send({
         url: 'Recharge',
         data: {
           zh: Storage.phone,
-          amt: this.rechargeMoney
+          amt: this.money
         }
       }).success(data => {
-        console.log(data)
       }).fail(data => {
       })
     }

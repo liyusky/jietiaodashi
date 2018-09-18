@@ -47,8 +47,8 @@
 
 <script>
 // include dependence
+import Hasten from '../../class/Hasten.enum.js'
 import Http from '../../class/Http.class.js'
-import Stata from '../../class/Stata.Collection.js'
 import Storage from '../../class/Storage.class.js'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -109,7 +109,7 @@ export default {
     formatData (data) {
       this.name = data.TargetName
       this.operation = data.Operation
-      this.state = Stata[data.Stata]
+      this.state = Hasten[data.Stata]
       // this.overdueDay = data.OverdueDay ? data.OverdueDay + '天' : ''
       this.detailList[0].value = data.Amount + '元'
       this.detailList[1].value = data.Scale + '%'

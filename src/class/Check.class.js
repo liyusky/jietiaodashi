@@ -56,11 +56,26 @@ export default class Check {
   }
 
   // check money
-  static money (money) {}
-  // check imgcode
-  static imgCode (imgcode) {}
-  // check cardNumber
-  static card (cardNumber) {}
+  static money (money) {
+    money = money ? money.replace(/\s+/g, '') : money
+    if (!money) {
+      // Title.text = '请输入金额'
+      // dialogShow = true
+      return false
+    }
+    if (isNaN(money)) {
+      // Title.text = '请输入数字'
+      // dialogShow = true
+      return false
+    }
+    let composition = money.split('.')
+    if (composition[1] && composition[1].length > 2) {
+      // Title.text = '请注意金额格式'
+      // dialogShow = true
+      return false
+    }
+    return true
+  }
   // check identityNumber
   static identity (identityNumber) {}
 }
