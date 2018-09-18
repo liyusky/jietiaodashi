@@ -1,0 +1,19 @@
+// include module
+@import '../../../dependencies/sass/_flex.scss';
+@import '../../../dependencies/sass/_unit.scss';
+// current sass
+.add-contact {
+  width: 100vw;
+  .contact-tip {
+    width: 100%;
+    color: #f77f4f;
+    background-color: #fff7e7;
+  }
+  .modal-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+  }
+}

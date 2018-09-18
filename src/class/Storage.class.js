@@ -142,4 +142,12 @@ export default class Storage {
   static get credtiQuery () {
     return window.app.$store.state.credtiQuery
   }
+
+  static set account (account) {
+    window.app.$store.commit('saveAccount', account)
+  }
+
+  static get account () {
+    return window.app.$store.state.account
+  }
 }

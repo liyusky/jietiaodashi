@@ -1,5 +1,5 @@
 module.exports = {
-  content: '个人信息',
+  content: '添加联系人',
   router: true,
   vuex: {
     mutations: false,
@@ -11,11 +11,11 @@ module.exports = {
     'Btn': false,
     'Check': false,
     'Hasten': false,
-    'Http': true,
+    'Http': false,
     'Mock': false,
-    'Router': true,
+    'Router': false,
     'Status': false,
-    'Storage': true,
+    'Storage': false,
     'Time': false,
     'Type': false,
     'Url': false
@@ -27,17 +27,34 @@ module.exports = {
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
-    'inputs': false,
+    'inputs': `{
+        type: 'default / text / slide / icon / switch / center',
+        placeholder: '',
+        rightText: '',
+        rightIcon: '',
+        leftText: '',
+        leftIcon: '',
+        style: 'input类型',
+        maxLength: '',
+        disabled: '',
+        receiveInput: '默认内容'
+      }`,
     'keyboard': false,
-    'modal': false,
+    'modal': 1,
     'modals': false,
     'nav': false,
     'pay-password': false,
     'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': false,
-    'title': false,
+    'tip': `{
+        type: 'default',
+        content: '借条大师保障您的信息安全。',
+        icon: 'chuyin'
+      }`,
+    'title': `{
+        contentText: '添加联系人'
+      }`,
     'without': false,
     'work-card': false
   }

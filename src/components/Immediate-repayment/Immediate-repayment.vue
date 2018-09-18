@@ -59,47 +59,18 @@ export default {
       // start params
       'button': {
         default: [{
-          type: 'primary full default wran / 白底红字',
-          text: '大按钮文字'
-        }],
-        group: [
-          {
-            text: '左边按钮文字',
-            class: 'primary 蓝底白字'
-          },
-          {
-            text: '拒绝',
-            class: 'danger 红底白字 / default 白底蓝字'
-          }
-        ]
-      },
-      'inputs': {
-        type: 'default / text / slide / icon / switch / center',
-        placeholder: '',
-        rightText: '',
-        rightIcon: '',
-        leftText: '',
-        leftIcon: '',
-        style: 'input类型',
-        maxLength: '',
-        disabled: '',
-        receiveInput: '默认内容'
+          type: 'primary',
+          text: '立即还款'
+        }]
       },
       'tip': {
-        type: 'default center',
-        content: '传入文字消息',
-        protocol: '协议名字',
-        icon: '传入的iconfont名',
-        svg: '传入借条tip的svg名',
-        selected: 'false true',
-        theme: 'blue red'
+        type: 'default',
+        content: '已阅读并同意相关协议',
+        icon: 'cong',
+        selected: 'true'
       },
       'title': {
-        contentText: '中间内容',
-        leftText: '左边箭头后文字',
-        rightText: '右边文字内容',
-        icon: '右边icon',
-        svg: '右边svg'
+        contentText: '立即还款'
       }
       // end params
     }

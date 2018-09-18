@@ -60,6 +60,9 @@ const mutations = {
   // 信用查询结果
   saveCreditQuery (state, credtiQuery) {
     state.credtiQuery = credtiQuery
+  },
+  saveAccount (state, account) {
+    state.account = account
   }
 }
 module.exports = mutations
