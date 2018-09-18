@@ -1,5 +1,5 @@
 <template>
-  <!-- s  -->
+  <!-- s 立即还款 -->
   <section class="immediate-repayment padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <div class="repayment-board bg-blue color-white">
@@ -24,11 +24,17 @@
       <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="payMentSubmit"></ButtonComponent>
     </div>
   </section>
-  <!-- e  -->
+  <!-- e 立即还款 -->
 </template>
 
 <script>
 // include dependence
+import Check from '../../class/Check.class.js'
+import Http from '../../class/Http.class.js'
+import ButtonComponent from '../../module/button/button.vue'
+import InputsComponent from '../../module/inputs/inputs.vue'
+import TipComponent from '../../module/tip/tip.vue'
+import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'ImmediateRepaymentComponent',
   data () {
@@ -51,6 +57,21 @@ export default {
         leftIcon: 'cong'
       },
       // start params
+      'button': {
+        default: [{
+          type: 'primary',
+          text: '立即还款'
+        }]
+      },
+      'tip': {
+        type: 'default',
+        content: '已阅读并同意相关协议',
+        icon: 'cong',
+        selected: 'true'
+      },
+      'title': {
+        contentText: '立即还款'
+      }
       // end params
     }
   },
