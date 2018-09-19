@@ -33,6 +33,7 @@
 
 <script>
 // include dependence
+import Account from '../../class/Account.class.js'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -139,13 +140,11 @@ export default {
         url: url,
         data: data
       }).success(data => {
+        Account.info = data
         Storage.token = data.Token
         Storage.phone = this.phone
-        Storage.name = data.Name
-        Storage.id = data.CardNo
         Router.push('home')
       }).fail(data => {
-        console.log(112123)
       })
     },
     gotoPage (page) {
