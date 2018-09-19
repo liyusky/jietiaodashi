@@ -133,12 +133,9 @@ export default {
   created () {
     this.cardHolderInput.receiveInput = Storage.name
     this.identityNumberInput.receiveInput = Storage.id
-    if (Storage.origin.path === '/select-bank-card') {
-      this.selectBankInput.placeholder = Storage.card.key
+    if (Storage.card) {
       this.selectBank = Storage.card.key
-      return
     }
-    this.selectBank = ''
   },
   methods: {
     getCode () {

@@ -127,10 +127,7 @@ export default {
         }
       })
       Storage.publishObject = selectObject
-      this.$router.push({
-        name: 'wanna-borrow'
-      })
-      // Router.push('wanna-borrow')
+      Router.push('wanna-borrow')
     },
     selectFriend (item, index) {
       this.friendList[index].checkFriend = !this.friendList[index].checkFriend

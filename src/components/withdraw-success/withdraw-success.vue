@@ -1,7 +1,7 @@
 <template>
   <!-- s 提现申请成功 -->
   <section class="withdraw-success padding-top-126 bg-white">
-    <TitleComponent :title="title" @BACK_EVENT="backPage" @OTHER_EVENT="gotoPage"></TitleComponent>
+    <TitleComponent :title="title" @OTHER_EVENT="gotoPage"></TitleComponent>
     <div class="success-hint">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-cong"></use>
@@ -84,9 +84,6 @@ export default {
     // include components
   },
   methods: {
-    backPage () {
-      this.$router.back(-1)
-    },
     gotoPage () {}
   }
 }

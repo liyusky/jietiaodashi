@@ -143,10 +143,7 @@ export default {
         Storage.phone = this.phone
         Storage.name = data.Name
         Storage.id = data.CardNo
-        this.$router.push({
-          name: 'home'
-        })
-        // Router.push('home')
+        Router.push('home')
       }).fail(data => {
         console.log(112123)
       })

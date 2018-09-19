@@ -61,10 +61,7 @@ export default {
       }
       Storage.purpose = this.optionList[this.setPurposeIndex]
       Storage.opinion = this.opinion
-      this.$router.push({
-        name: 'wanna-borrow'
-      })
-      // Router.push('wanna-borrow')
+      Router.push('wanna-borrow')
     }
   },
   components: {

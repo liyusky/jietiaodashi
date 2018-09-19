@@ -68,9 +68,6 @@ export default {
   methods: {
     switchText (index) {
       this.questionList[index].check = !this.questionList[index].check
-    },
-    backPage () {
-      this.$router.back(-1)
     }
   }
 }
