@@ -12,15 +12,15 @@
       </div>
       <div class="header-list padding-horizontal-21">
         <div class="list-search padding-horizontal-30">
-          <i class="iconfont icon-cong font-27 color-white"></i>
+          <i class="iconfont icon-sousuo font-30 color-white"></i>
           <input type="text" placeholder="搜索你认识的好友">
         </div>
         <div class="list-item">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-haoyou1"></i>
           <p>通讯录</p>
         </div>
         <div class="list-item">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-add"></i>
           <p>加好友</p>
         </div>
       </div>
@@ -28,56 +28,56 @@
     <nav class="index-nav">
       <div class="nav-item">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>找出借人</p>
       </div>
       <div class="nav-item">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>贷款超市</p>
       </div>
       <div class="nav-item" @click="gotoPage('iou-center')">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>借条中心</p>
       </div>
       <div class="nav-item" @click="gotoPage('credit-query')">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>失信查询</p>
       </div>
       <div class="nav-item">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>仲裁进度</p>
       </div>
       <div class="nav-item"  @click="gotoPage('collection-schedule')">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>催收进度</p>
       </div>
       <div class="nav-item" @click="gotoPage('complain')">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>我要投诉</p>
       </div>
       <div class="nav-item">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-cong"></use>
+          <use xlink:href="#icon-tixian"></use>
         </svg>
         <p>催收保障</p>
       </div>
     </nav>
     <div class="index-message">
       <div class="message-left">
-        <img src="https://api.vtrois.com/image/123x30">
+        <img src="../../../assets/images/hot.gif">
       </div>
       <div class="message-right">
         <div class="swiper-container broad" id="broad">
@@ -91,10 +91,10 @@
     </div>
     <div class="index-activity">
       <div class="activity-find">
-        <img src="https://api.vtrois.com/image/750x180">
+        <img src="../../../assets/images/activity-find.gif">
       </div>
       <div class="activity-invite">
-        <img src="https://api.vtrois.com/image/750x160">
+        <img src="../../../assets/images/activity-invite.gif">
       </div>
     </div>
     <!-- <TabComponent></TabComponent> -->

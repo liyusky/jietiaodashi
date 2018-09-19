@@ -4,25 +4,25 @@
     <nav class="tab">
       <div class="tab-item" @click="gotoPage('index')">
         <svg class="icon" aria-hidden="true" v-if="path === '/index' || path === '/'">
-          <use xlink:href="#icon-chuyin"></use>
+          <use xlink:href="#icon-shouye1"></use>
         </svg>
         <svg class="icon" aria-hidden="true" v-if="path !== '/index' && path !== '/'">
-          <use xlink:href="#icon-jianyu"></use>
+          <use xlink:href="#icon-shouye"></use>
         </svg>
         <p class="item-name" :class="{active: path === '/index' || path === '/'}">首页</p>
       </div>
       <div class="tab-item" @click="gotoPage('message')">
         <svg class="icon" aria-hidden="true" v-if="path === '/message'">
-          <use xlink:href="#icon-chuyin"></use>
+          <use xlink:href="#icon-haoyou"></use>
         </svg>
         <svg class="icon" aria-hidden="true" v-if="path !== '/message'">
-          <use xlink:href="#icon-jianyu"></use>
+          <use xlink:href="#icon-haoyou1"></use>
         </svg>
         <p class="item-name" :class="{active: path === '/message'}">消息</p>
       </div>
       <div class="tab-item" @click="gotoBorrow('wanna-borrow')">
         <svg class="icon" aria-hidden="true" v-if="path === '/wanna-borrow'">
-          <use xlink:href="#icon-chuyin"></use>
+          <use xlink:href="#icon-jianpan"></use>
         </svg>
         <svg class="icon" aria-hidden="true" v-if="path !== '/wanna-borrow'">
           <use xlink:href="#icon-jianyu"></use>
@@ -31,19 +31,19 @@
       </div>
       <div class="tab-item" @click="gotoPage('find')">
         <svg class="icon" aria-hidden="true" v-if="path === '/find'">
-          <use xlink:href="#icon-chuyin"></use>
+          <use xlink:href="#icon-faxianshangse"></use>
         </svg>
         <svg class="icon" aria-hidden="true" v-if="path !== '/find'">
-          <use xlink:href="#icon-jianyu"></use>
+          <use xlink:href="#icon-faxian"></use>
         </svg>
         <p class="item-name" :class="{active: path === '/find'}">发现</p>
       </div>
       <div class="tab-item" @click="gotoPage('mine')">
         <svg class="icon" aria-hidden="true" v-if="path === '/mine'">
-          <use xlink:href="#icon-chuyin"></use>
+          <use xlink:href="#icon-wode1"></use>
         </svg>
         <svg class="icon" aria-hidden="true" v-if="path !== '/mine'">
-          <use xlink:href="#icon-jianyu"></use>
+          <use xlink:href="#icon-wode"></use>
         </svg>
         <p class="item-name" :class="{active: path === '/mine'}">我的</p>
       </div>
