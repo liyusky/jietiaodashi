@@ -113,6 +113,9 @@ export default {
     TitleComponent
     // include components
   },
+  created () {
+    Storage.card = null
+  },
   methods: {
     selectBankCard (item, index) {
       Storage.card = item

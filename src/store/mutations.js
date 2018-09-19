@@ -22,11 +22,11 @@ const mutations = {
   },
   // 保存选择的发布对象
   savePublishObject (state, publishObject) {
-    state.publishObject.push(publishObject)
-  },
-  clearPublishObject (state, publishObject) {
     state.publishObject = publishObject
   },
+  // clearPublishObject (state, publishObject) {
+  //   state.publishObject = publishObject
+  // },
   // 保存借款用途
   savePurpose (state, purpose) {
     state.purpose = purpose
@@ -63,6 +63,10 @@ const mutations = {
   },
   saveAccount (state, account) {
     state.account = account
+  },
+  // 保存投诉对象
+  saveComplianPhone (state, complianPhone) {
+    state.complianPhone = complianPhone
   }
 }
 export default mutations

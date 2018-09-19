@@ -14,9 +14,9 @@ module.exports = {
     'Hasten': false,
     'Http': false,
     'Mock': false,
-    'Router': false,
+    'Router': true,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false
@@ -41,7 +41,7 @@ module.exports = {
     'title': `{
         contentText: '选择投诉对象'
       }`,
-    'without': false,
+    'without': 1,
     'work-card': false
   }
 }

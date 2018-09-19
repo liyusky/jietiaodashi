@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="complain-select bg-white padding-horizontal-30" @click="gotoPage('complain-object')">
-      <span class="font-27 color-deep-grey">选择投诉好友</span>
+      <span class="font-27 color-deep-grey">{{selectPhone ? selectPhone : '选择投诉对象'}}</span>
       <i class="iconfont icon-cong font-27 color-light-grey"></i>
     </div>
     <div class="complain-button padding-horizontal-30">
@@ -67,7 +67,9 @@ export default {
     ButtonComponent
     // include components
   },
-  created () {},
+  created () {
+    this.selectPhone = Storage.complianPhone
+  },
   methods: {
     getImg () {},
     gotoPage (page) {
@@ -84,7 +86,7 @@ export default {
         data: {
           token: Storage.token,
           from_phone: Storage.phone,
-          to_phone: this.selectPhone,
+          to_phone: Storage.complianPhone,
           tag: this.optionList[this.setPurposeIndex],
           opinion: this.opinion
         }
