@@ -1,7 +1,7 @@
 <template>
   <!-- s 绑定银行卡 -->
   <section class="bind-bank-card padding-top-126">
-    <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
+    <TitleComponent :title="title"></TitleComponent>
     <div class="card-hint padding-horizontal-30">
       <p class="font-24 color-light-black">请绑定持卡人本人的银行卡，借条大师保证您的用卡安全</p>
     </div>
@@ -15,11 +15,19 @@
       <div class="form-item">
         <InputsComponent :inputs="cardNumberInput" @GET_INPUT_TEXT_EVENT="getCardNumber"></InputsComponent>
       </div>
-      <div class="form-item" @click="gotoPage('select-bank-card')">
-        <InputsComponent :inputs="selectBankInput"></InputsComponent>
+      <div class="form-item" border-bottom-1 @click="gotoPage('select-bank-card')">
+        <p class="font-30 color-black">银行</p>
+        <div class="itme-default">
+          <span class="font-30 color-light-grey">{{selectBank ? selectBank: '请选择银行'}}</span>
+          <i class="iconfont icon-cong font-30 color-light-grey"></i>
+        </div>
       </div>
-      <div class="form-item" @click="getOpenAccount">
-        <InputsComponent :inputs="openAccountInput"></InputsComponent>
+      <div class="form-item" border-bottom-1>
+        <p class="font-30 color-black">开户地区</p>
+        <div class="itme-default" @click="getOpenAccount">
+          <span class="font-30 color-light-grey">{{openAccount ? openAccount: '请选择开户地区'}}</span>
+          <i class="iconfont icon-cong font-30 color-light-grey"></i>
+        </div>
       </div>
       <div class="form-item">
         <InputsComponent :inputs="phoneNumberInput" @GET_INPUT_TEXT_EVENT="getPhoneNumber"></InputsComponent>
@@ -42,14 +50,15 @@
     <div class="card-button padding-horizontal-30">
       <ButtonComponent :button="button" @click="bindSubmit"></ButtonComponent>
     </div>
-    <CitySelect v-if="openAccountShow" :provinceList="provinceList" :cities="cities" @CANCEL_EVENT="closeModal" @SELECT_AREA_EVENT="getArea"></CitySelect>
+    <ModalComponent v-show="modalShow" @CLOSE_EVENT="closeModal">
+      <CitySelect @SELECT_AREA_EVENT="getArea"></CitySelect>
+    </ModalComponent>
      <!-- <CitySelect :provinceList="provinceList" :cities="cities" @SELECT_AREA_EVENT="getArea"></CitySelect> -->
   </section>
   <!-- e 绑定银行卡 -->
 </template>
 
 <script>
-import { provinces as provinceList, cities } from '../../data/cities.js'
 import CitySelect from './city-select/city-select.vue'
 // include dependence
 import BM from '../../class/BM.class.js'
@@ -59,12 +68,12 @@ import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
+import ModalComponent from '../../module/modal/modal.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'BindBankCardComponent',
   data () {
     return {
-      cardHolder: '张玉',
       cardNumber: '',
       phoneNumber: '',
       selectBank: '',
@@ -72,9 +81,8 @@ export default {
       codeNumber: '',
       getCodeText: '获取验证码',
       codeDisabled: false,
-      openAccountShow: false,
-      provinceList: provinceList,
-      cities: cities,
+      modalShow: false,
+      code: null,
       cardHolderInput: {
         type: 'text',
         rightIcon: 'cong',
@@ -84,7 +92,6 @@ export default {
       },
       identityNumberInput: {
         type: 'text',
-        placeholder: '输入身份证号',
         leftText: '身份证',
         receiveInput: '',
         dsiabled: 'true'
@@ -95,20 +102,6 @@ export default {
         leftText: '卡号',
         maxLength: '19',
         style: 'number'
-      },
-      selectBankInput: {
-        type: 'slide',
-        placeholder: '请选择银行',
-        leftText: '银行',
-        rightIcon: 'cong',
-        dsiabled: 'true'
-      },
-      openAccountInput: {
-        type: 'slide',
-        placeholder: '请选择开户地区',
-        leftText: '开户地区',
-        rightIcon: 'cong',
-        dsiabled: 'true'
       },
       phoneNumberInput: {
         type: 'text',
@@ -133,7 +126,8 @@ export default {
     ButtonComponent,
     InputsComponent,
     TitleComponent,
-    CitySelect
+    CitySelect,
+    ModalComponent
     // include components
   },
   created () {
@@ -144,7 +138,6 @@ export default {
       this.selectBank = Storage.card.key
       return
     }
-    this.selectBankInput.placeholder = '请选择银行'
     this.selectBank = ''
   },
   methods: {
@@ -172,20 +165,18 @@ export default {
       BM.send({
         url: 'BindCard',
         data: {
-          userPhone: this.phoneNumber,
+          userPhone: Storage.phone,
           xm: Storage.name,
           zjlx: 0,
           sfz: Storage.id,
           sj: this.phoneNumber,
-          // yx: '邮箱',
-          khhdm: '开户地代码',
-          khh: '开户行行别',
-          zhmc: '开户行支行名称',
+          khhdm: this.code,
+          khh: Storage.card.key,
           zh: this.cardNumber,
           pwd: '密码'
         }
       }).success(data => {
-        console.log(data)
+        Router.back()
       }).fail(data => {
       })
     },
@@ -208,7 +199,7 @@ export default {
       Router.push(page)
     },
     getOpenAccount () {
-      this.openAccountShow = true
+      this.modalShow = true
     },
     getCardNumber (text) {
       this.cardNumber = text
@@ -217,12 +208,12 @@ export default {
       this.phoneNumber = text
     },
     closeModal () {
-      this.openAccountShow = false
+      this.modalShow = false
     },
-    getArea (area) {
-      this.openAccountShow = false
-      this.openAccountInput.placeholder = area
+    getArea (area, code) {
       this.openAccount = area
+      this.code = code
+      this.modalShow = false
     },
     backPage () {
       if (this.$store.state.origin.path === '/select-bank-card') {

@@ -33,7 +33,9 @@ export default class Url {
   static LoanCollectionList = '/Loan/LoanCollectionList'
   static LoanCollectionProgress = '/Loan/LoanCollectionProgress'
   static LoanCollectionDetail = '/Loan/LoanCollectionDetail'
+  static Complain = '/Member/Complain'
   static ZhimaAuthUrl = '/Member/ZhimaAuthUrl'
+  static PhoneOperatorAuthUrl = '/Member/PhoneOperatorAuthUrl'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = 'BM/query/balanceAction.c'

@@ -59,8 +59,8 @@
             <use xlink:href="#icon-cangjian"></use>
           </svg>
           <div class="item-center">
-            <p class="font-30 color-black">手机认证</p>
-            <p class="font-24 color-black color-light-grey">认证您的手机号</p>
+            <p class="font-30 color-black">运营商认证</p>
+            <p class="font-24 color-black color-light-grey">授权手机运营商查询</p>
           </div>
           <button class="item-button button bg-blue color-white font-24" :class="{'button-active': credit.IsPhonePass}" :disabled="credit.IsPhonePass" @click="toPhoneAttestation"><div>{{credit.IsPhonePass ? '已完成' : '去认证'}}</div></button>
         </div>
@@ -129,7 +129,7 @@ export default {
       })
     },
     formatData (data) {
-      let credit = [data.IsIdentityPass, data.IsContactPass, data.IsPhonePass, data.IsZhiMaPass, data.IsBankCardPass]
+      let credit = [data.IsIdentityPass, data.IsContactPass, data.IsZhiMaPass, data.IsPhonePass, data.IsBankCardPass]
       for (let i = 0; i < credit.length; i++) {
         if (credit[i]) {
           this.stepNum++

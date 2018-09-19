@@ -9,13 +9,12 @@ export default class Router {
 
   static push (params) {
     this.mark()
-    let account = window.app.$store.state.account
     if (typeof params === 'string') {
       params = {
         name: params
       }
     }
-    if (account.certification.bank && this.unauthorized.includes(params.name)) {
+    if (window.app.$store.state.account.certification.bank && this.unauthorized.includes(params.name)) {
       params = {
         name: 'credit'
       }
@@ -25,10 +24,6 @@ export default class Router {
 
   static back (params) {
     let origin = null
-    if (!params) {
-      origin = window.app.$store.state.origin
-      params = {...origin}
-    }
     if (this.unauthorized.includes(params.name)) {
       params = {
         name: 'credit'
@@ -38,6 +33,11 @@ export default class Router {
         name: 'mine'
       }
     }
-    window.app.$router.back()
+    if (!params) {
+      origin = window.app.$store.state.origin
+      params = {...origin}
+    }
+    window.app.$router.push(params)
+    // window.app.$router.back()
   }
 }

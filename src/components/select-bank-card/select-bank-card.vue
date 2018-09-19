@@ -37,7 +37,7 @@ export default {
           target: ''
         }, {
           svg: 'chuyin',
-          key: '建设银行',
+          key: '中国建设银行',
           target: ''
         }, {
           svg: 'chuyin',
@@ -49,7 +49,7 @@ export default {
           target: ''
         }, {
           svg: 'chuyin',
-          key: '光大银行',
+          key: '中国光大银行',
           target: ''
         }, {
           svg: 'chuyin',
@@ -57,23 +57,15 @@ export default {
           target: ''
         }, {
           svg: 'chuyin',
-          key: '邮政储蓄',
+          key: '中国民生银行',
           target: ''
         }, {
           svg: 'chuyin',
-          key: '恒丰银行',
+          key: '中国邮政储蓄银行股份有限公司',
           target: ''
         }, {
           svg: 'chuyin',
-          key: '农村合作社',
-          target: ''
-        }, {
-          svg: 'chuyin',
-          key: '徽商银行',
-          target: ''
-        }, {
-          svg: 'chuyin',
-          key: '浦发银行',
+          key: '上海浦发银行',
           target: ''
         }, {
           svg: 'chuyin',
@@ -85,15 +77,11 @@ export default {
           target: ''
         }, {
           svg: 'chuyin',
-          key: '平安股份有限公司',
+          key: '平安银行股份有限公司',
           target: ''
         }, {
           svg: 'chuyin',
           key: '广东发展银行',
-          target: ''
-        }, {
-          svg: 'chuyin',
-          key: '民生银行',
           target: ''
         }
       ],

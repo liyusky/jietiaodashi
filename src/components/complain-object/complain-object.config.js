@@ -1,5 +1,5 @@
 module.exports = {
-  content: '好友',
+  content: '选择投诉对象',
   router: true,
   vuex: {
     mutations: false,
@@ -14,7 +14,7 @@ module.exports = {
     'Hasten': false,
     'Http': false,
     'Mock': false,
-    'Router': true,
+    'Router': false,
     'Status': false,
     'Storage': false,
     'Time': false,
@@ -39,8 +39,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '好友',
-        icon: 'cong'
+        contentText: '选择投诉对象'
       }`,
     'without': false,
     'work-card': false
