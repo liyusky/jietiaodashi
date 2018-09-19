@@ -1,9 +1,8 @@
 export default class Router {
-  unauthorized = ['account-balance', 'my-bank-card']
-  certification = ['add-contact', 'bind-bank-card', 'zhima-credit', 'identity-verification', 'operator-credit']
-  mine = ['mine']
+  static unauthorized = ['account-balance', 'my-bank-card']
+  static certification = ['add-contact', 'bind-bank-card', 'zhima-credit', 'identity-verification', 'operator-credit']
+  static mine = ['mine']
   static mark () {
-    console.log(window.app)
     window.app.$store.commit('saveOrigin', window.app._route)
   }
 
@@ -14,9 +13,11 @@ export default class Router {
         name: params
       }
     }
-    if (window.app.$store.state.account.certification.bank && this.unauthorized.includes(params.name)) {
-      params = {
-        name: 'credit'
+    if (this.unauthorized.includes(params.name)) {
+      if (window.app.$store.state.account.certification.bank) {
+        params = {
+          name: 'credit'
+        }
       }
     }
     window.app.$router.push(params)
@@ -24,7 +25,10 @@ export default class Router {
 
   static back (params) {
     let origin = null
-    if (this.unauthorized.includes(params.name)) {
+    if (!params) {
+      origin = window.app.$store.state.origin
+      params = {...origin}
+    } else if (this.unauthorized.includes(params.name)) {
       params = {
         name: 'credit'
       }
@@ -32,10 +36,6 @@ export default class Router {
       params = {
         name: 'mine'
       }
-    }
-    if (!params) {
-      origin = window.app.$store.state.origin
-      params = {...origin}
     }
     window.app.$router.push(params)
     // window.app.$router.back()

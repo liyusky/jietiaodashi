@@ -1,5 +1,5 @@
 export default class Account {
-  static account (account) {
+  static set info (account) {
     window.app.$store.commit('saveAccount', {
       name: account.Name,
       id: account.CardNo,
@@ -30,7 +30,7 @@ export default class Account {
     }
   }
 
-  refresh () {
-    Object.assign(this, window.app.$store.state.account)
+  static get name () {
+    return window.app.$store.state.account.name
   }
 }
