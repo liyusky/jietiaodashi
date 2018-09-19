@@ -33,6 +33,7 @@ export default class Url {
   static LoanCollectionList = '/Loan/LoanCollectionList'
   static LoanCollectionProgress = '/Loan/LoanCollectionProgress'
   static LoanCollectionDetail = '/Loan/LoanCollectionDetail'
+  static ZhimaAuthUrl = '/Member/ZhimaAuthUrl'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = 'BM/query/balanceAction.c'
