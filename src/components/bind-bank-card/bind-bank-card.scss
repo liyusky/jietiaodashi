@@ -22,6 +22,35 @@
       p {
         width: 30%;
       }
+      .itme-default {
+        @include vertical_center();
+        $param: (flex flex) (justifyContent flex-end);
+        @include flexSet($param);
+        flex: 1;
+        height: 100%;
+
+        input {
+          flex: 1;
+          height: 100%;
+          padding: {
+            right: 21 / $unit * $symbol;
+          }
+          font-size: 30 / $unit * $symbol;
+          color: #333;
+          text-align: right;
+        }
+
+        input::-webkit-input-placeholder {
+          font-size: 30 / $unit * $symbol;
+          color: #999999;
+        }
+
+        span {
+          padding: {
+            right: 15 / $unit * $symbol;
+          }
+        }
+      }
       .item-right {
         @include vertical_center_horizontal_between();
         flex: 1;

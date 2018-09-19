@@ -2,9 +2,9 @@
   <!-- s  -->
   <section class="city-select">
     <div class="select-title">
-      <div @click="cancel">取消</div>
+      <!-- <div @click="cancel">取消</div> -->
       <h3>选择地址</h3>
-      <div @click="confrim">确认</div>
+      <!-- <div @click="confrim">确认</div> -->
     </div>
     <nav class="select-nav">
       <div class="nav-area">
@@ -17,11 +17,11 @@
           <li class="list-item" :class="{active: city == item}" v-for="(item, index) in cityList" :key="index" @click="selectCity(item)">{{item}}</li>
         </ul>
       </div>
-      <div class="nav-area">
+      <!-- <div class="nav-area">
         <ul class="area-list">
           <li class="list-item" :class="{active: area == item}" v-for="(item, index) in areaList" :key="index" @click="selectArea(item)">{{item}}</li>
         </ul>
-      </div>
+      </div> -->
     </nav>
   </section>
   <!-- e  -->
@@ -29,51 +29,58 @@
 
 <script>
 // include dependence
+import Citys from '../../../class/Citys.array.js'
 export default {
   name: 'CitySelectComponent',
-  props: ['provinceList', 'cities'],
   data () {
     return {
       province: null,
+      provinceList: null,
       city: null,
-      area: null,
       cityList: null,
-      areaList: null
-      // start params
-      // end params
+      cities: null,
+      code: null
     }
   },
   components: {
     // include components
   },
+  created () {
+    this.init()
+  },
   methods: {
+    init () {
+      let result = {
+        list: []
+      }
+      Citys.forEach(city => {
+        result.list.push(city.name)
+        result[city.name] = {
+          list: []
+        }
+        city.cityList.forEach(area => {
+          result[city.name].list.push(area.name)
+          result[city.name][area.name] = area.code
+        })
+      })
+      this.provinceList = result.list
+      this.cities = result
+    },
     selectProvince (item) {
       this.province = item
-      let cityList = []
-      for (const key in this.cities[item]) {
-        cityList.push(key)
-      }
-      this.cityList = cityList
-      this.areaList = null
+      this.cityList = this.cities[item].list
       this.city = null
-      this.area = null
     },
     selectCity (item) {
       this.city = item
-      this.area = null
-      this.areaList = this.cities[this.province][item]
-    },
-    selectArea (item) {
-      this.area = item
-    },
-    confrim () {
-      if (this.area || this.area === this.cities[this.province][this.city]) {
-        this.$emit('SELECT_AREA_EVENT', [this.province, this.city, this.area].join(' '))
-      }
-    },
-    cancel () {
-      this.$emit('CANCEL_EVENT')
+      this.code = this.cities[this.province][item]
+      if (this.code && this.city) this.$emit('SELECT_AREA_EVENT', [this.province, this.city].join(' '))
     }
+    // confrim () {
+    // },
+    // cancel () {
+    //   this.$emit('CANCEL_EVENT')
+    // }
   }
 }
 </script>

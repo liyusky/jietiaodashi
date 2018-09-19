@@ -1,5 +1,5 @@
 module.exports = {
-  content: '好友',
+  content: '芝麻认证',
   router: true,
   vuex: {
     mutations: false,
@@ -12,11 +12,11 @@ module.exports = {
     'Check': false,
     'Citys': false,
     'Hasten': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
     'Router': true,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false
@@ -39,8 +39,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '好友',
-        icon: 'cong'
+        contentText: '芝麻认证'
       }`,
     'without': false,
     'work-card': false

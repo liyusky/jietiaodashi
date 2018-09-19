@@ -10,6 +10,7 @@ module.exports = {
     'BM': true,
     'Btn': true,
     'Check': false,
+    'Citys': false,
     'Hasten': false,
     'Http': true,
     'Mock': false,
