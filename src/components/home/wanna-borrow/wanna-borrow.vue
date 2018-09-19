@@ -1,7 +1,7 @@
 <template>
   <!-- s  我要借款-->
   <section class="borrow">
-    <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
+    <TitleComponent :title="title"></TitleComponent>
     <div class="borrow-tip">
       <div class="tip-icon">
         <i class="iconfont icon-cong"></i>
@@ -201,13 +201,6 @@ export default {
       this.rateAmount = parseFloat(this.borrowAmount * this.ratePercent / 100 / 365 * this.borrowDeadline).toFixed(1)
       this.borrowDate = year + '-' + mouth + '-' + day
       this.deadLineShow = false
-    },
-    backPage () {
-      if (this.$store.state.origin.path === '/purpose') {
-        Router.push('index')
-        return
-      }
-      this.$router.back(-1)
     },
     gotoPage (page) {
       Router.push(page)

@@ -34,6 +34,7 @@
 // include dependence
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
 export default {
   name: 'SearchFriendComponent',
   data () {
@@ -60,7 +61,7 @@ export default {
     // 搜索好友
     searchFriend () {
       if (!this.phoneNumber) {
-        this.$router.back(-1)
+        Router.back()
         return
       }
       if (!Check.phone(this.phoneNumber)) {
