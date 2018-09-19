@@ -46,6 +46,7 @@ const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay
 const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ '../components/my-bank-card/my-bank-card.vue')
 const NewFriendComponent = () => import(/* webpackChunkName: 'new-friend' */ '../components/new-friend/new-friend.vue')
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
+const OperatorCreditComponent = () => import(/* webpackChunkName: 'operator-credit' */ '../components/operator-credit/operator-credit.vue')
 const PersonalInfoComponent = () => import(/* webpackChunkName: 'personal-info' */ '../components/personal-info/personal-info.vue')
 const PublishObjectComponent = () => import(/* webpackChunkName: 'publish-object' */ '../components/publish-object/publish-object.vue')
 const PurposeComponent = () => import(/* webpackChunkName: 'purpose' */ '../components/purpose/purpose.vue')
@@ -59,6 +60,7 @@ const TransferDetailComponent = () => import(/* webpackChunkName: 'transfer-deta
 const TransferRecordComponent = () => import(/* webpackChunkName: 'transfer-record' */ '../components/transfer-record/transfer-record.vue')
 const WithdrawComponent = () => import(/* webpackChunkName: 'withdraw' */ '../components/withdraw/withdraw.vue')
 const WithdrawSuccessComponent = () => import(/* webpackChunkName: 'withdraw-success' */ '../components/withdraw-success/withdraw-success.vue')
+const ZhimaCreditComponent = () => import(/* webpackChunkName: 'zhima-credit' */ '../components/zhima-credit/zhima-credit.vue')
 export default new Router({
   routes: [
     {
@@ -285,6 +287,11 @@ export default new Router({
       component: NewsComponent
     },
     {
+      path: '/operator-credit',
+      name: 'operator-credit',
+      component: OperatorCreditComponent
+    },
+    {
       path: '/personal-info',
       name: 'personal-info',
       component: PersonalInfoComponent
@@ -348,6 +355,11 @@ export default new Router({
       path: '/withdraw-success',
       name: 'withdraw-success',
       component: WithdrawSuccessComponent
+    },
+    {
+      path: '/zhima-credit',
+      name: 'zhima-credit',
+      component: ZhimaCreditComponent
     }
   ]
 })

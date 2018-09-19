@@ -1,13 +1,15 @@
 <template>
-  <!-- s  -->
+  <!-- s 芝麻认证 -->
   <section class="zhima-credit padding-top-126">
     <iframe :src="url"></iframe>
   </section>
-  <!-- e  -->
+  <!-- e 芝麻认证 -->
 </template>
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
+import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'ZhimaCreditComponent',
   data () {

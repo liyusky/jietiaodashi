@@ -1,6 +1,6 @@
 module.exports = {
-  content: '',
-  router: false,
+  content: '运营商认证',
+  router: true,
   vuex: {
     mutations: false,
     state: false
@@ -11,7 +11,7 @@ module.exports = {
     'Btn': false,
     'Check': false,
     'Hasten': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
     'Router': false,
     'Status': false,
@@ -37,7 +37,9 @@ module.exports = {
     'receipt': false,
     'tab': false,
     'tip': false,
-    'title': false,
+    'title': `{
+        contentText: '运营商认证'
+      }`,
     'without': false,
     'work-card': false
   }
