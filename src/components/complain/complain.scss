@@ -24,7 +24,7 @@
     padding: {
       top: 21 / $unit * $symbol;
     }
-    .option-itme {
+    .option-item {
       @include center();
       height: 69 / $unit * $symbol;
       width: 160 / $unit * $symbol;
@@ -46,7 +46,7 @@
     width: 100%;
     background-color: #fff;
     padding: {
-      top: 3 / $unit * $symbol;
+      top: 9 / $unit * $symbol;
     }
     textarea {
       width: 100%;

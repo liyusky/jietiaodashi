@@ -154,7 +154,6 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    console.log(Storage.origin)
     if (Storage.origin) return
     if (Storage.origin.path === '/purpose') {
       this.borrowPurpose = Storage.purpose
@@ -277,7 +276,7 @@ export default {
     ratePercent (newNum, oldNum) {
       if (!this.borrowAmount) return
       this.rateAmount = parseFloat(this.borrowAmount * newNum / 100 / 365 * this.borrowDeadline).toFixed(1)
-      this.paymentTotl = parseInt(this.borrowAmount) + this.rateAmount
+      this.paymentTotl = parseInt(this.borrowAmount) + parseFloat(this.rateAmount)
     }
   }
 }

@@ -172,7 +172,7 @@ export default {
       BM.send({
         url: 'BindCard',
         data: {
-          userPhone: this.phoneNumber,
+          userPhone: Storage.phone,
           xm: Storage.name,
           zjlx: 0,
           sfz: Storage.id,

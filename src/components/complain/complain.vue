@@ -3,7 +3,7 @@
   <section class="complain padding-top-126 padding-bottom-39">
     <TitleComponent :title="title"></TitleComponent>
     <div class="complain-option padding-horizontal-30">
-      <div class="option-itme" :class="{active: setPurposeIndex === index}" v-for="(item, index) in optionList" :key="index" @click="setPurpose(index)">{{item}}</div>
+      <div class="option-item" :class="{active: setPurposeIndex === index}" v-for="(item, index) in optionList" :key="index" @click="setPurpose(index)">{{item}}</div>
     </div>
     <p class="complain-title font-27 padding-horizontal-30 bg-white border-bottom-1">请输入你要投诉的内容</p>
     <div class="complain-detail">
