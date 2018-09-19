@@ -20,7 +20,7 @@
         </svg>
         <p class="item-name" :class="{active: path === '/message'}">消息</p>
       </div>
-      <div class="tab-item" @click="gotoPage('wanna-borrow')">
+      <div class="tab-item" @click="gotoBorrow('wanna-borrow')">
         <svg class="icon" aria-hidden="true" v-if="path === '/wanna-borrow'">
           <use xlink:href="#icon-chuyin"></use>
         </svg>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 export default {
   name: 'TabComponent',
@@ -62,17 +63,22 @@ export default {
       // tabPath: '/index'
     }
   },
-  // created () {
-  //   this.tabPath = this.$route.path
-  // },
   methods: {
     gotoPage (page) {
-      // this.tabPath = '/' + page
       Router.push(page)
-      // this.$router.push({name: page})
-      // if (this.tabPath !== '/' + page) {
-      //   this.$router.push({name: page})
-      // }
+    },
+    gotoBorrow (page) {
+      Http.send({
+        url: 'IsLoan',
+        data: {
+          token: Storage.token,
+          phone: Storage.phone
+        }
+      }).success(data => {
+        Router.push(page)
+      }).fail(data => {
+        alert(data.message)
+      })
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <!-- s 发布对象 -->
   <section class="publish-object padding-top-126">
-    <TitleComponent :title="title" @OTHER_EVENT="confirm" @BACK_EVENT="back"></TitleComponent>
+    <TitleComponent :title="title" @OTHER_EVENT="confirm"></TitleComponent>
     <div class="object-select bg-white">
       <div class="select-item padding-horizontal-30 border-bottom-1">
         <div class="item-svg">
@@ -116,19 +116,21 @@ export default {
     // include components
   },
   created () {
-    Storage.clearPublishObject = []
+    Storage.publishObject = null
   },
   methods: {
     confirm () {
+      var selectObject = []
       this.friendList.forEach(ele => {
         if (ele.checkFriend) {
-          Storage.publishObject = ele
+          selectObject.push(ele)
         }
       })
-      Router.push('wanna-borrow')
-    },
-    back () {
-      Router.push('wanna-borrow')
+      Storage.publishObject = selectObject
+      this.$router.push({
+        name: 'wanna-borrow'
+      })
+      // Router.push('wanna-borrow')
     },
     selectFriend (item, index) {
       this.friendList[index].checkFriend = !this.friendList[index].checkFriend

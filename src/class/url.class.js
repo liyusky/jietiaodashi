@@ -36,6 +36,7 @@ export default class Url {
   static Complain = '/Member/Complain'
   static ZhimaAuthUrl = '/Member/ZhimaAuthUrl'
   static PhoneOperatorAuthUrl = '/Member/PhoneOperatorAuthUrl'
+  static IsLoan = '/Loan/IsLoan'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = 'BM/query/balanceAction.c'

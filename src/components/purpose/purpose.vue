@@ -46,20 +46,25 @@ export default {
       // end params
     }
   },
-  created () {},
+  created () {
+    Storage.purpose = null
+  },
   methods: {
     getImg () {},
     setPurpose (index) {
       this.setPurposeIndex = index
     },
     switchPurpose () {
+      if (!this.opinion) {
+        alert('请输入借款用途详情')
+        return
+      }
       Storage.purpose = this.optionList[this.setPurposeIndex]
       Storage.opinion = this.opinion
-      Router.push('wanna-borrow')
-    },
-    back () {
-      Storage.purpose = this.optionList[0]
-      Router.push('wanna-borrow')
+      this.$router.push({
+        name: 'wanna-borrow'
+      })
+      // Router.push('wanna-borrow')
     }
   },
   components: {
