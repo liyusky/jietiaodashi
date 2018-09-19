@@ -92,7 +92,7 @@ export default {
   },
   created () {
     if (!this.cardFront || !this.cardBack || !this.livingPhoto) {
-      this.inputDisabled = true
+      // this.inputDisabled = true
     }
   },
   methods: {

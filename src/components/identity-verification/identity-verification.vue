@@ -1,7 +1,7 @@
 <template>
   <!-- s 身份验证 -->
   <section class="identity-verification">
-    <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
+    <TitleComponent :title="title"></TitleComponent>
     <div class="verification-tip">
       <p>请输入相关银行卡信息验证身份</p>
     </div>
@@ -165,9 +165,6 @@ export default {
           this.codeDisabled = false
         }
       }, 1000)
-    },
-    backPage () {
-      this.$router.back(-1)
     }
   }
 }

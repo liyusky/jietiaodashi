@@ -4,7 +4,7 @@
     <div class="mine-information padding-horizontal-24 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
         <div class="detail-portrait" @click="target('personal-info')">
-          <img src="http://iph.href.lu/750x150">
+          <img src="../../../assets/images/master.png">
         </div>
         <div class="detail-content">
           <p class="font-36 color-deep-black">{{name}}</p>
@@ -13,11 +13,11 @@
       </div>
       <div class="information-operation">
         <p class="operation-item" @click="target('news')">
-          <i class="iconfont icon-cong margin-right-12"></i>
+          <i class="iconfont icon-xiaoxi margin-right-12"></i>
           <span class="font-27">消息</span>
         </p>
         <p class="operation-item" @click="target('settings')">
-          <i class="iconfont icon-cong margin-right-12"></i>
+          <i class="iconfont icon-shezhi margin-right-12"></i>
           <span class="font-27">设置</span>
         </p>
       </div>
@@ -28,7 +28,7 @@
           <span class="color-deep-black font-27">我的总资产（元）</span>
           <span class="color-deep-black font-60">{{balance.Balance}}</span>
         </p>
-        <i class="iconfont icon-chuyin color-grey"></i>
+        <i class="iconfont icon-arrow-right color-grey"></i>
       </div>
       <div class="balance-detail">
         <div class="detail-item border-radius-12" @click="target('borrow-list')">
@@ -66,42 +66,42 @@ export default {
       'billboard': [
         {
           key: '收还款计划',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           target: 'account-statistic',
           border: true
         },
         {
           key: '我的银行卡',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           target: 'my-bank-card',
           border: true
         },
         {
           key: '常见问题',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           target: 'familar-question',
           border: true
         },
         {
           key: '在线客服',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           border: true
         },
         {
           key: '授信',
-          svg: 'cangjian',
-          icon: 'chuyin',
+          svg: 'zhuanzhang',
+          icon: 'arrow-right',
           target: 'credit',
           border: true
         },
         {
           key: '意见反馈',
-          svg: 'cangjian',
-          icon: 'chuyin',
+          svg: 'zhuanzhang',
+          icon: 'arrow-right',
           target: 'feedback',
           border: true
         }

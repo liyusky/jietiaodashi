@@ -1,7 +1,7 @@
 <template>
   <!-- s  我要借款-->
   <section class="borrow">
-    <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
+    <TitleComponent :title="title"></TitleComponent>
     <div class="borrow-tip">
       <div class="tip-icon">
         <i class="iconfont icon-cong"></i>
@@ -113,10 +113,8 @@ export default {
       borrowAmount: '',
       paymentTotl: '',
       borrowObject: '请选择',
-      borrowObjectPhone: [],
-      borrowObjectImAccid: [],
-      phoneStr: '',
-      imAccidStr: '',
+      borrowPhoneStr: '',
+      borrowImAccidStr: '',
       borrowDeadline: '7',
       borrowPublish: '3',
       borrowPurpose: '临时周转',
@@ -154,21 +152,29 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    if (Storage.origin) return
-    if (Storage.origin.path === '/purpose') {
+    this.formateData(Storage.publishObject)
+    if (Storage.purpose) {
       this.borrowPurpose = Storage.purpose
-    }
-    if (Storage.publishObject) {
-      Storage.publishObject.forEach(ele => {
-        this.borrowObjectPhone.push(ele.phone)
-        this.borrowObjectImAccid.push(ele.imAccid)
-      })
-      this.phoneStr = this.borrowObjectPhone.toString().split(',')
-      this.imAccidStr = this.borrowObjectImAccid.toString().split(',')
-      this.borrowObject = '好友'
     }
   },
   methods: {
+    formateData (data) {
+      if (data) {
+        let borrowObjectPhone = []
+        let borrowObjectImAccid = []
+        data.forEach(ele => {
+          borrowObjectPhone.push(ele.phone)
+          borrowObjectImAccid.push(ele.imAccid)
+        })
+        this.borrowPhoneStr = borrowObjectPhone.toString()
+        this.borrowImAccidStr = borrowObjectImAccid.toString()
+        if (borrowObjectPhone.length > 1) {
+          this.borrowObject = '好友'
+        } else {
+          this.borrowObject = this.borrowPhoneStr
+        }
+      }
+    },
     scroll () {
       var tip = document.getElementById('tip')
       var left = tip.offsetLeft
@@ -201,13 +207,6 @@ export default {
       this.rateAmount = parseFloat(this.borrowAmount * this.ratePercent / 100 / 365 * this.borrowDeadline).toFixed(1)
       this.borrowDate = year + '-' + mouth + '-' + day
       this.deadLineShow = false
-    },
-    backPage () {
-      if (this.$store.state.origin.path === '/purpose') {
-        Router.push('index')
-        return
-      }
-      this.$router.back(-1)
     },
     gotoPage (page) {
       Router.push(page)
@@ -243,8 +242,8 @@ export default {
           phone: Storage.phone,
           type: 1,
           amount: this.borrowAmount,
-          lendPhones: this.phoneStr,
-          imAccid: this.imAccidStr,
+          lendPhones: this.borrowPhoneStr,
+          imAccid: this.borrowImAccidStr,
           yearRate: this.ratePercent,
           Interest: this.rateAmount,
           period: this.borrowDeadline,
@@ -252,7 +251,7 @@ export default {
           purpose: this.borrowPurpose,
           purposeReason: Storage.opinion,
           expireDay: this.borrowPublish,
-          taskId: '',
+          // taskId: '',
           source: Storage.borrowOrigin
         }
       }).success(data => {

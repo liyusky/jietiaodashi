@@ -25,42 +25,42 @@ module.exports = {
     'billboard': `[
         {
           key: '收还款计划',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           target: 'account-statistic',
           border: true
         },
         {
           key: '我的银行卡',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           target: 'my-bank-card',
           border: true
         },
         {
           key: '常见问题',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           target: 'familar-question',
           border: true
         },
         {
           key: '在线客服',
-          icon: 'chuyin',
-          svg: 'cangjian',
+          icon: 'arrow-right',
+          svg: 'zhuanzhang',
           border: true
         },
         {
           key: '授信',
-          svg: 'cangjian',
-          icon: 'chuyin',
+          svg: 'zhuanzhang',
+          icon: 'arrow-right',
           target: 'credit',
           border: true
         },
         {
           key: '意见反馈',
-          svg: 'cangjian',
-          icon: 'chuyin',
+          svg: 'zhuanzhang',
+          icon: 'arrow-right',
           target: 'feedback',
           border: true
         }

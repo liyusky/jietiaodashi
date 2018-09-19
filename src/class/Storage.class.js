@@ -63,13 +63,13 @@ export default class Storage {
     return window.app.$store.state.publishObject
   }
 
-  static set clearPublishObject (publishObject) {
-    window.app.$store.commit('clearPublishObject', publishObject)
-  }
+  // static set clearPublishObject (publishObject) {
+  //   window.app.$store.commit('clearPublishObject', publishObject)
+  // }
 
-  static get clearPublishObject () {
-    return window.app.$store.state.publishObject
-  }
+  // static get clearPublishObject () {
+  //   return window.app.$store.state.publishObject
+  // }
 
   static set purpose (purpose) {
     window.app.$store.commit('savePurpose', purpose)
@@ -149,5 +149,13 @@ export default class Storage {
 
   static get account () {
     return window.app.$store.state.account
+  }
+  // 投诉对象 complianPhone
+  static set complianPhone (complianPhone) {
+    window.app.$store.commit('saveComplianPhone', complianPhone)
+  }
+
+  static get complianPhone () {
+    return window.app.$store.state.complianPhone
   }
 }
