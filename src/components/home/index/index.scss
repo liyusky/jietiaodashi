@@ -47,7 +47,7 @@
         @include vertical_center();
         width: 540 / $unit * $symbol;
         height: 60 / $unit * $symbol;
-        background-color:rgba($color: #fff, $alpha: 0.4);
+        background-color:rgba($color: #fff, $alpha: 0.3);
         border-radius: 30 / $unit * $symbol;
         input {
           flex-grow: 1;
@@ -89,9 +89,20 @@
       @include center();
       width: 25%;
       height: 156 / $unit * $symbol;
-      .icon {
-        width: 51 / $unit * $symbol;
-        height: 51 / $unit * $symbol;
+      i {
+        font-size: 45 / $unit * $symbol;
+      }
+      .icon-zhaochujieren, .icon-woyaotousu {
+        color: #4d7bfe;
+      }
+      .icon-daikuanchaoshi, .icon-cuishoubaozhang {
+        color: #29ab91;
+      }
+      .icon-jietiaozhongxin, .icon-zaixiankefu {
+        color: #f15a4a;
+      }
+      .icon-shixinchaxun, .icon-zhongcaijindu {
+        color: #4e8cee;
       }
       p {
         @include center();

@@ -9,7 +9,7 @@
         <svg class="icon" aria-hidden="true" v-if="path !== '/index' && path !== '/'">
           <use xlink:href="#icon-shouye"></use>
         </svg>
-        <p class="item-name" :class="{active: path === '/index' || path === '/'}">首页</p>
+        <p class="item-name">首页</p>
       </div>
       <div class="tab-item" @click="gotoPage('message')">
         <svg class="icon" aria-hidden="true" v-if="path === '/message'">
@@ -18,7 +18,7 @@
         <svg class="icon" aria-hidden="true" v-if="path !== '/message'">
           <use xlink:href="#icon-haoyou1"></use>
         </svg>
-        <p class="item-name" :class="{active: path === '/message'}">消息</p>
+        <p class="item-name">消息</p>
       </div>
       <div class="tab-item" @click="gotoBorrow('wanna-borrow')">
         <svg class="icon" aria-hidden="true" v-if="path === '/wanna-borrow'">
@@ -27,7 +27,7 @@
         <svg class="icon" aria-hidden="true" v-if="path !== '/wanna-borrow'">
           <use xlink:href="#icon-jianyu"></use>
         </svg>
-        <p class="item-name" :class="{active: path === '/wanna-borrow'}">我要借</p>
+        <p class="item-name">我要借</p>
       </div>
       <div class="tab-item" @click="gotoPage('find')">
         <svg class="icon" aria-hidden="true" v-if="path === '/find'">
@@ -36,7 +36,7 @@
         <svg class="icon" aria-hidden="true" v-if="path !== '/find'">
           <use xlink:href="#icon-faxian"></use>
         </svg>
-        <p class="item-name" :class="{active: path === '/find'}">发现</p>
+        <p class="item-name">发现</p>
       </div>
       <div class="tab-item" @click="gotoPage('mine')">
         <svg class="icon" aria-hidden="true" v-if="path === '/mine'">
@@ -45,7 +45,7 @@
         <svg class="icon" aria-hidden="true" v-if="path !== '/mine'">
           <use xlink:href="#icon-wode"></use>
         </svg>
-        <p class="item-name" :class="{active: path === '/mine'}">我的</p>
+        <p class="item-name">我的</p>
       </div>
     </nav>
     <!-- e 底部导航 -->

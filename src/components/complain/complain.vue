@@ -14,7 +14,7 @@
       <p class="upload-suggest font-27 bg-white padding-horizontal-30"><span>上传凭证</span><span class="color-light-grey">(建议添加相关问题截图，不超过3张)</span></p>
       <div class="upload-photo padding-horizontal-30">
         <div class="photo-add bg-white" v-if="!imgArr.length" @click="getImg">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-tianjiatupianjiahao"></i>
         </div>
         <div class="photo-default" v-if="imgArr.length" v-for="(item, index) in imgArr" :key="index">
           <img src="">
@@ -23,7 +23,7 @@
     </div>
     <div class="complain-select bg-white padding-horizontal-30" @click="gotoPage('complain-object')">
       <span class="font-27 color-deep-grey">{{selectPhone ? selectPhone : '选择投诉对象'}}</span>
-      <i class="iconfont icon-cong font-27 color-light-grey"></i>
+      <i class="iconfont icon-arrow-right font-27 color-light-grey"></i>
     </div>
     <div class="complain-button padding-horizontal-30">
       <ButtonComponent :button="button" @SUBMIT_EVENT="complainSubmit"></ButtonComponent>
