@@ -19,7 +19,7 @@
           </div>
           <p class="font-27 color-deep-grey">身份证国徽面</p>
         </div>
-        <div class="content-item">
+        <div class="content-item" @click="popUDFaceCheck">
           <div class="item-img">
             <img src="http://iph.href.lu/195x50">
           </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="form-item">
           <span class="font-27 color-deep-grey">身份证号</span>
-          <input type="number" v-model="cardId" :disabled="inputDisabled">
+          <input v-model="cardId" :disabled="inputDisabled">
         </div>
         <div class="form-item">
           <span class="font-27 color-deep-grey">有效期</span>
@@ -64,14 +64,15 @@ export default {
   name: 'CreditIdentityComponent',
   data () {
     return {
-      cardName: '',
-      cardId: '',
-      indata: '',
-      cardFront: '',
-      cardBack: '',
-      livingPhoto: '',
+      cardName: 'xxxxxxx',
+      cardId: 'xxxxx',
+      indata: 'xxxx',
+      cardFront: 'xxx',
+      cardBack: 'xxxx',
+      livingPhoto: 'http://www.baidu.com',
       sex: '男',
       inputDisabled: false,
+      info: this.$store.state.info,
       // start params
       'button': {
         default: [{
@@ -92,7 +93,7 @@ export default {
   },
   created () {
     if (!this.cardFront || !this.cardBack || !this.livingPhoto) {
-      this.inputDisabled = true
+      // this.inputDisabled = true
     }
   },
   methods: {
@@ -104,7 +105,7 @@ export default {
         url: 'IdentityAuth',
         data: {
           token: Storage.token,
-          phone: Storage.token,
+          phone: Storage.phone,
           cardFront: this.cardFront,
           cardBack: this.cardBack,
           livingPhoto: this.livingPhoto,
@@ -113,11 +114,19 @@ export default {
           sex: this.sex
         }
       }).success(data => {
-        console.log(data)
-        Router.push('credit')
+        Router.push('add-contact')
       }).fail(data => {
         console.log(data)
       })
+    },
+    popUDFaceCheck () {
+      try {
+        appJsInterface.popUDFaceCheck()
+      } catch (error) {}
+    }
+  },
+  watch: {
+    info: function (info) {
     }
   }
 }

@@ -2,7 +2,7 @@
   <!-- s  -->
   <section class="title color-black">
     <div class="title-left" @click="back">
-      <i class="iconfont icon-cong font-39"></i>
+      <i class="iconfont icon-arrow-left font-39"></i>
       <span class="font-30" v-if="title.leftText">{{title.leftText}}</span>
     </div>
     <div class="title-content font-36">{{title.contentText}}</div>

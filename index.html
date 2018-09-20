@@ -10,5 +10,10 @@
     <div id="app"></div>
     <div id="modals"></div>
     <!-- built files will be auto injected -->
+    <script>
+      window.returnUDCheckResult = function (data) {
+        window.app.$store.commit('saveInfo', data)
+      }
+    </script>
   </body>
 </html>

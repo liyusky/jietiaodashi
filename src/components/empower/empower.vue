@@ -143,6 +143,7 @@ export default {
         Account.info = data
         Storage.token = data.Token
         Storage.phone = this.phone
+        Storage.name = data.Name
         Router.push('home')
       }).fail(data => {
       })

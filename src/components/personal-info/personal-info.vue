@@ -10,8 +10,8 @@
     </div>
     <div class="info-user">
       <div class="user-portrait">
-        <!-- <img src="../../assets/images/master.png"> -->
-        <img :src="personalDetail.Photo">
+        <img src="../../assets/images/master.png">
+        <!-- <img :src="personalDetail.Photo"> -->
       </div>
       <div class="user-detail">
         <p class="detail-id"><span>借条ID：</span><span>{{account}}</span></p>

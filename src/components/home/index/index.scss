@@ -68,8 +68,8 @@
         @include vertical_direction();
         @include vertical_center();
         height: 100%;
-        i {
-          font-size: 27 / $unit * $symbol;
+        i:first-of-type {
+          font-size: 33 / $unit * $symbol;
           color: #fff;
         }
         p {

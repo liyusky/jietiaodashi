@@ -7,7 +7,7 @@ const state = {
   oid: null,
   paySet: null,
   card: {},
-  publishObject: [],
+  publishObject: null,
   purpose: null,
   payedMoney: null,
   gapMoney: null,
@@ -15,6 +15,8 @@ const state = {
   usableMoney: null,
   credtiQuery: null,
   opinion: null,
-  account: null
+  account: null,
+  complianPhone: null,
+  info: null
 }
 export default state
