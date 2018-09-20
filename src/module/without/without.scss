@@ -3,19 +3,18 @@
 @import '../../../dependencies/sass/_unit.scss';
 // current sass
 .without {
-  @include column_center();
+  @include horizontal_center();
   width: 100%;
   height: 100%;
+  padding: {
+    top: 165 / $unit * $symbol;
+  }
   .without-img {
-    width: 120 / $unit * $symbol;
-    height: 150 / $unit * $symbol;
+    width: 171 / $unit * $symbol;
+    height: 255 / $unit * $symbol;
     img {
       width: 100%;
       height: 100%;
     }
-  }
-  p {
-    @include vertical_center();
-    height: 60 / $unit * $symbol;
   }
 }

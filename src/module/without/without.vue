@@ -2,9 +2,8 @@
   <!-- s  -->
   <section class="without">
     <div class="without-img">
-      <img src="http://iph.href.lu/120x150">
+      <img src="../../assets/images/without.gif">
     </div>
-    <p class="font-24 color-light-grey">暂无数据信息</p>
   </section>
   <!-- e  -->
 </template>
