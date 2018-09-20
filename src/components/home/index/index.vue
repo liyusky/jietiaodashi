@@ -11,8 +11,8 @@
         <div class="swiper-pagination"></div>
       </div>
       <div class="header-list padding-horizontal-21">
-        <div class="list-search padding-horizontal-30">
-          <i class="iconfont icon-sousuo font-30 color-white"></i>
+        <div class="list-search padding-horizontal-21">
+          <i class="iconfont icon-sousuo font-33 color-deep-grey"></i>
           <input type="text" placeholder="搜索你认识的好友">
         </div>
         <div class="list-item">
@@ -20,58 +20,42 @@
           <p>通讯录</p>
         </div>
         <div class="list-item">
-          <i class="iconfont icon-add"></i>
+          <i class="iconfont icon-tianjiatupianjiahao"></i>
           <p>加好友</p>
         </div>
       </div>
     </header>
     <nav class="index-nav">
       <div class="nav-item">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-zhaochujieren"></i>
         <p>找出借人</p>
       </div>
       <div class="nav-item">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-daikuanchaoshi"></i>
         <p>贷款超市</p>
       </div>
       <div class="nav-item" @click="gotoPage('iou-center')">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-jietiaozhongxin"></i>
         <p>借条中心</p>
       </div>
       <div class="nav-item" @click="gotoPage('credit-query')">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-shixinchaxun"></i>
         <p>失信查询</p>
       </div>
       <div class="nav-item">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-zhongcaijindu"></i>
         <p>仲裁进度</p>
       </div>
       <div class="nav-item"  @click="gotoPage('collection-schedule')">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-zaixiankefu"></i>
         <p>催收进度</p>
       </div>
       <div class="nav-item" @click="gotoPage('complain')">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-woyaotousu"></i>
         <p>我要投诉</p>
       </div>
       <div class="nav-item">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-tixian"></use>
-        </svg>
+        <i class="iconfont icon-cuishoubaozhang"></i>
         <p>催收保障</p>
       </div>
     </nav>
@@ -112,6 +96,8 @@ export default {
   name: 'IndexComponent',
   data () {
     return {
+      bannerSwiper: null,
+      broadSwiper: null,
       bannerList: [],
       broadList: [],
       share: {}
@@ -133,43 +119,50 @@ export default {
       this.bannerList = data.bannerList
       this.broadList = data.broadList
       this.share = data.share
+      var _this = this
+      _this.$nextTick(() => {
+        this.initBannerSwiper()
+        this.initBroadSwiper()
+      })
     }).fail(data => {
       console.log(data)
-    })
-  },
-  mounted () {
-    // 轮播图
-    this.$nextTick(function () {
-      /* eslint-disable no-new */
-      new Swiper('.banner', {
-        autoplay: {
-          delay: 2000
-        },
-        loop: true,
-        speed: 1000,
-        pagination: {
-          el: '.swiper-pagination',
-          longSwipesRatio: 0.3,
-          clickable: true
-        },
-        observer: true,
-        observeParents: true
-      })
-      /* eslint-disable no-new */
-      new Swiper('.broad', {
-        loop: true,
-        direction: 'vertical',
-        autoplay: {
-          delay: 2000
-        },
-        observer: true,
-        observeParents: true
-      })
     })
   },
   methods: {
     gotoPage (page) {
       Router.push(page)
+    },
+    // banner轮播图
+    initBannerSwiper () {
+      if (this.bannerSwiper !== null) return
+      this.bannerSwiper = new Swiper('.banner', {
+        loop: true,
+        speed: 900,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false
+        },
+        observer: true,
+        observeParents: true,
+        pagination: {
+          el: '.swiper-pagination'
+        }
+      })
+    },
+    // broad 轮播图
+    initBroadSwiper () {
+      if (this.broadSwiper !== null) return
+      this.broadSwiper = new Swiper('.broad', {
+        loop: true,
+        speed: 2000,
+        direction: 'vertical',
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false
+        },
+        observer: true,
+        observeParents: true
+      })
     }
   }
 }
