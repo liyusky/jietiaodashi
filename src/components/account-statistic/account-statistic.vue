@@ -2,18 +2,21 @@
   <!-- s 收还款计划 -->
   <section class="account-statistic padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
-    <ul class="statistic-list font-30 bg-white">
-      <li class="list-title color-deep-grey border-bottom-1 padding-horizontal-30">
-        <div>日期</div>
-        <div>还款</div>
-        <div>收款</div>
-      </li>
+    <div class="statistic-title color-deep-grey bg-white border-bottom-1 padding-horizontal-30">
+      <div>日期</div>
+      <div>还款</div>
+      <div>收款</div>
+    </div>
+    <ul class="statistic-list font-30 bg-white" v-if="statistic.length">
       <li class="list-item color-deep-black border-bottom-1 padding-horizontal-30" v-for="(item, index) in statistic" :key="index">
         <div>{{item.PlanDate}}</div>
         <div>{{item.RepaymentAmount}}</div>
         <div>{{item.IncomeAmount}}</div>
       </li>
     </ul>
+    <div class="statistic-without bg-white" v-if="!statistic.length">
+      <WithoutComponent></WithoutComponent>
+    </div>
     <div class="statistic-count padding-horizontal-30 font-30 color-deep-black bg-white">
       <div>合计</div>
       <div>
@@ -29,6 +32,7 @@
 // include dependence
 import Http from '../../class/Http.class.js'
 import TitleComponent from '../../module/title/title.vue'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'AccountStatisticComponent',
   data () {
@@ -45,7 +49,8 @@ export default {
     }
   },
   components: {
-    TitleComponent
+    TitleComponent,
+    WithoutComponent
     // include components
   },
   methods: {

@@ -8,7 +8,7 @@
       </div>
       <div class="form-item form-code">
         <input type="text" v-model="codeText" maxlength="6" placeholder="请输入验证码">
-        <button class="button font-21 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
+        <button class="button font-27 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
       </div>
       <div class="form-item form-password" >
         <input type="password" v-model="passwordNumber" placeholder="请输入新的登录密码">
@@ -104,16 +104,12 @@ export default {
     },
     findPasswordSubmit () {
       if (!Check.phone(this.phoneNumber)) return
-      console.log(1)
       if (!Check.code(this.codeText)) return
-      console.log(2)
       if (!Check.password(this.passwordNumber)) return
-      console.log(3)
       if (this.passwordNumber !== this.AgainPasswordNumber) {
         alert('密码不一致')
         return
       }
-      console.log(4)
       Http.send({
         url: 'FindPassword',
         data: {

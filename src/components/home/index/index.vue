@@ -138,6 +138,7 @@ export default {
       this.bannerSwiper = new Swiper('.banner', {
         loop: true,
         speed: 900,
+        onlyExternal: true,
         autoplay: {
           delay: 2000,
           disableOnInteraction: false
@@ -148,6 +149,7 @@ export default {
           el: '.swiper-pagination'
         }
       })
+      this.bannerSwiper.detachEvents()
     },
     // broad 轮播图
     initBroadSwiper () {
@@ -163,6 +165,7 @@ export default {
         observer: true,
         observeParents: true
       })
+      this.broadSwiper.detachEvents()
     }
   }
 }

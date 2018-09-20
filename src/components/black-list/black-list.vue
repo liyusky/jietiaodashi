@@ -3,7 +3,7 @@
   <section class="black-list padding-top-126 bg-white">
     <TitleComponent :title="title"></TitleComponent>
     <div class="list-item padding-horizontal-30 border-bottom-1" v-for="(item, index) in blacklist" :key="index">
-      <img class="item-portrait" src="">
+      <img class="item-portrait" src="../../assets/images/master.png">
       <div class="item-detail">
         <p class="font-30 color-black">张卡ad</p>
         <button class="detail-btn font-24 color-blue border-radius-12 bg-white" v-if="!item.remove">

@@ -39,8 +39,13 @@
           color: #333;
         }
         i {
-          font-size: 30 / $unit * $symbol;
+          font-size: 24 / $unit * $symbol;
           color: #b1b1b1;
+          transition: all 0.3s;
+        }
+        .active {
+          transform-origin: center;
+          transform: rotate(180deg);
         }
       }
       .item-text {
