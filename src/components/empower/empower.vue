@@ -2,7 +2,7 @@
   <!-- s 登录 -->
   <section class="empower">
     <div class="empower-header">
-      <img src="http://iph.href.lu/750x580?text=750x580&fg=ffffff&bg=698fed">
+      <img src="../../assets/images/logo02.gif">
     </div>
     <div class="empower-tab">
       <div class="tab-nav">
@@ -15,7 +15,7 @@
         </div>
         <div class="form-item form-code" v-if="switcher">
           <input type="text" v-model="code" maxlength="6" placeholder="请输入验证码">
-          <button class="button font-21 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
+          <button class="button font-27 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
         </div>
         <div class="form-item form-password" v-if="!switcher">
           <input type="password" v-model="password" placeholder="输入密码">

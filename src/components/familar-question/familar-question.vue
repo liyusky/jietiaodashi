@@ -6,10 +6,10 @@
       <li class="list-item" v-for="(item, index) in questionList" :key="index">
         <div class="item-title"  @click="switchText(index)">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-jianyu"></use>
+            <use xlink:href="#icon-Q"></use>
           </svg>
           <p>{{item.question}}</p>
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-arrow-bottom" :class="{active: item.check}"></i>
         </div>
         <div class="item-text" :class="{'text-active': item.check}">
           <p class="text-title" v-if="item.title">{{item.title}}</p>

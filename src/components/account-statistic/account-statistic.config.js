@@ -41,7 +41,7 @@ module.exports = {
     'title': `{
         contentText: '收还款'
       }`,
-    'without': false,
+    'without': 1,
     'work-card': false
   }
 }

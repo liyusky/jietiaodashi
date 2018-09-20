@@ -32,16 +32,26 @@
       </div>
       <div class="balance-detail">
         <div class="detail-item border-radius-12" @click="target('borrow-list')">
-          <p class="font-30 color-white">借入</p>
-          <p class="font-36 color-white">{{balance.BorrowAmount}}</p>
+          <div class="item-bg">
+            <img src="../../../assets/images/lend.gif">
+          </div>
+          <div class="item-content">
+            <p class="font-30 color-white">借入</p>
+            <p class="font-36 color-white">{{balance.BorrowAmount}}</p>
+          </div>
         </div>
         <div class="detail-item border-radius-12" @click="target('lend-list')">
-          <p class="font-30 color-white">借出</p>
-          <p class="font-36 color-white">{{balance.LendAmount}}</p>
+          <div class="item-bg">
+            <img src="../../../assets/images/borrow.gif">
+          </div>
+          <div class="item-content">
+            <p class="font-30 color-white">借出</p>
+            <p class="font-36 color-white">{{balance.LendAmount}}</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="mine-billboard-list padding-left-30 bg-white">
+    <div class="mine-billboard-list bg-white">
       <BillboardComponent class="list-item padding-right-30" :billboard="item" v-for="(item, index) in billboard" :key="index" @OPERATION_EVENT="target"></BillboardComponent>
     </div>
     <!-- <TabComponent></TabComponent> -->

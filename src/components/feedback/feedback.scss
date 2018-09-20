@@ -8,19 +8,18 @@
   padding: {
     top: 126 / $unit * $symbol;
   }
+  &-title {
+    @include vertical_center();
+    width: 100%;
+    height: 78 / $unit * $symbol;
+    padding: {
+      left: 36 / $unit * $symbol;
+    }
+  }
   &-advice {
     width: 100%;
-    .advice-title {
-      @include vertical_center();
-      width: 100%;
-      height: 78 / $unit * $symbol;
-      i {
-        color: red;
-      }
-    }
     padding: {
       left: 39 / $unit * $symbol;
-      // right: 39 / $unit * $symbol;
     }
     .advice-opinion {
       width: 100%;

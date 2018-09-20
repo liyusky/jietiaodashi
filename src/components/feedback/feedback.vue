@@ -2,11 +2,11 @@
   <!-- s 意见反馈 -->
   <section class="feedback">
     <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
-    <div class="feedback-advice bg-white  border-bottom-1">
-      <div class="advice-title border-bottom-1">
-        <i class="iconfont icon-cong font-21"></i>
-        <p>请描述你遇到的问题</p>
-      </div>
+    <div class="feedback-title bg-white border-bottom-1">
+      <i class="iconfont icon-bitian font-30 border-bottom-1"></i>
+      <p>请描述你遇到的问题</p>
+    </div>
+    <div class="feedback-advice bg-white">
       <div class="advice-opinion">
         <textarea class="opinion-input font-27 color-black" id="opinion-input" v-model="opinion" maxlength="200" name="opinion-input" placeholder="描述你的问题"></textarea>
         <div class="input-number font-27 color-light-black"><span>{{opinion.length}}/200</span></div>
