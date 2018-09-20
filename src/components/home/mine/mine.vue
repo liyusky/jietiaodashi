@@ -133,6 +133,10 @@ export default {
         console.log(data)
         this.balance = data
       }).fail(data => {
+        Storage.error = {
+          modal: true,
+          message: 'xxxxxx'
+        }
       })
     }
   }

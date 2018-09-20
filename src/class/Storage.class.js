@@ -162,4 +162,8 @@ export default class Storage {
   static get info () {
     return window.app.$store.state.info
   }
+
+  static set error (error) {
+    window.app.$store.commit('saveError', error)
+  }
 }

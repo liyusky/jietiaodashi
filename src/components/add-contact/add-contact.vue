@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="contact-button padding-horizontal-30">
-      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="submit"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
     <ModalComponent v-show="modalShow">
       <div class="modal-content padding-horizontal-30">

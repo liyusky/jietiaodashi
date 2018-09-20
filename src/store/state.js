@@ -17,6 +17,10 @@ const state = {
   opinion: null,
   account: null,
   complianPhone: null,
-  info: null
+  info: null,
+  error: {
+    modal: false,
+    message: ''
+  }
 }
 export default state

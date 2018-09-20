@@ -20,4 +20,8 @@
     height: 100vh;
     background-color: transparent;
   }
+  &-content {
+    position: absolute;
+    z-index: 150;
+  }
 }

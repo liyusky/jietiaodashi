@@ -27,6 +27,18 @@ export default {
       'billboard': [
         {
           type: 'guide',
+          key: '支付设置',
+          icon: 'chuyin',
+          target: 'about-pay-password-settings'
+        },
+        {
+          type: 'guide',
+          key: '提现密码重置',
+          icon: 'chuyin',
+          target: ''
+        },
+        {
+          type: 'guide',
           key: '了解我们',
           icon: 'chuyin',
           target: ''

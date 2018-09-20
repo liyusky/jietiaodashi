@@ -70,6 +70,10 @@ const mutations = {
   },
   saveInfo (state, info) {
     state.info = info
+  },
+  saveError (state, error) {
+    console.log(error)
+    state.error = error
   }
 }
 module.exports = mutations
