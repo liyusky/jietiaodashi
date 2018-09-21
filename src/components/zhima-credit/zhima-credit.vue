@@ -8,6 +8,7 @@
 
 <script>
 // include dependence
+import Account from '../../class/Account.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
@@ -25,7 +26,6 @@ export default {
     // include components
   },
   created () {
-    this.listener()
     this.init()
   },
   methods: {
@@ -54,6 +54,7 @@ export default {
           }).success(data => {
             if (data.IsZhiMaPass) {
               Router.push('operator-credit')
+              Account.zhima = data.IsZhiMaPass
             } else {
               Router.back()
             }

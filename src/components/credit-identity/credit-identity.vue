@@ -2,18 +2,18 @@
   <!-- s 身份认证 -->
   <section class="credit-identity">
     <TitleComponent :title="title"></TitleComponent>
-    <div class="identity-upload">
+    <!-- <div class="identity-upload">
       <div class="upload-title">
         <p class="font-24 color-light-grey">提交身份证信息，进行身份认证</p>
       </div>
       <div class="upload-content">
-        <div class="content-item">
+        <div class="content-item" @click="popUDFaceCheck">
           <div class="item-img">
             <img src="http://iph.href.lu/195x50">
           </div>
           <p class="font-27 color-deep-grey">身份证人像面</p>
         </div>
-        <div class="content-item">
+        <div class="content-item" @click="popUDFaceCheck">
           <div class="item-img">
             <img src="http://iph.href.lu/195x50">
           </div>
@@ -48,13 +48,16 @@
     </div>
     <div class="identity-button">
       <ButtonComponent :button="button" @SUBMIT_EVENT="identitySubmit"></ButtonComponent>
-    </div>
+    </div> -->
+    <iframe class="identity-iframe" :src="url" @load="loadListener"></iframe>
   </section>
   <!-- e 身份认证 -->
 </template>
 
 <script>
 // include dependence
+import axios from 'axios'
+import Account from '../../class/Account.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
@@ -64,15 +67,7 @@ export default {
   name: 'CreditIdentityComponent',
   data () {
     return {
-      cardName: 'xxxxxxx',
-      cardId: 'xxxxx',
-      indata: 'xxxx',
-      cardFront: 'xxx',
-      cardBack: 'xxxx',
-      livingPhoto: 'http://www.baidu.com',
-      sex: '男',
-      inputDisabled: false,
-      info: this.$store.state.info,
+      index: 0,
       // start params
       'button': {
         default: [{
@@ -92,43 +87,46 @@ export default {
     // include components
   },
   created () {
-    if (!this.cardFront || !this.cardBack || !this.livingPhoto) {
-      // this.inputDisabled = true
-    }
+    this.init()
   },
   methods: {
-    identitySubmit () {
-      if (!this.cardName) return
-      if (!this.cardId) return
-      if (!this.indata) return
-      console.log(Storage.token)
-      console.log(Storage.phone)
-      Http.send({
-        url: 'IdentityAuth',
-        data: {
-          token: Storage.token,
+    init () {
+      axios({
+        url: 'http://114.55.139.83:8088/udcredit/verify/index.c',
+        method: 'post',
+        params: {
           phone: Storage.phone,
-          cardFront: this.cardFront,
-          cardBack: this.cardBack,
-          livingPhoto: this.livingPhoto,
-          name: this.cardName,
-          cardNo: this.cardId,
-          sex: this.sex
+          bid: Storage.phone
         }
-      }).success(data => {
-        Router.push('add-contact')
-      }).fail(data => {
-        console.log(data)
+      }).then(response => {
+        response = response.data
+        if (response.resp_code) {
+          this.show = true
+          this.url = response.resp_desc
+        }
+      }).catch(() => {
       })
     },
-    popUDFaceCheck () {
-      try {
-        appJsInterface.popUDFaceCheck()
-      } catch (error) {}
-    }
-  },
-  watch: {
-    info: function (info) {
+    loadListener () {
+      this.index++
+      if (this.index >= 2) {
+        Http.send({
+          url: 'CurrentStep',
+          data: {
+            token: Storage.token,
+            phone: Storage.phone
+          }
+        }).success(data => {
+          if (data.IsIdentityPass) {
+            Router.push('add-contact')
+            Account.id = data.IsIdentityPass
+          } else {
+            Router.back()
+          }
+        }).fail(data => {
+          console.log(data)
+        })
+      }
     }
   }
 }

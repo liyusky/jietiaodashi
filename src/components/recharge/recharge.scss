@@ -13,6 +13,9 @@
     padding: {
       bottom: 30 / $unit * $symbol;
     }
+    .input-name {
+      display: none;
+    }
     .content-amount {
       @include vertical_center();
       width: 100%;
@@ -36,6 +39,14 @@
     width: 100%;
     padding: {
       top: 60 / $unit * $symbol;
+    }
+    .btn {
+      width: 100%;
+      border-radius: 12 / $unit * $symbol;
+      height: 99 / $unit * $symbol;
+      background-color: #4d7bfe;
+      color: #fff;
+      font-size: 42 / $unit * $symbol;
     }
   }
 }

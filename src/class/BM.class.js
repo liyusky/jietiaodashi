@@ -13,8 +13,8 @@ export default class BM {
     axios({
       url: Url[args.url],
       method: 'post',
-      // baseURL: 'http://101.37.27.97:8099',
-      baseURL: 'https://www.jiebayidai.com:9595',
+      baseURL: 'http://101.37.27.97:8099',
+      // baseURL: 'https://www.jiebayidai.com:9595',
       // headers: headers,
       params: args.data
     }).then(response => {
@@ -28,15 +28,23 @@ export default class BM {
     return instance
   }
   dispense (response) {
-    switch (response.resp_code) {
-      case '0000':
-        if (this.successCallback) this.successCallback(response.results)
-        break
-      case 401:
-        window.vueModule.$router.push({ name: 'empower' })
-        break
-      default:
-        if (this.failCallback) this.failCallback(response)
+    console.log(response)
+    if (typeof response === 'string') {
+      if (this.successCallback) {
+        this.successCallback(response)
+      }
+    } else {
+      switch (response.resp_code) {
+        case '0000':
+          if (this.successCallback) this.successCallback(response)
+          break
+        default:
+          window.modal.$store.commit('saveError', {
+            modal: true,
+            message: response.resp_desc
+          })
+          if (this.failCallback) this.failCallback(response)
+      }
     }
   }
   success (callback) {

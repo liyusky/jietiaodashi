@@ -92,6 +92,7 @@ export default {
           zh: Storage.phone
         }
       }).success(data => {
+        data = data.results
         this.usableMoney = data[0].ca_balance
         this.unusableMoney = data[0].cf_balance
         Storage.usableMoney = this.usableMoney

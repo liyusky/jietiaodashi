@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="recharge-button padding-horizontal-30">
-      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="recharge"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="recharge"></ButtonComponent>
     </div>
   </section>
   <!-- e 充值 -->
@@ -22,6 +22,7 @@
 // include dependence
 import BM from '../../class/BM.class.js'
 import Check from '../../class/Check.class.js'
+import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -59,6 +60,8 @@ export default {
           amt: this.money
         }
       }).success(data => {
+        document.getElementById('iframe').innerHTML = data
+        document.forwardForm.submit()
       }).fail(data => {
       })
     }

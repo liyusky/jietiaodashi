@@ -8,6 +8,7 @@
 
 <script>
 // include dependence
+import Account from '../../class/Account.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
@@ -58,7 +59,8 @@ export default {
             }
           }).success(data => {
             if (data.IsPhonePass) {
-              Router.push('bankcard-credit')
+              Router.push('bind-bank-card')
+              Account.phone = data.IsPhonePass
             } else {
               Router.back()
             }
