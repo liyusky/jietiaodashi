@@ -155,7 +155,7 @@ export default {
         console.log('请进行身份认证')
         return
       }
-      Router.push('credit-contact')
+      Router.push('add-contact')
     },
     toZhiMaAttestation () {
       if (!this.credit.IsIdentityPass) {

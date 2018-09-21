@@ -1,6 +1,6 @@
 <template>
   <!-- s 身份认证 -->
-  <section class="credit-identity">
+  <section class="credit-identity padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <!-- <div class="identity-upload">
       <div class="upload-title">
@@ -55,8 +55,8 @@
 </template>
 
 <script>
-// include dependence
 import axios from 'axios'
+// include dependence
 import Account from '../../class/Account.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -110,7 +110,8 @@ export default {
     },
     loadListener () {
       this.index++
-      if (this.index >= 2) {
+      alert(this.index)
+      if (this.index > 2) {
         Http.send({
           url: 'CurrentStep',
           data: {
