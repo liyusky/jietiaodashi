@@ -15,6 +15,7 @@
 // include dependence
 import Http from '../../class/Http.class.js'
 import Storage from '../../class/Storage.class.js'
+import Time from '../../class/Time.class.js'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -28,27 +29,27 @@ export default {
         {
           type: 'default',
           key: '类型',
-          value: '收回'
+          value: ''
         },
         {
           type: 'default',
           key: '时间',
-          value: '2017-12-31 12:25:55 周三'
+          value: ''
         },
         {
           type: 'default',
           key: '说明',
-          value: '收到周明明的还款'
+          value: ''
         },
         {
           type: 'default',
           key: '余额',
-          value: '1500.00'
+          value: ''
         },
         {
           type: 'default',
           key: '其他',
-          value: '无'
+          value: ''
         }
       ],
       'title': {
@@ -67,8 +68,9 @@ export default {
   },
   methods: {
     init () {
+      console.log(Storage.oid)
       Http.send({
-        url: 'TransferALL',
+        url: 'TransferDetail',
         data: {
           token: Storage.token,
           phone: Storage.phone,
@@ -81,7 +83,7 @@ export default {
     },
     formatData (data) {
       this.detailList[0].value = data.tranTypeName
-      this.detailList[1].value = data.transferTime
+      this.detailList[1].value = Time.format('YYYY/MM/DD HH/hh/mm WW', data.transferTime)
       this.detailList[2].value = data.remark
       this.detailList[3].value = data.balance
       this.detailList[4].value = data.transferName

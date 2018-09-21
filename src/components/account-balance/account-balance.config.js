@@ -48,7 +48,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
-    'pull-refresh': false,
+    'pull-refresh': 1,
     'receipt': false,
     'tab': false,
     'tip': false,
@@ -56,7 +56,7 @@ module.exports = {
         contentText: '账户余额',
         rightText: '收支明细'
       }`,
-    'without': 1,
+    'without': false,
     'work-card': false
   }
 }

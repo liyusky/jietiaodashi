@@ -109,7 +109,7 @@ export default {
       page: [],
       amountReturned: 0,
       targetAccount: null,
-      modalShow: true,
+      modalShow: false,
       // start params
       'detailList': [
         {

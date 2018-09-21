@@ -16,6 +16,11 @@ const state = {
   credtiQuery: null,
   opinion: null,
   account: null,
-  complianPhone: null
+  complianPhone: null,
+  info: null,
+  error: {
+    modal: false,
+    message: ''
+  }
 }
 export default state

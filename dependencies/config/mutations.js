@@ -67,6 +67,13 @@ const mutations = {
   // 保存投诉对象
   saveComplianPhone (state, complianPhone) {
     state.complianPhone = complianPhone
+  },
+  saveInfo (state, info) {
+    state.info = info
+  },
+  saveError (state, error) {
+    console.log(error)
+    state.error = error
   }
 }
 module.exports = mutations

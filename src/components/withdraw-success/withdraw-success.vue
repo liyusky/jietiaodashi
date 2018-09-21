@@ -84,7 +84,6 @@ export default {
     // include components
   },
   methods: {
-    gotoPage () {}
   }
 }
 </script>

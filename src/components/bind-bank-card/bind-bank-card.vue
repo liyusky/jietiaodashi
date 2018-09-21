@@ -211,13 +211,6 @@ export default {
       this.openAccount = area
       this.code = code
       this.modalShow = false
-    },
-    backPage () {
-      if (this.$store.state.origin.path === '/select-bank-card') {
-        Router.push('index')
-        return
-      }
-      this.$router.back(-1)
     }
   }
 }

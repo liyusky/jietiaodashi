@@ -1,5 +1,5 @@
 module.exports = {
-  content: '账单',
+  content: '收支明细',
   router: true,
   vuex: {
     mutations: false,
@@ -17,7 +17,7 @@ module.exports = {
     'Router': true,
     'Status': false,
     'Storage': true,
-    'Time': false,
+    'Time': true,
     'Type': false,
     'Url': false
   },
@@ -34,7 +34,7 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
-    'pull-refresh': false,
+    'pull-refresh': 1,
     'receipt': false,
     'tab': false,
     'tip': false,

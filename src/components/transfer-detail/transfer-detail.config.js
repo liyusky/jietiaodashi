@@ -17,7 +17,7 @@ module.exports = {
     'Router': false,
     'Status': false,
     'Storage': true,
-    'Time': false,
+    'Time': true,
     'Type': false,
     'Url': false
   },
@@ -30,27 +30,27 @@ module.exports = {
         {
           type: 'default',
           key: '类型',
-          value: '收回'
+          value: ''
         },
         {
           type: 'default',
           key: '时间',
-          value: '2017-12-31 12:25:55 周三'
+          value: ''
         },
         {
           type: 'default',
           key: '说明',
-          value: '收到周明明的还款'
+          value: ''
         },
         {
           type: 'default',
           key: '余额',
-          value: '1500.00'
+          value: ''
         },
         {
           type: 'default',
           key: '其他',
-          value: '无'
+          value: ''
         }
       ]`,
     'image-bg': false,

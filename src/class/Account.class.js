@@ -33,4 +33,16 @@ export default class Account {
   static get name () {
     return window.app.$store.state.account.name
   }
+
+  static get bank () {
+    return window.app.$store.state.account.certification.bank
+  }
+
+  static get payPassword () {
+    return window.app.$store.state.account.certification.payPassword
+  }
+
+  static get id () {
+    return window.app.$store.state.account.certification.id
+  }
 }

@@ -45,7 +45,7 @@ module.exports = {
     'tip': `{
         type: 'default',
         content: '借条大师保障您的信息安全。',
-        icon: 'chuyin'
+        icon: 'dunpai'
       }`,
     'title': `{
         contentText: '添加联系人'

@@ -17,7 +17,7 @@
     </div>
     <NavComponent class="center-nav font-30 bg-white" :nav="nav" @SELECTED_EVENT="toggleType"></NavComponent>
     <div class="center-tab">
-      <PullRefreshComponent :direction="'top'" v-if="iouList.length">
+      <PullRefreshComponent :direction="'top'" v-if="iouList.length" @LOAD_MORE_EVENT="loadMore">
         <ReceiptComponent :receipt="item" v-for="(item, index) in iouList" :key="index" @HEADER_EVENT="chat(item)" @DETAIL_EVENT="showDetail(item.accId)"></ReceiptComponent>
       </PullRefreshComponent>
       <WithoutComponent  v-if="!iouList.length"></WithoutComponent>
@@ -121,6 +121,9 @@ export default {
     showDetail (id) {
       Storage.id = id
       Router.push('iou-detail')
+    },
+    loadMore () {
+      this.init()
     },
     sortIouList () {},
     search () {

@@ -5,7 +5,7 @@
     <NavComponent class="schedule-nav font-30 bg-white" :nav="nav" @SELECTED_EVENT="toggleType"></NavComponent>
     <div class="schedule-tab">
       <div class="tab-img">
-        <img src="http://iph.href.lu/750x150">
+        <img src="../../assets/images/collect.gif">
       </div>
       <div class="tab-content">
         <div class="tab-item" v-if="scheduleList.length">

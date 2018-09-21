@@ -25,7 +25,7 @@
           <use xlink:href="#icon-jianpan"></use>
         </svg>
         <svg class="icon" aria-hidden="true" v-if="path !== '/wanna-borrow'">
-          <use xlink:href="#icon-jianyu"></use>
+          <use xlink:href="#icon-jianpan"></use>
         </svg>
         <p class="item-name">我要借</p>
       </div>
@@ -55,6 +55,8 @@
 <script>
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
+import Account from '../../class/Account.class.js'
 export default {
   name: 'TabComponent',
   props: ['path'],
@@ -68,6 +70,10 @@ export default {
       Router.push(page)
     },
     gotoBorrow (page) {
+      if (page === 'wanna-borrow' && !Account.id) {
+        Router.push('credit')
+        return
+      }
       Http.send({
         url: 'IsLoan',
         data: {
@@ -75,6 +81,7 @@ export default {
           phone: Storage.phone
         }
       }).success(data => {
+        Storage.borrowOrigin = 1
         Router.push(page)
       }).fail(data => {
         alert(data.message)

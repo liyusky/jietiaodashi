@@ -3,12 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <title>fuckapp</title>
+    <title>aaaaaa</title>
     <script src="./static/iconfont/iconfont.js"></script>
   </head>
   <body>
     <div id="app"></div>
-    <div id="modals"></div>
+    <div id="modal"></div>
     <!-- built files will be auto injected -->
+    <script>
+      window.returnUDCheckResult = function (data) {
+        window.app.$store.commit('saveInfo', data)
+      }
+    </script>
   </body>
 </html>

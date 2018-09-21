@@ -1,7 +1,7 @@
 <template>
   <!-- s 授信 -->
   <section class="credit padding-top-126">
-    <TitleComponent :title="title" ></TitleComponent>
+    <TitleComponent :title="title"></TitleComponent>
     <div class="credit-content bg-blue">
       <div class="content-progress color-white">
         <p class="progress-title font-33">{{setpHint}}</p>

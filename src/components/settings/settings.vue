@@ -12,7 +12,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/Http.class.js'
+import Account from '../../class/Account.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
@@ -74,18 +74,31 @@ export default {
     // include components
   },
   methods: {
+    init () {
+      if (Account.payPassword) {
+        this.billboard = [
+          {
+            type: 'guide',
+            key: '支付设置',
+            icon: 'chuyin',
+            target: 'about-pay-password-settings'
+          },
+          {
+            type: 'guide',
+            key: '提现密码重置',
+            icon: 'chuyin',
+            target: ''
+          },
+          ...this.billboard
+        ]
+      }
+    },
     target (page) {
       Router.push(page)
     },
     logout () {
-      Http.send({
-        url: 'UserLogout',
-        data: {
-          phone: Storage.phone
-        }
-      }).success(data => {
-      }).fail(data => {
-      })
+      Storage.clear()
+      Router.push('empower')
     }
   }
 }

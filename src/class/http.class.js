@@ -18,7 +18,8 @@ export default class Http {
       url: Url[args.url],
       method: 'post',
       // baseURL: 'http://api2.jietiaodashi.com',
-      baseURL: 'http://101.37.27.97:8001',
+      // baseURL: 'http://101.37.27.97:8001',
+      baseURL: 'https://www.jiebayidai.com:5000',
       // baseURL: 'http://192.168.0.101:8082',
       headers: headers,
       params: args.data
@@ -38,9 +39,17 @@ export default class Http {
         if (this.successCallback) this.successCallback(response.data)
         break
       case 401:
-        window.vueModule.$router.push({ name: 'empower' })
+        window.modal.$store.commit('saveError', {
+          modal: true,
+          message: response.message
+        })
+        window.app.$router.push({ name: 'empower' })
         break
       default:
+        window.modal.$store.commit('saveError', {
+          modal: true,
+          message: response.message
+        })
         if (this.failCallback) this.failCallback(response)
     }
   }

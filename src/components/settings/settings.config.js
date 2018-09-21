@@ -6,13 +6,13 @@ module.exports = {
     state: false
   },
   class: {
-    'Account': false,
+    'Account': true,
     'BM': false,
     'Btn': false,
     'Check': false,
     'Citys': false,
     'Hasten': false,
-    'Http': true,
+    'Http': false,
     'Mock': false,
     'Router': true,
     'Status': false,

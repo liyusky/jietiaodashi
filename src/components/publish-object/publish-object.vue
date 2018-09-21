@@ -6,28 +6,28 @@
       <div class="select-item padding-horizontal-30 border-bottom-1">
         <div class="item-svg">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-cong"></use>
+            <use xlink:href="#icon-xunzhaochujieren"></use>
           </svg>
         </div>
         <div class="item-detail">
           <p class="detail-title font-30 color-black">寻找出借人</p>
-          <i class="iconfont icon-cong font-27 color-light-grey"></i>
+          <i class="iconfont icon-arrow-right font-27 color-light-grey"></i>
         </div>
       </div>
       <div class="select-item padding-horizontal-30 border-bottom-1">
         <div class="item-svg">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-cong"></use>
+            <use xlink:href="#icon-lishichujieren"></use>
           </svg>
         </div>
         <div class="item-detail">
-          <p class="detail-title font-30 color-black">寻找出借人</p>
-          <i class="iconfont icon-cong font-27 color-light-grey"></i>
+          <p class="detail-title font-30 color-black">历史出借人</p>
+          <i class="iconfont icon-arrow-right font-27 color-light-grey"></i>
         </div>
       </div>
     </div>
     <div class="object-title border-bottom-1">
-      <i class="iconfont icon-cong font-12 color-blue"></i>
+      <i class="iconfont icon-yuandian font-18 color-blue"></i>
       <span class="font-27 color-deep-grey">我的好友</span>
     </div>
     <div class="object-friend padding-left-30 bg-white">
@@ -40,7 +40,7 @@
             <p class="font-33 color-black">{{item.userName}}</p>
             <p class="font-27 color-deep-grey"><span>借条ID：</span><span>{{item.phone}}</span></p>
           </div>
-          <i class="iconfont icon-cong font-30" :class="{'icon-jianyu': item.checkFriend}"></i>
+          <i class="iconfont icon-gouxuan color-light-grey font-30" :class="{'icon-jindu color-blue': item.checkFriend}"></i>
         </div>
       </div>
     </div>
