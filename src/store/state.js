@@ -21,6 +21,7 @@ const state = {
   error: {
     modal: false,
     message: ''
-  }
+  },
+  iframe: null
 }
 export default state

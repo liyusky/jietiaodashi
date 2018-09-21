@@ -16,7 +16,7 @@ module.exports = {
     'Mock': false,
     'Router': false,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false

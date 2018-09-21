@@ -72,7 +72,8 @@ export default {
           amt: this.money
         }
       }).success(data => {
-        console.log(data)
+        document.getElementById('iframe').innerHTML = data
+        document.forwardForm.submit()
       }).fail(data => {
         console.log(data)
       })

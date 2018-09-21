@@ -70,6 +70,7 @@
 
 <script>
 // include dependence
+import Account from '../../class/Account.class.js'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -188,7 +189,12 @@ export default {
           telList: null
         }
       }).success(data => {
-        Router.push('zhima-creadit')
+        if (data.IsContactPass) {
+          Router.push('zhima-creadit')
+          Account.contact = data.IsContactPass
+        } else {
+          Router.back()
+        }
       }).fail(data => {
       })
     },

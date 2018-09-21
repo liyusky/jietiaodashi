@@ -6,7 +6,7 @@ module.exports = {
     state: false
   },
   class: {
-    'Account': false,
+    'Account': true,
     'BM': false,
     'Btn': false,
     'Check': false,

@@ -72,8 +72,10 @@ const mutations = {
     state.info = info
   },
   saveError (state, error) {
-    console.log(error)
     state.error = error
+  },
+  saveIframe (state, iframe) {
+    state.iframe = iframe
   }
 }
 export default mutations
