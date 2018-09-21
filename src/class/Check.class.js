@@ -78,4 +78,13 @@ export default class Check {
   }
   // check identityNumber
   static identity (identityNumber) {}
+
+  static name (name) {
+    name = name ? name.replace(/\s+/g, '') : name
+    if (!name) {
+      // Title.text = '请输入金额'
+      // dialogShow = true
+      return false
+    }
+  }
 }

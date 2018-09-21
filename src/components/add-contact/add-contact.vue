@@ -3,7 +3,7 @@
   <section class="add-contact padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <TipComponent class="contact-tip padding-horizontal-30 font-24" :tip="tip"></TipComponent>
-    <div class="contact-form padding-horizontal-30  bg-white ">
+    <div class="contact-form padding-horizontal-30 bg-white ">
       <div class="form-item border-bottom-1">
         <InputsComponent :inputs="firstNameInput" @GET_INPUT_TEXT_EVENT="getFirstContactName"></InputsComponent>
       </div>
@@ -150,25 +150,32 @@ export default {
       switch (mark) {
         case 'first':
           this.relationList = ['父亲', '母亲', '配偶']
-          this.relationList.splice(this.relationList.findIndex(item => item === this.seconRelation), 1)
+          let firstIndex = this.relationList.findIndex(item => {
+            return item === this.seconRelation
+          })
+          if (firstIndex > -1) this.relationList.splice(firstIndex, 1)
           break
         case 'second':
           this.relationList = ['父亲', '母亲', '配偶', '亲戚', '朋友']
-          this.relationList.splice(this.relationList.findIndex(item => item === this.firstRelation), 1)
+          let secondIndex = this.relationList.findIndex(item => {
+            return item === this.firstRelation
+          })
+          if (secondIndex > -1) this.relationList.splice(secondIndex, 1)
           break
       }
       this.mark = mark
       this.modalShow = true
     },
     submit () {
+      console.log(1)
       if (Check.name(this.firstName) && Check.phone(this.firstPhone)) {
-        // 请检查第一个联系人的姓名与电话号码
         return false
       }
       if (Check.name(this.secondName) && Check.phone(this.secondPhone)) {
         // 请检查第二个联系人的姓名与电话号码
         return false
       }
+      console.log(1)
       Http.send({
         url: 'ContactsAuth',
         data: {
