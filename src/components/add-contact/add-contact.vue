@@ -167,25 +167,13 @@ export default {
       this.modalShow = true
     },
     submit () {
-      // if (Check.name(this.firstName) && Check.phone(this.firstPhone)) {
-      //   return false
-      // }
-      // if (Check.name(this.secondName) && Check.phone(this.secondPhone)) {
-      //   // 请检查第二个联系人的姓名与电话号码
-      //   return false
-      // }
-      // alert(JSON.stringify([
-      //   {
-      //     ContactPhone: this.firstPhone,
-      //     ContactName: this.firstName,
-      //     Relationship: this.firstRelation
-      //   },
-      //   {
-      //     ContactPhone: this.secondPhone,
-      //     ContactName: this.secondName,
-      //     Relationship: this.seconRelation
-      //   }
-      // ]))
+      if (Check.name(this.firstName) && Check.phone(this.firstPhone)) {
+        return false
+      }
+      if (Check.name(this.secondName) && Check.phone(this.secondPhone)) {
+        // 请检查第二个联系人的姓名与电话号码
+        return false
+      }
       Http.send({
         url: 'ContactsAuth',
         data: {
@@ -207,10 +195,10 @@ export default {
           telList: escape(JSON.stringify([]))
         }
       }).success(data => {
-        Router.push('zhima-creadit')
+        Router.push('zhima-credit')
         Account.contact = data.IsContactPass
       }).fail(data => {
-          Router.back()
+        Router.back()
       })
     },
     getFirstContactName (text) {

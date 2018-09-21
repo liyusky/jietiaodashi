@@ -167,7 +167,7 @@ export default {
         console.log('请进联系人认证')
         return
       }
-      Router.push('credit-contact')
+      Router.push('zhima-credit')
     },
     toPhoneAttestation () {
       if (!this.credit.IsIdentityPass) {
@@ -178,11 +178,11 @@ export default {
         console.log('请进联系人认证')
         return
       }
-      if (!this.credit.IsPhonePass) {
-        console.log('请进手机号认证')
+      if (!this.credit.IsZhiMaPass) {
+        console.log('请进芝麻认证')
         return
       }
-      Router.push('credit-phone')
+      Router.push('operator-credit')
     },
     toICardAttestation () {
       if (!this.credit.IsIdentityPass) {
@@ -193,15 +193,15 @@ export default {
         console.log('请进联系人认证')
         return
       }
+      if (!this.credit.IsZhiMaPass) {
+        console.log('请进行身份认证')
+        return
+      }
       if (!this.credit.IsPhonePass) {
         console.log('请进行身份认证')
         return
       }
-      if (!this.credit.IsBankCardPass) {
-        console.log('请进行身份认证')
-        return
-      }
-      Router.push('credit-card')
+      Router.push('bind-bank-card')
     }
   }
 }
