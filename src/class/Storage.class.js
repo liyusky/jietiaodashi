@@ -87,14 +87,6 @@ export default class Storage {
     return window.app.$store.state.opinion
   }
 
-  static set bank (bank) {
-    window.app.$store.commit('saveBankBank', bank)
-  }
-
-  static get bank () {
-    return window.app.$store.state.bank
-  }
-
   static set payedMoney (payedMoney) {
     window.app.$store.commit('savePayedMoney', payedMoney)
   }

@@ -145,7 +145,6 @@ export default {
       console.log(this.openAccount)
       if (!this.openAccount) return
       console.log(this.code)
-      alert(Storage.card.key)
       BM.send({
         url: 'BindCard',
         data: {
