@@ -76,6 +76,9 @@ const mutations = {
   },
   saveIframe (state, iframe) {
     state.iframe = iframe
+  },
+  saveBank (state, bank) {
+    state.bank = bank
   }
 }
 export default mutations

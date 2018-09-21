@@ -167,6 +167,14 @@ export default class Storage {
     window.app.$store.commit('saveError', error)
   }
 
+  static set bank (bank) {
+    window.app.$store.commit('saveBank', bank)
+  }
+
+  static get bank () {
+    return window.app.$store.state.bank
+  }
+
   static clear () {
     window.app.$store.commit('saveOrigin', null)
     window.app.$store.commit('saveToken', null)
