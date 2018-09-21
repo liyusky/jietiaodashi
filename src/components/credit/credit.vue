@@ -13,7 +13,7 @@
       </div>
       <div class="content-step padding-horizontal-21">
         <div class="step-item bg-white margin-bottom-21">
-          <i class="iconfont icon-tongguo font-60"></i>
+          <i class="iconfont icon-tongguo"></i>
           <!-- <svg class="icon" aria-hidden="true" v-if="credit.IsIdentityPass">
             <use xlink:href="#icon-tongguo"></use>
           </svg> -->
