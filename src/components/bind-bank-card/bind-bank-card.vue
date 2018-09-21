@@ -47,6 +47,7 @@
         </div>
       </div> -->
     </div>
+    <TipComponent class="card-tip" :tip="tip"></TipComponent>
     <div class="card-button padding-horizontal-30">
       <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
@@ -68,6 +69,7 @@ import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import InputsComponent from '../../module/inputs/inputs.vue'
 import ModalComponent from '../../module/modal/modal.vue'
+import TipComponent from '../../module/tip/tip.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'BindBankCardComponent',
@@ -113,6 +115,10 @@ export default {
           text: '确认绑定'
         }]
       },
+      'tip': {
+        type: 'default',
+        content: '提现密码，登录密码默认手机号后6位，你可在设置中修改'
+      },
       'title': {
         contentText: '绑定银行卡'
       }
@@ -124,7 +130,8 @@ export default {
     InputsComponent,
     TitleComponent,
     CitySelect,
-    ModalComponent
+    ModalComponent,
+    TipComponent
     // include components
   },
   created () {
@@ -133,18 +140,12 @@ export default {
   },
   methods: {
     submit () {
-      console.log(this.id)
-      console.log(Check.id(this.id))
-      if (!Check.id(this.id)) return // card is not correct
-      console.log(this.cardNumber)
-      if (!Check.bank(this.cardNumber)) return // card is not correct
-      console.log(this.phoneNumber)
-      if (!Check.phone(this.phoneNumber)) return // phone is not correct
-      console.log(this.selectBank)
+      if (!Check.id(this.id)) return
+      if (!Check.bank(this.cardNumber)) return
+      if (!Check.phone(this.phoneNumber)) return
       if (!this.selectBank) return
-      console.log(this.openAccount)
       if (!this.openAccount) return
-      console.log(this.code)
+      alert(Storage.name)
       BM.send({
         url: 'BindCard',
         data: {
@@ -157,8 +158,7 @@ export default {
           zh: this.cardNumber
         }
       }).success(data => {
-        document.getElementById('iframe').innerHTML = data
-        document.forwardForm.submit()
+        Router.back()
       }).fail(data => {
       })
     },

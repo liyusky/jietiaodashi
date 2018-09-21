@@ -22,6 +22,7 @@ const state = {
     modal: false,
     message: ''
   },
-  iframe: null
+  iframe: null,
+  bank: null
 }
 module.exports = state

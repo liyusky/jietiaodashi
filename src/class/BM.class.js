@@ -13,13 +13,11 @@ export default class BM {
     axios({
       url: Url[args.url],
       method: 'post',
-      baseURL: 'http://101.37.27.97:8099',
-      // baseURL: 'https://www.jiebayidai.com:9595',
+      // baseURL: 'http://101.37.27.97:8099',
+      baseURL: 'https://www.jiebayidai.com:9595',
       // headers: headers,
       params: args.data
     }).then(response => {
-      console.log(args.url)
-      console.log(response)
       instance.dispense(response.data)
       if (instance.defaultCallback) instance.defaultCallback()
     }).catch(() => {
