@@ -1,3 +1,8 @@
+// var date = new Date()
+// var year = date.getFullYear()
+// var yearList = [year, year + 1, year + 2, year + 3]
+// var mount = date.getMonth()
+// var day = date.getDate()
 export default {
   '2018': {
     '9月': ['21日', '22日', '23日', '24日', '25日', '26日', '27日', '28日', '29日', '30日'],

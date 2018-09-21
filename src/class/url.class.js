@@ -19,6 +19,7 @@ export default class Url {
   static BankCardList = '/Member/BankCardList'
   static Index = '/Common/Index'
   static CreateSys = '/Loan/Create_Sys'
+  static CreateNew = '/Loan/Create_New'
   static LoanCollectionCancel = '/Loan/LoanCollectionCancel'
   static ConfirmLoan = '/Loan/ConfirmLoan'
   static CancelAccount = '/Loan/CancelAccount'

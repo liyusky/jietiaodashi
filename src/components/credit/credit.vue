@@ -59,7 +59,7 @@
         <div class="step-item bg-white">
           <i class="iconfont icon-tongguo" v-if="credit.IsBankCardPass"></i>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsBankCardPass">
-            <use xlink:href="#icon-yunyingshangrenzheng"></use>
+            <use xlink:href="#icon-yinhangqiarenzheng"></use>
           </svg>
           <div class="item-center">
             <p class="font-30 color-black">银行卡认证</p>
