@@ -57,6 +57,7 @@ import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import Account from '../../class/Account.class.js'
+import Error from '../../class/Error.class.js'
 export default {
   name: 'TabComponent',
   props: ['path'],
@@ -84,7 +85,8 @@ export default {
         Storage.borrowOrigin = 1
         Router.push(page)
       }).fail(data => {
-        alert(data.message)
+        Error.show(data.message)
+        // Router.push('credit')
       })
     }
   }

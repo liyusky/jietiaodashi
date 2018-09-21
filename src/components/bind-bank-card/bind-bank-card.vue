@@ -63,7 +63,6 @@ import CitySelect from './city-select/city-select.vue'
 // include dependence
 import BM from '../../class/BM.class.js'
 import Check from '../../class/Check.class.js'
-// import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
@@ -130,7 +129,7 @@ export default {
   },
   created () {
     this.cardHolderInput.receiveInput = Storage.name
-    if (Storage.card) this.selectBank = Storage.card.key
+    if (Storage.bank) this.selectBank = Storage.bank.key
   },
   methods: {
     submit () {
@@ -146,7 +145,6 @@ export default {
       console.log(this.openAccount)
       if (!this.openAccount) return
       console.log(this.code)
-      alert(Storage.card.key)
       BM.send({
         url: 'BindCard',
         data: {
@@ -155,7 +153,7 @@ export default {
           sfz: this.id,
           sj: this.phoneNumber,
           khhdm: this.code,
-          khh: Storage.card.key,
+          khh: Storage.bank.target,
           zh: this.cardNumber
         }
       }).success(data => {
