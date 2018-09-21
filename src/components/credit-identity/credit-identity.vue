@@ -55,8 +55,8 @@
 </template>
 
 <script>
-// include dependence
 import axios from 'axios'
+// include dependence
 import Account from '../../class/Account.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -67,6 +67,7 @@ export default {
   name: 'CreditIdentityComponent',
   data () {
     return {
+      url: '',
       index: 0,
       // start params
       'button': {

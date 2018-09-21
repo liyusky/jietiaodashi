@@ -147,7 +147,7 @@ export default {
     return {
       name: Storage.name,
       account: Storage.phone,
-      personalDetail: null,
+      personalDetail: {},
       transferInfo: null,
       tabSwitchShow: false
       // start params
