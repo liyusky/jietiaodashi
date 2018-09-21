@@ -1,6 +1,7 @@
 <template>
   <!-- s 芝麻认证 -->
   <section class="zhima-credit padding-top-126">
+    <TitleComponent :title="title"></TitleComponent>
     <iframe :src="url" @load="listener"></iframe>
   </section>
   <!-- e 芝麻认证 -->
@@ -18,7 +19,12 @@ export default {
   data () {
     return {
       url: '',
-      index: 0
+      index: 0,
+      // start params
+      'title': {
+        contentText: '芝麻认证'
+      }
+      // end params
     }
   },
   components: {

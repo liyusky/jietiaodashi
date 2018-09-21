@@ -53,6 +53,14 @@
           right: 15 / $unit * $symbol;
         }
         border-radius: 9 / $unit * $symbol;
+        i {
+          font-size: 81 / $unit * $symbol;
+          color: #36c047;
+          margin: {
+            right: 18 / $unit * $symbol;
+            left: 18 / $unit * $symbol;
+          }
+        }
         .icon {
           width: 81 / $unit * $symbol;
           height: 81 / $unit * $symbol;

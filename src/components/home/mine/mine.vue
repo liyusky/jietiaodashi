@@ -77,40 +77,40 @@ export default {
         {
           key: '收还款计划',
           icon: 'arrow-right',
-          svg: 'zhuanzhang',
+          svg: 'shouhuankuanjihua',
           target: 'account-statistic',
           border: true
         },
         {
           key: '我的银行卡',
           icon: 'arrow-right',
-          svg: 'zhuanzhang',
+          svg: 'wodeyinhangqia',
           target: 'my-bank-card',
           border: true
         },
         {
           key: '常见问题',
           icon: 'arrow-right',
-          svg: 'zhuanzhang',
+          svg: 'changjianwenti',
           target: 'familar-question',
           border: true
         },
         {
           key: '在线客服',
           icon: 'arrow-right',
-          svg: 'zhuanzhang',
+          svg: 'zaixiankefu1',
           border: true
         },
         {
           key: '授信',
-          svg: 'zhuanzhang',
+          svg: 'shouxin',
           icon: 'arrow-right',
           target: 'credit',
           border: true
         },
         {
           key: '意见反馈',
-          svg: 'zhuanzhang',
+          svg: 'yijianfankui',
           icon: 'arrow-right',
           target: 'feedback',
           border: true

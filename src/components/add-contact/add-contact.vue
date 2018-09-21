@@ -176,18 +176,6 @@ export default {
         Error.show('请检查第二个联系人的姓名与电话号码')
         return false
       }
-      alert(JSON.stringify([
-        {
-          ContactPhone: this.firstPhone,
-          ContactName: this.firstName,
-          Relationship: this.firstRelation
-        },
-        {
-          ContactPhone: this.secondPhone,
-          ContactName: this.secondName,
-          Relationship: this.seconRelation
-        }
-      ]))
       Http.send({
         url: 'ContactsAuth',
         data: {
@@ -208,7 +196,7 @@ export default {
           telList: escape(JSON.stringify([]))
         }
       }).success(data => {
-        Router.push('zhima-creadit')
+        Router.push('zhima-credit')
         Account.contact = data.IsContactPass
       }).fail(data => {
         Router.back()
