@@ -145,7 +145,6 @@ export default {
       if (!Check.phone(this.phoneNumber)) return
       if (!this.selectBank) return
       if (!this.openAccount) return
-      alert(Storage.name)
       BM.send({
         url: 'BindCard',
         data: {

@@ -61,9 +61,12 @@ export default {
     TitleComponent
     // include components
   },
+  created () {
+    this.init()
+  },
   methods: {
     init () {
-      if (Account.payPassword) {
+      if (Account.bank) {
         this.billboard = [
           {
             type: 'guide',
