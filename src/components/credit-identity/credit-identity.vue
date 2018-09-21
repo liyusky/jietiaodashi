@@ -110,7 +110,6 @@ export default {
     },
     loadListener () {
       this.index++
-      alert(this.index)
       if (this.index > 2) {
         Http.send({
           url: 'CurrentStep',
