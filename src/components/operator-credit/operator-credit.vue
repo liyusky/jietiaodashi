@@ -1,6 +1,7 @@
 <template>
   <!-- s 运营商认证 -->
   <section class="operator-credit padding-top-126">
+    <TitleComponent :title="title"></TitleComponent>
     <iframe :src="url" @load="listener"></iframe>
   </section>
   <!-- e 运营商认证 -->
@@ -31,7 +32,6 @@ export default {
     // include components
   },
   created () {
-    this.setListener()
     this.init()
   },
   methods: {
@@ -49,7 +49,7 @@ export default {
     },
     listener () {
       this.index++
-      if (this.index === 2) {
+      if (this.index > 2) {
         setTimeout(() => {
           Http.send({
             url: 'CurrentStep',
