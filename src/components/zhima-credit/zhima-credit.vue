@@ -49,7 +49,7 @@ export default {
     },
     listener () {
       this.index++
-      if (this.index === 3) {
+      if (this.index > 3) {
         setTimeout(function () {
           Http.send({
             url: 'CurrentStep',

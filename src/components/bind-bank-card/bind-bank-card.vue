@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="card-button padding-horizontal-30">
-      <ButtonComponent :button="button" @click="bindSubmit"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
     <ModalComponent v-show="modalShow" @CLOSE_EVENT="closeModal">
       <CitySelect @SELECT_AREA_EVENT="getArea"></CitySelect>
@@ -63,7 +63,7 @@ import CitySelect from './city-select/city-select.vue'
 // include dependence
 import BM from '../../class/BM.class.js'
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
+// import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
@@ -133,30 +133,12 @@ export default {
   created () {
     this.cardHolderInput.receiveInput = Storage.name
     this.identityNumberInput.receiveInput = Storage.id
-    if (Storage.card) {
-      this.selectBank = Storage.card.key
-    }
+    if (Storage.card) this.selectBank = Storage.card.key
   },
   methods: {
-    getCode () {
-      if (!Check.phone(this.phoneNumber)) return // phone is not correct
-      this.waitOneMinute()
-      Http.send({
-        url: 'SendSMS',
-        data: {
-          phone: Storage.phone,
-          type: 1
-        }
-      }).success(data => {
-        console.log(data)
-      }).fail(data => {
-        console.log(data)
-      })
-    },
-    bindSubmit () {
+    submit () {
       if (!Check.card(this.cardNumber)) return // card is not correct
       if (!Check.phone(this.phoneNumber)) return // phone is not correct
-      if (!Check.code(this.codeNumber)) return // code is not correct
       if (!this.selectBank) return
       if (!this.openAccount) return
       BM.send({
@@ -169,11 +151,11 @@ export default {
           sj: this.phoneNumber,
           khhdm: this.code,
           khh: Storage.card.key,
-          zh: this.cardNumber,
-          pwd: '密码'
+          zh: this.cardNumber
         }
       }).success(data => {
-        Router.back()
+        document.getElementById('iframe').innerHTML = data
+        document.forwardForm.submit()
       }).fail(data => {
       })
     },
