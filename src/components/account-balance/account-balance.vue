@@ -12,7 +12,9 @@
       <div class="color-deep-blue font-27">不可用余额 {{unusableMoney}}元</div>
     </div>
     <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button" @LEFT_EVENT="target('withdraw')" @RIGHT_EVENT="target('recharge')"></ButtonComponent>
-    <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent>
+    <PullRefreshComponent :direction="'bottom'" v-if="detailList.length" @LOAD_MORE_EVENT="loadMore">
+      <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent>
+    </PullRefreshComponent>
   </section>
   <!-- e 账单明细 -->
 </template>
@@ -26,6 +28,7 @@ import Storage from '../../class/Storage.class.js'
 import Time from '../../class/Time.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
+import PullRefreshComponent from '../../module/pull-refresh/pull-refresh.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'AccountBalanceComponent',
@@ -61,7 +64,8 @@ export default {
   components: {
     ButtonComponent,
     DetailListComponent,
-    TitleComponent
+    TitleComponent,
+    PullRefreshComponent
     // include components
   },
   created () {
@@ -78,6 +82,7 @@ export default {
           pageSize: 20
         }
       }).success(data => {
+        this.formatData(data)
       }).fail(data => {
       })
       BM.send({
@@ -103,10 +108,14 @@ export default {
           remnant: item.balance_new
         }
         this.detailList.push(detail)
+        this.pageCurrent++
       })
     },
     target (page) {
       Router.push(page)
+    },
+    loadMore () {
+      this.init()
     }
   }
 }
