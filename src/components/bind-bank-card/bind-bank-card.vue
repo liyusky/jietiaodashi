@@ -63,7 +63,6 @@ import CitySelect from './city-select/city-select.vue'
 // include dependence
 import BM from '../../class/BM.class.js'
 import Check from '../../class/Check.class.js'
-import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
@@ -135,21 +134,6 @@ export default {
     }
   },
   methods: {
-    getCode () {
-      if (!Check.phone(this.phoneNumber)) return // phone is not correct
-      this.waitOneMinute()
-      Http.send({
-        url: 'SendSMS',
-        data: {
-          phone: Storage.phone,
-          type: 1
-        }
-      }).success(data => {
-        console.log(data)
-      }).fail(data => {
-        console.log(data)
-      })
-    },
     bindSubmit () {
       if (!Check.card(this.cardNumber)) return // card is not correct
       if (!Check.phone(this.phoneNumber)) return // phone is not correct
@@ -165,28 +149,12 @@ export default {
           sj: this.phoneNumber,
           khhdm: this.code,
           khh: Storage.card.key,
-          zh: this.cardNumber,
-          pwd: '密码'
+          zh: this.cardNumber
         }
       }).success(data => {
         Router.back()
       }).fail(data => {
       })
-    },
-    waitOneMinute () {
-      this.codeDisabled = true
-      this.getCodeText = '60秒后重发'
-      let time = 60
-      let animation = setInterval(() => {
-        time--
-        if (time > 0) {
-          this.getCodeText = `${time}秒后重发`
-        } else {
-          this.getCodeText = '发送验证码'
-          clearInterval(animation)
-          this.codeDisabled = false
-        }
-      }, 1000)
     },
     gotoPage (page) {
       Router.push(page)
