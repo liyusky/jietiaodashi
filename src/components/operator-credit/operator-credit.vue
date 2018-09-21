@@ -43,6 +43,7 @@ export default {
           phone: Storage.phone
         }
       }).success(data => {
+        console.log(data)
         this.url = data
       }).fail(data => {
       })

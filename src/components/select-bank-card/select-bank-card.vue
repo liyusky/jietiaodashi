@@ -26,75 +26,63 @@ export default {
         {
           svg: 'chuyin',
           key: '中国工商银行',
-          target: ''
+          target: '0102'
         }, {
-          svg: 'chuyin',
-          key: '农业银行',
-          target: ''
+          svg: '0103',
+          key: '中国农业银行',
+          target: '0103'
         }, {
           svg: 'chuyin',
           key: '中国银行',
-          target: ''
+          target: '0104'
         }, {
           svg: 'chuyin',
-          key: '建设银行',
-          target: ''
+          key: '中国建设银行',
+          target: '0105'
         }, {
           svg: 'chuyin',
           key: '交通银行',
-          target: ''
+          target: '0301'
         }, {
           svg: 'chuyin',
           key: '中信银行',
-          target: ''
+          target: '0302'
         }, {
           svg: 'chuyin',
-          key: '光大银行',
-          target: ''
+          key: '中国光大银行',
+          target: '0303'
         }, {
           svg: 'chuyin',
           key: '华夏银行',
-          target: ''
+          target: '0304'
         }, {
           svg: 'chuyin',
           key: '邮政储蓄',
-          target: ''
-        }, {
-          svg: 'chuyin',
-          key: '恒丰银行',
-          target: ''
-        }, {
-          svg: 'chuyin',
-          key: '农村合作社',
-          target: ''
-        }, {
-          svg: 'chuyin',
-          key: '徽商银行',
-          target: ''
-        }, {
-          svg: 'chuyin',
-          key: '浦发银行',
-          target: ''
+          target: '0403'
         }, {
           svg: 'chuyin',
           key: '兴业银行',
-          target: ''
+          target: '0309'
         }, {
           svg: 'chuyin',
           key: '招商银行',
-          target: ''
+          target: '0308'
         }, {
           svg: 'chuyin',
-          key: '平安股份有限公司',
-          target: ''
+          key: '平安银行股份有限公司',
+          target: '0307  '
         }, {
           svg: 'chuyin',
           key: '广东发展银行',
-          target: ''
+          target: '0306'
         }, {
           svg: 'chuyin',
-          key: '民生银行',
-          target: ''
+          key: '上海浦东发展银行',
+          target: '0310'
+        }, {
+          svg: 'chuyin',
+          key: '中国民生银行',
+          target: '0305'
         }
       ],
       'tip': {
@@ -114,11 +102,11 @@ export default {
     // include components
   },
   created () {
-    Storage.card = null
+    Storage.bank = null
   },
   methods: {
     selectBankCard (item, index) {
-      Storage.card = item
+      Storage.bank = item
       Router.push('bind-bank-card')
     }
   }

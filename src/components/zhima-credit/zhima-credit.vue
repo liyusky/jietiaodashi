@@ -49,7 +49,6 @@ export default {
     },
     listener () {
       this.index++
-      alert(this.index)
       if (this.index > 3) {
         setTimeout(function () {
           Http.send({

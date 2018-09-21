@@ -48,7 +48,7 @@
       </div> -->
     </div>
     <div class="card-button padding-horizontal-30">
-      <ButtonComponent :button="button" @click="bindSubmit"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="submit"></ButtonComponent>
     </div>
     <ModalComponent v-show="modalShow" @CLOSE_EVENT="closeModal">
       <CitySelect @SELECT_AREA_EVENT="getArea"></CitySelect>
@@ -129,12 +129,10 @@ export default {
   },
   created () {
     this.cardHolderInput.receiveInput = Storage.name
-    if (Storage.card) {
-      this.selectBank = Storage.card.key
-    }
+    if (Storage.bank) this.selectBank = Storage.bank.key
   },
   methods: {
-    bindSubmit () {
+    submit () {
       if (!Check.card(this.cardNumber)) return // card is not correct
       if (!Check.phone(this.phoneNumber)) return // phone is not correct
       if (!this.selectBank) return
@@ -148,11 +146,12 @@ export default {
           sfz: this.id,
           sj: this.phoneNumber,
           khhdm: this.code,
-          khh: Storage.card.key,
+          khh: Storage.bank.target,
           zh: this.cardNumber
         }
       }).success(data => {
-        Router.back()
+        document.getElementById('iframe').innerHTML = data
+        document.forwardForm.submit()
       }).fail(data => {
       })
     },
