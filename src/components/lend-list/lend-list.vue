@@ -44,7 +44,7 @@ export default {
       type: 1,
       pageIndex: 1,
       // start params
-      'imageBg': '../../assets/images/borrow-detail.gif',
+      'imageBg': 'http://iph.href.lu/750x150',
       'nav': {
         content: ['当前', '已放款', '已逾期', '已还清', '已失效'],
         active: ''

@@ -56,7 +56,7 @@ module.exports = {
         contentText: '账户余额',
         rightText: '收支明细'
       }`,
-    'without': false,
+    'without': 1,
     'work-card': false
   }
 }

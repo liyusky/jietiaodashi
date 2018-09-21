@@ -1,9 +1,9 @@
 <template>
   <!-- s 账单明细 -->
   <section class="account-balance">
-    <TitleComponent :title="title"></TitleComponent>
+    <TitleComponent :title="title" @OTHER_EVENT="target('transactions')"></TitleComponent>
     <div class="balance-card bg-white">
-      <img class="card-portrait border-circle" src="http://iph.href.lu/150x150">
+      <img class="card-portrait border-circle" src="../../assets/images/balance.gif">
       <div class="color-black font-27">可用余额(元)</div>
       <div class="color-deep-black">
         <span class="font-51">¥</span>
@@ -12,7 +12,13 @@
       <div class="color-deep-blue font-27">不可用余额 {{unusableMoney}}元</div>
     </div>
     <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button" @LEFT_EVENT="target('withdraw')" @RIGHT_EVENT="target('recharge')"></ButtonComponent>
-    <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent>
+    <div class="balance-title padding-horizontal-30 bg-white">
+      <span class="font-30 color-black">本月收支明细</span>
+    </div>
+    <div class="balance-detail bg-white">
+      <!-- <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent> -->
+      <WithoutComponent></WithoutComponent>
+    </div>
   </section>
   <!-- e 账单明细 -->
 </template>
@@ -27,6 +33,7 @@ import Time from '../../class/Time.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import TitleComponent from '../../module/title/title.vue'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'AccountBalanceComponent',
   data () {
@@ -61,7 +68,8 @@ export default {
   components: {
     ButtonComponent,
     DetailListComponent,
-    TitleComponent
+    TitleComponent,
+    WithoutComponent
     // include components
   },
   created () {
