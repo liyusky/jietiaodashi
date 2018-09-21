@@ -13,11 +13,12 @@
       </div>
       <div class="content-step padding-horizontal-21">
         <div class="step-item bg-white margin-bottom-21">
-          <svg class="icon" aria-hidden="true" v-if="credit.IsIdentityPass">
-            <use xlink:href="#icon-cong"></use>
-          </svg>
+          <i class="iconfont icon-tongguo font-60"></i>
+          <!-- <svg class="icon" aria-hidden="true" v-if="credit.IsIdentityPass">
+            <use xlink:href="#icon-tongguo"></use>
+          </svg> -->
           <svg class="icon" aria-hidden="true" v-if="!credit.IsIdentityPass">
-            <use xlink:href="#icon-cangjian"></use>
+            <use xlink:href="#icon-shenfenrenzheng"></use>
           </svg>
           <div class="item-center">
             <p class="font-30 color-black">身份认证</p>
@@ -27,10 +28,10 @@
         </div>
         <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="credit.IsContactPass">
-            <use xlink:href="#icon-cong"></use>
+            <use xlink:href="#icon-tongguo"></use>
           </svg>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsContactPass">
-            <use xlink:href="#icon-cangjian"></use>
+            <use xlink:href="#icon-lianxirenrenzheng"></use>
           </svg>
           <div class="item-center">
             <p class="font-30 color-black">联系人认证</p>
@@ -40,10 +41,10 @@
         </div>
         <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="credit.IsZhiMaPass">
-            <use xlink:href="#icon-cong"></use>
+            <use xlink:href="#icon-tongguo"></use>
           </svg>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsZhiMaPass">
-            <use xlink:href="#icon-cangjian"></use>
+            <use xlink:href="#icon-zhimaxinyong"></use>
           </svg>
           <div class="item-center">
             <p class="font-30 color-black">芝麻分认证</p>
@@ -53,10 +54,10 @@
         </div>
         <div class="step-item bg-white margin-bottom-21">
           <svg class="icon" aria-hidden="true" v-if="credit.IsPhonePass">
-            <use xlink:href="#icon-cong"></use>
+            <use xlink:href="#icon-tongguo"></use>
           </svg>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsPhonePass">
-            <use xlink:href="#icon-cangjian"></use>
+            <use xlink:href="#icon-yunyingshangrenzheng"></use>
           </svg>
           <div class="item-center">
             <p class="font-30 color-black">运营商认证</p>
@@ -66,10 +67,10 @@
         </div>
         <div class="step-item bg-white">
           <svg class="icon" aria-hidden="true" v-if="credit.IsBankCardPass">
-            <use xlink:href="#icon-cong"></use>
+            <use xlink:href="#icon-tongguo"></use>
           </svg>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsBankCardPass">
-            <use xlink:href="#icon-cangjian"></use>
+            <use xlink:href="#icon-yunyingshangrenzheng"></use>
           </svg>
           <div class="item-center">
             <p class="font-30 color-black">银行卡认证</p>
