@@ -166,4 +166,28 @@ export default class Storage {
   static set error (error) {
     window.app.$store.commit('saveError', error)
   }
+
+  static clear () {
+    window.app.$store.commit('saveOrigin', null)
+    window.app.$store.commit('saveToken', null)
+    window.app.$store.commit('savePhone', null)
+    window.app.$store.commit('saveName', null)
+    window.app.$store.commit('saveId', null)
+    window.app.$store.commit('saveOid', null)
+    window.app.$store.commit('savePaySet', null)
+    window.app.$store.commit('savePublishObject', null)
+    window.app.$store.commit('savePurpose', null)
+    window.app.$store.commit('saveOpinion', null)
+    window.app.$store.commit('saveBankCard', null)
+    window.app.$store.commit('savePayedMoney', null)
+    window.app.$store.commit('saveGapMoney', null)
+    window.app.$store.commit('saveBorrowId', null)
+    window.app.$store.commit('saveBorrowOrigin', null)
+    window.app.$store.commit('saveUsableMoney', null)
+    window.app.$store.commit('saveCreditQuery', null)
+    window.app.$store.commit('saveAccount', null)
+    window.app.$store.commit('saveComplianPhone', null)
+    window.app.$store.commit('saveInfo', null)
+    window.app.$store.commit('saveError', null)
+  }
 }

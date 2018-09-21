@@ -1,11 +1,24 @@
 export default class Time {
   // 只支持关键字（YYYY、MM、DD、HH、hh、mm、ss WW）HH：表示24小时，hh表示12小时
   static current (format, params) {
-    let date = new Date()
+    let time = null
     if (params) {
+      let date = new Date()
       let timestamp = date.getTime()
       if (params.hour) timestamp += params.hour * 60 * 60 * 1000
+      time = this.format(format, timestamp)
+    } else {
+      time = this.format(format)
+    }
+    return time
+  }
+
+  static format (format, timestamp) {
+    let date = null
+    if (timestamp) {
       date = new Date(timestamp)
+    } else {
+      date = new Date()
     }
     if (!format) return
     if (format.indexOf('YYYY') >= 0) format = format.replace('YYYY', date.getFullYear())

@@ -101,6 +101,8 @@ export default {
       if (!this.cardName) return
       if (!this.cardId) return
       if (!this.indata) return
+      console.log(Storage.token)
+      console.log(Storage.phone)
       Http.send({
         url: 'IdentityAuth',
         data: {

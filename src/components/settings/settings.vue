@@ -13,7 +13,6 @@
 <script>
 // include dependence
 import Account from '../../class/Account.class.js'
-import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
@@ -76,7 +75,7 @@ export default {
   },
   methods: {
     init () {
-      if (Account.bank) {
+      if (Account.payPassword) {
         this.billboard = [
           {
             type: 'guide',
@@ -98,14 +97,8 @@ export default {
       Router.push(page)
     },
     logout () {
-      Http.send({
-        url: 'UserLogout',
-        data: {
-          phone: Storage.phone
-        }
-      }).success(data => {
-      }).fail(data => {
-      })
+      Storage.clear()
+      Router.push('empower')
     }
   }
 }

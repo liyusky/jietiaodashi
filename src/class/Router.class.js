@@ -2,6 +2,7 @@ export default class Router {
   static unauthorized = ['account-balance', 'my-bank-card']
   static certification = ['add-contact', 'bind-bank-card', 'zhima-credit', 'identity-verification', 'operator-credit']
   static mine = ['credit']
+  static borrow = ['wanna-borrow']
   static mark () {
     window.app.$store.commit('saveOrigin', window.app._route)
   }
@@ -37,6 +38,11 @@ export default class Router {
     if (this.mine.includes(page.name)) {
       params = {
         name: 'mine'
+      }
+    }
+    if (this.borrow.includes(page.name)) {
+      params = {
+        name: 'wanna-borrow'
       }
     }
     if (params) {

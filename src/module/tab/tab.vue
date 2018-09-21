@@ -55,6 +55,8 @@
 <script>
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
+import Account from '../../class/Account.class.js'
 export default {
   name: 'TabComponent',
   props: ['path'],
@@ -68,6 +70,10 @@ export default {
       Router.push(page)
     },
     gotoBorrow (page) {
+      if (page === 'wanna-borrow' && !Account.id) {
+        Router.push('credit')
+        return
+      }
       Http.send({
         url: 'IsLoan',
         data: {

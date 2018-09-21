@@ -1,7 +1,7 @@
 <template>
   <!-- s 账单明细 -->
   <section class="account-balance">
-    <TitleComponent :title="title"></TitleComponent>
+    <TitleComponent :title="title" @OTHER_EVENT="target('transactions')"></TitleComponent>
     <div class="balance-card bg-white">
       <img class="card-portrait border-circle" src="http://iph.href.lu/150x150">
       <div class="color-black font-27">可用余额(元)</div>
