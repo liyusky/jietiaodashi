@@ -1,8 +1,8 @@
 <template>
   <!-- s 借款用途 -->
   <section class="purpose padding-top-126">
-     <TitleComponent :title="title" @OTHER_EVENT="switchPurpose" @BACK_EVENT="back"></TitleComponent>
-      <p class="purpose-title">借款用途</p>
+     <TitleComponent :title="title" @OTHER_EVENT="switchPurpose"></TitleComponent>
+      <p class="purpose-title">借款用途：</p>
       <div class="purpose-option">
         <div class="option-itme" :class="{active: setPurposeIndex === index}" v-for="(item, index) in optionList" :key="index" @click="setPurpose(index)">{{item}}</div>
       </div>
@@ -13,7 +13,7 @@
       <div class="purpose-upload">
         <div class="upload-photo">
           <div class="photo-add" v-if="!imgArr.length" @click="getImg">
-            <i class="iconfont icon-cong"></i>
+            <i class="iconfont icon-tianjiatupianjiahao"></i>
           </div>
           <div class="photo-default" v-if="imgArr.length" v-for="(item, index) in imgArr" :key="index">
             <img src="">
@@ -55,10 +55,6 @@ export default {
       this.setPurposeIndex = index
     },
     switchPurpose () {
-      if (!this.opinion) {
-        alert('请输入借款用途详情')
-        return
-      }
       Storage.purpose = this.optionList[this.setPurposeIndex]
       Storage.opinion = this.opinion
       Router.push('wanna-borrow')

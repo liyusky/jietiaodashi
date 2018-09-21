@@ -9,22 +9,22 @@
       </div>
       <div class="form-item border-bottom-1">
         <div class="item-left">
-          <i class="iconfont icon-cong color-blue"></i>
+          <i class="iconfont icon-yuandian color-blue"></i>
           <span class="font-30 color-black">与你的关系</span>
         </div>
         <div class="itme-default" @click="openModal('first')">
           <span class="font-30 color-light-grey">{{firstRelation ? firstRelation: '请选择'}}</span>
-          <i class="iconfont icon-cong font-30 color-light-grey"></i>
+          <i class="iconfont icon-arrow-right font-30 color-light-grey"></i>
         </div>
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong color-blue"></i>
+          <i class="iconfont icon-yuandian color-blue"></i>
           <span class="font-30 color-black">联系人手机</span>
         </div>
         <div class="itme-default">
           <input type="text" v-model="firstPhone">
-          <i class="iconfont icon-cong font-30 color-blue"></i>
+          <i class="iconfont icon-haoyou font-39 color-blue"></i>
         </div>
       </div>
     </div>
@@ -34,22 +34,22 @@
       </div>
       <div class="form-item border-bottom-1">
         <div class="item-left">
-          <i class="iconfont icon-cong color-blue"></i>
+          <i class="iconfont icon-yuandian color-blue"></i>
           <span class="font-30 color-black">与你的关系</span>
         </div>
         <div class="itme-default" @click="openModal('second')">
           <span class="font-30 color-light-grey">{{seconRelation ? seconRelation: '请选择'}}</span>
-          <i class="iconfont icon-cong font-30 color-light-grey"></i>
+          <i class="iconfont icon-arrow-right font-30 color-light-grey"></i>
         </div>
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong color-blue"></i>
+          <i class="iconfont icon-yuandian color-blue"></i>
           <span class="font-30 color-black">联系人手机</span>
         </div>
         <div class="itme-default">
           <input type="text" v-model="secondPhone" maxlength="11">
-          <i class="iconfont icon-cong font-30 color-blue"></i>
+          <i class="iconfont icon-haoyou font-39 color-blue"></i>
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ export default {
       'tip': {
         type: 'default',
         content: '借条大师保障您的信息安全。',
-        icon: 'chuyin'
+        icon: 'dunpai'
       },
       'title': {
         contentText: '添加联系人'

@@ -25,7 +25,7 @@
           <use xlink:href="#icon-jianpan"></use>
         </svg>
         <svg class="icon" aria-hidden="true" v-if="path !== '/wanna-borrow'">
-          <use xlink:href="#icon-jianyu"></use>
+          <use xlink:href="#icon-jianpan"></use>
         </svg>
         <p class="item-name">我要借</p>
       </div>
@@ -81,6 +81,7 @@ export default {
           phone: Storage.phone
         }
       }).success(data => {
+        Storage.borrowOrigin = 1
         Router.push(page)
       }).fail(data => {
         alert(data.message)
