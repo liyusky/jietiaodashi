@@ -12,9 +12,15 @@
       <div class="color-blue font-27">不可用余额 {{unusableMoney}}元</div>
     </div>
     <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button" @LEFT_EVENT="target('withdraw')" @RIGHT_EVENT="target('recharge')"></ButtonComponent>
-    <PullRefreshComponent :direction="'bottom'" v-if="detailList.length" @LOAD_MORE_EVENT="loadMore">
-      <DetailListComponent class="bg-white margin-top-30" :detailList="detailList"></DetailListComponent>
-    </PullRefreshComponent>
+    <div class="balance-title bg-white padding-horizontal-30">
+      <span class="font-30 color-black">收支明细</span>
+    </div>
+    <div class="balance-list">
+      <PullRefreshComponent :direction="'bottom'" v-if="detailList.length" @LOAD_MORE_EVENT="loadMore">
+        <DetailListComponent class="bg-white" :detailList="detailList"></DetailListComponent>
+      </PullRefreshComponent>
+      <WithoutComponent v-if="!detailList.length"></WithoutComponent>
+    </div>
   </section>
   <!-- e 账单明细 -->
 </template>
@@ -30,6 +36,7 @@ import ButtonComponent from '../../module/button/button.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import PullRefreshComponent from '../../module/pull-refresh/pull-refresh.vue'
 import TitleComponent from '../../module/title/title.vue'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'AccountBalanceComponent',
   data () {
@@ -37,6 +44,7 @@ export default {
       pageCurrent: 1,
       usableMoney: 0,
       unusableMoney: 0,
+      detailList: [],
       // start params
       'button': {
         group: [
@@ -50,10 +58,6 @@ export default {
           }
         ]
       },
-      'detailList': [{
-        type: 'title',
-        content: '本月收支明细'
-      }],
       'title': {
         contentText: '账户余额',
         rightText: '收支明细'
@@ -65,7 +69,8 @@ export default {
     ButtonComponent,
     DetailListComponent,
     TitleComponent,
-    PullRefreshComponent
+    PullRefreshComponent,
+    WithoutComponent
     // include components
   },
   created () {

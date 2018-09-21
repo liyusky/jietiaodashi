@@ -96,6 +96,7 @@
 <script>
 import PublishComponent from './publish/publish.vue'
 // include dependence
+import Error from '../../../class/Error.class.js'
 import Http from '../../../class/Http.class.js'
 import Router from '../../../class/Router.class.js'
 import Storage from '../../../class/Storage.class.js'
@@ -220,23 +221,32 @@ export default {
     },
     limitBorrowAmount () {
       if (parseInt(this.borrowAmount) < 0 || parseInt(this.borrowAmount) > 10000) {
-        alert('输入0~10000值')
+        Error.show('请输入0~10000值')
         this.borrowAmount = ''
       }
     },
     limitRatePercent () {
       if (this.ratePercent < 0 || this.ratePercent > 24) {
-        alert('请输入0~24的利率')
+        Error.show('请输入0~24的利率')
         this.ratePercent = ''
       }
     },
     // 发布借条
     publishSubmit () {
-      if (!this.borrowAmount) return
-      if (!this.ratePercent) return
-      if (!this.tip.selected) return
+      if (!this.borrowAmount) {
+        Error.show('请输入金额')
+        return
+      }
+      if (!this.ratePercent) {
+        Error.show('请输入利率')
+        return
+      }
+      if (!this.tip.selected) {
+        Error.show('请同意协议')
+        return
+      }
       Http.send({
-        url: 'CreateSys',
+        url: 'CreateNew',
         data: {
           token: Storage.token,
           phone: Storage.phone,

@@ -157,6 +157,7 @@ export default {
           zh: this.cardNumber
         }
       }).success(data => {
+        Storage.bank = null
         document.getElementById('iframe').innerHTML = data
         document.forwardForm.submit()
       }).fail(data => {

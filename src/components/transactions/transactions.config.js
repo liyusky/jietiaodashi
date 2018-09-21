@@ -42,7 +42,7 @@ module.exports = {
     'title': `{
         contentText: '收支明细'
       }`,
-    'without': false,
+    'without': `''`,
     'work-card': false
   }
 }

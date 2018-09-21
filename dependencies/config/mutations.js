@@ -36,8 +36,8 @@ const mutations = {
     state.opinion = opinion
   },
   // 保存银行卡
-  saveBankCard (state, card) {
-    state.card = card
+  saveBankBank (state, bank) {
+    state.bank = bank
   },
   savePayedMoney (state, payedMoney) {
     state.payedMoney = payedMoney
@@ -76,6 +76,9 @@ const mutations = {
   },
   saveIframe (state, iframe) {
     state.iframe = iframe
+  },
+  saveBank (state, bank) {
+    state.bank = bank
   }
 }
 module.exports = mutations
