@@ -72,6 +72,7 @@
 // include dependence
 import Account from '../../class/Account.class.js'
 import Check from '../../class/Check.class.js'
+import Error from '../../class/Error.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
@@ -167,31 +168,31 @@ export default {
       this.modalShow = true
     },
     submit () {
-      // if (Check.name(this.firstName) && Check.phone(this.firstPhone)) {
-      //   return false
-      // }
-      // if (Check.name(this.secondName) && Check.phone(this.secondPhone)) {
-      //   // 请检查第二个联系人的姓名与电话号码
-      //   return false
-      // }
-      // alert(JSON.stringify([
-      //   {
-      //     ContactPhone: this.firstPhone,
-      //     ContactName: this.firstName,
-      //     Relationship: this.firstRelation
-      //   },
-      //   {
-      //     ContactPhone: this.secondPhone,
-      //     ContactName: this.secondName,
-      //     Relationship: this.seconRelation
-      //   }
-      // ]))
+      if (Check.name(this.firstName) && Check.phone(this.firstPhone)) {
+        Error.show('请检查第一个联系人的姓名与电话号码')
+        return false
+      }
+      if (Check.name(this.secondName) && Check.phone(this.secondPhone)) {
+        Error.show('请检查第二个联系人的姓名与电话号码')
+        return false
+      }
+      alert(JSON.stringify([
+        {
+          ContactPhone: this.firstPhone,
+          ContactName: this.firstName,
+          Relationship: this.firstRelation
+        },
+        {
+          ContactPhone: this.secondPhone,
+          ContactName: this.secondName,
+          Relationship: this.seconRelation
+        }
+      ]))
       Http.send({
         url: 'ContactsAuth',
         data: {
           token: Storage.token,
           phone: Storage.phone,
-          // contactList: '[{ "contactName": "赖己生", "contactPhone": "13698062399", "relationship": "父亲" }, { "contactName": "刘桥", "contactPhone": "13048829830", "relationship": "朋友" }]',
           contactList: JSON.stringify([
             {
               ContactPhone: this.firstPhone,
@@ -210,7 +211,7 @@ export default {
         Router.push('zhima-creadit')
         Account.contact = data.IsContactPass
       }).fail(data => {
-          Router.back()
+        Router.back()
       })
     },
     getFirstContactName (text) {

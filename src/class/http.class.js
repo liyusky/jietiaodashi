@@ -38,13 +38,6 @@ export default class Http {
       case 200:
         if (this.successCallback) this.successCallback(response.data)
         break
-      case 401:
-        window.modal.$store.commit('saveError', {
-          modal: true,
-          message: response.message
-        })
-        window.app.$router.push({ name: 'empower' })
-        break
       default:
         window.modal.$store.commit('saveError', {
           modal: true,

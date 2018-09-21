@@ -11,6 +11,7 @@ module.exports = {
     'Btn': false,
     'Check': false,
     'Citys': false,
+    'Error': false,
     'Hasten': false,
     'Http': true,
     'Mock': false,
