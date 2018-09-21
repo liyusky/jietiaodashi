@@ -167,7 +167,6 @@ export default {
       this.modalShow = true
     },
     submit () {
-      console.log(1)
       if (Check.name(this.firstName) && Check.phone(this.firstPhone)) {
         return false
       }
@@ -175,25 +174,37 @@ export default {
         // 请检查第二个联系人的姓名与电话号码
         return false
       }
-      console.log(1)
+      alert(JSON.stringify([
+        {
+          ContactPhone: this.firstPhone,
+          ContactName: this.firstName,
+          Relationship: this.firstRelation
+        },
+        {
+          ContactPhone: this.secondPhone,
+          ContactName: this.secondName,
+          Relationship: this.seconRelation
+        }
+      ]))
       Http.send({
         url: 'ContactsAuth',
         data: {
           token: Storage.token,
           userPhone: Storage.phone,
-          contactList: [
-            JSON.stringify({
+          // contactList: '[{ "contactName": "赖己生", "contactPhone": "13698062399", "relationship": "父亲" }, { "contactName": "刘桥", "contactPhone": "13048829830", "relationship": "朋友" }]',
+          contactList: JSON.stringify([
+            {
               ContactPhone: this.firstPhone,
               ContactName: this.firstName,
               Relationship: this.firstRelation
-            }),
-            JSON.stringify({
+            },
+            {
               ContactPhone: this.secondPhone,
               ContactName: this.secondName,
               Relationship: this.seconRelation
-            })
-          ],
-          telList: null
+            }
+          ]),
+          telList: escape(JSON.stringify([]))
         }
       }).success(data => {
         if (data.IsContactPass) {
