@@ -74,7 +74,7 @@ export default {
     selectCity (item) {
       this.city = item
       this.code = this.cities[this.province][item]
-      if (this.code && this.city) this.$emit('SELECT_AREA_EVENT', [this.province, this.city].join(' '))
+      if (this.code && this.city) this.$emit('SELECT_AREA_EVENT', [this.province, this.city].join(' '), this.code)
     }
     // confrim () {
     // },

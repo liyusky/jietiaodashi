@@ -67,13 +67,33 @@ export default class Check {
     return true
   }
   // check identityNumber
-  static identity (identityNumber) {}
+  static id (id) {
+    id = id ? id.replace(/\s+/g, '') : id
+    if (!id) {
+      this.show('身份证号不能为空')
+      return false
+    } else {
+      return true
+    }
+  }
 
   static name (name) {
     name = name ? name.replace(/\s+/g, '') : name
     if (!name) {
       this.show('姓名不能为空')
       return false
+    } else {
+      return true
+    }
+  }
+
+  static bank (bank) {
+    bank = bank ? bank.replace(/\s+/g, '') : bank
+    if (!bank) {
+      this.show('银行卡号不能为空')
+      return false
+    } else {
+      return true
     }
   }
 

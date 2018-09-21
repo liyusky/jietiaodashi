@@ -34,6 +34,16 @@ export default class Account {
     return window.app.$store.state.account.name
   }
 
+  static get ID () {
+    return window.app.$store.state.account.id
+  }
+
+  static set ID (id) {
+    let account = {...window.app.$store.state.account}
+    account.id = id
+    window.app.$store.commit('saveAccount', account)
+  }
+
   static get bank () {
     return window.app.$store.state.account.certification.bank
   }

@@ -133,16 +133,24 @@ export default {
   },
   methods: {
     submit () {
-      if (!Check.card(this.cardNumber)) return // card is not correct
+      console.log(this.id)
+      console.log(Check.id(this.id))
+      if (!Check.id(this.id)) return // card is not correct
+      console.log(this.cardNumber)
+      if (!Check.bank(this.cardNumber)) return // card is not correct
+      console.log(this.phoneNumber)
       if (!Check.phone(this.phoneNumber)) return // phone is not correct
+      console.log(this.selectBank)
       if (!this.selectBank) return
+      console.log(this.openAccount)
       if (!this.openAccount) return
+      console.log(this.code)
+      alert(Storage.card.key)
       BM.send({
         url: 'BindCard',
         data: {
           userPhone: Storage.phone,
           xm: Storage.name,
-          zjlx: 0,
           sfz: this.id,
           sj: this.phoneNumber,
           khhdm: this.code,
@@ -175,6 +183,7 @@ export default {
     },
     getArea (area, code) {
       this.openAccount = area
+      alert(code)
       this.code = code
       this.modalShow = false
     }
