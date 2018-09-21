@@ -43,7 +43,10 @@ module.exports = {
     'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': false,
+    'tip': `{
+        type: 'default',
+        content: '提现密码，登录密码默认手机号后6位，你可在设置中修改'
+      }`,
     'title': `{
         contentText: '绑定银行卡'
       }`,
