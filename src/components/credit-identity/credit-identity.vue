@@ -67,6 +67,7 @@ export default {
   name: 'CreditIdentityComponent',
   data () {
     return {
+      url: '',
       index: 0,
       // start params
       'button': {
