@@ -28,7 +28,7 @@ module.exports = {
     'button': false,
     'deadline': false,
     'detail-list': false,
-    'image-bg': `'http://iph.href.lu/750x150'`,
+    'image-bg': `'../../../static/img/borrow-detail.gif'`,
     'inputs': false,
     'keyboard': false,
     'modal': false,
