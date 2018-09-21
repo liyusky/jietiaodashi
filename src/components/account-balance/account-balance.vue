@@ -3,13 +3,13 @@
   <section class="account-balance">
     <TitleComponent :title="title" @OTHER_EVENT="target('transactions')"></TitleComponent>
     <div class="balance-card bg-white">
-      <img class="card-portrait border-circle" src="http://iph.href.lu/150x150">
+      <img class="card-portrait border-circle" src="../../assets/images/balance.gif">
       <div class="color-black font-27">可用余额(元)</div>
       <div class="color-deep-black">
         <span class="font-51">¥</span>
         <span class="font-69">{{usableMoney}}</span>
       </div>
-      <div class="color-deep-blue font-27">不可用余额 {{unusableMoney}}元</div>
+      <div class="color-blue font-27">不可用余额 {{unusableMoney}}元</div>
     </div>
     <ButtonComponent class="balance-btn padding-horizontal-30 bg-white" :button="button" @LEFT_EVENT="target('withdraw')" @RIGHT_EVENT="target('recharge')"></ButtonComponent>
     <PullRefreshComponent :direction="'bottom'" v-if="detailList.length" @LOAD_MORE_EVENT="loadMore">

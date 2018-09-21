@@ -20,13 +20,15 @@
     @include flexSet($param);
     width: 100%;
     padding: {
-      left: 21 / $unit * $symbol;
+      top: 15 / $unit * $symbol;
       right: 21 / $unit * $symbol;
+      bottom: 15 / $unit * $symbol;
+      left: 21 / $unit * $symbol;
     }
     background-color: #fff;
     .option-itme {
       @include vertical_center();
-      height: 69 / $unit * $symbol;
+      height: 60 / $unit * $symbol;
       padding: {
         left: 21 / $unit * $symbol;
         right: 21 / $unit * $symbol;

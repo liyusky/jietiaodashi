@@ -4,14 +4,14 @@
     <TitleComponent :title="title"></TitleComponent>
     <div class="borrow-tip">
       <div class="tip-icon">
-        <i class="iconfont icon-cong"></i>
+        <i class="iconfont icon-dunpai"></i>
       </div>
       <p class="tip-text" id="tip">警惕"扫码退款"转账到安全账户"等骗术",请保护好你的资金安全</p>
     </div>
     <div class="borrow-form-top">
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-yuandian"></i>
           <span>借款金额</span>
         </div>
         <div class="itme-default">
@@ -21,7 +21,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-yuandian"></i>
           <span>年华利率</span>
         </div>
         <div class="item-rate">
@@ -33,7 +33,7 @@
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-yuandian"></i>
           <span>还款期限</span>
         </div>
         <div class="itme-deadline">
@@ -46,32 +46,32 @@
     <div class="borrow-form-bottom">
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-yuandian"></i>
           <span>借款用途</span>
         </div>
         <div class="itme-default" @click="gotoPage('purpose')">
           <span class="default-value">{{borrowPurpose}}</span>
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-arrow-right"></i>
         </div>
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-yuandian"></i>
           <span>发布对象</span>
         </div>
         <div class="itme-default" @click="gotoPage('publish-object')">
           <span class="default-value">{{borrowObject}}</span>
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-arrow-right"></i>
         </div>
       </div>
       <div class="form-item">
         <div class="item-left">
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-yuandian"></i>
           <span>借款发布期</span>
         </div>
         <div class="itme-default" @click="openPublishMadol">
           <span class="default-value">{{borrowPublish}}</span>
-          <i class="iconfont icon-cong"></i>
+          <i class="iconfont icon-arrow-right"></i>
         </div>
       </div>
       <div class="form-refund">
@@ -132,7 +132,7 @@ export default {
         type: 'default',
         content: '已同意协议',
         protocol: '借条大师协议',
-        icon: 'cong',
+        icon: 'jindu',
         selected: 'true'
       },
       'title': {
@@ -251,7 +251,7 @@ export default {
           purpose: this.borrowPurpose,
           purposeReason: Storage.opinion,
           expireDay: this.borrowPublish,
-          // taskId: '',
+          taskId: '',
           source: Storage.borrowOrigin
         }
       }).success(data => {

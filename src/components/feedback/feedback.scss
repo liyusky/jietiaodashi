@@ -15,6 +15,13 @@
     padding: {
       left: 36 / $unit * $symbol;
     }
+    .icon {
+      width: 30 / $unit * $symbol;
+      height: 30 / $unit * $symbol;
+      margin: {
+        top: 12 / $unit * $symbol;
+      }
+    }
   }
   &-advice {
     width: 100%;

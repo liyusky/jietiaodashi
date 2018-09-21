@@ -3,7 +3,10 @@
   <section class="feedback">
     <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
     <div class="feedback-title bg-white border-bottom-1">
-      <i class="iconfont icon-bitian font-30 border-bottom-1"></i>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-bitian"></use>
+      </svg>
+      <!-- <i class="iconfont icon-bitian font-30"></i> -->
       <p>请描述你遇到的问题</p>
     </div>
     <div class="feedback-advice bg-white">

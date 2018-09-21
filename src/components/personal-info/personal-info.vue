@@ -3,9 +3,8 @@
   <section class="personal-info">
     <div class="info-header">
       <div class="header font-30">
-        <i class="iconfont icon-cong" @click="back"></i>
+        <i class="iconfont font-33 icon-arrow-left" @click="back"></i>
         <span>个人资料</span>
-        <i class="iconfont icon-cong"></i>
       </div>
     </div>
     <div class="info-user">

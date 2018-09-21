@@ -46,7 +46,7 @@ module.exports = {
         type: 'default',
         content: '已同意协议',
         protocol: '借条大师协议',
-        icon: 'cong',
+        icon: 'jindu',
         selected: 'true'
       }`,
     'title': `{

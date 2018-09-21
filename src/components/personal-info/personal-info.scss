@@ -17,9 +17,16 @@
     }
     background-color: #48527b;
     .header {
-      @include vertical_center_horizontal_between();
+      position: relative;
+      @include center();
       height: 84 / $unit * $symbol;
       color: #fff;
+      i {
+        position: absolute;
+        left: 0 / $unit * $symbol;
+        top: 27 / $unit * $symbol;
+        z-index: 9;
+      }
     }
   }
   .info-user {
