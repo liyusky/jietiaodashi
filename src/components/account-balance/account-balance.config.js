@@ -38,10 +38,7 @@ module.exports = {
         ]
       }`,
     'deadline': false,
-    'detail-list': `[{
-        type: 'title',
-        content: '本月收支明细'
-      }]`,
+    'detail-list': 1,
     'image-bg': false,
     'inputs': false,
     'keyboard': false,
@@ -57,7 +54,7 @@ module.exports = {
         contentText: '账户余额',
         rightText: '收支明细'
       }`,
-    'without': false,
+    'without': 1,
     'work-card': false
   }
 }

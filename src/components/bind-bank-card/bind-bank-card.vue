@@ -158,7 +158,9 @@ export default {
           zh: this.cardNumber
         }
       }).success(data => {
-        Router.back()
+        Storage.bank = null
+        document.getElementById('iframe').innerHTML = data
+        document.forwardForm.submit()
       }).fail(data => {
       })
     },

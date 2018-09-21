@@ -5,6 +5,7 @@
     <PullRefreshComponent :direction="'bottom'" v-if="detailList.length" @LOAD_MORE_EVENT="loadMore">
       <DetailListComponent class="bg-white" :detailList="detailList" @DOUBLE_EVENT="showDetail"></DetailListComponent>
     </PullRefreshComponent>
+    <WithoutComponent v-if="!detailList.length"></WithoutComponent>
   </section>
   <!-- e 收支明细 -->
 </template>
@@ -18,6 +19,7 @@ import Time from '../../class/Time.class.js'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
 import PullRefreshComponent from '../../module/pull-refresh/pull-refresh.vue'
 import TitleComponent from '../../module/title/title.vue'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'TransactionsComponent',
   data () {
@@ -27,14 +29,16 @@ export default {
       'detailList': [],
       'title': {
         contentText: '收支明细'
-      }
+      },
+      'without': ''
       // end params
     }
   },
   components: {
     DetailListComponent,
     TitleComponent,
-    PullRefreshComponent
+    PullRefreshComponent,
+    WithoutComponent
     // include components
   },
   created () {
