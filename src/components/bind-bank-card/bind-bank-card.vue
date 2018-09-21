@@ -10,7 +10,7 @@
         <InputsComponent :inputs="cardHolderInput"></InputsComponent>
       </div>
       <div class="form-item">
-        <InputsComponent :inputs="identityNumberInput"></InputsComponent>
+        <InputsComponent :inputs="identityNumberInput" @GET_INPUT_TEXT_EVENT="getId"></InputsComponent>
       </div>
       <div class="form-item">
         <InputsComponent :inputs="cardNumberInput" @GET_INPUT_TEXT_EVENT="getCardNumber"></InputsComponent>
@@ -39,13 +39,13 @@
           <div class="right-img-code"></div>
         </div>
       </div> -->
-      <div class="form-item">
+      <!-- <div class="form-item">
         <p class="font-30 color-black">手机验证码</p>
         <div class="item-right">
           <input type="text" v-model="codeNumber" placeholder="请输入手机验证码">
           <button class="button font-21 color-blue bg-white" @click="getCode" :disabled="codeDisabled"><div>{{getCodeText}}</div></button>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="card-button padding-horizontal-30">
       <ButtonComponent :button="button" @click="bindSubmit"></ButtonComponent>
@@ -78,8 +78,7 @@ export default {
       phoneNumber: '',
       selectBank: '',
       openAccount: '',
-      codeNumber: '',
-      getCodeText: '获取验证码',
+      id: '',
       codeDisabled: false,
       modalShow: false,
       code: null,
@@ -92,21 +91,20 @@ export default {
       },
       identityNumberInput: {
         type: 'text',
-        leftText: '身份证',
-        receiveInput: '',
-        dsiabled: 'true'
+        placeholder: '请输身份证号',
+        leftText: '身份证'
+      },
+      phoneNumberInput: {
+        type: 'text',
+        placeholder: '输入手机号',
+        leftText: '手机号',
+        style: 'number'
       },
       cardNumberInput: {
         type: 'text',
         placeholder: '请输入银行卡号',
         leftText: '卡号',
         maxLength: '19',
-        style: 'number'
-      },
-      phoneNumberInput: {
-        type: 'text',
-        placeholder: '输入手机号',
-        leftText: '手机号',
         style: 'number'
       },
       // start params
@@ -132,7 +130,6 @@ export default {
   },
   created () {
     this.cardHolderInput.receiveInput = Storage.name
-    this.identityNumberInput.receiveInput = Storage.id
     if (Storage.card) {
       this.selectBank = Storage.card.key
     }
@@ -156,7 +153,6 @@ export default {
     bindSubmit () {
       if (!Check.card(this.cardNumber)) return // card is not correct
       if (!Check.phone(this.phoneNumber)) return // phone is not correct
-      if (!Check.code(this.codeNumber)) return // code is not correct
       if (!this.selectBank) return
       if (!this.openAccount) return
       BM.send({
@@ -165,7 +161,7 @@ export default {
           userPhone: Storage.phone,
           xm: Storage.name,
           zjlx: 0,
-          sfz: Storage.id,
+          sfz: this.id,
           sj: this.phoneNumber,
           khhdm: this.code,
           khh: Storage.card.key,
@@ -203,6 +199,9 @@ export default {
     },
     getPhoneNumber (text) {
       this.phoneNumber = text
+    },
+    getId (text) {
+      this.id = text
     },
     closeModal () {
       this.modalShow = false

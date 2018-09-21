@@ -14,9 +14,6 @@
       <div class="content-step padding-horizontal-21">
         <div class="step-item bg-white margin-bottom-21">
           <i class="iconfont icon-tongguo"></i>
-          <!-- <svg class="icon" aria-hidden="true" v-if="credit.IsIdentityPass">
-            <use xlink:href="#icon-tongguo"></use>
-          </svg> -->
           <svg class="icon" aria-hidden="true" v-if="!credit.IsIdentityPass">
             <use xlink:href="#icon-shenfenrenzheng"></use>
           </svg>
@@ -27,9 +24,7 @@
           <button class="item-button button bg-blue color-white font-24" :class="{'button-active': credit.IsIdentityPass}" :disabled="credit.IsIdentityPass" @click="toIdentityAttestation"><div>{{credit.IsIdentityPass ? '已完成' : '去认证'}}</div></button>
         </div>
         <div class="step-item bg-white margin-bottom-21">
-          <svg class="icon" aria-hidden="true" v-if="credit.IsContactPass">
-            <use xlink:href="#icon-tongguo"></use>
-          </svg>
+          <i class="iconfont icon-tongguo" v-if="credit.IsContactPass"></i>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsContactPass">
             <use xlink:href="#icon-lianxirenrenzheng"></use>
           </svg>
@@ -40,9 +35,7 @@
           <button class="item-button button bg-blue color-white font-24" :class="{'button-active': credit.IsContactPass}" :disabled="credit.IsContactPass" @click="toContactAttestation"><div>{{credit.IsContactPass ? '已完成' : '去认证'}}</div></button>
         </div>
         <div class="step-item bg-white margin-bottom-21">
-          <svg class="icon" aria-hidden="true" v-if="credit.IsZhiMaPass">
-            <use xlink:href="#icon-tongguo"></use>
-          </svg>
+          <i class="iconfont icon-tongguo" v-if="credit.IsZhiMaPass"></i>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsZhiMaPass">
             <use xlink:href="#icon-zhimaxinyong"></use>
           </svg>
@@ -53,9 +46,7 @@
           <button class="item-button button bg-blue color-white font-24" :class="{'button-active': credit.IsZhiMaPass}" :disabled="credit.IsZhiMaPass" @click="toZhiMaAttestation"><div>{{credit.IsZhiMaPass ? '已完成' : '去认证'}}</div></button>
         </div>
         <div class="step-item bg-white margin-bottom-21">
-          <svg class="icon" aria-hidden="true" v-if="credit.IsPhonePass">
-            <use xlink:href="#icon-tongguo"></use>
-          </svg>
+          <i class="iconfont icon-tongguo" v-if="credit.IsPhonePass"></i>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsPhonePass">
             <use xlink:href="#icon-yunyingshangrenzheng"></use>
           </svg>
@@ -66,9 +57,7 @@
           <button class="item-button button bg-blue color-white font-24" :class="{'button-active': credit.IsPhonePass}" :disabled="credit.IsPhonePass" @click="toPhoneAttestation"><div>{{credit.IsPhonePass ? '已完成' : '去认证'}}</div></button>
         </div>
         <div class="step-item bg-white">
-          <svg class="icon" aria-hidden="true" v-if="credit.IsBankCardPass">
-            <use xlink:href="#icon-tongguo"></use>
-          </svg>
+          <i class="iconfont icon-tongguo" v-if="credit.IsBankCardPass"></i>
           <svg class="icon" aria-hidden="true" v-if="!credit.IsBankCardPass">
             <use xlink:href="#icon-yunyingshangrenzheng"></use>
           </svg>
@@ -86,6 +75,7 @@
 
 <script>
 // include dependence
+import Error from '../../class/Error.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
@@ -160,45 +150,46 @@ export default {
     },
     toZhiMaAttestation () {
       if (!this.credit.IsIdentityPass) {
-        console.log('请进行身份认证')
+        Error.show('请进行身份认证')
         return
       }
       if (!this.credit.IsContactPass) {
-        console.log('请进联系人认证')
+        Error.show('请进联系人认证')
         return
       }
       Router.push('zhima-credit')
     },
     toPhoneAttestation () {
       if (!this.credit.IsIdentityPass) {
+        Error.show('请进联系人认证')
         console.log('请进行身份认证')
         return
       }
       if (!this.credit.IsContactPass) {
-        console.log('请进联系人认证')
+        Error.show('请进联系人认证')
         return
       }
       if (!this.credit.IsZhiMaPass) {
-        console.log('请进芝麻认证')
+        Error.show('请进芝麻认证')
         return
       }
       Router.push('operator-credit')
     },
     toICardAttestation () {
       if (!this.credit.IsIdentityPass) {
-        console.log('请进行身份认证')
+        Error.show('请进行身份认证')
         return
       }
       if (!this.credit.IsContactPass) {
-        console.log('请进联系人认证')
+        Error.show('请进联系人认证')
         return
       }
       if (!this.credit.IsZhiMaPass) {
-        console.log('请进行身份认证')
+        Error.show('请进行身份认证')
         return
       }
       if (!this.credit.IsPhonePass) {
-        console.log('请进行身份认证')
+        Error.show('请进行身份认证')
         return
       }
       Router.push('bind-bank-card')
