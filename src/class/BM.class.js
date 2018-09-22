@@ -13,8 +13,8 @@ export default class BM {
     axios({
       url: Url[args.url],
       method: 'post',
-      // baseURL: 'http://101.37.27.97:8099',
       baseURL: 'https://www.jiebayidai.com:9595',
+      // baseURL: 'http://101.37.27.97:8099',
       // headers: headers,
       params: args.data
     }).then(response => {

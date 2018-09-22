@@ -1,5 +1,5 @@
 module.exports = {
-  content: '修改支付密码',
+  content: '',
   router: true,
   vuex: {
     mutations: false,
@@ -7,15 +7,15 @@ module.exports = {
   },
   class: {
     'Account': false,
-    'BM': false,
+    'BM': true,
     'Btn': false,
     'Check': false,
     'Citys': false,
-    'Error': true,
+    'Error': false,
     'Hasten': false,
-    'Http': true,
+    'Http': false,
     'Mock': false,
-    'Router': true,
+    'Router': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -25,30 +25,22 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': `{
-        default: [{
-          type: 'primary',
-          text: '完成'
-        }]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,
     'inputs': false,
-    'keyboard': 1,
+    'keyboard': false,
     'modal': false,
     'modals': false,
     'nav': false,
-    'pay-password': `[]`,
+    'pay-password': false,
     'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': `{
-        type: 'center',
-        content: '请输入原始支付密码'
-      }`,
+    'tip': false,
     'title': `{
-        contentText: '修改支付密码'
+        contentText: '提现密码重置'
       }`,
     'without': false,
     'work-card': false

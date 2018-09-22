@@ -67,21 +67,30 @@ export default {
   methods: {
     init () {
       if (Account.bank) {
-        this.billboard = [
-          {
-            type: 'guide',
-            key: '支付设置',
-            icon: 'chuyin',
-            target: 'about-pay-password-settings'
-          },
-          {
-            type: 'guide',
-            key: '提现密码重置',
-            icon: 'chuyin',
-            target: ''
-          },
-          ...this.billboard
-        ]
+        this.billboard.unshift({
+          type: 'guide',
+          key: '提现密码重置',
+          icon: 'chuyin',
+          target: 'modify-withdraw-password'
+        })
+      }
+      if (Account.payPassword) {
+        this.billboard.unshift({
+          type: 'guide',
+          key: '支付设置',
+          icon: 'chuyin',
+          target: 'about-pay-password-settings'
+        })
+      } else {
+        Storage.paySet = {
+          type: 'set'
+        }
+        this.billboard.unshift({
+          type: 'guide',
+          key: '设置支付密码',
+          icon: 'chuyin',
+          target: 'modefy-pay-password'
+        })
       }
     },
     target (page) {

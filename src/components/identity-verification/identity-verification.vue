@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="verification-button">
-      <ButtonComponent :button="button" @SINGLE_SUBMIT_EVENT="identitySubmit"></ButtonComponent>
+      <ButtonComponent :button="button" @SUBMIT_EVENT="identitySubmit"></ButtonComponent>
     </div>
   </section>
   <!-- e 身份验证 -->
@@ -79,7 +79,7 @@ export default {
         type: 'text',
         placeholder: '输入身份证号',
         leftText: '身份证',
-        style: 'number'
+        style: 'text'
       },
       phoneNumberInput: {
         type: 'text',
@@ -130,26 +130,19 @@ export default {
       })
     },
     identitySubmit () {
-      if (!Check.card(this.cardNumber)) return
-      if (!Check.identity(this.identityNumber)) return
+      if (!Check.bank(this.cardNumber)) return
+      if (!Check.id(this.identityNumber)) return
       if (!Check.code(this.codeNumber)) return
-      Http.send({
-        url: 'ForgetPaymentPwd',
-        data: {
-          token: Storage.token,
-          phone: Storage.phone,
-          cardholder: Storage.name,
-          cardNumber: this.cardNumber,
-          idNumber: this.identityNumber,
-          smsCode: this.codeNumber,
-          paymentPwd: this.paymentPwd
-        }
-      }).success(data => {
-        console.log(data)
-        Router.push('')
-      }).fail(data => {
-        console.log(data)
-      })
+      Storage.forget = {
+        token: Storage.token,
+        phone: Storage.phone,
+        cardholder: Storage.name,
+        cardNumber: this.cardNumber,
+        idNumber: this.identityNumber,
+        smsCode: this.codeNumber,
+        paymentPwd: ''
+      }
+      Router.push('modefy-pay-password')
     },
     waitOneMinute () {
       this.codeDisabled = true

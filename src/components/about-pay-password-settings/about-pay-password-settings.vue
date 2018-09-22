@@ -13,6 +13,7 @@
 <script>
 // include dependence
 import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
 import BillboardComponent from '../../module/billboard/billboard.vue'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -47,6 +48,18 @@ export default {
   },
   methods: {
     target (page) {
+      switch (page) {
+        case 'modefy-pay-password':
+          Storage.paySet = {
+            type: 'modify'
+          }
+          break
+        case 'identity-verification':
+          Storage.paySet = {
+            type: 'forget'
+          }
+          break
+      }
       Router.push(page)
     }
   }

@@ -44,6 +44,7 @@ const IouTemplateComponent = () => import(/* webpackChunkName: 'iou-template' */
 const LendListComponent = () => import(/* webpackChunkName: 'lend-list' */ '../components/lend-list/lend-list.vue')
 const LendingInformationComponent = () => import(/* webpackChunkName: 'lending-information' */ '../components/lending-information/lending-information.vue')
 const ModefyPayPasswordComponent = () => import(/* webpackChunkName: 'modefy-pay-password' */ '../components/modefy-pay-password/modefy-pay-password.vue')
+const ModifyWithdrawPasswordComponent = () => import(/* webpackChunkName: 'modify-withdraw-password' */ '../components/modify-withdraw-password/modify-withdraw-password.vue')
 const MyBankCardComponent = () => import(/* webpackChunkName: 'my-bank-card' */ '../components/my-bank-card/my-bank-card.vue')
 const NewFriendComponent = () => import(/* webpackChunkName: 'new-friend' */ '../components/new-friend/new-friend.vue')
 const NewsComponent = () => import(/* webpackChunkName: 'news' */ '../components/news/news.vue')
@@ -276,6 +277,11 @@ export default new Router({
       path: '/modefy-pay-password',
       name: 'modefy-pay-password',
       component: ModefyPayPasswordComponent
+    },
+    {
+      path: '/modify-withdraw-password',
+      name: 'modify-withdraw-password',
+      component: ModifyWithdrawPasswordComponent
     },
     {
       path: '/my-bank-card',
