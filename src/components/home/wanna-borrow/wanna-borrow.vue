@@ -162,15 +162,15 @@ export default {
   methods: {
     formateData (data) {
       if (data) {
-        let borrowObjectPhone = []
+        let borrowObjectName = []
         let borrowObjectImAccid = []
         data.forEach(ele => {
-          borrowObjectPhone.push(ele.UserPhone)
+          borrowObjectName.push(ele.Name)
           borrowObjectImAccid.push(ele.imAccid)
         })
-        this.borrowPhoneStr = borrowObjectPhone.toString()
+        this.borrowPhoneStr = borrowObjectName.toString()
         this.borrowImAccidStr = borrowObjectImAccid.toString()
-        if (borrowObjectPhone.length > 1) {
+        if (borrowObjectName.length > 1) {
           this.borrowObject = '好友'
         } else {
           this.borrowObject = this.borrowPhoneStr

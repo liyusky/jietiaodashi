@@ -268,7 +268,6 @@ export default {
     },
     repay () {
       this.modalShow = true
-
       BM.send({
         url: 'Repay',
         data: {

@@ -1,5 +1,5 @@
 module.exports = {
-  content: '支付密码设置',
+  content: '历史出借人',
   router: true,
   vuex: {
     mutations: false,
@@ -13,9 +13,9 @@ module.exports = {
     'Citys': false,
     'Error': false,
     'Hasten': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
-    'Router': true,
+    'Router': false,
     'Status': false,
     'Storage': true,
     'Time': false,
@@ -23,20 +23,7 @@ module.exports = {
     'Url': false
   },
   components: {
-    'billboard': `[
-        {
-          type: 'guide',
-          key: '修改支付密码',
-          icon: 'arrow-right',
-          target: 'modefy-pay-password'
-        },
-        {
-          type: 'guide',
-          key: '忘记支付密码',
-          icon: 'arrow-right',
-          target: 'identity-verification'
-        }
-      ]`,
+    'billboard': false,
     'board': false,
     'button': false,
     'deadline': false,
@@ -48,12 +35,13 @@ module.exports = {
     'modals': false,
     'nav': false,
     'pay-password': false,
-    'pull-refresh': false,
+    'pull-refresh': 1,
     'receipt': false,
     'tab': false,
     'tip': false,
     'title': `{
-        contentText: '支付密码设置'
+        contentText: '历史出借人',
+        rightText: '确认'
       }`,
     'without': false,
     'work-card': false

@@ -3,7 +3,7 @@
   <section class="publish-object padding-top-126">
     <TitleComponent :title="title" @OTHER_EVENT="confirm"></TitleComponent>
     <div class="object-select bg-white">
-      <div class="select-item padding-horizontal-30 border-bottom-1">
+      <div class="select-item padding-horizontal-30 border-bottom-1" @click="gotoPage('find-lender')">
         <div class="item-svg">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-xunzhaochujieren"></use>
@@ -14,7 +14,7 @@
           <i class="iconfont icon-arrow-right font-27 color-light-grey"></i>
         </div>
       </div>
-      <div class="select-item padding-horizontal-30 border-bottom-1">
+      <div class="select-item padding-horizontal-30 border-bottom-1" @click="gotoPage('history-lender')">
         <div class="item-svg">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-lishichujieren"></use>
@@ -33,7 +33,7 @@
     <div class="object-friend padding-left-30 bg-white">
       <div class="friend-item border-bottom-1" v-for="(item, index) in friendList" :key="index" @click="selectFriend(item, index)">
         <div class="item-portrait">
-          <img :src="item.url">
+          <img src="../../assets/images/master.png">
         </div>
         <div class="item-detail padding-horizontal-30">
           <div class="detail-title">
@@ -98,6 +98,7 @@ export default {
         console.log(data)
         data.list.forEach((ele) => {
           ele.checkFriend = false
+          ele.Photo = '../../assets//images/master.png'
         })
         this.friendList = data.list
       }).fail(data => {
@@ -115,6 +116,10 @@ export default {
     },
     selectFriend (item, index) {
       this.friendList[index].checkFriend = !this.friendList[index].checkFriend
+    },
+    gotoPage (page) {
+      console.log(1)
+      Router.push(page)
     }
   }
 }

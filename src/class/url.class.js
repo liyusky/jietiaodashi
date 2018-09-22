@@ -38,12 +38,15 @@ export default class Url {
   static LoanCollectionDetail = '/Loan/LoanCollectionDetail'
   static Complain = '/Member/Complain'
   static ZhimaAuthUrl = '/Member/ZhimaAuthUrl'
+  static SetPaymentPwd = '/Member/SetPaymentPwd'
   static PhoneOperatorAuthUrl = '/Member/PhoneOperatorAuthUrl'
   static IsLoan = '/Loan/IsLoan'
   static LendMemberList = '/Member/LendMemberList'
+  static HistoryLendMemberList = '/Member/HistoryLendMemberList'
   // BM
   static BindCard = '/BM/account/reg.c'
-  static queryBalance = 'BM/query/balanceAction.c'
+  static queryBalance = '/BM/query/balanceAction.c'
+  static appResetPassWord = '/BM/app/appResetPassWord.c'
   // 提现充值
   static Withdraw = '/BM/app/app500003.c'
   static Recharge = '/BM/app/app500013.c'

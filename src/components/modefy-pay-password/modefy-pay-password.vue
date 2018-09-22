@@ -12,7 +12,9 @@
 
 <script>
 // include dependence
+import Error from '../../class/Error.class.js'
 import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ButtonComponent from '../../module/button/button.vue'
 import KeyboardComponent from '../../module/keyboard/keyboard.vue'
@@ -57,6 +59,7 @@ export default {
   },
   methods: {
     init () {
+      console.log(Storage.paySet)
       switch (Storage.paySet.type) {
         case 'modify':
           this.tip.content = '请输入原始支付密码'
@@ -68,6 +71,11 @@ export default {
           this.title.contentText = '设置新支付密码'
           this.submit = this.forget
           break
+        case 'set':
+          this.tip.content = '请设置支付密码'
+          this.title.contentText = '设置支付密码'
+          this.submit = this.setPassword
+          break
       }
     },
     input (number) {
@@ -75,10 +83,19 @@ export default {
     },
     submit () {},
     modify () {
+      // alert(JSON.stringify({
+      //   token: Storage.token,
+      //   phone: Storage.phone,
+      //   oldPaymentPwd: this.oldPassword.join(''),
+      //   newPaymentPwd: this.newPassword.join('')
+      // }))
+      if (this.payPassword.length !== 6) {
+        Error.show('请输入支付密码')
+      }
       if (this.mark) {
-        this.oldPayment = this.payPassword
+        this.oldPassword = [...this.payPassword]
       } else {
-        this.newPassword = this.payPassword
+        this.newPassword = [...this.payPassword]
       }
       Http.send({
         url: 'UpdatePaymentPwd',
@@ -95,19 +112,28 @@ export default {
       })
     },
     forget () {
+      let data = {...Storage.forget}
+      data.paymentPwd = this.payPassword.join('')
       Http.send({
         url: 'ForgetPaymentPwd',
+        data: data
+      }).success(data => {
+        Error.show('支付密码修改成功')
+        Router.push('settings')
+      }).fail(data => {
+      })
+    },
+    setPassword () {
+      Http.send({
+        url: 'SetPaymentPwd',
         data: {
           token: Storage.token,
           phone: Storage.phone,
-          cardholder: Storage.paySet.cardholder,
-          cardNumber: Storage.paySet.cardNumber,
-          idNumber: Storage.paySet.idNumber,
-          smsCode: Storage.paySet.smsCode,
-          graphCode: Storage.paySet.smsCode,
           paymentPwd: this.payPassword.join('')
         }
       }).success(data => {
+        Error.show('支付密码设置成功')
+        Router.push('settings')
       }).fail(data => {
       })
     },

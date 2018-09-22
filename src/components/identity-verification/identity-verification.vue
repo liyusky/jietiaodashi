@@ -79,7 +79,8 @@ export default {
       identityNumberInput: {
         type: 'text',
         placeholder: '输入身份证号',
-        leftText: '身份证'
+        leftText: '身份证',
+        style: 'text'
       },
       phoneNumberInput: {
         type: 'text',
@@ -149,26 +150,19 @@ export default {
       })
     },
     identitySubmit () {
-      if (!Check.card(this.cardNumber)) return
+      if (!Check.bank(this.cardNumber)) return
       if (!Check.id(this.identityNumber)) return
       if (!Check.code(this.codeNumber)) return
-      Http.send({
-        url: 'ForgetPaymentPwd',
-        data: {
-          token: Storage.token,
-          phone: Storage.phone,
-          cardholder: Storage.name,
-          cardNumber: this.cardNumber,
-          idNumber: this.identityNumber,
-          smsCode: this.codeNumber,
-          paymentPwd: this.paymentPwd
-        }
-      }).success(data => {
-        console.log(data)
-        Router.push('')
-      }).fail(data => {
-        console.log(data)
-      })
+      Storage.forget = {
+        token: Storage.token,
+        phone: Storage.phone,
+        cardholder: Storage.name,
+        cardNumber: this.cardNumber,
+        idNumber: this.identityNumber,
+        smsCode: this.codeNumber,
+        paymentPwd: ''
+      }
+      Router.push('modefy-pay-password')
     },
     waitOneMinute () {
       this.codeDisabled = true

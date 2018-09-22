@@ -1,6 +1,6 @@
 export default class Account {
   static set info (account) {
-    window.app.$store.commit('saveAccount', {
+    let customer = {
       name: account.Name,
       id: account.CardNo,
       portrait: account.Photo,
@@ -17,73 +17,69 @@ export default class Account {
         report: account.IsCreditReportPass,
         payPassword: account.IsSetPaymentPwd
       }
-    })
-  }
-
-  static get certificate () {
-    this.refresh()
-    if (this.certification.id) {
-      return false
     }
-    if (this.certification.bank) {
-      return false
-    }
+    this.save(customer)
   }
 
   static get name () {
-    return window.app.$store.state.account.name
+    let account = this.getAccount()
+    return account.name
   }
 
   static get ID () {
-    return window.app.$store.state.account.id
+    let account = this.getAccount()
+    return account.id
   }
 
   static set ID (id) {
     let account = {...window.app.$store.state.account}
     account.id = id
-    window.app.$store.commit('saveAccount', account)
+    this.save(account)
   }
 
   static get bank () {
-    return window.app.$store.state.account.certification.bank
+    let account = this.getAccount()
+    return account.certification.bank
   }
 
   static get payPassword () {
-    return window.app.$store.state.account.certification.payPassword
+    let account = this.getAccount()
+    return account.certification.payPassword
   }
 
   static set id (id) {
     let account = {...window.app.$store.state.account}
     account.certification.id = id
-    window.app.$store.commit('saveAccount', account)
+    this.save(account)
   }
 
   static get id () {
-    return window.app.$store.state.account.certification.id
+    let account = this.getAccount()
+    return account.certification.id
   }
 
   static set contact (contact) {
     let account = {...window.app.$store.state.account}
     account.certification.contact = contact
-    window.app.$store.commit('saveAccount', account)
+    this.save(account)
   }
 
   static set zhima (zhima) {
     let account = {...window.app.$store.state.account}
     account.certification.zhima = zhima
-    window.app.$store.commit('saveAccount', account)
+    this.save(account)
   }
 
   static set phone (phone) {
     let account = {...window.app.$store.state.account}
     account.certification.zhima = phone
-    window.app.$store.commit('saveAccount', account)
+    this.save(account)
   }
 
   static set bank (bank) {
     let account = {...window.app.$store.state.account}
     account.certification.zhima = bank
-    window.app.$store.commit('saveAccount', account)
+    this.save(account)
   }
 
   static set credit (credit) {
@@ -95,6 +91,26 @@ export default class Account {
     account.certification.bank = account.IsBankCardPass
     account.certification.report = account.IsCreditReportPass
     account.certification.payPassword = account.IsSetPaymentPwd
+    this.save(account)
+  }
+
+  static save (account) {
     window.app.$store.commit('saveAccount', account)
+    try {
+      localStorage.setItem('account', JSON.stringify(account))
+    } catch (error) {}
+  }
+
+  static getAccount () {
+    let account = null
+    try {
+      account = JSON.parse(localStorage.getItem('account'))
+    } catch (error) {}
+    if (window.app.$store.state.account !== null) {
+      account = {...window.app.$store.state.account}
+    } else if (account !== null) {
+      this.save(account)
+    }
+    return account
   }
 }

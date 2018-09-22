@@ -1,7 +1,7 @@
 export default class Router {
   static unauthorized = ['account-balance', 'my-bank-card']
   static certification = ['add-contact', 'bind-bank-card', 'zhima-credit', 'identity-verification', 'operator-credit']
-  static mine = ['credit']
+  static mine = ['credit', 'settings']
   static borrow = ['wanna-borrow']
   static mark () {
     window.app.$store.commit('saveOrigin', window.app._route)

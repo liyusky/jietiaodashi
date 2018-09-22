@@ -79,6 +79,9 @@ const mutations = {
   },
   saveBank (state, bank) {
     state.bank = bank
+  },
+  saveForget (state, forget) {
+    state.forget = forget
   }
 }
 export default mutations
