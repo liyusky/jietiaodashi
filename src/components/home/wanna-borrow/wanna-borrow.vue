@@ -154,10 +154,8 @@ export default {
   mounted () {
     this.scroll()
     this.getDate(7)
-    this.formateData(Storage.publishObject)
-    if (Storage.purpose) {
-      this.borrowPurpose = Storage.purpose
-    }
+    if (Storage.publishObject) this.formateData(Storage.publishObject)
+    if (Storage.purpose) this.borrowPurpose = Storage.purpose
   },
   methods: {
     formateData (data) {

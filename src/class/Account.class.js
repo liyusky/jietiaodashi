@@ -39,6 +39,7 @@ export default class Account {
 
   static get bank () {
     let account = this.getAccount()
+    console.log(account)
     return account.certification.bank
   }
 
@@ -55,6 +56,7 @@ export default class Account {
 
   static get id () {
     let account = this.getAccount()
+    console.log(account)
     return account.certification.id
   }
 

@@ -66,6 +66,7 @@ export default {
   },
   methods: {
     init () {
+      console.log(Account)
       if (Account.bank) {
         this.billboard.unshift({
           type: 'guide',

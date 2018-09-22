@@ -83,6 +83,9 @@ export default {
         }
       }).success(data => {
         Storage.borrowOrigin = 1
+        Storage.publishObject = null
+        Storage.purpose = null
+        Storage.opinion = null
         Router.push(page)
       }).fail(data => {
         Error.show(data.message)
