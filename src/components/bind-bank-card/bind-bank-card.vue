@@ -183,7 +183,6 @@ export default {
     },
     getArea (area, code) {
       this.openAccount = area
-      alert(code)
       this.code = code
       this.modalShow = false
     }
