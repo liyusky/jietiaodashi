@@ -27,19 +27,19 @@ export default {
         {
           type: 'guide',
           key: '了解我们',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: ''
         },
         {
           type: 'guide',
           key: '黑名单',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'black-list'
         },
         {
           type: 'guide',
           key: '意见反馈',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'feedback'
         }
       ],
@@ -71,13 +71,13 @@ export default {
           {
             type: 'guide',
             key: '支付设置',
-            icon: 'chuyin',
+            icon: 'arrow-right',
             target: 'about-pay-password-settings'
           },
           {
             type: 'guide',
             key: '提现密码重置',
-            icon: 'chuyin',
+            icon: 'arrow-right',
             target: ''
           },
           ...this.billboard

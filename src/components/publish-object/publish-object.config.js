@@ -13,7 +13,7 @@ module.exports = {
     'Citys': false,
     'Error': false,
     'Hasten': false,
-    'Http': false,
+    'Http': true,
     'Mock': false,
     'Router': true,
     'Status': false,

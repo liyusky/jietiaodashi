@@ -90,7 +90,7 @@ export default {
           targetPhone: item.TargetPhone,
           accId: item.Accid,
           mode: item.Model,
-          icon: 'cong',
+          icon: 'xiaoxi1',
           id: item.Id
         }
         this.scheduleList.push(scheduleList)

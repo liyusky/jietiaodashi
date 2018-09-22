@@ -24,13 +24,13 @@ export default {
         {
           type: 'guide',
           key: '修改支付密码',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'modefy-pay-password'
         },
         {
           type: 'guide',
           key: '忘记支付密码',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'identity-verification'
         }
       ],

@@ -104,7 +104,7 @@ export default {
           targetPhone: item.TargetPhone,
           accId: item.AccId,
           mode: item.Mode,
-          icon: 'cong'
+          icon: 'xiaoxi1'
         }
         this.iouList.push(iouList)
       })

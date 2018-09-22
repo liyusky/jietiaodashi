@@ -104,7 +104,7 @@ export default {
           accId: item.Accid,
           id: item.Id,
           mode: item.Mode,
-          icon: 'cong'
+          icon: 'xiaoxi1'
         }
         this.receipt.push(receipt)
       })

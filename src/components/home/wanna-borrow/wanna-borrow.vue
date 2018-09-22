@@ -96,6 +96,7 @@
 <script>
 import PublishComponent from './publish/publish.vue'
 // include dependence
+import Check from '../../../class/Check.class.js'
 import Error from '../../../class/Error.class.js'
 import Http from '../../../class/Http.class.js'
 import Router from '../../../class/Router.class.js'
@@ -164,7 +165,7 @@ export default {
         let borrowObjectPhone = []
         let borrowObjectImAccid = []
         data.forEach(ele => {
-          borrowObjectPhone.push(ele.phone)
+          borrowObjectPhone.push(ele.UserPhone)
           borrowObjectImAccid.push(ele.imAccid)
         })
         this.borrowPhoneStr = borrowObjectPhone.toString()
@@ -233,10 +234,7 @@ export default {
     },
     // 发布借条
     publishSubmit () {
-      if (!this.borrowAmount) {
-        Error.show('请输入金额')
-        return
-      }
+      if (!Check.money(this.borrowAmount)) return
       if (!this.ratePercent) {
         Error.show('请输入利率')
         return
@@ -246,7 +244,7 @@ export default {
         return
       }
       Http.send({
-        url: 'CreateNew',
+        url: 'Create',
         data: {
           token: Storage.token,
           phone: Storage.phone,
@@ -260,9 +258,8 @@ export default {
           otherCost: this.otherCost,
           purpose: this.borrowPurpose,
           purposeReason: Storage.opinion,
-          expireDay: this.borrowPublish,
-          taskId: '',
-          source: Storage.borrowOrigin
+          expireDay: this.borrowPublish
+          // source: Storage.borrowOrigin
         }
       }).success(data => {
         console.log(data)

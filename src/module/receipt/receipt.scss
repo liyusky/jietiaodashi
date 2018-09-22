@@ -46,6 +46,9 @@
       .info-status {
         @include center();
         height: 100%;
+        i {
+          color: coral;
+        }
       }
     }
   }

@@ -37,8 +37,8 @@
         </div>
         <div class="item-detail padding-horizontal-30">
           <div class="detail-title">
-            <p class="font-33 color-black">{{item.userName}}</p>
-            <p class="font-27 color-deep-grey"><span>借条ID：</span><span>{{item.phone}}</span></p>
+            <p class="font-33 color-black">{{item.Name}}</p>
+            <p class="font-27 color-deep-grey"><span>借条ID：</span><span>{{item.UserPhone}}</span></p>
           </div>
           <i class="iconfont icon-gouxuan color-light-grey font-30" :class="{'icon-jindu color-blue': item.checkFriend}"></i>
         </div>
@@ -50,6 +50,7 @@
 
 <script>
 // include dependence
+import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'
@@ -60,48 +61,13 @@ export default {
       selectIndex: null,
       selectShow: false,
       friendList: [
-        {
-          url: 'http://iph.href.lu/87x87',
-          phone: '17764532154',
-          imAccid: '1546347878',
-          userName: '你好',
-          checkFriend: false
-        },
-        {
-          url: 'http://iph.href.lu/87x87',
-          phone: '17764532154',
-          imAccid: '1546347878',
-          userName: '你好',
-          checkFriend: false
-        },
-        {
-          url: 'http://iph.href.lu/87x87',
-          phone: '17764532154',
-          imAccid: '1546347878',
-          userName: '你好',
-          checkFriend: false
-        },
-        {
-          url: 'http://iph.href.lu/87x87',
-          phone: '17764532154',
-          imAccid: '1546347878',
-          userName: '你好',
-          checkFriend: false
-        },
-        {
-          url: 'http://iph.href.lu/87x87',
-          phone: '17764532154',
-          imAccid: '1546347878',
-          userName: '你好',
-          checkFriend: false
-        },
-        {
-          url: 'http://iph.href.lu/87x87',
-          phone: '17764532154',
-          imAccid: '1546347878',
-          userName: '你好',
-          checkFriend: false
-        }
+        // {
+        //   url: 'http://iph.href.lu/87x87',
+        //   phone: '15088845566',
+        //   imAccid: '10039004',
+        //   userName: '曹俊',
+        //   checkFriend: false
+        // }
       ],
       // start params
       'title': {
@@ -116,9 +82,27 @@ export default {
     // include components
   },
   created () {
+    this.init()
     Storage.publishObject = null
   },
   methods: {
+    init () {
+      Http.send({
+        url: 'LendMemberList',
+        data: {
+          token: Storage.token,
+          phone: Storage.phone,
+          type: 1
+        }
+      }).success(data => {
+        console.log(data)
+        data.list.forEach((ele) => {
+          ele.checkFriend = false
+        })
+        this.friendList = data.list
+      }).fail(data => {
+      })
+    },
     confirm () {
       var selectObject = []
       this.friendList.forEach(ele => {

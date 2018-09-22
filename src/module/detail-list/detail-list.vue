@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="item-icon border-bottom-1" v-if="item.icon">
-          <i class="iconfont" :class="'icon-' + item.icon"></i>
+          <i class="iconfont color-light-grey" :class="'icon-' + item.icon"></i>
         </div>
       </div>
     </li>

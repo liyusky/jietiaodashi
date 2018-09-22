@@ -100,7 +100,7 @@ export default {
           status: Status[item.State],
           id: item.Id,
           mode: item.Mode,
-          icon: 'cong'
+          icon: 'xuanze'
         }
         this.receipt.push(receipt)
       })

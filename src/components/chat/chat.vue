@@ -353,7 +353,7 @@ export default {
       title: {
         contentText: 'Name',
         leftText: '好友',
-        icon: 'cong'
+        icon: 'jiahaoyou'
       },
       inputType: false,
       switchMoreShow: false

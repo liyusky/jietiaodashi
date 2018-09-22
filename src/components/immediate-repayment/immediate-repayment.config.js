@@ -46,7 +46,7 @@ module.exports = {
     'tip': `{
         type: 'default',
         content: '已阅读并同意相关协议',
-        icon: 'cong',
+        icon: 'xuanze',
         selected: 'true'
       }`,
     'title': `{

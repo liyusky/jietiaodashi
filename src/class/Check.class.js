@@ -73,6 +73,20 @@ export default class Check {
       this.show('身份证号不能为空')
       return false
     } else {
+      let reg = new RegExp(/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/)
+      if (!reg.test(id)) {
+        this.show('身份证号错误')
+        return false
+      }
+    }
+    return true
+  }
+  static card (card) {
+    card = card ? card.replace(/\s+/g, '') : card
+    if (!card) {
+      this.show('银行卡号不能为空')
+      return false
+    } else {
       return true
     }
   }

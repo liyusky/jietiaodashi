@@ -41,7 +41,7 @@ module.exports = {
     'tip': false,
     'title': `{
         contentText: '好友',
-        icon: 'cong'
+        icon: 'iahaoyou'
       }`,
     'without': false,
     'work-card': false
