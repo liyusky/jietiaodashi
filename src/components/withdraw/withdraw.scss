@@ -21,9 +21,11 @@
       height: 129 / $unit * $symbol;
       padding: {
         top: 30 / $unit * $symbol;
+        bottom: 3 / $unit * $symbol;
       }
       input {
-        height: 99 / $unit * $symbol;
+        flex: 1;
+        height: 96 / $unit * $symbol;
         padding: {
           left: 21 / $unit * $symbol;
         }

@@ -86,10 +86,11 @@ export default {
         Storage.publishObject = null
         Storage.purpose = null
         Storage.opinion = null
+        Storage.wannaInfo = null
         Router.push(page)
       }).fail(data => {
+        Router.push('credit')
         Error.show(data.message)
-        // Router.push('credit')
       })
     }
   }

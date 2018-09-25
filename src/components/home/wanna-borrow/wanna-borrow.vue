@@ -153,9 +153,16 @@ export default {
   },
   mounted () {
     this.scroll()
-    this.getDate(7)
+    this.initDate(7)
     if (Storage.publishObject) this.formateData(Storage.publishObject)
     if (Storage.purpose) this.borrowPurpose = Storage.purpose
+    if (Storage.wannaInfo) {
+      console.log(Storage.wannaInfo)
+      this.borrowAmount = Storage.wannaInfo.borrowAmount
+      this.ratePercent = Storage.wannaInfo.ratePercent
+      this.borrowDeadline = Storage.wannaInfo.borrowDeadline
+      this.borrowPublish = Storage.wannaInfo.borrowPublish
+    }
   },
   methods: {
     formateData (data) {
@@ -187,7 +194,7 @@ export default {
         }
       }, 8)
     },
-    getDate (AddDayCount) {
+    initDate (AddDayCount) {
       var date = new Date()
       date.setDate(date.getDate() + AddDayCount)
       var y = date.getFullYear()
@@ -205,10 +212,16 @@ export default {
       var timeDiff = date1.getTime() - date.getTime()
       this.borrowDeadline = parseInt(timeDiff / 1000 / 60 / 60 / 24) + 1
       this.rateAmount = parseFloat(this.borrowAmount * this.ratePercent / 100 / 365 * this.borrowDeadline).toFixed(1)
-      this.borrowDate = year + '-' + mouth + '-' + day
+      this.borrowDate = year + '-' + (mouth < 10 ? '0' + mouth : mouth) + '-' + (day < 10 ? '0' + day : day)
       this.deadLineShow = false
     },
     gotoPage (page) {
+      Storage.wannaInfo = {
+        borrowAmount: this.borrowAmount,
+        ratePercent: this.ratePercent,
+        borrowDeadline: this.borrowDeadline,
+        borrowPublish: this.borrowPublish
+      }
       Router.push(page)
     },
     getPublish (publish) {
@@ -230,13 +243,25 @@ export default {
         this.ratePercent = ''
       }
     },
+    checkPercent (percent) {
+      if (isNaN(this.ratePercent)) {
+        Error.show('请输入数字')
+        return false
+      }
+      if (!this.ratePercent) {
+        Error.show('请输入利率')
+        return false
+      }
+      if (!parseInt(this.ratePercent)) {
+        Error.show('请输入大于0的利率')
+        return false
+      }
+      return true
+    },
     // 发布借条
     publishSubmit () {
       if (!Check.money(this.borrowAmount)) return
-      if (!this.ratePercent) {
-        Error.show('请输入利率')
-        return
-      }
+      if (!this.checkPercent(this.borrowAmount)) return
       if (!this.tip.selected) {
         Error.show('请同意协议')
         return

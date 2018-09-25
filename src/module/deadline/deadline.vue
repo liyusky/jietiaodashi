@@ -25,22 +25,23 @@
 </template>
 
 <script>
-import data from '../../data/data.js'
 // include dependence
 export default {
   name: 'DeadlineComponent',
   data () {
     return {
-      yearList: ['2018', '2019', '2020'],
+      currentYear: (new Date()).getFullYear(),
+      currentMonth: (new Date()).getMonth(),
+      yearList: [],
       mouthList: [],
       dayList: [],
       mouth: '',
       day: '',
+      days: [],
       year: '',
       yearStr: '',
       mouthStr: '',
       dayStr: ''
-
       // start params
       // end params
     }
@@ -49,36 +50,58 @@ export default {
     // include components
   },
   created () {
-    this.mouth = ''
-    this.day = ''
-    this.year = ''
+    this.init()
   },
   methods: {
-    selectYear (item, index) {
-      this.mouth = ''
-      this.day = ''
-      this.year = item
-      this.mouthList = []
-      for (var key in data[item]) {
-        this.mouthList.push(key)
+    init () {
+      let year = (new Date()).getFullYear() * 1
+      this.yearList = [year, year + 1, year + 2]
+      this.setMouth()
+      this.setDays()
+    },
+    setMouth (year = (new Date()).getFullYear()) {
+      let [mouthList, mouth] = [[], 0]
+      if (year === this.currentYear) mouth = (new Date()).getMonth() * 1
+      while (mouth < 12) {
+        mouthList.push(mouth + 1)
+        mouth++
       }
+      this.mouthList = mouthList
+    },
+    setDays (year = (new Date()).getFullYear(), mouth = (new Date()).getMonth()) {
+      let days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+      if ((year % 4 === 0) && (year % 100 !== 0 || year % 400 === 0)) {
+        days[1] = 29
+      }
+      let [dayList, day] = [[], 1]
+      if (year === this.currentYear && mouth === this.currentMonth) day = (new Date()).getDate()
+      while (day <= days[mouth]) {
+        dayList.push(day)
+        day++
+      }
+      this.dayList = dayList
+    },
+    selectYear (item, index) {
+      this.mouth = null
+      this.day = null
+      this.year = item
+      this.setMouth(this.year)
     },
     selectMouth (item, index) {
-      this.day = ''
+      if (!this.year) return
+      this.day = null
       this.mouth = item
-      this.dayList = data[this.year][item]
+      this.setDays(this.year, item - 1)
     },
     selectDay (item, index) {
+      if (!this.mouth) return
       this.day = item
     },
     selectData () {
       if (!this.year) return
       if (!this.mouth) return
       if (!this.day) return
-      var y = parseInt(this.year)
-      var m = parseInt(this.mouth)
-      var d = parseInt(this.day)
-      this.$emit('SELECT_DATA_EVENT', y, m, d)
+      this.$emit('SELECT_DATA_EVENT', this.year, this.mouth, this.day)
     },
     cancel () {
       this.$emit('CANCEL_EVENT')

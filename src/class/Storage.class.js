@@ -167,6 +167,14 @@ export default class Storage {
     return this.getOut('forget')
   }
 
+  static set wannaInfo (wannaInfo) {
+    this.save('wannaInfo', wannaInfo)
+  }
+
+  static get wannaInfo () {
+    return this.getOut('wannaInfo')
+  }
+
   static clear () {
     for (const item in window.app.$store.mutations) window.app.$store.commit(item, null)
     try {

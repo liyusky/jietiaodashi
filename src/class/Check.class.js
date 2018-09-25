@@ -55,6 +55,10 @@ export default class Check {
       this.show('请输入金额')
       return false
     }
+    if (!parseFloat(money)) {
+      this.show('请输入大于0的金额')
+      return false
+    }
     if (isNaN(money)) {
       this.show('请输入数字')
       return false

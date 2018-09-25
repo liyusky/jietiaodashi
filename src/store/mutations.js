@@ -82,6 +82,9 @@ const mutations = {
   },
   saveForget (state, forget) {
     state.forget = forget
+  },
+  saveWannaInfo (state, wannaInfo) {
+    state.wannaInfo = wannaInfo
   }
 }
 export default mutations
