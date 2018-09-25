@@ -13,11 +13,11 @@
       </div>
       <div class="information-operation">
         <p class="operation-item" @click="target('news')">
-          <i class="iconfont icon-xiaoxi margin-right-12"></i>
+          <i class="iconfont icon-xiaoxi font-30 margin-right-12"></i>
           <span class="font-27">消息</span>
         </p>
         <p class="operation-item" @click="target('settings')">
-          <i class="iconfont icon-shezhi margin-right-12"></i>
+          <i class="iconfont icon-shezhi font-30 margin-right-12"></i>
           <span class="font-27">设置</span>
         </p>
       </div>

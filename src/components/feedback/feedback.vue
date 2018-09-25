@@ -7,7 +7,7 @@
         <use xlink:href="#icon-bitian"></use>
       </svg>
       <!-- <i class="iconfont icon-bitian font-30"></i> -->
-      <p>请描述你遇到的问题</p>
+      <p class="font-27 color-black">请描述你遇到的问题</p>
     </div>
     <div class="feedback-advice bg-white">
       <div class="advice-opinion">

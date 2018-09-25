@@ -1,6 +1,6 @@
 <template>
   <!-- s  我要借款-->
-  <section class="borrow">
+  <section class="borrow padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <div class="borrow-tip">
       <div class="tip-icon">
@@ -285,7 +285,6 @@ export default {
           // source: Storage.borrowOrigin
         }
       }).success(data => {
-        console.log(data)
         Storage.borrowId = data.Id
       }).fail(data => {
       })
