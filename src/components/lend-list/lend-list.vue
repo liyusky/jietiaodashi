@@ -44,7 +44,7 @@ export default {
       type: 1,
       pageIndex: 1,
       // start params
-      'imageBg': 'http://iph.href.lu/750x150',
+      'imageBg': '../../../static/img/borrow-detail.gif',
       'nav': {
         content: ['当前', '已放款', '已逾期', '已还清', '已失效'],
         active: ''
@@ -100,7 +100,7 @@ export default {
           status: Status[item.State],
           id: item.Id,
           mode: item.Mode,
-          icon: 'cong'
+          icon: 'xuanze'
         }
         this.receipt.push(receipt)
       })

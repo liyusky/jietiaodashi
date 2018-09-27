@@ -33,6 +33,7 @@
 <script>
 // include dependence
 import Check from '../../class/Check.class.js'
+import Error from '../../class/Error.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 export default {
@@ -65,7 +66,7 @@ export default {
         return
       }
       if (!Check.phone(this.phoneNumber)) {
-        alert('请输入正确手机号')
+        Error.show('请输入正确手机号')
         return
       }
       Http.send({

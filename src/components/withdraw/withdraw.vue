@@ -4,10 +4,10 @@
     <TitleComponent :title="title"></TitleComponent>
     <div class="withdraw-content padding-horizontal-30 bg-white">
       <div class="content-title">
-        <p>提现金额</p>
+        <p class="font-30 color-black">提现金额</p>
       </div>
       <div class="content-input border-bottom-1">
-        <i class="iconfont icon-cong font-30 color-light-grey"></i>
+        <!-- <i class="iconfont icon-cong font-30 color-light-grey"></i> -->
         <input type="number" v-model="money">
       </div>
       <div class="content-introduce border-bottom-1">

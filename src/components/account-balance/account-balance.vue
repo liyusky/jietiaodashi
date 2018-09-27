@@ -15,7 +15,7 @@
     <div class="balance-title bg-white padding-horizontal-30">
       <span class="font-30 color-black">收支明细</span>
     </div>
-    <div class="balance-list">
+    <div class="balance-list bg-white">
       <PullRefreshComponent :direction="'bottom'" v-if="detailList.length" @LOAD_MORE_EVENT="loadMore">
         <DetailListComponent class="bg-white" :detailList="detailList"></DetailListComponent>
       </PullRefreshComponent>

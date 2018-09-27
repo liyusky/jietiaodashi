@@ -1,201 +1,213 @@
 export default class Storage {
   static set origin (origin) {
-    window.app.$store.commit('saveOrigin', origin)
+    this.save('origin', origin)
   }
 
   static get origin () {
-    return window.app.$store.state.origin
+    return this.getOut('origin')
   }
 
   static set id (id) {
-    window.app.$store.commit('saveId', id)
+    this.save('id', id)
   }
 
   static get id () {
-    return window.app.$store.state.id
+    return this.getOut('id')
   }
 
   static set oid (oid) {
-    window.app.$store.commit('saveOid', oid)
+    this.save('oid', oid)
   }
 
   static get oid () {
-    return window.app.$store.state.oid
+    return this.getOut('oid')
   }
 
   static set token (token) {
-    window.app.$store.commit('saveToken', token)
+    this.save('token', token)
   }
 
   static get token () {
-    return window.app.$store.state.token
+    return this.getOut('token')
   }
 
   static set phone (phone) {
-    window.app.$store.commit('savePhone', phone)
+    this.save('phone', phone)
   }
 
   static get phone () {
-    return window.app.$store.state.phone
+    return this.getOut('phone')
   }
 
   static set name (name) {
-    window.app.$store.commit('saveName', name)
+    this.save('name', name)
   }
 
   static get name () {
-    return window.app.$store.state.name
+    return this.getOut('name')
   }
 
   static set paySet (paySet) {
-    window.app.$store.commit('savePaySet', paySet)
+    this.save('paySet', paySet)
   }
 
   static get paySet () {
-    return window.app.$store.state.paySet
+    return this.getOut('paySet')
   }
 
   static set publishObject (publishObject) {
-    window.app.$store.commit('savePublishObject', publishObject)
+    this.save('publishObject', publishObject)
   }
 
   static get publishObject () {
-    return window.app.$store.state.publishObject
+    return this.getOut('publishObject')
   }
 
-  // static set clearPublishObject (publishObject) {
-  //   window.app.$store.commit('clearPublishObject', publishObject)
-  // }
-
-  // static get clearPublishObject () {
-  //   return window.app.$store.state.publishObject
-  // }
-
   static set purpose (purpose) {
-    window.app.$store.commit('savePurpose', purpose)
+    this.save('purpose', purpose)
   }
 
   static get purpose () {
-    return window.app.$store.state.purpose
+    return this.getOut('purpose')
   }
 
   static set opinion (opinion) {
-    window.app.$store.commit('saveOpinion', opinion)
+    this.save('opinion', opinion)
   }
 
   static get opinion () {
-    return window.app.$store.state.opinion
+    return this.getOut('opinion')
   }
 
   static set payedMoney (payedMoney) {
-    window.app.$store.commit('savePayedMoney', payedMoney)
+    this.save('payedMoney', payedMoney)
   }
 
   static get payedMoney () {
-    return window.app.$store.state.payedMoney
+    return this.getOut('payedMoney')
   }
 
   static set gapMoney (gapMoney) {
-    window.app.$store.commit('saveGapMoney', gapMoney)
+    this.save('gapMoney', gapMoney)
   }
 
   static get gapMoney () {
-    return window.app.$store.state.gapMoney
+    return this.getOut('gapMoney')
   }
 
   static set borrowId (borrowId) {
-    window.app.$store.commit('saveBorrowId', borrowId)
+    this.save('borrowId', borrowId)
   }
 
   static get borrowId () {
-    return window.app.$store.state.borrowId
+    return this.getOut('borrowId')
   }
 
   static set borrowOrigin (borrowOrigin) {
-    window.app.$store.commit('saveBorrowOrigin', borrowOrigin)
+    this.save('borrowOrigin', borrowOrigin)
   }
 
   static get borrowOrigin () {
-    return window.app.$store.state.borrowOrigin
+    return this.getOut('borrowOrigin')
   }
   // 可用余额
   static set usableMoney (usableMoney) {
-    window.app.$store.commit('saveUsableMoney', usableMoney)
+    this.save('usableMoney', usableMoney)
   }
 
   static get usableMoney () {
-    return window.app.$store.state.usableMoney
+    return this.getOut('usableMoney')
   }
   // 失信查询结果
   static set credtiQuery (credtiQuery) {
-    window.app.$store.commit('saveCreditQuery', credtiQuery)
+    this.save('credtiQuery', credtiQuery)
   }
 
   static get credtiQuery () {
-    return window.app.$store.state.credtiQuery
+    return this.getOut('credtiQuery')
   }
 
   static set account (account) {
-    window.app.$store.commit('saveAccount', account)
+    this.save('account', account)
   }
 
   static get account () {
-    return window.app.$store.state.account
+    return this.getOut('account')
   }
   // 投诉对象 complianPhone
   static set complianPhone (complianPhone) {
-    window.app.$store.commit('saveComplianPhone', complianPhone)
+    this.save('complianPhone', complianPhone)
   }
 
   static get complianPhone () {
-    return window.app.$store.state.complianPhone
+    return this.getOut('complianPhone')
   }
 
   static get info () {
-    return window.app.$store.state.info
+    return this.getOut('info')
   }
 
   static set error (error) {
-    window.app.$store.commit('saveError', error)
+    this.save('error', error)
   }
 
   static set bank (bank) {
-    window.app.$store.commit('saveBank', bank)
+    this.save('bank', bank)
   }
 
   static get bank () {
-    return window.app.$store.state.bank
+    return this.getOut('bank')
   }
 
   static set forget (forget) {
-    window.app.$store.commit('saveForget', forget)
+    this.save('forget', forget)
   }
 
   static get forget () {
-    return window.app.$store.state.forget
+    return this.getOut('forget')
+  }
+
+  static set wannaInfo (wannaInfo) {
+    this.save('wannaInfo', wannaInfo)
+  }
+
+  static get wannaInfo () {
+    return this.getOut('wannaInfo')
   }
 
   static clear () {
-    window.app.$store.commit('saveOrigin', null)
-    window.app.$store.commit('saveToken', null)
-    window.app.$store.commit('savePhone', null)
-    window.app.$store.commit('saveName', null)
-    window.app.$store.commit('saveId', null)
-    window.app.$store.commit('saveOid', null)
-    window.app.$store.commit('savePaySet', null)
-    window.app.$store.commit('savePublishObject', null)
-    window.app.$store.commit('savePurpose', null)
-    window.app.$store.commit('saveOpinion', null)
-    window.app.$store.commit('saveBankCard', null)
-    window.app.$store.commit('savePayedMoney', null)
-    window.app.$store.commit('saveGapMoney', null)
-    window.app.$store.commit('saveBorrowId', null)
-    window.app.$store.commit('saveBorrowOrigin', null)
-    window.app.$store.commit('saveUsableMoney', null)
-    window.app.$store.commit('saveCreditQuery', null)
-    window.app.$store.commit('saveAccount', null)
-    window.app.$store.commit('saveComplianPhone', null)
-    window.app.$store.commit('saveInfo', null)
-    window.app.$store.commit('saveError', null)
+    for (const item in window.app.$store.mutations) window.app.$store.commit(item, null)
+    try {
+      for (const item in localStorage) localStorage[item] = ''
+    } catch (error) {}
+  }
+
+  static getsaveInLocalStorage (name) {
+    try {
+      localStorage.getItem(name)
+    } catch (error) {}
+  }
+
+  static save (name, content) {
+    window.app.$store.commit('save' + name.substring(0, 1).toUpperCase() + name.substring(1), content)
+    try {
+      let result = content
+      if (typeof content === 'object') result = JSON.stringify(content)
+      localStorage.setItem(name, result)
+    } catch (error) {}
+  }
+
+  static getOut (name) {
+    let result = null
+    try {
+      result = localStorage.getItem(name)
+      if (typeof JSON.parse(result) === 'object') result = JSON.parse(result)
+    } catch (error) {}
+    if (window.app.$store.state[name] !== null) {
+      result = window.app.$store.state[name]
+    } else if (result !== null) {
+      this.save(name, result)
+    }
+    return result
   }
 }

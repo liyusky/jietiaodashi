@@ -10,7 +10,7 @@
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-cong"></use>
         </svg>
-        <p class="bank-name">中国银行储蓄卡<span>(5866)</span></p>
+        <p class="bank-name">{{cardName}}<span>({{bankCard}})</span></p>
         <i class="iconfont icon-cong"></i>
       </div>
       <div class="bank-item">
@@ -53,8 +53,9 @@ export default {
   name: 'IdentityVerificationComponent',
   data () {
     return {
+      bankCard: '',
+      cardName: '',
       cardNumber: '',
-      cardHolder: '张玉',
       identityNumber: '',
       codeNumber: '',
       graphCode: '1234',
@@ -63,7 +64,7 @@ export default {
       codeDisabled: false,
       cardHolderInput: {
         type: 'text',
-        rightIcon: 'cong',
+        rightIcon: 'tishi2',
         leftText: '持卡人',
         receiveInput: '',
         dsiabled: 'true'
@@ -107,9 +108,28 @@ export default {
     // include components
   },
   created () {
+    this.init()
     this.cardHolderInput.receiveInput = Storage.name
   },
   methods: {
+    init () {
+      Http.send({
+        url: 'BankCardList',
+        data: {
+          token: Storage.token,
+          phone: Storage.phone
+        }
+      }).success(data => {
+        console.log(data)
+        this.formatData(data)
+      }).fail(data => {
+      })
+    },
+    formatData (data) {
+      let card = data[0].BankCard.slice(-4, data[0].BankCard.length)
+      this.bankCard = card
+      this.cardName = data[0].BankName
+    },
     getCardNumber (text) {
       this.cardNumber = text
     },

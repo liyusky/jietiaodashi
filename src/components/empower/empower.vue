@@ -63,6 +63,9 @@ export default {
     ButtonComponent
     // include components
   },
+  created () {
+    Storage.clear()
+  },
   methods: {
     switchCode () {
       this.switcher = true

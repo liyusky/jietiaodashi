@@ -83,12 +83,6 @@ export default {
     },
     submit () {},
     modify () {
-      // alert(JSON.stringify({
-      //   token: Storage.token,
-      //   phone: Storage.phone,
-      //   oldPaymentPwd: this.oldPassword.join(''),
-      //   newPaymentPwd: this.newPassword.join('')
-      // }))
       if (this.payPassword.length !== 6) {
         Error.show('请输入支付密码')
       }

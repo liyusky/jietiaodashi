@@ -68,7 +68,7 @@ export default {
           count: item.amount,
           time: Time.format('YYYY/MM/DD HH/hh/mm WW', data.transferTime),
           remnant: item.balance_new,
-          icon: 'cong',
+          icon: 'arrow-right',
           oid: item.oid
         }
         this.detailList.push(detail)

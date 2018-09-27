@@ -58,12 +58,11 @@
       }
       .user-tip {
         @include vertical_center();
-        .icon {
-          width: 30 / $unit * $symbol;
-          height: 30 / $unit * $symbol;
+        i {
           margin: {
             right: 12 / $unit * $symbol;
           }
+          color: coral;
         }
       }
     }

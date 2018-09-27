@@ -11,6 +11,7 @@ module.exports = {
     'Btn': false,
     'Check': false,
     'Citys': false,
+    'Days': false,
     'Error': false,
     'Hasten': false,
     'Http': false,
@@ -41,7 +42,7 @@ module.exports = {
     'tip': false,
     'title': `{
         contentText: '好友',
-        icon: 'cong'
+        icon: 'iahaoyou'
       }`,
     'without': false,
     'work-card': false

@@ -9,12 +9,10 @@
         </div>
         <div class="user-info font-27 color-black">
           <p class="info-loan "><span></span><span>{{type}}</span></p>
-          <p class="info-sign"><span>{{name}}</span><i class="iconfont icon-cong font-30 color-blue"></i></p>
+          <p class="info-sign"><span>{{name}}</span><i class="iconfont icon-xiaoxi1 font-21 color-blue"></i></p>
         </div>
         <div class="user-tip">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-cong"></use>
-          </svg>
+          <i class="iconfont icon-tishi1 font-21"></i>
           <p class="font-24 color-black">{{state}}{{overdueDay}}</p>
         </div>
       </div>

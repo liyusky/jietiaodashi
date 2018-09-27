@@ -90,7 +90,7 @@ export default {
       'tip': {
         type: 'default',
         content: '同意相关协议',
-        icon: 'cong',
+        icon: 'xuanze',
         selected: 'true'
       },
       'title': {

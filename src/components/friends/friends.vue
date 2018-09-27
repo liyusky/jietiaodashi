@@ -45,7 +45,7 @@ export default {
       // start params
       'title': {
         contentText: '好友',
-        icon: 'cong'
+        icon: 'iahaoyou'
       }
       // end params
     }

@@ -11,6 +11,7 @@ module.exports = {
     'Btn': false,
     'Check': false,
     'Citys': false,
+    'Days': false,
     'Error': false,
     'Hasten': false,
     'Http': false,
@@ -27,13 +28,13 @@ module.exports = {
         {
           type: 'guide',
           key: '修改支付密码',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'modefy-pay-password'
         },
         {
           type: 'guide',
           key: '忘记支付密码',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'identity-verification'
         }
       ]`,
