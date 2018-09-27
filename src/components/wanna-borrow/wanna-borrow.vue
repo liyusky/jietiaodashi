@@ -96,15 +96,15 @@
 <script>
 import PublishComponent from './publish/publish.vue'
 // include dependence
-import Check from '../../../class/Check.class.js'
-import Error from '../../../class/Error.class.js'
-import Http from '../../../class/Http.class.js'
-import Router from '../../../class/Router.class.js'
-import Storage from '../../../class/Storage.class.js'
-import ButtonComponent from '../../../module/button/button.vue'
-import DeadlineComponent from '../../../module/deadline/deadline.vue'
-import TipComponent from '../../../module/tip/tip.vue'
-import TitleComponent from '../../../module/title/title.vue'
+import Check from '../../class/Check.class.js'
+import Error from '../../class/Error.class.js'
+import Http from '../../class/Http.class.js'
+import Router from '../../class/Router.class.js'
+import Storage from '../../class/Storage.class.js'
+import ButtonComponent from '../../module/button/button.vue'
+import DeadlineComponent from '../../module/deadline/deadline.vue'
+import TipComponent from '../../module/tip/tip.vue'
+import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'BorrowComponent',
   data () {

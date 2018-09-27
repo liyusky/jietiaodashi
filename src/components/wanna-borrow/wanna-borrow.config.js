@@ -1,19 +1,19 @@
 module.exports = {
-  content: '芝麻认证',
+  content: '我要借款',
   router: true,
   vuex: {
     mutations: false,
     state: false
   },
   class: {
-    'Account': true,
+    'Account': false,
     'BM': false,
     'Btn': false,
     'Chat': false,
-    'Check': false,
+    'Check': true,
     'Citys': false,
     'Days': false,
-    'Error': false,
+    'Error': true,
     'Hasten': false,
     'Http': true,
     'Mock': false,
@@ -27,8 +27,13 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': false,
-    'deadline': false,
+    'button': `{
+        default: [{
+          type: 'primary',
+          text: '发布借条'
+        }]
+      }`,
+    'deadline': 1,
     'detail-list': false,
     'image-bg': false,
     'inputs': false,
@@ -40,9 +45,15 @@ module.exports = {
     'pull-refresh': false,
     'receipt': false,
     'tab': false,
-    'tip': false,
+    'tip': `{
+        type: 'default',
+        content: '已同意协议',
+        protocol: '借条大师协议',
+        icon: 'jindu',
+        selected: 'true'
+      }`,
     'title': `{
-        contentText: '芝麻认证'
+        contentText: '我要借款'
       }`,
     'without': false,
     'work-card': false

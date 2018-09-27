@@ -1,7 +1,7 @@
 <template>
   <!-- s 借条中心 -->
   <section class="iou-center padding-top-126">
-    <TitleComponent :title="title" @OTHER_EVENT="sortIouList"></TitleComponent>
+    <TitleComponent :title="title" @OTHER_EVENT="openSort"></TitleComponent>
     <div class="center-search padding-horizontal-30 font-27">
       <div class="search-content" v-if="!searchSwitch" @click="search">
         <i class="iconfont icon-cong font-36 color-black"></i>
@@ -22,11 +22,13 @@
       </PullRefreshComponent>
       <WithoutComponent  v-if="!iouList.length"></WithoutComponent>
     </div>
+    <SortComponent v-show="sortShow" @SORT_EVENT="sortIouList" @CLOSE_EVENT="closeModal"></SortComponent>
   </section>
   <!-- e 借条中心 -->
 </template>
 
 <script>
+import SortComponent from './iou-sort/iou-sort.vue'
 // include dependence
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -43,6 +45,7 @@ export default {
   data () {
     return {
       searchSwitch: false,
+      sortShow: false,
       iouList: [],
       type: 1,
       pageIndex: 1,
@@ -64,7 +67,8 @@ export default {
     ReceiptComponent,
     NavComponent,
     WithoutComponent,
-    PullRefreshComponent
+    PullRefreshComponent,
+    SortComponent
     // include components
   },
   created () {
@@ -78,7 +82,7 @@ export default {
           token: Storage.token,
           phone: Storage.phone,
           type: this.type,
-          key: Storage.name,
+          key: '',
           order: this.order,
           pageIndex: this.pageIndex,
           pageSize: 10
@@ -125,7 +129,20 @@ export default {
     loadMore () {
       this.init()
     },
-    sortIouList () {},
+    sortIouList (index) {
+      if (this.order !== index) {
+        this.order = index
+        this.pageIndex = 1
+        this.init()
+      }
+      this.sortShow = false
+    },
+    openSort () {
+      this.sortShow = true
+    },
+    closeModal () {
+      this.sortShow = false
+    },
     search () {
       this.searchSwitch = true
     },

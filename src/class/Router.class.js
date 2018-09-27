@@ -40,11 +40,11 @@ export default class Router {
         name: 'mine'
       }
     }
-    if (this.borrow.includes(page.name)) {
-      params = {
-        name: 'wanna-borrow'
-      }
-    }
+    // if (this.borrow.includes(page.name)) {
+    //   params = {
+    //     name: 'wanna-borrow'
+    //   }
+    // }
     if (params) {
       window.app.$router.push(params)
     } else {

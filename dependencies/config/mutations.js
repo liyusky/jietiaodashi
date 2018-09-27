@@ -1,4 +1,7 @@
 const mutations = {
+  saveNim (state, nim) {
+    state.nim = nim
+  },
   saveOrigin (state, origin) {
     state.origin = origin
   },
