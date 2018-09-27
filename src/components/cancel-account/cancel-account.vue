@@ -48,7 +48,7 @@ export default {
       cancelMountInput: {
         type: 'slide',
         leftText: '销账金额',
-        leftIcon: 'cong',
+        leftIcon: 'yuandian',
         placeholder: '请输入10的倍数',
         rightText: '元',
         style: 'number'
@@ -56,14 +56,14 @@ export default {
       totalMountInput: {
         type: 'switch',
         leftText: '全额',
-        leftIcon: 'cong'
+        leftIcon: 'yuandian'
       },
       cancelReasonInput: {
         type: 'slide',
         leftText: '销账原因',
-        leftIcon: 'cong',
+        leftIcon: 'yuandian',
         placeholder: '其他方式收款',
-        rightIcon: 'cong'
+        rightIcon: 'arrow-right'
       },
       // start params
       'board': 'center',
@@ -77,7 +77,7 @@ export default {
       'tip': {
         type: 'default',
         content: '已阅读相关协议',
-        icon: 'cong',
+        icon: 'xuanze',
         selected: 'true'
       },
       'title': {

@@ -19,14 +19,14 @@
         <p class="font-30 color-black">银行</p>
         <div class="itme-default">
           <span class="font-30 color-light-grey">{{selectBank ? selectBank: '请选择银行'}}</span>
-          <i class="iconfont icon-cong font-30 color-light-grey"></i>
+          <i class="iconfont icon-arrow-right font-30 color-light-grey"></i>
         </div>
       </div>
       <div class="form-item" border-bottom-1>
         <p class="font-30 color-black">开户地区</p>
         <div class="itme-default" @click="getOpenAccount">
           <span class="font-30 color-light-grey">{{openAccount ? openAccount: '请选择开户地区'}}</span>
-          <i class="iconfont icon-cong font-30 color-light-grey"></i>
+          <i class="iconfont icon-arrow-right font-30 color-light-grey"></i>
         </div>
       </div>
       <div class="form-item">
@@ -85,7 +85,7 @@ export default {
       code: null,
       cardHolderInput: {
         type: 'text',
-        rightIcon: 'cong',
+        rightIcon: 'tishi2',
         leftText: '持卡人',
         receiveInput: '',
         dsiabled: 'true'
@@ -183,7 +183,6 @@ export default {
     },
     getArea (area, code) {
       this.openAccount = area
-      alert(code)
       this.code = code
       this.modalShow = false
     }

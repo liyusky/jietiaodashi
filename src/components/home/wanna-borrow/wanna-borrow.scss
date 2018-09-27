@@ -8,7 +8,7 @@
   overflow: auto;
   background-color: #f0f0f0;
   padding: {
-    top: 126 / $unit * $symbol;
+    bottom: 99 / $unit * $symbol;
   }
   &-tip {
     position: relative;
@@ -76,7 +76,7 @@
           margin: {
             right: 21 / $unit * $symbol;
           }
-          font-size: 12 / $unit * $symbol;
+          font-size: 18 / $unit * $symbol;
           color: #4d7bfe;
         }
         span {
@@ -127,7 +127,7 @@
         height: 100%;
         .deadline-date {
           margin: {
-            right: 210 / $unit * $symbol;
+            right: 180 / $unit * $symbol;
           }
         }
         span {

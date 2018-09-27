@@ -29,6 +29,7 @@
 <script>
 // include dependence
 import Check from '../../class/Check.class.js'
+import Error from '../../class/Error.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import ButtonComponent from '../../module/button/button.vue'
@@ -107,7 +108,7 @@ export default {
       if (!Check.code(this.codeText)) return
       if (!Check.password(this.passwordNumber)) return
       if (this.passwordNumber !== this.AgainPasswordNumber) {
-        alert('密码不一致')
+        Error.show('密码不一致')
         return
       }
       Http.send({

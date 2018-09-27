@@ -97,13 +97,13 @@ export default {
       firstNameInput: {
         type: 'text',
         leftText: '联系人姓名',
-        leftIcon: 'cong',
+        leftIcon: 'yuandian',
         placeholder: '请输入姓名'
       },
       secondNameInput: {
         type: 'text',
         leftText: '联系人姓名',
-        leftIcon: 'cong',
+        leftIcon: 'yuandian',
         placeholder: '请输入姓名'
       },
       // start params

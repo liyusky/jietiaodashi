@@ -20,6 +20,7 @@ export default class Url {
   static Index = '/Common/Index'
   static CreateSys = '/Loan/Create_Sys'
   static CreateNew = '/Loan/Create_New'
+  static Create = '/Loan/Create'
   static LoanCollectionCancel = '/Loan/LoanCollectionCancel'
   static ConfirmLoan = '/Loan/ConfirmLoan'
   static CancelAccount = '/Loan/CancelAccount'
@@ -40,6 +41,8 @@ export default class Url {
   static SetPaymentPwd = '/Member/SetPaymentPwd'
   static PhoneOperatorAuthUrl = '/Member/PhoneOperatorAuthUrl'
   static IsLoan = '/Loan/IsLoan'
+  static LendMemberList = '/Member/LendMemberList'
+  static HistoryLendMemberList = '/Member/HistoryLendMemberList'
   // BM
   static BindCard = '/BM/account/reg.c'
   static queryBalance = '/BM/query/balanceAction.c'

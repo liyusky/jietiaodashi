@@ -27,19 +27,19 @@ export default {
         {
           type: 'guide',
           key: '了解我们',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: ''
         },
         {
           type: 'guide',
           key: '黑名单',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'black-list'
         },
         {
           type: 'guide',
           key: '意见反馈',
-          icon: 'chuyin',
+          icon: 'arrow-right',
           target: 'feedback'
         }
       ],
@@ -66,6 +66,7 @@ export default {
   },
   methods: {
     init () {
+      console.log(Account)
       if (Account.bank) {
         this.billboard.unshift({
           type: 'guide',

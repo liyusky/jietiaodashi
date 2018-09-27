@@ -45,7 +45,7 @@ export default {
       type: 1,
       pageIndex: 1,
       // start params
-      'imageBg': 'http://iph.href.lu/750x150',
+      'imageBg': '../../../static/img/lend-detail.gif',
       'nav': {
         content: ['当前', '已放款', '已逾期', '已还清', '已失效'],
         active: ''
@@ -104,7 +104,7 @@ export default {
           accId: item.Accid,
           id: item.Id,
           mode: item.Mode,
-          icon: 'cong'
+          icon: 'xiaoxi1'
         }
         this.receipt.push(receipt)
       })

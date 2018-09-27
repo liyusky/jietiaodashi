@@ -1,6 +1,6 @@
 <template>
   <!-- s  我要借款-->
-  <section class="borrow">
+  <section class="borrow padding-top-126">
     <TitleComponent :title="title"></TitleComponent>
     <div class="borrow-tip">
       <div class="tip-icon">
@@ -96,6 +96,7 @@
 <script>
 import PublishComponent from './publish/publish.vue'
 // include dependence
+import Check from '../../../class/Check.class.js'
 import Error from '../../../class/Error.class.js'
 import Http from '../../../class/Http.class.js'
 import Router from '../../../class/Router.class.js'
@@ -152,24 +153,29 @@ export default {
   },
   mounted () {
     this.scroll()
-    this.getDate(7)
-    this.formateData(Storage.publishObject)
-    if (Storage.purpose) {
-      this.borrowPurpose = Storage.purpose
+    this.initDate(7)
+    if (Storage.publishObject) this.formateData(Storage.publishObject)
+    if (Storage.purpose) this.borrowPurpose = Storage.purpose
+    if (Storage.wannaInfo) {
+      console.log(Storage.wannaInfo)
+      this.borrowAmount = Storage.wannaInfo.borrowAmount
+      this.ratePercent = Storage.wannaInfo.ratePercent
+      this.borrowDeadline = Storage.wannaInfo.borrowDeadline
+      this.borrowPublish = Storage.wannaInfo.borrowPublish
     }
   },
   methods: {
     formateData (data) {
       if (data) {
-        let borrowObjectPhone = []
+        let borrowObjectName = []
         let borrowObjectImAccid = []
         data.forEach(ele => {
-          borrowObjectPhone.push(ele.phone)
+          borrowObjectName.push(ele.Name)
           borrowObjectImAccid.push(ele.imAccid)
         })
-        this.borrowPhoneStr = borrowObjectPhone.toString()
+        this.borrowPhoneStr = borrowObjectName.toString()
         this.borrowImAccidStr = borrowObjectImAccid.toString()
-        if (borrowObjectPhone.length > 1) {
+        if (borrowObjectName.length > 1) {
           this.borrowObject = '好友'
         } else {
           this.borrowObject = this.borrowPhoneStr
@@ -188,7 +194,7 @@ export default {
         }
       }, 8)
     },
-    getDate (AddDayCount) {
+    initDate (AddDayCount) {
       var date = new Date()
       date.setDate(date.getDate() + AddDayCount)
       var y = date.getFullYear()
@@ -206,10 +212,16 @@ export default {
       var timeDiff = date1.getTime() - date.getTime()
       this.borrowDeadline = parseInt(timeDiff / 1000 / 60 / 60 / 24) + 1
       this.rateAmount = parseFloat(this.borrowAmount * this.ratePercent / 100 / 365 * this.borrowDeadline).toFixed(1)
-      this.borrowDate = year + '-' + mouth + '-' + day
+      this.borrowDate = year + '-' + (mouth < 10 ? '0' + mouth : mouth) + '-' + (day < 10 ? '0' + day : day)
       this.deadLineShow = false
     },
     gotoPage (page) {
+      Storage.wannaInfo = {
+        borrowAmount: this.borrowAmount,
+        ratePercent: this.ratePercent,
+        borrowDeadline: this.borrowDeadline,
+        borrowPublish: this.borrowPublish
+      }
       Router.push(page)
     },
     getPublish (publish) {
@@ -231,22 +243,31 @@ export default {
         this.ratePercent = ''
       }
     },
-    // 发布借条
-    publishSubmit () {
-      if (!this.borrowAmount) {
-        Error.show('请输入金额')
-        return
+    checkPercent (percent) {
+      if (isNaN(this.ratePercent)) {
+        Error.show('请输入数字')
+        return false
       }
       if (!this.ratePercent) {
         Error.show('请输入利率')
-        return
+        return false
       }
+      if (!parseInt(this.ratePercent)) {
+        Error.show('请输入大于0的利率')
+        return false
+      }
+      return true
+    },
+    // 发布借条
+    publishSubmit () {
+      if (!Check.money(this.borrowAmount)) return
+      if (!this.checkPercent(this.borrowAmount)) return
       if (!this.tip.selected) {
         Error.show('请同意协议')
         return
       }
       Http.send({
-        url: 'CreateNew',
+        url: 'Create',
         data: {
           token: Storage.token,
           phone: Storage.phone,
@@ -260,12 +281,10 @@ export default {
           otherCost: this.otherCost,
           purpose: this.borrowPurpose,
           purposeReason: Storage.opinion,
-          expireDay: this.borrowPublish,
-          taskId: '',
-          source: Storage.borrowOrigin
+          expireDay: this.borrowPublish
+          // source: Storage.borrowOrigin
         }
       }).success(data => {
-        console.log(data)
         Storage.borrowId = data.Id
       }).fail(data => {
       })
