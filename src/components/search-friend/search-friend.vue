@@ -3,10 +3,10 @@
   <section class="search-friend">
     <div class="friend-header border-bottom-1">
       <div class="header-title padding-horizontal-30">
-        <i class="iconfont icon-cong font-30"></i>
+        <i class="iconfont icon-sousuo font-30"></i>
         <div class="header-search">
           <input type="text" v-model="phoneNumber" placeholder="搜索手机号">
-          <i class="iconfont icon-cong font-27" v-show="clearInputShow" @click="clearInput"></i>
+          <i class="iconfont icon-delete font-27" v-show="clearInputShow" @click="clearInput"></i>
         </div>
         <button class="button bg-white font-30 color-black" @click="searchFriend"><div>{{searchBtnName}}</div></button>
       </div>

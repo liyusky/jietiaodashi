@@ -118,7 +118,6 @@ export default {
       this.friendList[index].checkFriend = !this.friendList[index].checkFriend
     },
     gotoPage (page) {
-      console.log(1)
       Router.push(page)
     }
   }

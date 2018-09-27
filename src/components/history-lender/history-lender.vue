@@ -2,7 +2,7 @@
   <!-- s 历史出借人 -->
   <section class="history-lender padding-top-126">
     <TitleComponent :title="title" @OTHER_EVENT="confirm"></TitleComponent>
-    <PullRefreshComponent  :direction="'bottom'" v-if="loaners.length" @LOAD_MORE_EVENT="loadMore">
+    <div class="lender-content">
       <div class="lender-item bg-white border-bottom-1" v-for="(item, index) in loaners" :key="index" @click="selected(item, index)">
         <div class="item-portrait">
           <img src="../../assets/images/master.png">
@@ -15,7 +15,7 @@
           <i class="iconfont icon-gouxuan color-light-grey font-30" :class="{'icon-jindu color-blue': item.checkFriend}"></i>
         </div>
       </div>
-    </PullRefreshComponent>
+    </div>
   </section>
   <!-- e 历史出借人 -->
 </template>
@@ -77,9 +77,6 @@ export default {
       })
       Storage.publishObject = selectObject
       // Router.push('wanna-borrow')
-    },
-    loadMore () {
-      this.init()
     },
     selected (item, index) {
       this.loaners[index].checkFriend = !this.loaners[index].checkFriend

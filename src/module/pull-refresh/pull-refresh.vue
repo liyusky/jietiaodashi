@@ -18,6 +18,7 @@ export default {
   props: ['direction'],
   data () {
     return {
+      isLoad: false,
       pageY: 0,
       pageX: 0,
       tipHeight: 0,
@@ -55,6 +56,7 @@ export default {
       }
       if (this.tipHeight > 45) {
         this.tip = this.direction === 'top' ? '正在刷新' : '正在获取数据'
+        this.isLoad = true
       }
       if (this.tipHeight > 50) {
         this.tipHeight = 50
@@ -69,7 +71,9 @@ export default {
       if (this.direction === 'bottom') {
         if (parentDom.scrollTop + parentDom.clientHeight < this.scrollHeight - 1) return
       }
-      this.$emit('LOAD_MORE_EVENT')
+      if (this.isLoad) {
+        this.$emit('LOAD_MORE_EVENT')
+      }
       let animation = setInterval(() => {
         if (this.tipHeight > 0) {
           this.tipHeight--

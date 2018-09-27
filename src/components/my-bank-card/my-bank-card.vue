@@ -32,6 +32,7 @@
 <script>
 // include dependence
 import Http from '../../class/Http.class.js'
+import Replace from '../../class/Replace.class.js'
 import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
@@ -63,9 +64,15 @@ export default {
         }
       }).success(data => {
         console.log(data)
-        this.myBankList = data
+        this.formatData(data)
       }).fail(data => {
       })
+    },
+    formatData (data) {
+      data.forEach(item => {
+        item.BankCard = Replace.maskCard(item.BankCard, 0, 16, '*')
+      })
+      this.myBankList = data
     }
   }
 }
