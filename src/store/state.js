@@ -24,6 +24,7 @@ const state = {
   },
   iframe: null,
   bank: null,
-  forget: null
+  forget: null,
+  nim: null
 }
 export default state

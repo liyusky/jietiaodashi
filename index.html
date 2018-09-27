@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <title>master</title>
-    <script src="./static/iconfont/iconfont.js"></script>
+    <link rel="stylesheet" href="./static/iconfont/iconfont.css">
+    <link rel="stylesheet" href="./static/css/swiper-4.3.3.min.css">
   </head>
   <body>
     <div id="app"></div>
     <div id="modal"></div>
     <div id="iframe" style="display: none"></div>
-    <!-- built files will be auto injected -->
+    <script src="./static/iconfont/iconfont.js"></script>
+    <script src="./static/sdk/NIM_Web_NIM_v5.6.0.js" async onload="loadNIM"></script>
     <script>
-      window.returnUDCheckResult = function (data) {
-        window.app.$store.commit('saveInfo', data)
+      function loadNIM () {
+        
       }
     </script>
   </body>
