@@ -88,6 +88,9 @@ const mutations = {
   },
   saveWannaInfo (state, wannaInfo) {
     state.wannaInfo = wannaInfo
+  },
+  saveChat (state, chat) {
+    state.chat = chat
   }
 }
 export default mutations

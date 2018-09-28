@@ -34,6 +34,7 @@
 <script>
 // include dependence
 import Account from '../../class/Account.class.js'
+import Chat from '../../class/Chat.class.js'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -148,6 +149,11 @@ export default {
         Storage.token = data.Token
         Storage.phone = this.phone
         Storage.name = data.Name
+        Storage.chat = {
+          id: data.Nim_Accid,
+          token: data.Nim_Token
+        }
+        Chat.init(data.Nim_Accid, data.Nim_Token)
         Router.push('home')
       }).fail(data => {
       })

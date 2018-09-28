@@ -1,17 +1,22 @@
 <template>
   <!-- s 好友 -->
-  <section class="friends padding-top-126">
-    <TitleComponent :title="title" @OTHER_EVENT="confirm" @BACK_EVENT="back"></TitleComponent>
+  <section class="friends">
+    <div class="friends-title bg-white">
+      <span class="font-30">好友</span>
+      <div class="title-icon" @click="gotoPage('add-friend')">
+        <i class="iconfont icon-jiahaoyou"></i>
+      </div>
+    </div>
     <div class="friends-search padding-horizontal-30 font-24" @click="gotoPage('search-friend')">
       <div class="search-content">
-        <i class="iconfont icon-cong"></i>
-        <span>搜索手机号</span>
+        <i class="iconfont icon-sousuo"></i>
+        <span class="font-30 color-balck">搜索手机号</span>
       </div>
     </div>
     <div class="friends-new bg-white padding-horizontal-30" @click="gotoPage('new-friend')">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-cong"></use>
-      </svg>
+      <div class="new-icon">
+        <i class="iconfont icon-xindehaoyou color-white"></i>
+      </div>
       <p class="font-30 color-black">新的好友</p>
     </div>
     <ul class="friends-list padding-horizontal-30 bg-white">
@@ -36,8 +41,8 @@
 
 <script>
 // include dependence
-import Router from '../../class/Router.class.js'
-import TitleComponent from '../../module/title/title.vue'
+import Router from '../../../class/Router.class.js'
+import TitleComponent from '../../../module/title/title.vue'
 export default {
   name: 'FriendsComponent',
   data () {
@@ -45,7 +50,7 @@ export default {
       // start params
       'title': {
         contentText: '好友',
-        icon: 'iahaoyou'
+        icon: 'jiahaoyou'
       }
       // end params
     }
@@ -56,7 +61,6 @@ export default {
   },
   methods: {
     confirm () {},
-    back () {},
     gotoPage (page) {
       Router.push(page)
     }

@@ -4,8 +4,8 @@
     <TitleComponent :title="title" @BACK_EVENT="backPage"></TitleComponent>
     <div class="friend-search font-27 padding-horizontal-30 bg-white" @click="gotoPage('search-friend')">
       <div class="search-content color-light-black">
-        <i class="iconfont icon-cong"></i>
-        <span>搜索手机号</span>
+        <i class="iconfont icon-sousuo"></i>
+        <span class="font-30 color-balck">搜索手机号</span>
       </div>
     </div>
     <div class="frient-id font-27 color-black">

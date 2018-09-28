@@ -11,15 +11,15 @@
         <div class="swiper-pagination"></div>
       </div>
       <div class="header-list padding-horizontal-21">
-        <div class="list-search padding-horizontal-21">
-          <i class="iconfont icon-sousuo font-33 color-deep-grey"></i>
-          <input type="text" placeholder="搜索你认识的好友">
+        <div class="list-search padding-horizontal-30">
+          <i class="iconfont icon-sousuo font-30 color-black"></i>
+          <input type="text" placeholder="搜索你可能认识的朋友">
         </div>
-        <div class="list-item">
+        <div class="list-item" @click="gotoPage('friends')">
           <i class="iconfont icon-haoyou1"></i>
-          <p>通讯录</p>
+          <p>联系人</p>
         </div>
-        <div class="list-item">
+        <div class="list-item" @click="gotoPage('add-friend')">
           <i class="iconfont icon-tianjiatupianjiahao"></i>
           <p>加好友</p>
         </div>

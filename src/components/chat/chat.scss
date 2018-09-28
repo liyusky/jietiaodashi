@@ -90,8 +90,8 @@
           }
           &::before {
             position: absolute;
-            left: -12 / $unit * $symbol;
-            top: 0 / $unit * $symbol;
+            left: -24 / $unit * $symbol;
+            top: 30 / $unit * $symbol;
             z-index: 9;
             display: block;
             content: '';
@@ -99,7 +99,7 @@
             height: 0 / $unit * $symbol;
             border-width:  12 / $unit * $symbol;
             border-style: solid;
-            border-color: #fff transparent transparent transparent;
+            border-color: transparent #fff transparent transparent;
           }
         }
       }
@@ -122,7 +122,7 @@
             }
             &::before {
               position: absolute;
-              top: 0 / $unit * $symbol;
+              top: 24 / $unit * $symbol;
               z-index: 9;
               display: block;
               content: '';
@@ -145,8 +145,8 @@
               color: #fff;
             }
             &::before {
-              right: -12 / $unit * $symbol;
-              border-color: #4d7bfe transparent transparent transparent;
+              right: -24 / $unit * $symbol;
+              border-color: transparent transparent transparent #4d7bfe;
             }
           }
         }
@@ -163,8 +163,8 @@
               color: #333;
             }
             &::before {
-              left: -12 / $unit * $symbol;
-              border-color: #fff transparent transparent transparent;
+              left: -24 / $unit * $symbol;
+              border-color: transparent #fff transparent transparent;
             }
           }
         }
@@ -214,7 +214,7 @@
             }
             &::before {
               position: absolute;
-              top: 0 / $unit * $symbol;
+              top: 27 / $unit * $symbol;
               z-index: 9;
               display: block;
               content: '';
@@ -246,8 +246,8 @@
               left: -60 / $unit * $symbol;
             }
             &::before {
-              right: -12 / $unit * $symbol;
-              border-color: #4d7bfe transparent transparent transparent;
+              right: -24 / $unit * $symbol;
+              border-color: transparent transparent transparent #4d7bfe;
             }
           }
         }
@@ -271,8 +271,8 @@
               right: -60 / $unit * $symbol;
             }
             &::before {
-              left: -12 / $unit * $symbol;
-              border-color: #fff transparent transparent transparent;
+              left: -24 / $unit * $symbol;
+              border-color: transparent #fff transparent transparent;
             }
           }
         }
@@ -328,7 +328,7 @@
             }
             &::before {
               position: absolute;
-              top: 0 / $unit * $symbol;
+              top: 30 / $unit * $symbol;
               z-index: 9;
               display: block;
               content: '';
@@ -336,7 +336,6 @@
               height: 0 / $unit * $symbol;
               border-width:  12 / $unit * $symbol;
               border-style: solid;
-              border-color: #e6494e transparent transparent transparent;
             }
           }
         }
@@ -348,7 +347,8 @@
               right: 27 / $unit * $symbol;
             }
             &::before {
-              right: -12 / $unit * $symbol;
+              right: -24 / $unit * $symbol;
+              border-color: transparent transparent transparent #e6494e;
             }
           }
         }
@@ -360,7 +360,8 @@
               left: 27 / $unit * $symbol;
             }
             &::before {
-              left: -12 / $unit * $symbol;
+              left: -24 / $unit * $symbol;
+              border-color: transparent #e6494e transparent transparent;
             }
           }
         }
@@ -416,7 +417,7 @@
             }
             &::before {
               position: absolute;
-              top: 0 / $unit * $symbol;
+              top: 30 / $unit * $symbol;
               z-index: 9;
               display: block;
               content: '';
@@ -424,7 +425,6 @@
               height: 0 / $unit * $symbol;
               border-width:  12 / $unit * $symbol;
               border-style: solid;
-              border-color: #ff9808 transparent transparent transparent;
             }
           }
         }
@@ -436,7 +436,8 @@
               right: 27 / $unit * $symbol;
             }
             &::before {
-              right: -12 / $unit * $symbol;
+              right: -24 / $unit * $symbol;
+              border-color: transparent transparent transparent #ff9808;
             }
           }
         }
@@ -448,7 +449,8 @@
               left: 27 / $unit * $symbol;
             }
             &::before {
-              left: -12 / $unit * $symbol;
+              left: -24 / $unit * $symbol;
+              border-color: transparent  #ff9808 transparent transparent;
             }
           }
         }
@@ -504,7 +506,7 @@
             }
             &::before {
               position: absolute;
-              top: 0 / $unit * $symbol;
+              top: 30 / $unit * $symbol;
               z-index: 9;
               display: block;
               content: '';
@@ -512,7 +514,6 @@
               height: 0 / $unit * $symbol;
               border-width:  12 / $unit * $symbol;
               border-style: solid;
-              border-color: #4d7bfe transparent transparent transparent;
             }
           }
         }
@@ -524,7 +525,8 @@
               right: 27 / $unit * $symbol;
             }
             &::before {
-              right: -12 / $unit * $symbol;
+              right: -24 / $unit * $symbol;
+              border-color: transparent transparent transparent #4d7bfe;
             }
           }
         }
@@ -536,7 +538,8 @@
               left: 27 / $unit * $symbol;
             }
             &::before {
-              left: -12 / $unit * $symbol;
+              left: -24 / $unit * $symbol;
+              border-color: transparent #4d7bfe transparent transparent;
             }
           }
         }
@@ -587,7 +590,7 @@
             }
             &::before {
               position: absolute;
-              top: 0 / $unit * $symbol;
+              top: 30 / $unit * $symbol;
               z-index: 9;
               display: block;
               content: '';
@@ -595,7 +598,6 @@
               height: 0 / $unit * $symbol;
               border-width:  12 / $unit * $symbol;
               border-style: solid;
-              border-color: #fff transparent transparent transparent;
             }
           }
         }
@@ -607,7 +609,8 @@
               right: 27 / $unit * $symbol;
             }
             &::before {
-              right: -12 / $unit * $symbol;
+              right: -24 / $unit * $symbol;
+              border-color: transparent transparent transparent #fff;
             }
           }
         }
@@ -619,7 +622,8 @@
               left: 27 / $unit * $symbol;
             }
             &::before {
-              left: -12 / $unit * $symbol;
+              left: -24 / $unit * $symbol;
+              border-color: transparent #fff transparent transparent;
             }
           }
         }
@@ -685,7 +689,7 @@
             }
             &::before {
               position: absolute;
-              top: 0 / $unit * $symbol;
+              top: 30 / $unit * $symbol;
               z-index: 9;
               display: block;
               content: '';
@@ -693,7 +697,6 @@
               height: 0 / $unit * $symbol;
               border-width:  12 / $unit * $symbol;
               border-style: solid;
-              border-color: #fff transparent transparent transparent;
             }
           }
         }
@@ -705,7 +708,8 @@
               right: 27 / $unit * $symbol;
             }
             &::before {
-              right: -12 / $unit * $symbol;
+              right: -24 / $unit * $symbol;
+              border-color: transparent transparent transparent #fff;
             }
           }
         }
@@ -717,7 +721,8 @@
               left: 27 / $unit * $symbol;
             }
             &::before {
-              left: -12 / $unit * $symbol;
+              left: -24 / $unit * $symbol;
+              border-color: transparent #fff transparent transparent;
             }
           }
         }
@@ -741,7 +746,7 @@
         bottom: 1px solid #d5d5d7;
       }
       i {
-        font-size: 48 / $unit * $symbol;
+        font-size: 51 / $unit * $symbol;
         color: #7f8389;
       }
       .eara-content {
@@ -801,9 +806,8 @@
           height: 117 / $unit * $symbol;
           border: 1px solid #ddd;
           border-radius: 24 / $unit * $symbol;
-          .icon {
-            width: 63 / $unit * $symbol;
-            height: 45 / $unit * $symbol;
+          i {
+            color: #6f7378;
           }
         }
       }

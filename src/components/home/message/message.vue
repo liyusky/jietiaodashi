@@ -3,17 +3,17 @@
   <section class="message">
     <div class="message-header font-30 color-white">
       <p>最近消息</p>
-      <i class="iconfont icon-cong"></i>
+      <i class="iconfont icon-jiahao"></i>
     </div>
     <div class="message-content">
       <div class="content-search padding-horizontal-30 font-24 border-bottom-1" @click="gotoPage('search-friend')">
         <div class="search-content">
-          <i class="iconfont icon-cong"></i>
-          <span>搜索手机号</span>
+          <i class="iconfont icon-sousuo"></i>
+          <span class="font-30 color-balck">搜索手机号</span>
         </div>
       </div>
       <ul class="content-list padding-horizontal-30">
-        <li class="list-item border-bottom-1" >
+        <li class="list-item border-bottom-1" @click="gotoPage('chat')">
           <div class="item-portrait">
             <img src="../../../assets/images/index-banner.gif">
           </div>
@@ -39,6 +39,7 @@
 
 <script>
 // include dependence
+import Chat from '../../../class/Chat.class.js'
 import Router from '../../../class/Router.class.js'
 export default {
   name: 'MessageComponent',
@@ -52,7 +53,13 @@ export default {
     // TabComponent
     // include components
   },
+  created () {
+    this.init()
+  },
   methods: {
+    init () {
+      Chat.info('17730127131')
+    },
     gotoPage (page) {
       Router.push(page)
     }

@@ -30,10 +30,10 @@ const FeedbackComponent = () => import(/* webpackChunkName: 'feedback' */ '../co
 const FindLenderComponent = () => import(/* webpackChunkName: 'find-lender' */ '../components/find-lender/find-lender.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendTransferComponent = () => import(/* webpackChunkName: 'friend-transfer' */ '../components/friend-transfer/friend-transfer.vue')
-const FriendsComponent = () => import(/* webpackChunkName: 'friends' */ '../components/friends/friends.vue')
 const HistoryLenderComponent = () => import(/* webpackChunkName: 'history-lender' */ '../components/history-lender/history-lender.vue')
 const HomeComponent = () => import(/* webpackChunkName: 'home' */ '../components/home/home.vue')
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/home/find/find.vue')
+const FriendsComponent = () => import(/* webpackChunkName: 'friends' */ '../components/home/friends/friends.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/home/index/index.vue')
 const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../components/home/message/message.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
@@ -208,11 +208,6 @@ export default new Router({
       component: FriendTransferComponent
     },
     {
-      path: '/friends',
-      name: 'friends',
-      component: FriendsComponent
-    },
-    {
       path: '/history-lender',
       name: 'history-lender',
       component: HistoryLenderComponent
@@ -226,6 +221,11 @@ export default new Router({
           path: '/find',
           name: 'find',
           component: FindComponent
+        },
+        {
+          path: '/friends',
+          name: 'friends',
+          component: FriendsComponent
         },
         {
           path: '/index',

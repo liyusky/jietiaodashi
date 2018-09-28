@@ -43,7 +43,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': false,
-    'without': false,
+    'without': 1,
     'work-card': false
   }
 }

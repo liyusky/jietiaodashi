@@ -24,7 +24,7 @@ export default class Chat {
       account: account,
       done: (error, user) => {
         if (error) return this
-        if (this.success) this.success(user)
+        if (this.success) this.succeed(user)
         return this
       }
     })
@@ -35,8 +35,8 @@ export default class Chat {
     this.nim = window.app.$store.state.nim
   }
 
-  static set success (success) {
-    this.success = success
+  static set succeed (succeed) {
+    this.succeed = succeed
   }
 
   static get friends () {
@@ -44,6 +44,17 @@ export default class Chat {
       done: (error, user) => {
         if (error) return []
         if (user) return user
+      }
+    })
+  }
+
+  static set localSessions (lastSessionId) {
+    this.nim.getLocalSessions({
+      lastSessionId: lastSessionId,
+      limit: 100,
+      done: (error, localSessions) => {
+        if (error) return []
+        if (localSessions) return localSessions
       }
     })
   }

@@ -19,12 +19,7 @@
         <p class="item-name font-30 color-black">名字</p>
         <button class="button padding-horizontal-24 color-white font-24" :disabled="addDisabled" @click="addFriedn"><div>{{buttonText}}</div></button>
       </div>
-      <div class="content-without" v-if="!searchFriendData">
-        <div class="without-img">
-          <img src="http://iph.href.lu/120x150">
-        </div>
-        <p class="font-24 color-light-grey">暂无数据信息</p>
-      </div>
+      <WithoutComponent v-if="!searchFriendData"></WithoutComponent>
     </div>
   </section>
   <!-- e 搜索好友 -->
@@ -36,6 +31,7 @@ import Check from '../../class/Check.class.js'
 import Error from '../../class/Error.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'SearchFriendComponent',
   data () {
@@ -51,6 +47,7 @@ export default {
     }
   },
   components: {
+    WithoutComponent
     // include components
   },
   methods: {

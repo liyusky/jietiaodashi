@@ -175,6 +175,14 @@ export default class Storage {
     return this.getOut('wannaInfo')
   }
 
+  static set chat (chat) {
+    this.save('chat', chat)
+  }
+
+  static get chat () {
+    return this.getOut('chat')
+  }
+
   static clear () {
     for (const item in window.app.$store.mutations) window.app.$store.commit(item, null)
     try {

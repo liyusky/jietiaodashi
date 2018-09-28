@@ -1,7 +1,7 @@
 <template>
   <!-- s 好友聊天 -->
   <section class="chat">
-    <TitleComponent :title="title"></TitleComponent>
+    <TitleComponent :title="title" @OTHER_EVENT="gotoPage('personal-info')"></TitleComponent>
     <div class="chat-time">
       <div class="time font-24 color-white">15:09</div>
     </div>
@@ -66,7 +66,7 @@
           <div class="waiter" v-if="true">
             <div class="waiter-say">
               <div class="say-seconds font-30 color-light-grey">15"</div>
-              <i class="iconfont icon-cong font-33 color-white"></i>
+              <i class="iconfont icon-audio-right font-33 color-white"></i>
             </div>
             <div class="waiter-portrait">
               <img src="http://iph.href.lu/90x90">
@@ -77,7 +77,7 @@
               <img src="http://iph.href.lu/90x90">
             </div>
             <div class="customer-say">
-              <i class="iconfont icon-cong font-33 color-light-grey"></i>
+              <i class="iconfont icon-yuyin font-33 color-light-grey"></i>
               <div class="say-seconds font-30 color-light-grey">15"</div>
             </div>
           </div>
@@ -259,7 +259,7 @@
     </ul>
     <div class="chat-input">
       <div class="input-eara">
-        <i class="iconfont icon-cong" :class="{'icon-jianyu' : inputType}" @click="toggleInputType"></i>
+        <i class="iconfont" :class="inputType ? 'icon-jianpan' : 'icon-yuyin1'" @click="toggleInputType"></i>
         <div class="eara-content bg-white">
           <div class="content-text" v-if="!inputType">
             <input type="text">
@@ -268,72 +268,56 @@
             <span>按住说话</span>
           </div>
         </div>
-        <i class="iconfont icon-cong"></i>
-        <i class="iconfont icon-cong" @click="switchMore"></i>
+        <i class="iconfont icon-xiaolian"></i>
+        <i class="iconfont icon-jiahao" @click="switchMore"></i>
       </div>
       <!-- <div class="input-emoji"></div> -->
       <div class="input-more" v-if="switchMoreShow">
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-img font-51"></i>
           </div>
           <p class="font-24">图片</p>
         </div>
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-video font-51"></i>
           </div>
           <p class="font-24">视频通话</p>
         </div>
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-phone1 font-51"></i>
           </div>
           <p class="font-24">语音通话</p>
         </div>
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-jie font-51"></i>
           </div>
           <p class="font-24">我要借</p>
         </div>
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-qian font-51"></i>
           </div>
           <p class="font-24">打欠条</p>
         </div>
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-transfer font-51"></i>
           </div>
           <p class="font-24">转账</p>
         </div>
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-credit font-51"></i>
           </div>
           <p class="font-24">信用报告</p>
         </div>
         <div class="more-item">
           <div class="item-icon bg-white">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-cong"></use>
-            </svg>
+            <i class="iconfont icon-Id font-51"></i>
           </div>
           <p class="font-24">个人名片</p>
         </div>
@@ -345,6 +329,7 @@
 
 <script>
 // include dependence
+import Router from '../../class/Router.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'ChatComponent',
@@ -353,7 +338,7 @@ export default {
       title: {
         contentText: 'Name',
         leftText: '好友',
-        icon: 'jiahaoyou'
+        icon: 'wode'
       },
       inputType: false,
       switchMoreShow: false
@@ -371,6 +356,9 @@ export default {
     },
     switchMore () {
       this.switchMoreShow = !this.switchMoreShow
+    },
+    gotoPage (page) {
+      Router.push(page)
     }
   }
 }
