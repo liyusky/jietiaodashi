@@ -5,7 +5,7 @@
       <div class="header font-30">
         <i class="iconfont font-33 icon-arrow-left back" @click="back"></i>
         <span>个人资料</span>
-        <i class="iconfont font-33 icon-add more" @click="more"></i>
+        <i class="iconfont font-33 icon-shenglvehao more" @click="more"></i>
       </div>
     </div>
     <div class="info-user">

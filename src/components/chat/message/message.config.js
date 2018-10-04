@@ -1,26 +1,26 @@
 module.exports = {
-  content: '登录',
-  router: true,
+  content: '',
+  router: false,
   vuex: {
     mutations: false,
     state: false
   },
   class: {
-    'Account': true,
+    'Account': false,
     'BM': false,
     'Btn': false,
     'Chat': false,
-    'Check': true,
+    'Check': false,
     'Citys': false,
     'Days': false,
     'Error': false,
     'Hasten': false,
-    'Http': true,
+    'Http': false,
     'Mock': false,
     'Replace': false,
-    'Router': true,
+    'Router': false,
     'Status': false,
-    'Storage': true,
+    'Storage': false,
     'Time': false,
     'Type': false,
     'Url': false
@@ -28,12 +28,7 @@ module.exports = {
   components: {
     'billboard': false,
     'board': false,
-    'button': `{
-        default: [{
-          type: 'primary',
-          text: '提交'
-        }]
-      }`,
+    'button': false,
     'deadline': false,
     'detail-list': false,
     'image-bg': false,

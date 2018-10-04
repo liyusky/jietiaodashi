@@ -31,16 +31,16 @@
       <span class="font-27 color-deep-grey">我的好友</span>
     </div>
     <div class="object-friend padding-left-30 bg-white">
-      <div class="friend-item border-bottom-1" v-for="(item, index) in friendList" :key="index" @click="selectFriend(item, index)">
+      <div class="friend-item border-bottom-1" v-for="(friend, index) in friends" :key="index" @click="selectFriend(item, index)">
         <div class="item-portrait">
-          <img src="../../assets/images/master.png">
+          <img :src="friend.avatar" @load="getUserInfo">
         </div>
         <div class="item-detail padding-horizontal-30">
           <div class="detail-title">
-            <p class="font-33 color-black">{{item.Name}}</p>
-            <p class="font-27 color-deep-grey"><span>借条ID：</span><span>{{item.UserPhone}}</span></p>
+            <p class="font-33 color-black">{{friend.nick}}</p>
+            <p class="font-27 color-deep-grey"><span>借条ID：</span><span>****{{friend.account.substr(-4)}}</span></p>
           </div>
-          <i class="iconfont icon-gouxuan color-light-grey font-30" :class="{'icon-jindu color-blue': item.checkFriend}"></i>
+          <i class="iconfont icon-gouxuan color-light-grey font-30" :class="{'icon-jindu color-blue': friend.selected}"></i>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
 
 <script>
 // include dependence
-import Http from '../../class/Http.class.js'
+import Chat from '../../class/Chat.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import TitleComponent from '../../module/title/title.vue'
@@ -60,15 +60,7 @@ export default {
     return {
       selectIndex: null,
       selectShow: false,
-      friendList: [
-        // {
-        //   url: 'http://iph.href.lu/87x87',
-        //   phone: '15088845566',
-        //   imAccid: '10039004',
-        //   userName: '曹俊',
-        //   checkFriend: false
-        // }
-      ],
+      friends: [],
       // start params
       'title': {
         contentText: '发布对象',
@@ -87,27 +79,34 @@ export default {
   },
   methods: {
     init () {
-      Http.send({
-        url: 'LendMemberList',
-        data: {
-          token: Storage.token,
-          phone: Storage.phone,
-          type: 1
-        }
-      }).success(data => {
-        console.log(data)
-        data.list.forEach((ele) => {
-          ele.checkFriend = false
-          ele.Photo = '../../assets//images/master.png'
+      let accounts = []
+      Chat.getFriends()
+        .success(friends => {
+          delete friends.invalid
+          friends.forEach(friend => {
+            accounts.push(friend.account)
+          })
+          for (let i = 0; accounts.length < 150; i++) {
+            accounts.slice(0, 150)
+            accounts = accounts.slice(150)
+            this.getFriendsInfo(accounts)
+          }
         })
-        this.friendList = data.list
-      }).fail(data => {
-      })
+    },
+    getFriendsInfo (accounts) {
+      Chat.getUserInfo(accounts)
+        .success(friends => {
+          friends.forEach(friend => {
+            friend.selected = false
+            if (!friend.avatar) friend.avatar = 'https://bpic.588ku.com/illus_water_img/18/09/14/b658aea8ef673881994cec643681c640.jpg!/watermark/url/L3dhdGVyL3dhdGVyX2JhY2tfNDAwXzIwMC5wbmc=/repeat/true'
+            this.friends.push(friend)
+          })
+        })
     },
     confirm () {
       var selectObject = []
-      this.friendList.forEach(ele => {
-        if (ele.checkFriend) {
+      this.friends.forEach(ele => {
+        if (ele.selected) {
           selectObject.push(ele)
         }
       })
@@ -115,7 +114,7 @@ export default {
       Router.push('wanna-borrow')
     },
     selectFriend (item, index) {
-      this.friendList[index].checkFriend = !this.friendList[index].checkFriend
+      this.friendList[index].selected = !this.friendList[index].selected
     },
     gotoPage (page) {
       Router.push(page)

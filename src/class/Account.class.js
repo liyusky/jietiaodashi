@@ -4,10 +4,6 @@ export default class Account {
       name: account.Name,
       id: account.CardNo,
       portrait: account.Photo,
-      nim: {
-        id: account.Nim_Accid,
-        token: account.Nim_Token
-      },
       certification: {
         id: account.IsIdentityPass,
         contact: account.IsContactPass,
@@ -18,6 +14,10 @@ export default class Account {
         payPassword: account.IsSetPaymentPwd
       }
     }
+    window.app.$store.commit('saveChat', {
+      id: account.Nim_Accid,
+      token: account.Nim_Token
+    })
     this.save(customer)
   }
 

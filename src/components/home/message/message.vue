@@ -42,9 +42,7 @@
 <script>
 import MoreComponent from './more/more.vue'
 // include dependence
-import Chat from '../../../class/Chat.class.js'
 import Router from '../../../class/Router.class.js'
-import Storage from '../../../class/Storage.class.js'
 import ModalComponent from '../../../module/modal/modal.vue'
 export default {
   name: 'MessageComponent',
@@ -65,10 +63,7 @@ export default {
     this.init()
   },
   methods: {
-    init () {
-      console.log(11111)
-      Chat.info(Storage.chat.id)
-    },
+    init () {},
     openModal () {
       this.modalShow = true
     },

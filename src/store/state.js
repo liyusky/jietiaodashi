@@ -26,6 +26,7 @@ const state = {
   bank: null,
   forget: null,
   nim: null,
+  sdk: false,
   wannaInfo: null,
   chat: null
 }

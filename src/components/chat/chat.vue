@@ -6,7 +6,19 @@
       <div class="time font-24 color-white">15:09</div>
     </div>
     <ul class="chat-list">
-      <li class="list-item">
+      <li class="list-item padding-horizontal-30" :class="item.isMine ? 'fr' : 'fl'" v-for="(item, index) in messages" :key="index">
+        <div class="item-portrait">
+          <img :src="item.portrait">
+          <!-- <img :src="http://iph.href.lu/90x90"> -->
+        </div>
+        <div class="item-content" :class="item.isMine ? 'arrow-right' : 'arrow-left'">
+          <TextMessage :content="item.content" v-if="item.type == 'text'"></TextMessage>
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+        </div>
         <!-- s 默认 -->
         <section class="item-default">
           <div class="default-portrait">
@@ -380,6 +392,7 @@
 import OpenPictureComponent from './open-picture/open-picture.vue'
 import CallComponent from './call/call.vue'
 // include dependence
+import Chat from '../../class/Chat.class.js'
 import Router from '../../class/Router.class.js'
 import ModalComponent from '../../module/modal/modal.vue'
 import TitleComponent from '../../module/title/title.vue'
@@ -403,7 +416,8 @@ export default {
       emojiArr: [{name: '[大笑]', file: 'emoji_0.png'}, {name: '[可爱]', file: 'emoji_01.png'}, {name: '[色]', file: 'emoji_02.png'}, {name: '[嘘]', file: 'emoji_03.png'}, {name: '[亲]', file: 'emoji_04.png'}, {name: '[呆]', file: 'emoji_05.png'}, {name: '[口水]', file: 'emoji_06.png'}, {name: '[汗]', file: 'emoji_145.png'}, {name: '[呲牙]', file: 'emoji_07.png'}, {name: '[鬼脸]', file: 'emoji_08.png'}, {name: '[害羞]', file: 'emoji_09.png'}, {name: '[偷笑]', file: 'emoji_10.png'}, {name: '[调皮]', file: 'emoji_11.png'}, {name: '[可怜]', file: 'emoji_12.png'}, {name: '[敲]', file: 'emoji_13.png'}, {name: '[惊讶]', file: 'emoji_14.png'}, {name: '[流感]', file: 'emoji_15.png'}, {name: '[委屈]', file: 'emoji_16.png'}, {name: '[流泪]', file: 'emoji_17.png'}, {name: '[嚎哭]', file: 'emoji_18.png'}, {name: '[惊恐]', file: 'emoji_19.png'}, {name: '[怒]', file: 'emoji_20.png'}, {name: '[酷]', file: 'emoji_21.png'}, {name: '[不说]', file: 'emoji_22.png'}, {name: '[鄙视]', file: 'emoji_23.png'}, {name: '[阿弥陀佛]', file: 'emoji_24.png'}, {name: '[奸笑]', file: 'emoji_25.png'}, {name: '[睡着]', file: 'emoji_26.png'}, {name: '[口罩]', file: 'emoji_27.png'}, {name: '[努力]', file: 'emoji_28.png'}, {name: '[抠鼻孔]', file: 'emoji_29.png'}, {name: '[疑问]', file: 'emoji_30.png'}, {name: '[怒骂]', file: 'emoji_31.png'}, {name: '[晕]', file: 'emoji_32.png'}, {name: '[呕吐]', file: 'emoji_33.png'}, {name: '[拜一拜]', file: 'emoji_160.png'}, {name: '[惊喜]', file: 'emoji_161.png'}, {name: '[流汗]', file: 'emoji_162.png'}, {name: '[卖萌]', file: 'emoji_163.png'}, {name: '[默契眨眼]', file: 'emoji_164.png'}, {name: '[烧香拜佛]', file: 'emoji_165.png'}, {name: '[晚安]', file: 'emoji_166.png'}, {name: '[强]', file: 'emoji_34.png'}, {name: '[弱]', file: 'emoji_35.png'}, {name: '[OK]', file: 'emoji_36.png'}, {name: '[拳头]', file: 'emoji_37.png'}, {name: '[胜利]', file: 'emoji_38.png'}, {name: '[鼓掌]', file: 'emoji_39.png'}, {name: '[握手]', file: 'emoji_200.png'}, {name: '[发怒]', file: 'emoji_40.png'}, {name: '[骷髅]', file: 'emoji_41.png'}, {name: '[便便]', file: 'emoji_42.png'}, {name: '[火]', file: 'emoji_43.png'}, {name: '[溜]', file: 'emoji_44.png'}, {name: '[爱心]', file: 'emoji_45.png'}, {name: '[心碎]', file: 'emoji_46.png'}, {name: '[钟情]', file: 'emoji_47.png'}, {name: '[唇]', file: 'emoji_48.png'}, {name: '[戒指]', file: 'emoji_49.png'}, {name: '[钻石]', file: 'emoji_50.png'}, {name: '[太阳]', file: 'emoji_51.png'}, {name: '[有时晴]', file: 'emoji_52.png'}, {name: '[多云]', file: 'emoji_53.png'}, {name: '[雷]', file: 'emoji_54.png'}, {name: '[雨]', file: 'emoji_55.png'}, {name: '[雪花]', file: 'emoji_56.png'}, {name: '[爱人]', file: 'emoji_57.png'}, {name: '[帽子]', file: 'emoji_58.png'}, {name: '[皇冠]', file: 'emoji_59.png'}, {name: '[篮球]', file: 'emoji_60.png'}, {name: '[足球]', file: 'emoji_61.png'}, {name: '[垒球]', file: 'emoji_62.png'}, {name: '[网球]', file: 'emoji_63.png'}, {name: '[台球]', file: 'emoji_64.png'}, {name: '[咖啡]', file: 'emoji_65.png'}, {name: '[啤酒]', file: 'emoji_66.png'}, {name: '[干杯]', file: 'emoji_67.png'}, {name: '[柠檬汁]', file: 'emoji_68.png'}, {name: '[餐具]', file: 'emoji_69.png'}, {name: '[汉堡]', file: 'emoji_70.png'}, {name: '[鸡腿]', file: 'emoji_71.png'}, {name: '[面条]', file: 'emoji_72.png'}, {name: '[冰淇淋]', file: 'emoji_73.png'}, {name: '[沙冰]', file: 'emoji_74.png'}, {name: '[生日蛋糕]', file: 'emoji_75.png'}, {name: '[蛋糕]', file: 'emoji_76.png'}, {name: '[糖果]', file: 'emoji_77.png'}, {name: '[葡萄]', file: 'emoji_78.png'}, {name: '[西瓜]', file: 'emoji_79.png'}, {name: '[光碟]', file: 'emoji_80.png'}, {name: '[手机]', file: 'emoji_81.png'}, {name: '[电话]', file: 'emoji_82.png'}, {name: '[电视]', file: 'emoji_83.png'}, {name: '[声音开启]', file: 'emoji_84.png'}, {name: '[声音关闭]', file: 'emoji_85.png'}, {name: '[铃铛]', file: 'emoji_86.png'}, {name: '[锁头]', file: 'emoji_87.png'}, {name: '[放大镜]', file: 'emoji_88.png'}, {name: '[灯泡]', file: 'emoji_89.png'}, {name: '[锤头]', file: 'emoji_90.png'}, {name: '[烟]', file: 'emoji_91.png'}, {name: '[炸弹]', file: 'emoji_92.png'}, {name: '[枪]', file: 'emoji_93.png'}, {name: '[刀]', file: 'emoji_94.png'}, {name: '[药]', file: 'emoji_95.png'}, {name: '[打针]', file: 'emoji_96.png'}, {name: '[钱袋]', file: 'emoji_97.png'}, {name: '[钞票]', file: 'emoji_98.png'}, {name: '[银行卡]', file: 'emoji_99.png'}, {name: '[手柄]', file: 'emoji_100.png'}, {name: '[麻将]', file: 'emoji_101.png'}, {name: '[调色板]', file: 'emoji_102.png'}, {name: '[电影]', file: 'emoji_103.png'}, {name: '[麦克风]', file: 'emoji_104.png'}, {name: '[耳机]', file: 'emoji_105.png'}, {name: '[音乐]', file: 'emoji_106.png'}, {name: '[吉他]', file: 'emoji_107.png'}, {name: '[火箭]', file: 'emoji_108.png'}, {name: '[飞机]', file: 'emoji_109.png'}, {name: '[火车]', file: 'emoji_110.png'}, {name: '[公交]', file: 'emoji_111.png'}, {name: '[轿车]', file: 'emoji_112.png'}, {name: '[出租车]', file: 'emoji_113.png'}, {name: '[警车]', file: 'emoji_114.png'}, {name: '[自行车]', file: 'emoji_115.png'}],
       ltArr: [],
       xxyArr: [],
-      ajmdArr: []
+      ajmdArr: [],
+      messages: []
       // start params
       // end params
     }
@@ -464,7 +478,17 @@ export default {
     videoCall () {},
     voiceCall () {},
     takePicture () {},
-    selectPicture () {}
+    selectPicture () {},
+    sendText () {
+      Chat.sendText('11111', this.input).success(() => {
+        this.messages.push({
+          type: 'text',
+          portrait: '',
+          isMine: true,
+          content: this.input
+        })
+      })
+    }
   }
 }
 </script>

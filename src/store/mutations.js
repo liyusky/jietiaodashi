@@ -2,6 +2,12 @@ const mutations = {
   saveNim (state, nim) {
     state.nim = nim
   },
+  saveSDK (state, sdk) {
+    state.sdk = sdk
+  },
+  saveChat (state, chat) {
+    state.chat = chat
+  },
   saveOrigin (state, origin) {
     state.origin = origin
   },
@@ -88,9 +94,6 @@ const mutations = {
   },
   saveWannaInfo (state, wannaInfo) {
     state.wannaInfo = wannaInfo
-  },
-  saveChat (state, chat) {
-    state.chat = chat
   }
 }
 export default mutations
