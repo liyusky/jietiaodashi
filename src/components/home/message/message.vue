@@ -3,7 +3,7 @@
   <section class="message">
     <div class="message-header font-30 color-white">
       <p>最近消息</p>
-      <i class="iconfont icon-jiahao"></i>
+      <i class="iconfont icon-jiahao" @click="openModal"></i>
     </div>
     <div class="message-content">
       <div class="content-search padding-horizontal-30 font-24 border-bottom-1" @click="gotoPage('search-friend')">
@@ -15,7 +15,7 @@
       <ul class="content-list padding-horizontal-30">
         <li class="list-item border-bottom-1" @click="gotoPage('chat')">
           <div class="item-portrait">
-            <img src="../../../assets/images/index-banner.gif">
+            <img src="../../../assets/images/master.png">
           </div>
           <div class="item-message padding-horizontal-30">
             <div class="message-title">
@@ -32,24 +32,32 @@
         </li>
       </ul>
     </div>
-    <!-- <TabComponent></TabComponent> -->
+    <ModalComponent v-show="modalShow" @CLOSE_EVENT="closeModal">
+      <MoreComponent></MoreComponent>
+    </ModalComponent>
   </section>
   <!-- e 消息 -->
 </template>
 
 <script>
+import MoreComponent from './more/more.vue'
 // include dependence
 import Chat from '../../../class/Chat.class.js'
 import Router from '../../../class/Router.class.js'
+import Storage from '../../../class/Storage.class.js'
+import ModalComponent from '../../../module/modal/modal.vue'
 export default {
   name: 'MessageComponent',
   data () {
     return {
+      modalShow: false
       // start params
       // end params
     }
   },
   components: {
+    ModalComponent,
+    MoreComponent
     // TabComponent
     // include components
   },
@@ -58,9 +66,17 @@ export default {
   },
   methods: {
     init () {
-      Chat.info('17730127131')
+      console.log(11111)
+      Chat.info(Storage.chat.id)
+    },
+    openModal () {
+      this.modalShow = true
+    },
+    closeModal () {
+      this.modalShow = false
     },
     gotoPage (page) {
+      console.log(page)
       Router.push(page)
     }
   }

@@ -2,7 +2,7 @@
   <!-- s 登录 -->
   <section class="empower">
     <div class="empower-header">
-      <img src="../../assets/images/logo02.gif">
+      <img src="../../assets/images/logo2.png">
     </div>
     <div class="empower-tab">
       <div class="tab-nav">

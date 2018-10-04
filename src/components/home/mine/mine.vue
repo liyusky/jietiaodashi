@@ -33,7 +33,7 @@
       <div class="balance-detail">
         <div class="detail-item border-radius-12" @click="target('borrow-list')">
           <div class="item-bg">
-            <img src="../../../assets/images/lend.gif">
+            <img src="../../../assets/images/borrow-detail.png">
           </div>
           <div class="item-content">
             <p class="font-30 color-white">借入</p>
@@ -42,7 +42,7 @@
         </div>
         <div class="detail-item border-radius-12" @click="target('lend-list')">
           <div class="item-bg">
-            <img src="../../../assets/images/borrow.gif">
+            <img src="../../../assets/images/lend-detail.png">
           </div>
           <div class="item-content">
             <p class="font-30 color-white">借出</p>

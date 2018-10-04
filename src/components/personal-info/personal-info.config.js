@@ -34,7 +34,7 @@ module.exports = {
     'image-bg': false,
     'inputs': false,
     'keyboard': false,
-    'modal': false,
+    'modal': 1,
     'modals': false,
     'nav': false,
     'pay-password': false,

@@ -3,8 +3,9 @@
   <section class="personal-info">
     <div class="info-header">
       <div class="header font-30">
-        <i class="iconfont font-33 icon-arrow-left" @click="back"></i>
+        <i class="iconfont font-33 icon-arrow-left back" @click="back"></i>
         <span>个人资料</span>
+        <i class="iconfont font-33 icon-add more" @click="more"></i>
       </div>
     </div>
     <div class="info-user">
@@ -27,7 +28,7 @@
       </div>
       <div class="tab-content">
         <div class="content-home" v-if="!tabSwitchShow">
-          <ul class="home-list">
+          <ul class="home-list padding-horizontal-21 bg-white">
             <li class="list-item">
               <div class="item-value">
                 <span>进行中的借款</span>
@@ -61,6 +62,18 @@
               <i class="iconfont icon-cong"></i>
             </li>
           </ul>
+          <div class="home-chat padding-horizontal-30">
+            <div class="chat-send">
+              <button class="send-btn bg-blue" @click="gotoPage('chat')">
+                <div class="font-30 color-white">发起聊天</div>
+              </button>
+            </div>
+            <div class="chat-lend">
+              <button class="lend-btn bg-white" @click="gotoPage('wanna-borrow')">
+                <div class="font-30 color-black">向TA借款</div>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="content-deal" v-if="tabSwitchShow">
           <div class="deal-total">
@@ -132,15 +145,20 @@
         </div>
       </div>
     </div>
+    <ModalComponent v-show="modalShow" @CLOSE_EVENT="closeModal">
+      <MoreComponent></MoreComponent>
+    </ModalComponent>
   </section>
   <!-- e 个人信息 -->
 </template>
 
 <script>
+import MoreComponent from './more/more.vue'
 // include dependence
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
+import ModalComponent from '../../module/modal/modal.vue'
 export default {
   name: 'PersonalInfoComponent',
   data () {
@@ -149,12 +167,15 @@ export default {
       account: Storage.phone,
       personalDetail: {},
       transferInfo: null,
-      tabSwitchShow: false
+      tabSwitchShow: false,
+      modalShow: false
       // start params
       // end params
     }
   },
   components: {
+    ModalComponent,
+    MoreComponent
     // include components
   },
   created () {
@@ -204,11 +225,17 @@ export default {
     back () {
       Router.back()
     },
+    more () {
+      this.modalShow = true
+    },
     tabSwitchHome () {
       this.tabSwitchShow = false
     },
     tabSwitchDeal () {
       this.tabSwitchShow = true
+    },
+    closeModal () {
+      this.modalShow = false
     },
     gotoPage (page) {
       Router.push(page)

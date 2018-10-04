@@ -23,9 +23,15 @@
       color: #fff;
       i {
         position: absolute;
-        left: 0 / $unit * $symbol;
         top: 27 / $unit * $symbol;
         z-index: 9;
+        
+      }
+      .back {
+        left: 0;
+      }
+      .more {
+        right: 0;
       }
     }
   }
@@ -146,11 +152,6 @@
       overflow: auto;
       .content-home {
         width: 100%;
-        padding: {
-          left: 21 / $unit * $symbol;
-          right: 21 / $unit * $symbol;
-        }
-        background-color: #fff;
         .home-list {
           width: 100%;
           .list-item {
@@ -180,6 +181,21 @@
           }
           .list-item:last-of-type {
             border: none;
+          }
+        }
+        .home-chat {
+          width: 100%;
+          .chat-send, .chat-lend {
+            width: 100%;
+            height: 99 / $unit * $symbol;
+            padding: {
+              top: 21 / $unit * $symbol;
+            }
+            button {
+              width: 100%;
+              height: 100%;
+              border-radius: 9 / $unit * $symbol;
+            }
           }
         }
       }

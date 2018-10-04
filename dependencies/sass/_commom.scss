@@ -57,6 +57,12 @@ button {
   }
 }
 
+.padding-left-21 {
+  padding: {
+    left: 21 / $unit * $symbol;
+  }
+}
+
 .padding-left-30 {
   padding: {
     left: 30 / $unit * $symbol;
@@ -117,8 +123,20 @@ button {
   font-size: 60 / $unit * $symbol;
 }
 
+.font-57 {
+  font-size: 57 / $unit * $symbol;
+}
+
+.font-54 {
+  font-size: 54 / $unit * $symbol;
+}
+
 .font-51 {
   font-size: 51 / $unit * $symbol;
+}
+
+.font-48 {
+  font-size: 48 / $unit * $symbol;
 }
 
 .font-39 {

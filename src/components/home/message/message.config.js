@@ -20,7 +20,7 @@ module.exports = {
     'Replace': false,
     'Router': true,
     'Status': false,
-    'Storage': false,
+    'Storage': true,
     'Time': false,
     'Type': false,
     'Url': false
@@ -34,7 +34,7 @@ module.exports = {
     'image-bg': false,
     'inputs': false,
     'keyboard': false,
-    'modal': false,
+    'modal': 1,
     'modals': false,
     'nav': false,
     'pay-password': false,

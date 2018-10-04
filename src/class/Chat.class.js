@@ -13,7 +13,7 @@ export default class Chat {
       appKey: configMap.get(environment),
       account: account,
       token: token,
-      debug: true
+      debug: false
     }
     window.app.$store.commit('saveNim', window.NIM.getInstance(config))
   }
