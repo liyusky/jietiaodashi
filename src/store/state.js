@@ -26,6 +26,8 @@ const state = {
   bank: null,
   forget: null,
   nim: null,
-  wannaInfo: null
+  sdk: false,
+  wannaInfo: null,
+  chat: null
 }
 export default state

@@ -11,6 +11,13 @@ button {
   }
 }
 
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+
 .padding-horizontal-21 {
   padding: {
     left: 21 / $unit * $symbol;

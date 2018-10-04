@@ -9,6 +9,7 @@ module.exports = {
     'Account': false,
     'BM': false,
     'Btn': false,
+    'Chat': true,
     'Check': false,
     'Citys': false,
     'Days': false,

@@ -1,4 +1,13 @@
 const mutations = {
+  saveNim (state, nim) {
+    state.nim = nim
+  },
+  saveSDK (state, sdk) {
+    state.sdk = sdk
+  },
+  saveChat (state, chat) {
+    state.chat = chat
+  },
   saveOrigin (state, origin) {
     state.origin = origin
   },

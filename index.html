@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <title>借条大师</title>
+    <script src="./static/sdk/NIM_Web_NIM_v5.6.0.js" async onload="loadSDK()"></script>
     <link rel="stylesheet" href="./static/iconfont/iconfont.css">
     <link rel="stylesheet" href="./static/css/swiper-4.3.3.min.css">
   </head>
@@ -11,11 +12,12 @@
     <div id="app"></div>
     <div id="modal"></div>
     <div id="iframe" style="display: none"></div>
-    <script src="./static/iconfont/iconfont.js"></script>
-    <script src="./static/sdk/NIM_Web_NIM_v5.6.0.js" async onload="loadNIM"></script>
+    <script src="./static/iconfont/iconfont.js" async></script>
     <script>
-      function loadNIM () {
-        
+      function loadSDK () {
+        try {
+          window.app.$store.commit('saveSDK', true)
+        } catch (error) {}
       }
     </script>
   </body>

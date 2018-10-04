@@ -25,6 +25,9 @@ const state = {
   iframe: null,
   bank: null,
   forget: null,
-  wannaInfo: null
+  nim: null,
+  sdk: false,
+  wannaInfo: null,
+  chat: null
 }
 module.exports = state

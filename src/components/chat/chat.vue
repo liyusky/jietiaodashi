@@ -6,7 +6,19 @@
       <div class="time font-24 color-white">15:09</div>
     </div>
     <ul class="chat-list">
-      <li class="list-item">
+      <li class="list-item padding-horizontal-30" :class="item.isMine ? 'fr' : 'fl'" v-for="(item, index) in messages" :key="index">
+        <div class="item-portrait">
+          <img :src="item.portrait">
+          <!-- <img :src="http://iph.href.lu/90x90"> -->
+        </div>
+        <div class="item-content" :class="item.isMine ? 'arrow-right' : 'arrow-left'">
+          <TextMessage :content="item.content" v-if="item.type == 'text'"></TextMessage>
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+          <img :src="item.image" v-else-if="item.type == 'image'">
+        </div>
         <!-- s 默认 -->
         <section class="item-default">
           <div class="default-portrait">
@@ -345,6 +357,7 @@
 
 <script>
 // include dependence
+import Chat from '../../class/Chat.class.js'
 import TitleComponent from '../../module/title/title.vue'
 export default {
   name: 'ChatComponent',
@@ -356,7 +369,8 @@ export default {
         icon: 'jiahaoyou'
       },
       inputType: false,
-      switchMoreShow: false
+      switchMoreShow: false,
+      messages: []
       // start params
       // end params
     }
@@ -371,6 +385,18 @@ export default {
     },
     switchMore () {
       this.switchMoreShow = !this.switchMoreShow
+    },
+    sendText () {
+      Chat.sendText('11111', this.input)
+        .success(() => {
+          this.messages.push({
+            type: 'text',
+            portrait: '',
+            isMine: true,
+            content: this.input
+          })
+        })
+      this.input 
     }
   }
 }

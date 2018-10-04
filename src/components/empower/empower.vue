@@ -143,7 +143,6 @@ export default {
         url: url,
         data: data
       }).success(data => {
-        console.log(data)
         Account.info = data
         Storage.token = data.Token
         Storage.phone = this.phone
