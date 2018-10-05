@@ -3,12 +3,12 @@
   <section class="find-lender padding-top-126 bg-white">
     <TitleComponent :title="title" @OTHER_EVENT="confirm"></TitleComponent>
     <PullRefreshComponent  :direction="'bottom'" v-if="loaners.length" @LOAD_MORE_EVENT="loadMore">
-      <div class="lender  border-bottom-1" v-for="(item, index) in loaners" :key="index">
+      <div class="lender padding-horizontal-30  border-bottom-1" v-for="(item, index) in loaners" :key="index">
         <div class="lender-content">
           <div class="content-sign active-sign border-radius-12 color-white">
             <img src="../../assets/images/master.png">
           </div>
-          <div class="content-message padding-horizontal-30">
+          <div class="content-message padding-left-30">
             <div class="content-title">
               <p class="font-33 color-black">{{item.Name}}</p>
               <i class="iconfont icon-gouxuan color-light-grey font-30" :class="{'icon-jindu color-blue': item.checkFriend}"  @click="selected(item, index)"></i>

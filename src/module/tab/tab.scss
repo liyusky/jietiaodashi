@@ -18,6 +18,7 @@
   background-color: #fff;
 
   &-item {
+    position: relative;
     @include vertical_direction();
     @include vertical_center();
     width: 25%;
@@ -32,6 +33,17 @@
       height: 45 / $unit * $symbol;
     }
 
+    .item-img {
+      width: 114 / $unit * $symbol;
+      height: 111 / $unit * $symbol;
+      margin: {
+        top: -69 / $unit * $symbol;
+      }
+    }
+    .item-stance {
+      width: 45 / $unit * $symbol;
+      height: 45 / $unit * $symbol;
+    }
     .item-name {
       margin: {
         top: 6 / $unit * $symbol;

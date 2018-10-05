@@ -3,10 +3,10 @@
   <section class="search-friend">
     <div class="friend-header border-bottom-1">
       <div class="header-title padding-horizontal-30">
-        <i class="iconfont icon-cong font-30"></i>
+        <i class="iconfont icon-sousuo font-30"></i>
         <div class="header-search">
           <input type="text" v-model="phoneNumber" placeholder="搜索手机号">
-          <i class="iconfont icon-cong font-27" v-show="clearInputShow" @click="clearInput"></i>
+          <i class="iconfont icon-delete font-27" v-show="clearInputShow" @click="clearInput"></i>
         </div>
         <button class="button bg-white font-30 color-black" @click="searchFriend"><div>{{searchBtnName}}</div></button>
       </div>
@@ -19,12 +19,7 @@
         <p class="item-name font-30 color-black">名字</p>
         <button class="button padding-horizontal-24 color-white font-24" :disabled="addDisabled" @click="addFriedn"><div>{{buttonText}}</div></button>
       </div>
-      <div class="content-without" v-if="!searchFriendData">
-        <div class="without-img">
-          <img src="http://iph.href.lu/120x150">
-        </div>
-        <p class="font-24 color-light-grey">暂无数据信息</p>
-      </div>
+      <WithoutComponent v-if="!searchFriendData"></WithoutComponent>
     </div>
   </section>
   <!-- e 搜索好友 -->
@@ -36,6 +31,7 @@ import Check from '../../class/Check.class.js'
 import Error from '../../class/Error.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
+import WithoutComponent from '../../module/without/without.vue'
 export default {
   name: 'SearchFriendComponent',
   data () {
@@ -51,6 +47,7 @@ export default {
     }
   },
   components: {
+    WithoutComponent
     // include components
   },
   methods: {

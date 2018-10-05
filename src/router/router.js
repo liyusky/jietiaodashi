@@ -30,14 +30,13 @@ const FeedbackComponent = () => import(/* webpackChunkName: 'feedback' */ '../co
 const FindLenderComponent = () => import(/* webpackChunkName: 'find-lender' */ '../components/find-lender/find-lender.vue')
 const ForgetPasswordComponent = () => import(/* webpackChunkName: 'forget-password' */ '../components/forget-password/forget-password.vue')
 const FriendTransferComponent = () => import(/* webpackChunkName: 'friend-transfer' */ '../components/friend-transfer/friend-transfer.vue')
-const FriendsComponent = () => import(/* webpackChunkName: 'friends' */ '../components/friends/friends.vue')
 const HistoryLenderComponent = () => import(/* webpackChunkName: 'history-lender' */ '../components/history-lender/history-lender.vue')
 const HomeComponent = () => import(/* webpackChunkName: 'home' */ '../components/home/home.vue')
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/home/find/find.vue')
+const FriendsComponent = () => import(/* webpackChunkName: 'friends' */ '../components/home/friends/friends.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/home/index/index.vue')
 const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../components/home/message/message.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
-const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/home/wanna-borrow/wanna-borrow.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'immediate-repayment' */ '../components/immediate-repayment/immediate-repayment.vue')
 const IouCenterComponent = () => import(/* webpackChunkName: 'iou-center' */ '../components/iou-center/iou-center.vue')
@@ -62,6 +61,7 @@ const SettingsComponent = () => import(/* webpackChunkName: 'settings' */ '../co
 const TransactionsComponent = () => import(/* webpackChunkName: 'transactions' */ '../components/transactions/transactions.vue')
 const TransferDetailComponent = () => import(/* webpackChunkName: 'transfer-detail' */ '../components/transfer-detail/transfer-detail.vue')
 const TransferRecordComponent = () => import(/* webpackChunkName: 'transfer-record' */ '../components/transfer-record/transfer-record.vue')
+const WannaBorrowComponent = () => import(/* webpackChunkName: 'wanna-borrow' */ '../components/wanna-borrow/wanna-borrow.vue')
 const WithdrawComponent = () => import(/* webpackChunkName: 'withdraw' */ '../components/withdraw/withdraw.vue')
 const WithdrawSuccessComponent = () => import(/* webpackChunkName: 'withdraw-success' */ '../components/withdraw-success/withdraw-success.vue')
 const ZhimaCreditComponent = () => import(/* webpackChunkName: 'zhima-credit' */ '../components/zhima-credit/zhima-credit.vue')
@@ -208,11 +208,6 @@ export default new Router({
       component: FriendTransferComponent
     },
     {
-      path: '/friends',
-      name: 'friends',
-      component: FriendsComponent
-    },
-    {
       path: '/history-lender',
       name: 'history-lender',
       component: HistoryLenderComponent
@@ -228,6 +223,11 @@ export default new Router({
           component: FindComponent
         },
         {
+          path: '/friends',
+          name: 'friends',
+          component: FriendsComponent
+        },
+        {
           path: '/index',
           name: 'index',
           component: IndexComponent
@@ -241,11 +241,6 @@ export default new Router({
           path: '/mine',
           name: 'mine',
           component: MineComponent
-        },
-        {
-          path: '/wanna-borrow',
-          name: 'wanna-borrow',
-          component: WannaBorrowComponent
         }
       ],
       redirect: 'index'
@@ -369,6 +364,11 @@ export default new Router({
       path: '/transfer-record',
       name: 'transfer-record',
       component: TransferRecordComponent
+    },
+    {
+      path: '/wanna-borrow',
+      name: 'wanna-borrow',
+      component: WannaBorrowComponent
     },
     {
       path: '/withdraw',

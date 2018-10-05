@@ -3,18 +3,18 @@
   <section class="personal-info">
     <div class="info-header">
       <div class="header font-30">
-        <i class="iconfont font-33 icon-arrow-left" @click="back"></i>
+        <i class="iconfont font-33 icon-arrow-left back" @click="back"></i>
         <span>个人资料</span>
+        <i class="iconfont font-33 icon-shenglvehao more" @click="more"></i>
       </div>
     </div>
     <div class="info-user">
       <div class="user-portrait">
-        <img src="../../assets/images/master.png">
-        <!-- <img :src="personalDetail.Photo"> -->
+        <img :src="personalInfo.avatar">
       </div>
       <div class="user-detail">
-        <p class="detail-id"><span>借条ID：</span><span>{{account}}</span></p>
-        <p class="detail-name"><span>{{personalDetail.Name}}</span><span>{{personalDetail.Rank}}</span></p>
+        <p class="detail-id"><span>借条ID：</span><span>{{personalInfo.account}}</span></p>
+        <p class="detail-name"><span>{{personalInfo.nick}}</span><span>{{personalDetail.Rank}}</span></p>
         <div class="detail-attestation">
           <div class="attestation-item">{{personalDetail.RankName}}</div>
         </div>
@@ -27,7 +27,7 @@
       </div>
       <div class="tab-content">
         <div class="content-home" v-if="!tabSwitchShow">
-          <ul class="home-list">
+          <ul class="home-list padding-horizontal-21 bg-white">
             <li class="list-item">
               <div class="item-value">
                 <span>进行中的借款</span>
@@ -61,6 +61,18 @@
               <i class="iconfont icon-cong"></i>
             </li>
           </ul>
+          <div class="home-chat padding-horizontal-30">
+            <div class="chat-send">
+              <button class="send-btn bg-blue" @click="gotoPage('chat')">
+                <div class="font-30 color-white">发起聊天</div>
+              </button>
+            </div>
+            <div class="chat-lend">
+              <button class="lend-btn bg-white" @click="gotoPage('wanna-borrow')">
+                <div class="font-30 color-black">向TA借款</div>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="content-deal" v-if="tabSwitchShow">
           <div class="deal-total">
@@ -132,15 +144,21 @@
         </div>
       </div>
     </div>
+    <ModalComponent v-show="modalShow" @CLOSE_EVENT="closeModal">
+      <MoreComponent></MoreComponent>
+    </ModalComponent>
   </section>
   <!-- e 个人信息 -->
 </template>
 
 <script>
+import MoreComponent from './more/more.vue'
 // include dependence
 import Http from '../../class/Http.class.js'
+import Replace from '../../class/Replace.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
+import ModalComponent from '../../module/modal/modal.vue'
 export default {
   name: 'PersonalInfoComponent',
   data () {
@@ -148,32 +166,43 @@ export default {
       name: Storage.name,
       account: Storage.phone,
       personalDetail: {},
+      personalInfo: {},
       transferInfo: null,
-      tabSwitchShow: false
+      tabSwitchShow: false,
+      modalShow: false
       // start params
       // end params
     }
   },
   components: {
+    ModalComponent,
+    MoreComponent
     // include components
   },
   created () {
-    Http.send({
-      url: 'PersonalDetail',
-      data: {
-        token: Storage.token,
-        phone: Storage.phone
-      }
-    }).success(data => {
-      this.formatData(data)
-      this.personalDetail = data.MemberInfo
-      this.transferInfo = data.TransactionInfo
-    }).fail(data => {
-    })
+    this.init()
   },
   methods: {
+    init () {
+      Http.send({
+        url: 'PersonalDetail',
+        data: {
+          token: Storage.token,
+          phone: Storage.phone
+        }
+      }).success(data => {
+        this.formatData(data)
+        this.personalDetail = data.MemberInfo
+        this.transferInfo = data.TransactionInfo
+      }).fail(data => {
+      })
+    },
     formatData (data) {
       var info = data.MemberInfo
+      if (Storage.personalInfo) {
+        this.personalInfo = Storage.personalInfo
+        this.personalInfo.account = this.personalInfo.account === Storage.chat.id ? this.personalInfo.account : Replace.mask(this.personalInfo.account, 3, 4, '*')
+      }
       if (!info.OverdueCount) {
         data.MemberInfo.OverdueCount = '无逾期'
       } else {
@@ -204,11 +233,17 @@ export default {
     back () {
       Router.back()
     },
+    more () {
+      this.modalShow = true
+    },
     tabSwitchHome () {
       this.tabSwitchShow = false
     },
     tabSwitchDeal () {
       this.tabSwitchShow = true
+    },
+    closeModal () {
+      this.modalShow = false
     },
     gotoPage (page) {
       Router.push(page)

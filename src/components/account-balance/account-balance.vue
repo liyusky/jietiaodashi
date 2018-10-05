@@ -3,7 +3,7 @@
   <section class="account-balance">
     <TitleComponent :title="title" @OTHER_EVENT="target('transactions')"></TitleComponent>
     <div class="balance-card bg-white">
-      <img class="card-portrait border-circle" src="../../assets/images/balance.gif">
+      <img class="card-portrait border-circle" src="../../assets/images/balance.png">
       <div class="color-black font-27">可用余额(元)</div>
       <div class="color-deep-black">
         <span class="font-51">¥</span>

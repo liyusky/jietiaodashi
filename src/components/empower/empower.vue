@@ -2,7 +2,7 @@
   <!-- s 登录 -->
   <section class="empower">
     <div class="empower-header">
-      <img src="../../assets/images/logo02.gif">
+      <img src="../../assets/images/logo2.png">
     </div>
     <div class="empower-tab">
       <div class="tab-nav">
@@ -147,6 +147,10 @@ export default {
         Storage.token = data.Token
         Storage.phone = this.phone
         Storage.name = data.Name
+        Storage.chat = {
+          id: data.Nim_Accid,
+          token: data.Nim_Token
+        }
         Router.push('home')
       }).fail(data => {
       })

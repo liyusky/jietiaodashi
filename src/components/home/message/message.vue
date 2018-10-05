@@ -3,19 +3,19 @@
   <section class="message">
     <div class="message-header font-30 color-white">
       <p>最近消息</p>
-      <i class="iconfont icon-cong"></i>
+      <i class="iconfont icon-jiahao" @click="openModal"></i>
     </div>
     <div class="message-content">
       <div class="content-search padding-horizontal-30 font-24 border-bottom-1" @click="gotoPage('search-friend')">
         <div class="search-content">
-          <i class="iconfont icon-cong"></i>
-          <span>搜索手机号</span>
+          <i class="iconfont icon-sousuo"></i>
+          <span class="font-30 color-balck">搜索手机号</span>
         </div>
       </div>
       <ul class="content-list padding-horizontal-30">
-        <li class="list-item border-bottom-1" >
+        <li class="list-item border-bottom-1" @click="gotoPage('chat')">
           <div class="item-portrait">
-            <img src="../../../assets/images/index-banner.gif">
+            <img src="../../../assets/images/master.png">
           </div>
           <div class="item-message padding-horizontal-30">
             <div class="message-title">
@@ -32,28 +32,46 @@
         </li>
       </ul>
     </div>
-    <!-- <TabComponent></TabComponent> -->
+    <ModalComponent v-show="modalShow" @CLOSE_EVENT="closeModal">
+      <MoreComponent></MoreComponent>
+    </ModalComponent>
   </section>
   <!-- e 消息 -->
 </template>
 
 <script>
+import MoreComponent from './more/more.vue'
 // include dependence
 import Router from '../../../class/Router.class.js'
+import ModalComponent from '../../../module/modal/modal.vue'
 export default {
   name: 'MessageComponent',
   data () {
     return {
+      modalShow: false
       // start params
       // end params
     }
   },
   components: {
+    ModalComponent,
+    MoreComponent
     // TabComponent
     // include components
   },
+  created () {
+    this.init()
+  },
   methods: {
+    init () {},
+    openModal () {
+      this.modalShow = true
+    },
+    closeModal () {
+      this.modalShow = false
+    },
     gotoPage (page) {
+      console.log(page)
       Router.push(page)
     }
   }

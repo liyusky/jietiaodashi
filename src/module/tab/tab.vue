@@ -21,12 +21,9 @@
         <p class="item-name">消息</p>
       </div>
       <div class="tab-item" @click="gotoBorrow('wanna-borrow')">
-        <svg class="icon" aria-hidden="true" v-if="path === '/wanna-borrow'">
-          <use xlink:href="#icon-jianpan"></use>
-        </svg>
-        <svg class="icon" aria-hidden="true" v-if="path !== '/wanna-borrow'">
-          <use xlink:href="#icon-jianpan"></use>
-        </svg>
+        <div class="item-img">
+          <img src="../../assets/images/tab1.png">
+        </div>
         <p class="item-name">我要借</p>
       </div>
       <div class="tab-item" @click="gotoPage('find')">

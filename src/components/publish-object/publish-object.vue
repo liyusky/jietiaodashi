@@ -117,7 +117,6 @@ export default {
       this.friendList[index].selected = !this.friendList[index].selected
     },
     gotoPage (page) {
-      console.log(1)
       Router.push(page)
     }
   }

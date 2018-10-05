@@ -3,6 +3,7 @@ export default class Router {
   static certification = ['add-contact', 'bind-bank-card', 'zhima-credit', 'identity-verification', 'operator-credit']
   static mine = ['credit', 'settings']
   static borrow = ['wanna-borrow']
+  static complain = ['complain']
   static mark () {
     window.app.$store.commit('saveOrigin', window.app._route)
   }
@@ -42,7 +43,12 @@ export default class Router {
     }
     if (this.borrow.includes(page.name)) {
       params = {
-        name: 'wanna-borrow'
+        name: 'index'
+      }
+    }
+    if (this.complain.includes(page.name)) {
+      params = {
+        name: 'index'
       }
     }
     if (params) {

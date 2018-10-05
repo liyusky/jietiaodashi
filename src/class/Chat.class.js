@@ -13,7 +13,7 @@ export default class Chat {
       //       switch 消息类型
       //         处理数据
       //         window.app.$store 存储数据 (chat 页面 监听并添加到 messages 中)
-      //   else 
+      //  else
       //       给对应对象 添加未读消息 标记
       //       window.app.$store 对象账号 (消息页面 监听并添加未读消息数)
 

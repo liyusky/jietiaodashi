@@ -43,6 +43,7 @@
 
 <script>
 // include dependence
+import Replace from '../../class/Replace.class.js'
 import Storage from '../../class/Storage.class.js'
 import BoardComponent from '../../module/board/board.vue'
 import DetailListComponent from '../../module/detail-list/detail-list.vue'
@@ -97,6 +98,9 @@ export default {
       this.detailList[0].value = data.TotalOverdueCount + '笔'
       this.detailList[1].value = data.TotalOverdueAmount + '元'
       this.detailList[2].value = data.MaxOverdueDay + '天'
+      data.Phone = Replace.mask(data.Phone, 3, 4, '*')
+      data.CardNo = Replace.mask(data.CardNo, 4, 12, '*')
+      data.Name = Replace.mask(data.Name, 0, 1, '*')
       this.credtiQuery = data
     }
   }

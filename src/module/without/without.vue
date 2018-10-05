@@ -2,7 +2,7 @@
   <!-- s  -->
   <section class="without">
     <div class="without-img">
-      <img src="../../assets/images/without.gif">
+      <img src="../../assets/images/without.png">
     </div>
   </section>
   <!-- e  -->

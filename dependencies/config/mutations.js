@@ -94,6 +94,9 @@ const mutations = {
   },
   saveWannaInfo (state, wannaInfo) {
     state.wannaInfo = wannaInfo
+  },
+  savePersonalInfo (state, personalInfo) {
+    state.personalInfo = personalInfo
   }
 }
 module.exports = mutations

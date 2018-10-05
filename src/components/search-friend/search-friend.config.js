@@ -17,6 +17,7 @@ module.exports = {
     'Hasten': false,
     'Http': true,
     'Mock': false,
+    'Replace': false,
     'Router': true,
     'Status': false,
     'Storage': false,
@@ -42,7 +43,7 @@ module.exports = {
     'tab': false,
     'tip': false,
     'title': false,
-    'without': false,
+    'without': 1,
     'work-card': false
   }
 }

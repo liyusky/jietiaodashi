@@ -17,6 +17,7 @@ module.exports = {
     'Hasten': true,
     'Http': true,
     'Mock': false,
+    'Replace': false,
     'Router': true,
     'Status': false,
     'Storage': true,

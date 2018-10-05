@@ -16,7 +16,8 @@ export default class Account {
     }
     window.app.$store.commit('saveChat', {
       id: account.Nim_Accid,
-      token: account.Nim_Token
+      token: account.Nim_Token,
+      target: null
     })
     this.save(customer)
   }

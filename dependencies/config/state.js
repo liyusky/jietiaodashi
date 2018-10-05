@@ -28,6 +28,7 @@ const state = {
   nim: null,
   sdk: false,
   wannaInfo: null,
-  chat: null
+  chat: null,
+  personalInfo: null
 }
 module.exports = state

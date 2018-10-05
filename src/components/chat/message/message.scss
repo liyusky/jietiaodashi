@@ -2,4 +2,27 @@
 @import '../../../../dependencies/sass/_flex.scss';
 @import '../../../../dependencies/sass/_unit.scss';
 // current sass
-.message {}
+.message {
+  max-width: 100%;
+  padding: {
+    top: 18 / $unit * $symbol;
+    right: 18 / $unit * $symbol;
+    bottom: 18 / $unit * $symbol;
+    left: 18 / $unit * $symbol;
+  }
+  line-height: 42 / $unit * $symbol;
+  border-radius: 6 / $unit * $symbol;
+  .image {
+    width: 42 / $unit * $symbol;
+    height: 42 / $unit * $symbol;
+  }
+}
+.text-right {
+  background-color: #4d7bfe;
+  color: #fff;
+}
+.text-left {
+  border: 1px solid #dedede;
+  background-color: #fff;
+  color: #333;
+}

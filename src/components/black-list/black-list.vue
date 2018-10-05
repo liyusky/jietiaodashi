@@ -58,20 +58,19 @@ export default {
     getUserInfo (index) {
       let item = this.blacklist[index]
       if (item.mark || !item.account) return
-      Chat.getUserInfo(item.account)
-        .success(info => {
-          this.blacklist[index] = {
-            name: info.nick,
-            mark: true,
-            remove: item.remove,
-            account: item.account
-          }
-          let arr = []
-          this.blacklist.forEach(unit => {
-            arr.push(unit)
-          })
-          this.blacklist = arr
+      Chat.getUserInfo(item.account).success(info => {
+        this.blacklist[index] = {
+          name: info.nick,
+          mark: true,
+          remove: item.remove,
+          account: item.account
+        }
+        let arr = []
+        this.blacklist.forEach(unit => {
+          arr.push(unit)
         })
+        this.blacklist = arr
+      })
     },
     remove (index) {
       let item = this.blacklist[index]
