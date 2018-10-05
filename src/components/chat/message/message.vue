@@ -1,7 +1,6 @@
 <template>
   <!-- s  -->
-  <section class="message" v-html="setHtml()">
-  </section>
+  <section class="message font-30" :class="isMine ? 'text-right' : 'text-left'" v-html="setHtml()"></section>
   <!-- e  -->
 </template>
 
@@ -9,7 +8,7 @@
 // include dependence
 export default {
   name: 'MessageComponent',
-  props: ['content'],
+  props: ['content', 'isMine'],
   data () {
     return {
     }
@@ -17,11 +16,11 @@ export default {
   components: {
     // include components
   },
-  computed: {
-    content (newValue) {
-      this.setHtml()
-    }
-  },
+  // computed: {
+  //   content (newValue) {
+  //     this.setHtml()
+  //   }
+  // },
   methods: {
     setHtml () {
       let html = ''

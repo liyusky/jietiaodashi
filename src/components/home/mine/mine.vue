@@ -4,11 +4,11 @@
     <div class="mine-information padding-horizontal-24 margin-bottom-21">
       <div class="information-detail padding-vertical-15">
         <div class="detail-portrait" @click="target('personal-info')">
-          <img src="../../../assets/images/master.png">
+          <img :src="personalInfo.avatar">
         </div>
         <div class="detail-content">
-          <p class="font-36 color-deep-black">{{name}}</p>
-          <p class="font-24 color-light-black">借条ID: {{account}}</p>
+          <p class="font-36 color-deep-black">{{personalInfo.nick}}</p>
+          <p class="font-24 color-light-black">借条ID: {{personalInfo.account}}</p>
         </div>
       </div>
       <div class="information-operation">
@@ -61,6 +61,7 @@
 
 <script>
 // include dependence
+import Chat from '../../../class/Chat.class.js'
 import Http from '../../../class/Http.class.js'
 import Router from '../../../class/Router.class.js'
 import Storage from '../../../class/Storage.class.js'
@@ -72,6 +73,7 @@ export default {
       name: Storage.name,
       account: Storage.phone,
       balance: {},
+      personalInfo: {},
       // start params
       'billboard': [
         {
@@ -132,6 +134,10 @@ export default {
       Router.push(page)
     },
     init () {
+      Chat.getUserInfo(Storage.chat.id).success(data => {
+        this.personalInfo = data
+        Storage.personalInfo = data
+      })
       Http.send({
         url: 'PersonalCenter',
         data: {
@@ -140,7 +146,6 @@ export default {
           maxNumber: 100
         }
       }).success(data => {
-        console.log(data)
         this.balance = data
       }).fail(data => {
         Storage.error = {

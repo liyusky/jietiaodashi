@@ -10,12 +10,11 @@
     </div>
     <div class="info-user">
       <div class="user-portrait">
-        <img src="../../assets/images/master.png">
-        <!-- <img :src="personalDetail.Photo"> -->
+        <img :src="personalInfo.avatar">
       </div>
       <div class="user-detail">
-        <p class="detail-id"><span>借条ID：</span><span>{{account}}</span></p>
-        <p class="detail-name"><span>{{personalDetail.Name}}</span><span>{{personalDetail.Rank}}</span></p>
+        <p class="detail-id"><span>借条ID：</span><span>{{personalInfo.account}}</span></p>
+        <p class="detail-name"><span>{{personalInfo.nick}}</span><span>{{personalDetail.Rank}}</span></p>
         <div class="detail-attestation">
           <div class="attestation-item">{{personalDetail.RankName}}</div>
         </div>
@@ -156,6 +155,7 @@
 import MoreComponent from './more/more.vue'
 // include dependence
 import Http from '../../class/Http.class.js'
+import Replace from '../../class/Replace.class.js'
 import Router from '../../class/Router.class.js'
 import Storage from '../../class/Storage.class.js'
 import ModalComponent from '../../module/modal/modal.vue'
@@ -166,6 +166,7 @@ export default {
       name: Storage.name,
       account: Storage.phone,
       personalDetail: {},
+      personalInfo: {},
       transferInfo: null,
       tabSwitchShow: false,
       modalShow: false
@@ -179,22 +180,29 @@ export default {
     // include components
   },
   created () {
-    Http.send({
-      url: 'PersonalDetail',
-      data: {
-        token: Storage.token,
-        phone: Storage.phone
-      }
-    }).success(data => {
-      this.formatData(data)
-      this.personalDetail = data.MemberInfo
-      this.transferInfo = data.TransactionInfo
-    }).fail(data => {
-    })
+    this.init()
   },
   methods: {
+    init () {
+      Http.send({
+        url: 'PersonalDetail',
+        data: {
+          token: Storage.token,
+          phone: Storage.phone
+        }
+      }).success(data => {
+        this.formatData(data)
+        this.personalDetail = data.MemberInfo
+        this.transferInfo = data.TransactionInfo
+      }).fail(data => {
+      })
+    },
     formatData (data) {
       var info = data.MemberInfo
+      if (Storage.personalInfo) {
+        this.personalInfo = Storage.personalInfo
+        this.personalInfo.account = this.personalInfo.account === Storage.chat.id ? this.personalInfo.account : Replace.mask(this.personalInfo.account, 3, 4, '*')
+      }
       if (!info.OverdueCount) {
         data.MemberInfo.OverdueCount = '无逾期'
       } else {
