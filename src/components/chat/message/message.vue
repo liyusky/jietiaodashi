@@ -1,6 +1,6 @@
 <template>
   <!-- s  -->
-  <section class="message font-30" :class="isMine ? 'text-right' : 'text-left'" v-html="setHtml()"></section>
+  <section class="message font-30" :class="content.isMine ? 'text-right' : 'text-left'" v-html="setHtml()"></section>
   <!-- e  -->
 </template>
 
@@ -8,7 +8,7 @@
 // include dependence
 export default {
   name: 'MessageComponent',
-  props: ['content', 'isMine'],
+  props: ['content'],
   data () {
     return {
     }
@@ -23,14 +23,14 @@ export default {
   // },
   methods: {
     setHtml () {
-      let html = ''
-      this.content.forEach(item => {
-        if (item) {
-          html += `<span>${item}</span>`
-        } else {
-          html += `<img src="${item}">`
-        }
-      })
+      let html = this.content.content
+      // this.content.forEach(item => {
+      //   if (item) {
+      //     html += `<span>${item}</span>`
+      //   } else {
+      //     html += `<img src="${item}">`
+      //   }
+      // })
       return html
     }
   }

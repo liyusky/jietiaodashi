@@ -186,8 +186,18 @@ export default class Storage {
   static set personalInfo (personalInfo) {
     this.save('personalInfo', personalInfo)
   }
+
   static get personalInfo () {
     return this.getOut('personalInfo')
+  }
+
+  // 消息账号列表
+  static set messageAccountList (messageAccountList) {
+    this.save('messageAccountList', messageAccountList)
+  }
+
+  static get messageAccountList () {
+    return this.getOut('messageAccountList')
   }
 
   static clear () {

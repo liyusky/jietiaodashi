@@ -14,12 +14,18 @@ export default class Account {
         payPassword: account.IsSetPaymentPwd
       }
     }
-    window.app.$store.commit('saveChat', {
-      id: account.Nim_Accid,
-      token: account.Nim_Token,
-      target: null
-    })
     this.save(customer)
+  }
+
+  static set portrait (portrait) {
+    let account = {...window.app.$store.state.account}
+    account.portrait = portrait
+    this.save(account)
+  }
+
+  static get portrait () {
+    let account = this.getAccount()
+    return account.portrait
   }
 
   static get name () {

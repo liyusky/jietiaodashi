@@ -13,7 +13,7 @@
         </div>
       </div>
       <ul class="content-list padding-horizontal-30">
-        <li class="list-item border-bottom-1" @click="gotoPage('chat')">
+        <li class="list-item border-bottom-1" @click="gotoPage('chat', '13955131374', 'http://img1.imgtn.bdimg.com/it/u=2086972466,4153089489&fm=26&gp=0.jpg')">
           <div class="item-portrait">
             <img src="../../../assets/images/master.png">
           </div>
@@ -42,6 +42,7 @@
 <script>
 import MoreComponent from './more/more.vue'
 // include dependence
+import Chat from '../../../class/Chat.class.js'
 import Router from '../../../class/Router.class.js'
 import ModalComponent from '../../../module/modal/modal.vue'
 export default {
@@ -59,19 +60,24 @@ export default {
     // TabComponent
     // include components
   },
-  created () {
-    this.init()
-  },
+  created () {},
   methods: {
-    init () {},
+    init () {
+      Chat.localSessions().success(sessions => {
+        console.log(sessions)
+      })
+    },
     openModal () {
       this.modalShow = true
     },
     closeModal () {
       this.modalShow = false
     },
-    gotoPage (page) {
-      console.log(page)
+    gotoPage (page, id, portrait) {
+      Chat.target = {
+        id: id,
+        portrait: portrait
+      }
       Router.push(page)
     }
   }

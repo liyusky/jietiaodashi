@@ -1,23 +1,48 @@
+import Account from './Account.class.js'
 export default class Chat {
   static nim = null
   static successCallback = null
   static blacklistAccounts = null
-  static init (account, token) {
+
+  static set key (key) {
+    window.app.$store.commit('saveChat', {
+      id: key.Nim_Accid,
+      token: key.Nim_Token,
+      target: null
+    })
+  }
+
+  static set target (target) {
+    let key = {...window.app.$store.state.chat}
+    key.target = target
+    window.app.$store.commit('saveChat', key)
+  }
+
+  static get target () {
+    let target = window.app.$store.state.chat.target
+    return target
+  }
+
+  static init () {
+    let key = window.app.$store.state.chat
     let config = {
       appKey: 'bd632f1fc00a5c0a1af35ebf05c7f9e7',
-      account: account,
-      token: token,
-      // onmsg: (msg) => {
-      //   if 当前聊天对象 = 消息发来的对象
-      //       处理消息内容
-      //       switch 消息类型
-      //         处理数据
-      //         window.app.$store 存储数据 (chat 页面 监听并添加到 messages 中)
-      //  else
-      //       给对应对象 添加未读消息 标记
-      //       window.app.$store 对象账号 (消息页面 监听并添加未读消息数)
-
-      // },
+      account: key.id,
+      token: key.token,
+      onmyinfo: info => {
+        Account.portrait = info.avatar
+      },
+      onmsg: message => {
+        if (window.app.$store.state.chat.target.id === message.from) {
+          window.app.$store.commit('saveMessage', message)
+        } else {}
+      },
+      onsessions: sessions => {
+        console.log(sessions)
+      },
+      onupdatesession: onupdatesession => {
+        console.log(onupdatesession)
+      },
       debug: false
     }
     if (window.NIM) window.app.$store.commit('saveNim', window.NIM.getInstance(config))
@@ -49,7 +74,6 @@ export default class Chat {
         }
       })
     }
-    console.log(operation)
     return operation
   }
 
@@ -181,6 +205,23 @@ export default class Chat {
     return operation
   }
 
+  static sendFile (fileInput) {
+    let operation = new Operation()
+    this.refresh()
+    this.nim.sendFile({
+      scene: 'p2p',
+      to: 'account',
+      type: 'image',
+      fileInput: fileInput,
+      done: (error, msg) => {
+        if (error) return operation
+        if (operation.successCallback) operation.successCallback(msg)
+        return operation
+      }
+    })
+    return operation
+  }
+
   static createMainIOU (account, content) {
     let operation = new Operation()
     this.refresh()
@@ -210,6 +251,37 @@ export default class Chat {
         type: 1,
         data: {}
       }),
+      done: (error, msg) => {
+        if (error) return operation
+        if (operation.successCallback) operation.successCallback(msg)
+        return operation
+      }
+    })
+    return operation
+  }
+
+  static historyMsgs (account) {
+    let operation = new Operation()
+    this.refresh()
+    this.nim.getHistoryMsgs({
+      scene: 'p2p',
+      to: account,
+      reverse: true,
+      done: (error, msg) => {
+        if (error) return operation
+        if (operation.successCallback) operation.successCallback(msg)
+        return operation
+      }
+    })
+    return operation
+  }
+
+  static localSessions (lastSessionId) {
+    let operation = new Operation()
+    this.refresh()
+    this.nim.getLocalSessions({
+      lastSessionId: lastSessionId,
+      limit: 100,
       done: (error, msg) => {
         if (error) return operation
         if (operation.successCallback) operation.successCallback(msg)

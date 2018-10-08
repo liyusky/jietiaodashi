@@ -97,6 +97,14 @@ const mutations = {
   },
   savePersonalInfo (state, personalInfo) {
     state.personalInfo = personalInfo
+  },
+  // 保存聊天对象
+  saveChatObject (state, chatObject) {
+    state.chatObject = chatObject
+  },
+  // 保存当前聊天对象的最新消息
+  saveMessage (state, message) {
+    state.message = message
   }
 }
 export default mutations

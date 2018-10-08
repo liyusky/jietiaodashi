@@ -15,7 +15,7 @@ const state = {
   usableMoney: null,
   credtiQuery: null,
   opinion: null,
-  account: null,
+  account: {},
   complianPhone: null,
   info: null,
   error: {
@@ -29,6 +29,8 @@ const state = {
   sdk: false,
   wannaInfo: null,
   chat: null,
-  personalInfo: null
+  personalInfo: null,
+  chatObject: null,
+  message: null
 }
 export default state

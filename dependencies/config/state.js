@@ -29,6 +29,8 @@ const state = {
   sdk: false,
   wannaInfo: null,
   chat: null,
-  personalInfo: null
+  personalInfo: null,
+  chatObject: null,
+  message: null
 }
 module.exports = state
