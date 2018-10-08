@@ -34,6 +34,7 @@
 <script>
 // include dependence
 import Account from '../../class/Account.class.js'
+import Chat from '../../class/Chat.class.js'
 import Check from '../../class/Check.class.js'
 import Http from '../../class/Http.class.js'
 import Router from '../../class/Router.class.js'
@@ -43,8 +44,8 @@ export default {
   name: 'EmpowerComponent',
   data () {
     return {
-      phone: '',
-      password: '',
+      phone: '17730127131',
+      password: '123456cz',
       code: '',
       getCodeText: '获取验证码',
       switcher: true,
@@ -144,13 +145,10 @@ export default {
         data: data
       }).success(data => {
         Account.info = data
+        Chat.key = data
         Storage.token = data.Token
         Storage.phone = this.phone
         Storage.name = data.Name
-        Storage.chat = {
-          id: data.Nim_Accid,
-          token: data.Nim_Token
-        }
         Router.push('home')
       }).fail(data => {
       })

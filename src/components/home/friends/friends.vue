@@ -20,18 +20,18 @@
       <p class="font-30 color-black">新的好友</p>
     </div>
     <ul class="friends-list padding-horizontal-30 bg-white">
-      <li class="list-item border-bottom-1">
+      <li class="list-item border-bottom-1" v-for="(item, index) in friends" :key="index" @click="gotoPage('personal-info', item.account)">
         <div class="item-portrait">
-          <img src="http://iph.href.lu/87x87">
+          <img :src="item.avatar">
         </div>
         <div class="item-detail padding-horizontal-30">
           <p class="font-30 color-blue">
-            <span>借条大师助手</span>
+            <span>{{item.nick}}</span>
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-cong"></use>
             </svg>
           </p>
-          <p class="font-27 color-deep-grey"><span>借条ID：</span><span>121634546</span></p>
+          <p class="font-27 color-deep-grey"><span>借条ID：</span><span>{{item.account}}</span></p>
         </div>
       </li>
     </ul>
@@ -41,12 +41,14 @@
 
 <script>
 // include dependence
+import Chat from '../../../class/Chat.class.js'
 import Router from '../../../class/Router.class.js'
 import TitleComponent from '../../../module/title/title.vue'
 export default {
   name: 'FriendsComponent',
   data () {
     return {
+      friends: [],
       // start params
       'title': {
         contentText: '好友',
@@ -59,9 +61,31 @@ export default {
     TitleComponent
     // include components
   },
+  created () {
+    this.init()
+  },
   methods: {
+    init () {
+      let accounts = []
+      Chat.getFriends().success(friends => {
+        friends.forEach(friend => {
+          accounts.push(friend.account)
+        })
+        this.getFriendsInfo(accounts)
+      })
+    },
+    getFriendsInfo (accounts) {
+      Chat.getUserInfo(accounts).success(friends => {
+        this.friends = friends
+        friends.forEach(friend => {
+          friend.selected = false
+          if (!friend.avatar) friend.avatar = '../../../../static/img/master.png'
+          this.friends.push(friend)
+        })
+      })
+    },
     confirm () {},
-    gotoPage (page) {
+    gotoPage (page, account) {
       Router.push(page)
     }
   }

@@ -12,7 +12,7 @@
         </div>
         <div class="item-content" :class="item.isMine ? 'fr' : 'fl'">
           <div class="content-text" :class="item.isMine ? 'arrow-blue-right' : 'arrow-white-left'"  v-if="item.type == 'text'">
-            <TextMessage :content="content" :isMine="item.isMine"></TextMessage>
+            <TextMessage :content="item"></TextMessage>
           </div>
           <div class="content-voice" :class="[item.isMine ? 'arrow-blue-right' : 'arrow-white-left', item.isMine ? 'content-voice-right' : 'content-voice-left']" v-else-if="item.type == 'voice'">
             <i class="iconfont font-33" :class="item.isMine ? 'icon-audio-right' : 'icon-yuyin'"></i>
@@ -202,6 +202,7 @@ import TextMessage from './message/message.vue'
 import OpenPictureComponent from './open-picture/open-picture.vue'
 import CallComponent from './call/call.vue'
 // include dependence
+import Account from '../../class/Account.class.js'
 import Chat from '../../class/Chat.class.js'
 import Router from '../../class/Router.class.js'
 import ModalComponent from '../../module/modal/modal.vue'
@@ -215,78 +216,7 @@ export default {
         leftText: '好友',
         icon: 'wode'
       },
-      messages: [
-        {
-          type: 'image',
-          portrait: '../../../static/img/borrow.png',
-          isMine: true
-        },
-        {
-          type: 'image',
-          portrait: '../../../static/img/borrow.png',
-          isMine: false
-        },
-        {
-          type: 'credit',
-          portrait: '../../../static/img/borrow.png',
-          isMine: true
-        },
-        {
-          type: 'credit',
-          portrait: '../../../static/img/borrow.png',
-          isMine: false
-        },
-        {
-          type: 'transfer',
-          portrait: '../../../static/img/borrow.png',
-          isMine: true
-        },
-        {
-          type: 'transfer',
-          portrait: '../../../static/img/borrow.png',
-          isMine: false
-        },
-        {
-          type: 'iou',
-          portrait: '../../../static/img/borrow.png',
-          isMine: true
-        },
-        {
-          type: 'iou',
-          portrait: '../../../static/img/borrow.png',
-          isMine: false
-        },
-        {
-          type: 'receipt',
-          portrait: '../../../static/img/borrow.png',
-          isMine: true
-        },
-        {
-          type: 'receipt',
-          portrait: '../../../static/img/borrow.png',
-          isMine: false
-        },
-        {
-          type: 'card',
-          portrait: '../../../static/img/borrow.png',
-          isMine: true
-        },
-        {
-          type: 'card',
-          portrait: '../../../static/img/borrow.png',
-          isMine: false
-        },
-        {
-          type: 'voice',
-          portrait: '../../../static/img/borrow.png',
-          isMine: true
-        },
-        {
-          type: 'voice',
-          portrait: '../../../static/img/borrow.png',
-          isMine: false
-        }
-      ],
+      messages: [],
       content: '',
       facebread: 'small',
       inputText: '',
@@ -315,8 +245,32 @@ export default {
   },
   created () {
     this.getltArr()
+    this.init()
   },
   methods: {
+    init () {
+      // Chat.historyMsgs('13955131374').success(data => {
+      //   let messages = []
+      //   data.msgs.forEach(item => {
+      //     Chat.getUserInfo(item.from).success(data => {
+      //       let portrait = data.avatar
+      //       let isMine = false
+      //       if (item.from === Storage.chat.id) isMine = true
+      //       messages.push({
+      //         type: item.type,
+      //         isMine: isMine,
+      //         content: item.text,
+      //         portrait: portrait,
+      //         mark: true
+      //       })
+      //     })
+      //   })
+      //   window.app.$store.commit('saveMessage', messages)
+      // })
+      // if (window.app.$store.state.message) {
+      //   this.messages = window.app.$store.state.message
+      // }
+    },
     getltArr () {
       for (let i = 1; i < 20; i++) {
         this.ltArr.push('lt0' + (i >= 10 ? i : '0' + i) + '.png')
@@ -364,13 +318,44 @@ export default {
     takePicture () {},
     selectPicture () {},
     sendText () {
-      Chat.sendText('11111', this.input).success(() => {
-        this.messages.push({
-          type: 'text',
-          portrait: '',
-          isMine: true,
-          content: this.input
+      if (!this.inputText) return
+      Chat.sendText(Chat.target.id, this.inputText)
+        .success(text => {
+          this.messages.push({
+            type: 'text',
+            isMine: true,
+            content: this.inputText,
+            portrait: Account.portrait,
+            mark: true
+          })
+          this.inputText = ''
+          // Chat.getUserInfo(Chat.id).success(data => {
+          //   // window.app.$store.commit('saveMessage', this.messages)
+          // })
         })
+    }
+  },
+  watch: {
+    '$store.state.message': function (message) {
+      console.log(Chat.target.portrait)
+      let content = null
+      switch (message.type) {
+        case 'text':
+          content = message.text
+          break
+        case 'image':
+          content = message.file
+          break
+        case 'audio':
+          content = message.file
+          break
+      }
+      this.messages.push({
+        type: message.type,
+        content: content,
+        isMine: false,
+        portrait: Chat.target.portrait,
+        mark: false
       })
     }
   }

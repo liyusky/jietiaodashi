@@ -78,12 +78,6 @@ export default {
     addFriedn () {
       this.buttonText = '已发送'
       this.addDisabled = true
-      Http.send({
-        url: 'url',
-        data: {}
-      }).success(data => {
-      }).fail(data => {
-      })
     },
     gotoPage () {}
   },

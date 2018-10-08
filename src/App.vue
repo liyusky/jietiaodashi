@@ -10,11 +10,11 @@ export default {
   name: 'App',
   watch: {
     '$store.state.chat': function (chat) {
-      Chat.init(chat.id, chat.token)
+      Chat.init()
     },
     '$store.state.sdk': function (sdk) {
       let chat = this.$store.state.chat
-      if (sdk && chat !== null) Chat.init(chat.id, chat.token)
+      if (sdk && chat !== null) Chat.init()
     }
   }
 }
