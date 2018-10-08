@@ -37,8 +37,11 @@ export default class Chat {
           window.app.$store.commit('saveMessage', message)
         } else {}
       },
-      onSessions: (sessions) => {
+      onsessions: sessions => {
         console.log(sessions)
+      },
+      onupdatesession: onupdatesession => {
+        console.log(onupdatesession)
       },
       debug: false
     }

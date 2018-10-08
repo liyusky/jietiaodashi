@@ -60,9 +60,7 @@ export default {
     // TabComponent
     // include components
   },
-  created () {
-    this.init()
-  },
+  created () {},
   methods: {
     init () {
       Chat.localSessions().success(sessions => {
