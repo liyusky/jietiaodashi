@@ -31,6 +31,8 @@ const state = {
   chat: null,
   personalInfo: null,
   chatObject: null,
-  message: null
+  message: null,
+  sessions: null,
+  updatesession: null
 }
 export default state

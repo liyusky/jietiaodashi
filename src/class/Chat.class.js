@@ -33,15 +33,25 @@ export default class Chat {
         Account.portrait = info.avatar
       },
       onmsg: message => {
-        if (window.app.$store.state.chat.target.id === message.from) {
-          window.app.$store.commit('saveMessage', message)
-        } else {}
+        // if (window.app.$store.state.chat.target.id === message.from) {
+        //   window.app.$store.commit('saveMessage', message)
+        // } else {}
+        window.app.$store.commit('saveMessage', message)
       },
       onsessions: sessions => {
         console.log(sessions)
+        window.app.$store.commit('saveSessions', sessions)
       },
       onupdatesession: onupdatesession => {
         console.log(onupdatesession)
+        window.app.$store.commit('saveUpdatesession', onupdatesession)
+      },
+      onsysmsg: sysmsg => {
+        console.log(sysmsg)
+        this.passFriendApply(sysmsg, sysmsg.from)
+      },
+      onupdatesysmsg: updattesysmsg => {
+        console.log(updattesysmsg)
       },
       debug: false
     }
@@ -152,6 +162,7 @@ export default class Chat {
       idServer: msg.idServer,
       account: account,
       done: error => {
+        console.log('hello world')
         if (error) return operation
         if (operation.successCallback) operation.successCallback()
         return operation
@@ -282,6 +293,25 @@ export default class Chat {
     this.nim.getLocalSessions({
       lastSessionId: lastSessionId,
       limit: 100,
+      done: (error, msg) => {
+        if (error) return operation
+        if (operation.successCallback) operation.successCallback(msg)
+        return operation
+      }
+    })
+    return operation
+  }
+
+  static sessionUnread (sessionId) {
+    this.refresh()
+    this.nim.resetSessionUnread(sessionId)
+  }
+
+  static deleteLocalSession (sessionId) {
+    let operation = new Operation()
+    this.refresh()
+    this.nim.deleteLocalSession({
+      id: sessionId,
       done: (error, msg) => {
         if (error) return operation
         if (operation.successCallback) operation.successCallback(msg)

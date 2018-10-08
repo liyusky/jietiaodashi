@@ -245,32 +245,8 @@ export default {
   },
   created () {
     this.getltArr()
-    this.init()
   },
   methods: {
-    init () {
-      // Chat.historyMsgs('13955131374').success(data => {
-      //   let messages = []
-      //   data.msgs.forEach(item => {
-      //     Chat.getUserInfo(item.from).success(data => {
-      //       let portrait = data.avatar
-      //       let isMine = false
-      //       if (item.from === Storage.chat.id) isMine = true
-      //       messages.push({
-      //         type: item.type,
-      //         isMine: isMine,
-      //         content: item.text,
-      //         portrait: portrait,
-      //         mark: true
-      //       })
-      //     })
-      //   })
-      //   window.app.$store.commit('saveMessage', messages)
-      // })
-      // if (window.app.$store.state.message) {
-      //   this.messages = window.app.$store.state.message
-      // }
-    },
     getltArr () {
       for (let i = 1; i < 20; i++) {
         this.ltArr.push('lt0' + (i >= 10 ? i : '0' + i) + '.png')
@@ -329,15 +305,11 @@ export default {
             mark: true
           })
           this.inputText = ''
-          // Chat.getUserInfo(Chat.id).success(data => {
-          //   // window.app.$store.commit('saveMessage', this.messages)
-          // })
         })
     }
   },
   watch: {
     '$store.state.message': function (message) {
-      console.log(Chat.target.portrait)
       let content = null
       switch (message.type) {
         case 'text':
