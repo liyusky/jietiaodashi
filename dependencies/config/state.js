@@ -15,7 +15,7 @@ const state = {
   usableMoney: null,
   credtiQuery: null,
   opinion: null,
-  account: null,
+  account: {},
   complianPhone: null,
   info: null,
   error: {
@@ -31,6 +31,8 @@ const state = {
   chat: null,
   personalInfo: null,
   chatObject: null,
-  message: null
+  message: null,
+  sessions: null,
+  updatesession: null
 }
 module.exports = state

@@ -35,7 +35,7 @@ const HomeComponent = () => import(/* webpackChunkName: 'home' */ '../components
 const FindComponent = () => import(/* webpackChunkName: 'find' */ '../components/home/find/find.vue')
 const FriendsComponent = () => import(/* webpackChunkName: 'friends' */ '../components/home/friends/friends.vue')
 const IndexComponent = () => import(/* webpackChunkName: 'index' */ '../components/home/index/index.vue')
-const MessageComponent = () => import(/* webpackChunkName: 'message' */ '../components/home/message/message.vue')
+const MessagesComponent = () => import(/* webpackChunkName: 'messages' */ '../components/home/messages/messages.vue')
 const MineComponent = () => import(/* webpackChunkName: 'mine' */ '../components/home/mine/mine.vue')
 const IdentityVerificationComponent = () => import(/* webpackChunkName: 'identity-verification' */ '../components/identity-verification/identity-verification.vue')
 const ImmediateRepaymentComponent = () => import(/* webpackChunkName: 'immediate-repayment' */ '../components/immediate-repayment/immediate-repayment.vue')
@@ -233,9 +233,9 @@ export default new Router({
           component: IndexComponent
         },
         {
-          path: '/message',
-          name: 'message',
-          component: MessageComponent
+          path: '/messages',
+          name: 'messages',
+          component: MessagesComponent
         },
         {
           path: '/mine',

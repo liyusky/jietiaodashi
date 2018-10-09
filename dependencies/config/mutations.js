@@ -105,6 +105,14 @@ const mutations = {
   // 保存当前聊天对象的最新消息
   saveMessage (state, message) {
     state.message = message
+  },
+  // 保存消息
+  saveSessions (state, sessions) {
+    state.sessions = sessions
+  },
+  // 保存当前会话
+  saveUpdatesession (state, updatesession) {
+    state.updatesession = updatesession
   }
 }
 module.exports = mutations

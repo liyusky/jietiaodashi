@@ -191,13 +191,22 @@ export default class Storage {
     return this.getOut('personalInfo')
   }
 
-  // 消息账号列表
-  static set messageAccountList (messageAccountList) {
-    this.save('messageAccountList', messageAccountList)
+  // 消息列表
+  static set sessions (sessions) {
+    this.save('sessions', sessions)
   }
 
-  static get messageAccountList () {
-    return this.getOut('messageAccountList')
+  static get sessions () {
+    return this.getOut('sessions')
+  }
+
+  // 更新当前会话
+  static set updatesession (updatesession) {
+    this.save('updatesession', updatesession)
+  }
+
+  static get updatesession () {
+    return this.getOut('updatesession')
   }
 
   static clear () {

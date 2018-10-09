@@ -11,11 +11,11 @@
         </svg>
         <p class="item-name">首页</p>
       </div>
-      <div class="tab-item" @click="gotoPage('message')">
-        <svg class="icon" aria-hidden="true" v-if="path === '/message'">
+      <div class="tab-item" @click="gotoPage('messages')">
+        <svg class="icon" aria-hidden="true" v-if="path === '/messages'">
           <use xlink:href="#icon-haoyou"></use>
         </svg>
-        <svg class="icon" aria-hidden="true" v-if="path !== '/message'">
+        <svg class="icon" aria-hidden="true" v-if="path !== '/messages'">
           <use xlink:href="#icon-haoyou1"></use>
         </svg>
         <p class="item-name">消息</p>

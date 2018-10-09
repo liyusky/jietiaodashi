@@ -44,8 +44,8 @@ export default {
   name: 'EmpowerComponent',
   data () {
     return {
-      phone: '17730127131',
-      password: '123456cz',
+      phone: '13955131374',
+      password: '123456',
       code: '',
       getCodeText: '获取验证码',
       switcher: true,
