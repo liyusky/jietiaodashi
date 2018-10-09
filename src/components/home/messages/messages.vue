@@ -71,19 +71,20 @@ export default {
   },
   methods: {
     init () {
-      if (Storage.sessions) {
-        this.sessions = Storage.sessions
-      }
-      this.sessions.forEach(item => {
+      if (!Storage.sessions) return
+      Storage.sessions.forEach(item => {
         Chat.getUserInfo(item.to).success(data => {
           item.portrait = data.avatar ? data.avatar : '../../../../static/img/master.png'
           item.name = data.nick ? data.nick : data.account
         })
+        if (!this.$store.state.updatesession) return
         if (item.to === this.$store.state.updatesession.to) {
           item.lastMsg = this.$store.state.updatesession.lastMsg
           item.unread = this.$store.state.updatesession.unread
         }
       })
+      this.sessions = Storage.sessions
+      console.log(this.sessions)
     },
     openModal () {
       this.modalShow = true
